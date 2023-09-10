@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <event-block sid="112095789472498">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="507737457377206" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="0" name="Pin to object" sid="664347195574889" type="Weapon">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="664134287811585" type="ActionTxt">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="915550535003553">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="435361296687837" type="Keyboard">
+                    <param id="0" name="Key">87</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
+        <event-block sid="254979610034474">
+            <conditions>
+                <condition id="2" name="Key is down" sid="202226075225115" type="Keyboard">
+                    <param id="0" name="Key">65</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="942107835155225" type="Player">
+                    <param id="0" name="Control">0</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="217334916694367" type="Player">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="891998654855289" type="Weapon">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="769006328941043">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="640456612868262" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
+        <event-block sid="466024102392767">
+            <conditions>
+                <condition id="2" name="Key is down" sid="888477656265249" type="Keyboard">
+                    <param id="0" name="Key">68</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="711787902232352" type="Player">
+                    <param id="0" name="Control">1</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="115391801288261" type="Player">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="587909511642958" type="Weapon">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="404211472179504">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="656931500925869" type="Player">
+                    <param id="0" name="Object">Doors</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="444417479460374" type="ActionTxt">
+                    <param id="0" name="Text">&quot;Press E&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="423170257806614">
+            <conditions>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="553140077732927" type="Player">
+                    <param id="0" name="Object">Doors</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="618995075201394" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="710704218802435" type="ActionTxt">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="191804816236316" type="Debug">
+                    <param id="0" name="Text">choose(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="324755790289718">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="343967118964027" type="Keyboard">
+                    <param id="0" name="Key">69</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="231994665438233" type="Player">
+                    <param id="0" name="Object">Doors</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="685976545757195" type="Function">
+                    <param id="0" name="Name">&quot;MoveToDoor&quot;</param>
+                    <param id="1" name="Parameter {n}">Doors.ID_CntdDoor</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="949814344785801">
+            <conditions>
+                <condition id="0" name="On function" sid="722129758047177" type="Function">
+                    <param id="0" name="Name">&quot;MoveToDoor&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="315506535531038">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="704476060085619" type="Doors">
+                            <param id="0" name="Instance variable">ID_Door</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="838791523679218" type="Player">
+                            <param id="0" name="X">Doors.X</param>
+                            <param id="1" name="Y">Doors.Y - 32</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
