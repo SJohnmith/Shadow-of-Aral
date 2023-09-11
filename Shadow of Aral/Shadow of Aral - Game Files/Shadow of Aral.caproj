@@ -20,6 +20,7 @@
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="shadowlight" version="1">Shadow Light</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
@@ -31,6 +32,7 @@
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="shadowcaster" version="1">Shadow Caster</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
     <used-effects />
@@ -126,11 +128,14 @@
             </object-type>
         </object-folder>
         <object-folder name="Background Assets">
-            <object-type name="Ground" sid="253666938958809">
+            <object-type name="SolidObject" sid="253666938958809">
                 <plugin id="TiledBg" />
                 <behaviors>
                     <behavior-type name="Solid" sid="525479079763839">
                         <behavior id="solid" />
+                    </behavior-type>
+                    <behavior-type name="ShadowCaster" sid="939299434039394">
+                        <behavior id="shadowcaster" />
                     </behavior-type>
                 </behaviors>
                 <texture />
@@ -247,6 +252,31 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="Zombie" sid="333938680192440">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="524870138093901" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Shadow" sid="973258664971855">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="351661287587065" speed="5">
+                        <frame duration="1" hotspotX="0.02" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.5" y="0.72" />
+                                <point x="0.1375" y="0.633333" />
+                                <point x="0.0125" y="0.5" />
+                                <point x="0.13" y="0.346667" />
+                                <point x="0.5" y="0.266667" />
+                                <point x="0.735" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder name="Lighting Assets">
             <object-type name="MouseVision" sid="477260970888017">
@@ -258,7 +288,7 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="361123648174139" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0" hotspotY="0.501333" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -288,12 +318,36 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="ShadowLight" sid="751827642985049">
+                <plugin id="shadowlight" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="482147745164758">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+            </object-type>
         </object-folder>
         <object-type name="Debug" sid="456501450273709">
             <plugin id="Text" />
         </object-type>
     </object-folder>
-    <families />
+    <families>
+        <family name="Enemy" plugin-id="Sprite" sid="585136534726861">
+            <members>
+                <member>Rat</member>
+                <member>Zombie</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="Health" sid="291455155934259" type="number" />
+                <instance-variable name="Damage" sid="778932746572885" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Platform" sid="816134129055729">
+                    <behavior id="Platform" />
+                </behavior-type>
+            </behaviors>
+        </family>
+    </families>
     <layout-folder>
         <layout>Layout 1.xml</layout>
         <layout>Holder Layout.xml</layout>

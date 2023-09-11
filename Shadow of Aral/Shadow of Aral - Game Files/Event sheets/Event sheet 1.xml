@@ -20,6 +20,20 @@
                     <param id="0" name="Pin to">Player</param>
                     <param id="1" name="Mode">0</param>
                 </action>
+                <action behavior="Pin" disabled="1" id="0" name="Pin to object" sid="173884849053383" type="MouseVision">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="625755321061451" type="ShadowLight">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="4" name="Set shadow color" sid="482947761664313" type="ShadowLight">
+                    <param id="0" name="Color">rgb(60, 60, 60)</param>
+                </action>
+                <action disabled="1" id="4" name="Set shadow color" sid="428973649208861" type="ShadowLight">
+                    <param id="0" name="Color">rgb(0,0,0)</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="302166846933468">
@@ -27,7 +41,11 @@
                 <condition id="-1" name="Every tick" sid="498679279965029" type="System" />
             </conditions>
             <actions>
-                <action id="-3" name="Set position" sid="837840519298367" type="MouseVision">
+                <action id="-3" name="Set position" sid="672482427361422" type="Camera">
+                    <param id="0" name="X">lerp(Player.X, Mouse.X, 0.3)</param>
+                    <param id="1" name="Y">lerp(Player.Y, Mouse.Y, 0.3)</param>
+                </action>
+                <action id="-3" name="Set position" sid="554220347998784" type="Rectile">
                     <param id="0" name="X">Mouse.X</param>
                     <param id="1" name="Y">Mouse.Y</param>
                 </action>
@@ -35,13 +53,20 @@
                     <param id="0" name="X">Mouse.X</param>
                     <param id="1" name="Y">Mouse.Y</param>
                 </action>
-                <action id="-3" name="Set position" sid="672482427361422" type="Camera">
-                    <param id="0" name="X">lerp(Player.X, Mouse.X, 0.1)</param>
-                    <param id="1" name="Y">lerp(Player.Y, Mouse.Y, 0.1)</param>
-                </action>
-                <action id="-3" name="Set position" sid="554220347998784" type="Rectile">
+                <action disabled="1" id="-22" name="Set angle toward position" sid="505213798709838" type="MouseVision">
                     <param id="0" name="X">Mouse.X</param>
                     <param id="1" name="Y">Mouse.Y</param>
+                </action>
+                <action id="-22" name="Set angle toward position" sid="300100859006320" type="Shadow">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="263102303934052" type="Shadow">
+                    <param id="0" name="Opacity">distance(Shadow.X,Shadow.Y,Mouse.X,Mouse.Y)*4</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="419744262971749" type="Shadow">
+                    <param id="0" name="Object">Player</param>
+                    <param id="1" name="Image point (optional)">0</param>
                 </action>
             </actions>
         </event-block>
@@ -69,12 +94,6 @@
                         <action behavior="Platform" id="7" name="Simulate control" sid="942107835155225" type="Player">
                             <param id="0" name="Control">0</param>
                         </action>
-                        <action disabled="1" id="7" name="Set mirrored" sid="217334916694367" type="Player">
-                            <param id="0" name="State">0</param>
-                        </action>
-                        <action disabled="1" id="7" name="Set mirrored" sid="891998654855289" type="Weapon">
-                            <param id="0" name="State">0</param>
-                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="769006328941043">
@@ -94,12 +113,6 @@
                     <actions>
                         <action behavior="Platform" id="7" name="Simulate control" sid="711787902232352" type="Player">
                             <param id="0" name="Control">1</param>
-                        </action>
-                        <action disabled="1" id="7" name="Set mirrored" sid="115391801288261" type="Player">
-                            <param id="0" name="State">1</param>
-                        </action>
-                        <action disabled="1" id="7" name="Set mirrored" sid="587909511642958" type="Weapon">
-                            <param id="0" name="State">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -471,7 +484,7 @@
                                     <param id="1" name="Layer">Weapon.LayerName</param>
                                     <param id="2" name="Image point">0</param>
                                 </action>
-                                <action id="28" name="Play at object (by name)" sid="719050857544938" type="Audio">
+                                <action disabled="1" id="28" name="Play at object (by name)" sid="719050857544938" type="Audio">
                                     <param id="0" name="Folder">0</param>
                                     <param id="1" name="Audio file name">&quot;ak47_Fire_1&quot;</param>
                                     <param id="2" name="Loop">0</param>
@@ -646,7 +659,7 @@
                 <event-block sid="969779088184441">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="462646513446297" type="Bullet">
-                            <param id="0" name="Object">Ground</param>
+                            <param id="0" name="Object">SolidObject</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -656,7 +669,7 @@
                 <event-block sid="744517062889251">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="202802079239222" type="Shell">
-                            <param id="0" name="Object">Ground</param>
+                            <param id="0" name="Object">SolidObject</param>
                         </condition>
                     </conditions>
                     <actions>
