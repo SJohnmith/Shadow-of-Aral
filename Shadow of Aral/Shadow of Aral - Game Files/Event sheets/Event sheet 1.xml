@@ -16,128 +16,730 @@
                     <param id="0" name="Pin to">Player</param>
                     <param id="1" name="Mode">0</param>
                 </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="374753708070396" type="PlayerVision">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
             </actions>
         </event-block>
-        <event-block sid="915550535003553">
+        <event-block sid="302166846933468">
             <conditions>
-                <condition id="0" name="On key pressed" sid="435361296687837" type="Keyboard">
-                    <param id="0" name="Key">87</param>
-                </condition>
-            </conditions>
-            <actions />
-        </event-block>
-        <event-block sid="254979610034474">
-            <conditions>
-                <condition id="2" name="Key is down" sid="202226075225115" type="Keyboard">
-                    <param id="0" name="Key">65</param>
-                </condition>
+                <condition id="-1" name="Every tick" sid="498679279965029" type="System" />
             </conditions>
             <actions>
-                <action behavior="Platform" id="7" name="Simulate control" sid="942107835155225" type="Player">
-                    <param id="0" name="Control">0</param>
+                <action id="-3" name="Set position" sid="837840519298367" type="MouseVision">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
                 </action>
-                <action id="7" name="Set mirrored" sid="217334916694367" type="Player">
-                    <param id="0" name="State">0</param>
+                <action id="-22" name="Set angle toward position" sid="125194450134995" type="Weapon">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
                 </action>
-                <action id="7" name="Set mirrored" sid="891998654855289" type="Weapon">
-                    <param id="0" name="State">0</param>
+                <action id="-3" name="Set position" sid="672482427361422" type="Camera">
+                    <param id="0" name="X">lerp(Player.X, Mouse.X, 0.1)</param>
+                    <param id="1" name="Y">lerp(Player.Y, Mouse.Y, 0.1)</param>
                 </action>
-            </actions>
-        </event-block>
-        <event-block sid="769006328941043">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="640456612868262" type="Keyboard">
-                    <param id="0" name="Key">83</param>
-                </condition>
-            </conditions>
-            <actions />
-        </event-block>
-        <event-block sid="466024102392767">
-            <conditions>
-                <condition id="2" name="Key is down" sid="888477656265249" type="Keyboard">
-                    <param id="0" name="Key">68</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Platform" id="7" name="Simulate control" sid="711787902232352" type="Player">
-                    <param id="0" name="Control">1</param>
-                </action>
-                <action id="7" name="Set mirrored" sid="115391801288261" type="Player">
-                    <param id="0" name="State">1</param>
-                </action>
-                <action id="7" name="Set mirrored" sid="587909511642958" type="Weapon">
-                    <param id="0" name="State">1</param>
+                <action id="-3" name="Set position" sid="554220347998784" type="Rectile">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
                 </action>
             </actions>
         </event-block>
-        <event-block sid="404211472179504">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="656931500925869" type="Player">
-                    <param id="0" name="Object">Doors</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="0" name="Set text" sid="444417479460374" type="ActionTxt">
-                    <param id="0" name="Text">&quot;Press E&quot;</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="423170257806614">
-            <conditions>
-                <condition id="1" inverted="1" name="Is overlapping another object" sid="553140077732927" type="Player">
-                    <param id="0" name="Object">Doors</param>
-                </condition>
-                <condition id="-4" name="Trigger once while true" sid="618995075201394" type="System" />
-            </conditions>
-            <actions>
-                <action id="0" name="Set text" sid="710704218802435" type="ActionTxt">
-                    <param id="0" name="Text">&quot;&quot;</param>
-                </action>
-                <action id="0" name="Set text" sid="191804816236316" type="Debug">
-                    <param id="0" name="Text">choose(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="324755790289718">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="343967118964027" type="Keyboard">
-                    <param id="0" name="Key">69</param>
-                </condition>
-                <condition id="1" name="Is overlapping another object" sid="231994665438233" type="Player">
-                    <param id="0" name="Object">Doors</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="0" name="Call function" sid="685976545757195" type="Function">
-                    <param id="0" name="Name">&quot;MoveToDoor&quot;</param>
-                    <param id="1" name="Parameter {n}">Doors.ID_CntdDoor</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="949814344785801">
-            <conditions>
-                <condition id="0" name="On function" sid="722129758047177" type="Function">
-                    <param id="0" name="Name">&quot;MoveToDoor&quot;</param>
-                </condition>
-            </conditions>
-            <actions />
+        <event-group description="" sid="884874334710201" title="Player">
             <sub-events>
-                <event-block sid="315506535531038">
+                <event-block sid="915550535003553">
                     <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="704476060085619" type="Doors">
-                            <param id="0" name="Instance variable">ID_Door</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">Function.Param(0)</param>
+                        <condition id="0" name="On key pressed" sid="435361296687837" type="Keyboard">
+                            <param id="0" name="Key">87</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-3" name="Set position" sid="838791523679218" type="Player">
-                            <param id="0" name="X">Doors.X</param>
-                            <param id="1" name="Y">Doors.Y - 32</param>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="876305680820820" type="Player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="254979610034474">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="202226075225115" type="Keyboard">
+                            <param id="0" name="Key">65</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="942107835155225" type="Player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                        <action disabled="1" id="7" name="Set mirrored" sid="217334916694367" type="Player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action disabled="1" id="7" name="Set mirrored" sid="891998654855289" type="Weapon">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="769006328941043">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="640456612868262" type="Keyboard">
+                            <param id="0" name="Key">83</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="466024102392767">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="888477656265249" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="711787902232352" type="Player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                        <action disabled="1" id="7" name="Set mirrored" sid="115391801288261" type="Player">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action disabled="1" id="7" name="Set mirrored" sid="587909511642958" type="Weapon">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="460951366311168">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="492685933672468" type="System">
+                            <param id="0" name="First value">Player.X</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">Mouse.X</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="832569803603624" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="160783022408962" type="Player">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="822829067775390" type="Debug">
+                            <param id="0" name="Text">choose(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="274844778323418">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="823520795808309" type="System">
+                            <param id="0" name="First value">Player.X</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">Mouse.X</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="930098879193327" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="532415437832936" type="Player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="235276377509510" type="Debug">
+                            <param id="0" name="Text">choose(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="223071851149215">
+                    <conditions>
+                        <condition id="0" name="On click" sid="327354669221684" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="726880829252684" type="Function">
+                            <param id="0" name="Name">&quot;WeaponShot&quot;</param>
+                            <param id="1" name="Parameter {n}">Player.UID{###}&quot;My&quot;</param>
                         </action>
                     </actions>
                 </event-block>
             </sub-events>
-        </event-block>
+        </event-group>
+        <event-group description="" sid="335154314906850" title="Weapon">
+            <sub-events>
+                <event-group description="" sid="653431898012726" title="Weapon Initialize">
+                    <sub-events>
+                        <comment>Instantiate Weapon Object from ArrayWpn (This accesses ArayWpn data set which is a Constant data set)&#x0D;&#x0A;WeaponInstantiate(Weapon.UID, Weapon.Name) [eg. WeaponInstantiate(2, &quot;MosinNagant&quot;)]</comment>
+                        <event-block sid="197234290041534">
+                            <conditions>
+                                <condition id="0" name="On function" sid="757012181155020" type="Function">
+                                    <param id="0" name="Name">&quot;WeaponInstantiate&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Clear" sid="104839522516937" type="WpnObj" />
+                            </actions>
+                            <sub-events>
+                                <comment>Weapon Object Add Keys from ArrayWpn</comment>
+                                <event-block sid="404337514048674">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="241665649168581" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">tokencount(ArrayWpn.At(ArrayWpn.IndexOf(Function.Param(1)), 1), &quot;,&quot;) -  1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Add key" sid="783381959519158" type="WpnObj">
+                                            <param id="0" name="Key">tokenat(tokenat(ArrayWpn.At(ArrayWpn.IndexOf(Function.Param(1)), 1), loopindex, &quot;,&quot;), 0, &quot;:&quot;)</param>
+                                            <param id="1" name="Value">tokenat(tokenat(ArrayWpn.At(ArrayWpn.IndexOf(Function.Param(1)), 1), loopindex, &quot;,&quot;), 1, &quot;:&quot;)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>Switch Weapon for Unit in ArrayWpn</comment>
+                                <event-block sid="266224694544310">
+                                    <conditions />
+                                    <actions>
+                                        <action id="0" name="Call function" sid="269943352055283" type="Function">
+                                            <param id="0" name="Name">&quot;WeaponSwitch&quot;</param>
+                                            <param id="1" name="Parameter {n}">Function.Param(0){###}Function.Param(1)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>Load Weapon Object from Invtry (This accesses Invtry data set which is a Varied data set)&#x0D;&#x0A;WeaponLoad(Weapon.UID, Weapon.Name) [eg. WeaponLoad(2, &quot;MosinNagant&quot;)]</comment>
+                        <event-block sid="951383518937836">
+                            <conditions>
+                                <condition id="0" name="On function" sid="560796937107281" type="Function">
+                                    <param id="0" name="Name">&quot;WeaponLoad&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Clear" sid="519536542759819" type="WpnObj" />
+                            </actions>
+                            <sub-events>
+                                <comment>Weapon Object Add Keys from Invtry</comment>
+                                <event-block sid="252285480683476">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="851175867042521" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">tokencount(ArrayWpn.At(ArrayWpn.IndexOf(Function.Param(1)), 1), &quot;,&quot;) -  1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Add key" sid="541060224850111" type="WpnObj">
+                                            <param id="0" name="Key">tokenat(tokenat(Invtry.At(Invtry.IndexOf(Function.Param(1)), 1), loopindex, &quot;,&quot;), 0, &quot;:&quot;)</param>
+                                            <param id="1" name="Value">tokenat(tokenat(Invtry.At(Invtry.IndexOf(Function.Param(1)), 1), loopindex, &quot;,&quot;), 1, &quot;:&quot;)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>Switch Weapon for Player in Invtry</comment>
+                                <event-block sid="924440471613425">
+                                    <conditions />
+                                    <actions>
+                                        <action id="0" name="Call function" sid="882534923529567" type="Function">
+                                            <param id="0" name="Name">&quot;WeaponSwitch&quot;</param>
+                                            <param id="1" name="Parameter {n}">Function.Param(0){###}Function.Param(1)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>Player Switch Weapon Data (Next, set player’s weapon instance variables from the dictionary values)&#x0D;&#x0A;WeaponSwitch(Weapon.UID, Weapon.Name) [eg. WeaponSwitch(2, &quot;MosinNagant&quot;)]</comment>
+                        <event-block sid="123365241642175">
+                            <conditions>
+                                <condition id="0" name="On function" sid="976634436116810" type="Function">
+                                    <param id="0" name="Name">&quot;WeaponSwitch&quot;</param>
+                                </condition>
+                                <condition id="-33" name="Pick by comparison" sid="705445034060742" type="System">
+                                    <param id="0" name="Object">Weapon</param>
+                                    <param id="1" name="Expression">Weapon.Pin.PinnedUID</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="764644746398505" type="Weapon">
+                                    <param id="0" name="Animation">Function.Param(1)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="393129527194702" type="Weapon">
+                                    <param id="0" name="Instance variable">Name</param>
+                                    <param id="1" name="Value">WpnObj.Get(&quot;Name&quot;)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="466900563719010" type="Weapon">
+                                    <param id="0" name="Instance variable">Type</param>
+                                    <param id="1" name="Value">WpnObj.Get(&quot;Type&quot;)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="401540059963959" type="Weapon">
+                                    <param id="0" name="Instance variable">Damage</param>
+                                    <param id="1" name="Value">int(WpnObj.Get(&quot;Damage&quot;))/100</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="885075031937489" type="Weapon">
+                                    <param id="0" name="Instance variable">FireRate</param>
+                                    <param id="1" name="Value">60/float(WpnObj.Get(&quot;FireRate&quot;))</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="806802012323923" type="Weapon">
+                                    <param id="0" name="Instance variable">ReloadTime</param>
+                                    <param id="1" name="Value">WpnObj.Get(&quot;ReloadTime&quot;)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="380753869383070" type="Weapon">
+                                    <param id="0" name="Instance variable">ReloadBullets</param>
+                                    <param id="1" name="Value">WpnObj.Get(&quot;ReloadBullets&quot;)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="806391103461633" type="Weapon">
+                                    <param id="0" name="Instance variable">AmmoCapacity</param>
+                                    <param id="1" name="Value">WpnObj.Get(&quot;AmmoCapacity&quot;)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="892356155483067" type="Weapon">
+                                    <param id="0" name="Instance variable">AmmoLeft</param>
+                                    <param id="1" name="Value">WpnObj.Get(&quot;AmmoLeft&quot;)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="103288182750223" type="Weapon">
+                                    <param id="0" name="Instance variable">FireRange</param>
+                                    <param id="1" name="Value">WpnObj.Get(&quot;FireRange&quot;)</param>
+                                </action>
+                                <action id="0" name="Call function" sid="861948876707757" type="Function">
+                                    <param id="0" name="Name">&quot;WeaponUpdateText&quot;</param>
+                                    <param id="1" name="Parameter {n}">Function.Param(1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="201650744849438" title="Weapon API">
+                    <sub-events>
+                        <comment>WeaponShoot(Unit.UID, Unit.ID) [eg. WeaponShoot(Player.UID, &quot;Ally&quot;)] This checks what type of weapon is being shot and decides on the weapon action</comment>
+                        <event-block sid="232080582075034">
+                            <conditions>
+                                <condition id="0" name="On function" sid="246184213388128" type="Function">
+                                    <param id="0" name="Name">&quot;WeaponShot&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <comment>Single Action</comment>
+                                <event-block sid="836758649926717">
+                                    <conditions>
+                                        <condition id="-33" name="Pick by comparison" sid="412154572158272" type="System">
+                                            <param id="0" name="Object">Weapon</param>
+                                            <param id="1" name="Expression">Weapon.Pin.PinnedUID</param>
+                                            <param id="2" name="Comparison">0</param>
+                                            <param id="3" name="Value">Function.Param(0)</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="228848668553270" type="Weapon">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Single&quot;</param>
+                                        </condition>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="352783754560156" type="Weapon">
+                                            <param id="0" name="Instance variable">Fired</param>
+                                        </condition>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="686816323958519" type="Weapon">
+                                            <param id="0" name="Instance variable">Reloading</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="535684844187830" type="Weapon">
+                                            <param id="0" name="Instance variable">AmmoLeft</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="324947018380124" type="Function">
+                                            <param id="0" name="Name">&quot;WeaponFire&quot;</param>
+                                            <param id="1" name="Parameter {n}">Function.Param(0){###}Function.Param(1)</param>
+                                        </action>
+                                        <action behavior="Timer" id="0" name="Start timer" sid="523648523186039" type="Weapon">
+                                            <param id="0" name="Duration">Weapon.FireRate</param>
+                                            <param id="1" name="Type">0</param>
+                                            <param id="2" name="Tag">&quot;Fired&quot;</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="860989819677900" type="Weapon">
+                                            <param id="0" name="Instance variable">Fired</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>Multi Action</comment>
+                                <event-block sid="626667195018363">
+                                    <conditions>
+                                        <condition id="-33" name="Pick by comparison" sid="403555981213969" type="System">
+                                            <param id="0" name="Object">Weapon</param>
+                                            <param id="1" name="Expression">Weapon.Pin.PinnedUID</param>
+                                            <param id="2" name="Comparison">0</param>
+                                            <param id="3" name="Value">Function.Param(0)</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="713703528522025" type="Weapon">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Multi&quot;</param>
+                                        </condition>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="367360350762481" type="Weapon">
+                                            <param id="0" name="Instance variable">Fired</param>
+                                        </condition>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="712048098794602" type="Weapon">
+                                            <param id="0" name="Instance variable">Reloading</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="392874529148714" type="Weapon">
+                                            <param id="0" name="Instance variable">AmmoLeft</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Timer" id="0" name="Start timer" sid="738428408719282" type="Weapon">
+                                            <param id="0" name="Duration">Weapon.FireRate</param>
+                                            <param id="1" name="Type">1</param>
+                                            <param id="2" name="Tag">&quot;Fired&quot;</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="286536659487871" type="Weapon">
+                                            <param id="0" name="Instance variable">Fired</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>Reloading</comment>
+                                <event-block sid="381551605725400">
+                                    <conditions>
+                                        <condition id="-33" name="Pick by comparison" sid="154524816380246" type="System">
+                                            <param id="0" name="Object">Weapon</param>
+                                            <param id="1" name="Expression">Weapon.Pin.PinnedUID</param>
+                                            <param id="2" name="Comparison">0</param>
+                                            <param id="3" name="Value">Function.Param(0)</param>
+                                        </condition>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="534895370162792" type="Weapon">
+                                            <param id="0" name="Instance variable">Reloading</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="976576680000027" type="Weapon">
+                                            <param id="0" name="Instance variable">AmmoLeft</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Timer" id="0" name="Start timer" sid="383519253996052" type="Weapon">
+                                            <param id="0" name="Duration">Weapon.ReloadTime</param>
+                                            <param id="1" name="Type">1</param>
+                                            <param id="2" name="Tag">&quot;Reload&quot;</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="597498708306681" type="Weapon">
+                                            <param id="0" name="Instance variable">Reloading</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>WeaponFire(Unit.UID, Unit.ID)</comment>
+                        <event-block sid="500644358814265">
+                            <conditions>
+                                <condition id="0" name="On function" sid="206742385317092" type="Function">
+                                    <param id="0" name="Name">&quot;WeaponFire&quot;</param>
+                                </condition>
+                                <condition id="-33" name="Pick by comparison" sid="165477407143424" type="System">
+                                    <param id="0" name="Object">Weapon</param>
+                                    <param id="1" name="Expression">Weapon.Pin.PinnedUID</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Subtract from" sid="527595918409897" type="Weapon">
+                                    <param id="0" name="Instance variable">AmmoLeft</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="883847241544002" type="Weapon">
+                                    <param id="0" name="Object">Bullet</param>
+                                    <param id="1" name="Layer">Weapon.LayerName</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="149947444613763" type="Bullet">
+                                    <param id="0" name="Angle">angle(Weapon.ImagePointX(0), Weapon.ImagePointY(0), Weapon.ImagePointX(1), Weapon.ImagePointY(0))</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="931409693554242" type="Bullet">
+                                    <param id="0" name="Instance variable">Damage</param>
+                                    <param id="1" name="Value">Weapon.Damage</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="852442023892447" type="Bullet">
+                                    <param id="0" name="Instance variable">FireRange</param>
+                                    <param id="1" name="Value">Weapon.FireRange</param>
+                                </action>
+                                <action behavior="ScrollTo" id="0" name="Shake" sid="217649178502045" type="Player">
+                                    <param id="0" name="Magnitude">5</param>
+                                    <param id="1" name="Duration">0.1</param>
+                                    <param id="2" name="Mode">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="457755421697349" type="Weapon">
+                                    <param id="0" name="Object">MuzzleFlash</param>
+                                    <param id="1" name="Layer">Weapon.LayerName</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="392679860650733" type="Weapon">
+                                    <param id="0" name="Object">Shell</param>
+                                    <param id="1" name="Layer">Weapon.LayerName</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="28" name="Play at object (by name)" sid="719050857544938" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">&quot;ak47_Fire_1&quot;</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="4" name="Object">Weapon</param>
+                                    <param id="5" name="Inner angle">0</param>
+                                    <param id="6" name="Outer angle">360</param>
+                                    <param id="7" name="Outer gain">0</param>
+                                    <param id="8" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <comment>Set Shell Velocity</comment>
+                                <event-block sid="477125601769818">
+                                    <conditions>
+                                        <condition id="7" name="Is mirrored" sid="366558436835984" type="Player" />
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Physics" id="15" name="Set velocity" sid="931808003735272" type="Shell">
+                                            <param id="0" name="X component">choose(20, 30, 40, 50, 60, 70, 80)</param>
+                                            <param id="1" name="Y component">choose(-100, -110, -120, -130,-140,-150)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="954013852247197">
+                                    <conditions>
+                                        <condition id="7" inverted="1" name="Is mirrored" sid="272287121418444" type="Player" />
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Physics" id="15" name="Set velocity" sid="856355676450462" type="Shell">
+                                            <param id="0" name="X component">choose(-20, -30, -40, -50, -60, -70, -80)</param>
+                                            <param id="1" name="Y component">choose(-100, -110, -120, -130,-140,-150)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>Waiting for Firing Bullets</comment>
+                        <event-block sid="458559342262141">
+                            <conditions>
+                                <condition behavior="Timer" id="0" name="On timer" sid="248145443730094" type="Weapon">
+                                    <param id="0" name="Tag">&quot;Fired&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="424212322714371" type="Weapon">
+                                    <param id="0" name="Instance variable">Fired</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <comment>Auto Fire</comment>
+                                <event-block sid="224815670378544">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="867666367778235" type="Weapon">
+                                            <param id="0" name="Instance variable">Type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Multi&quot;</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="340622934095856" type="Weapon">
+                                            <param id="0" name="Instance variable">AmmoLeft</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="297068427742605">
+                                            <conditions>
+                                                <condition id="-33" name="Pick by comparison" sid="159401430264112" type="System">
+                                                    <param id="0" name="Object">Player</param>
+                                                    <param id="1" name="Expression">Player.UID</param>
+                                                    <param id="2" name="Comparison">0</param>
+                                                    <param id="3" name="Value">Weapon.Pin.PinnedUID</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="666838575392729" type="Function">
+                                                    <param id="0" name="Name">&quot;WeaponFire&quot;</param>
+                                                    <param id="1" name="Parameter {n}">Player.UID{###}&quot;My&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <comment>Cease Auto Fire for Players</comment>
+                                <event-block sid="362854555587928">
+                                    <conditions>
+                                        <condition id="2" inverted="1" name="Mouse button is down" sid="295628273148010" type="Mouse">
+                                            <param id="0" name="Mouse button">0</param>
+                                        </condition>
+                                        <condition id="-33" name="Pick by comparison" sid="751946928897508" type="System">
+                                            <param id="0" name="Object">Weapon</param>
+                                            <param id="1" name="Expression">Weapon.Pin.PinnedUID</param>
+                                            <param id="2" name="Comparison">0</param>
+                                            <param id="3" name="Value">Player.UID</param>
+                                        </condition>
+                                        <condition id="-4" name="Trigger once while true" sid="427495480042465" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Timer" id="1" name="Stop timer" sid="531952206428750" type="Weapon">
+                                            <param id="0" name="Tag">&quot;Fired&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>Reload</comment>
+                                <event-block sid="422261707204653">
+                                    <conditions>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="673238020635029" type="Weapon">
+                                            <param id="0" name="Instance variable">Reloading</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="127081033592181" type="Weapon">
+                                            <param id="0" name="Instance variable">AmmoLeft</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Timer" id="0" name="Start timer" sid="332851858879644" type="Weapon">
+                                            <param id="0" name="Duration">Weapon.ReloadTime</param>
+                                            <param id="1" name="Type">1</param>
+                                            <param id="2" name="Tag">&quot;Reload&quot;</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="103004116358351" type="Weapon">
+                                            <param id="0" name="Instance variable">Reloading</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>Reloading Weapon</comment>
+                        <event-block sid="825569919982856">
+                            <conditions>
+                                <condition behavior="Timer" id="0" name="On timer" sid="529394062415268" type="Weapon">
+                                    <param id="0" name="Tag">&quot;Reload&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Add to" sid="205476497252684" type="Weapon">
+                                    <param id="0" name="Instance variable">AmmoLeft</param>
+                                    <param id="1" name="Value">Weapon.ReloadBullets</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="686983645816517">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="277262184173602" type="Weapon">
+                                            <param id="0" name="Instance variable">AmmoLeft</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">Weapon.AmmoCapacity - 1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="233284812595700" type="Weapon">
+                                            <param id="0" name="Instance variable">Reloading</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action behavior="Timer" id="1" name="Stop timer" sid="878613610151232" type="Weapon">
+                                            <param id="0" name="Tag">&quot;Reload&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="531631524112388" title="Bullets and Shells">
+            <sub-events>
+                <event-block sid="969779088184441">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="462646513446297" type="Bullet">
+                            <param id="0" name="Object">Ground</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="390446213340997" type="Bullet" />
+                    </actions>
+                </event-block>
+                <event-block sid="744517062889251">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="202802079239222" type="Shell">
+                            <param id="0" name="Object">Ground</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="21" name="Set immovable" sid="473415254392378" type="Shell">
+                            <param id="0" name="Setting">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="444912371907331" title="Doors">
+            <sub-events>
+                <event-block sid="404211472179504">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="656931500925869" type="Player">
+                            <param id="0" name="Object">Doors</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="444417479460374" type="ActionTxt">
+                            <param id="0" name="Text">&quot;Press E&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="423170257806614">
+                    <conditions>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="553140077732927" type="Player">
+                            <param id="0" name="Object">Doors</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="618995075201394" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="710704218802435" type="ActionTxt">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Set text" sid="191804816236316" type="Debug">
+                            <param id="0" name="Text">choose(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="324755790289718">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="343967118964027" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="231994665438233" type="Player">
+                            <param id="0" name="Object">Doors</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="685976545757195" type="Function">
+                            <param id="0" name="Name">&quot;MoveToDoor&quot;</param>
+                            <param id="1" name="Parameter {n}">Doors.ID_CntdDoor</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="949814344785801">
+                    <conditions>
+                        <condition id="0" name="On function" sid="722129758047177" type="Function">
+                            <param id="0" name="Name">&quot;MoveToDoor&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="315506535531038">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="704476060085619" type="Doors">
+                                    <param id="0" name="Instance variable">ID_Door</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="838791523679218" type="Player">
+                                    <param id="0" name="X">Doors.X</param>
+                                    <param id="1" name="Y">Doors.Y - Player.Height/2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="345118604402022" title="Enemy AI" />
     </events>
 </c2eventsheet>
