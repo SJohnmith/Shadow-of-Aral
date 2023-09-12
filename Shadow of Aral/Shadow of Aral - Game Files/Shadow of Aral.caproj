@@ -601,6 +601,7 @@
     </families>
     <layout-folder>
         <layout>Layout 1.xml</layout>
+        <layout>Layout 2.xml</layout>
         <layout>Holder Layout.xml</layout>
     </layout-folder>
     <event-folder>
