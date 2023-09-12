@@ -24,17 +24,40 @@
                     <param id="0" name="Pin to">Player</param>
                     <param id="1" name="Mode">0</param>
                 </action>
-                <action behavior="Pin" id="0" name="Pin to object" sid="625755321061451" type="ShadowLight">
+                <action behavior="Pin" id="0" name="Pin to object" sid="119218678793951" type="Shadow">
                     <param id="0" name="Pin to">Player</param>
                     <param id="1" name="Mode">0</param>
                 </action>
-                <action id="4" name="Set shadow color" sid="482947761664313" type="ShadowLight">
-                    <param id="0" name="Color">rgb(60, 60, 60)</param>
+                <action behavior="Pin" id="0" name="Pin to object" sid="553593041691435" type="ShadowLight">
+                    <param id="0" name="Pin to">LightCamera</param>
+                    <param id="1" name="Mode">0</param>
                 </action>
-                <action disabled="1" id="4" name="Set shadow color" sid="428973649208861" type="ShadowLight">
-                    <param id="0" name="Color">rgb(0,0,0)</param>
+                <action id="0" name="Set text" sid="214255712196490" type="PlayerStatsTxt">
+                    <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;newline&amp;&#x0D;&#x0A;&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
                 </action>
             </actions>
+            <sub-events>
+                <comment>For Each Solid Spawn the Shadow</comment>
+                <event-block sid="932548416905199">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="510089360473503" type="System">
+                            <param id="0" name="Object">SolidObject</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="593664244786979" type="System">
+                            <param id="0" name="Object to create">SolidObjectShadow</param>
+                            <param id="1" name="Layer">&quot;Background&quot;</param>
+                            <param id="2" name="X">SolidObject.X</param>
+                            <param id="3" name="Y">SolidObject.Y</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="510239067271592" type="SolidObjectShadow">
+                            <param id="0" name="Width">SolidObject.Width</param>
+                            <param id="1" name="Height">SolidObject.Height</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="302166846933468">
             <conditions>
@@ -45,6 +68,10 @@
                     <param id="0" name="X">lerp(Player.X, Mouse.X, 0.3)</param>
                     <param id="1" name="Y">lerp(Player.Y, Mouse.Y, 0.3)</param>
                 </action>
+                <action id="-3" name="Set position" sid="823163479111701" type="LightCamera">
+                    <param id="0" name="X">lerp(Player.X, Mouse.X, 0.1)</param>
+                    <param id="1" name="Y">lerp(Player.Y, Mouse.Y, 0.1)</param>
+                </action>
                 <action id="-3" name="Set position" sid="554220347998784" type="Rectile">
                     <param id="0" name="X">Mouse.X</param>
                     <param id="1" name="Y">Mouse.Y</param>
@@ -53,33 +80,101 @@
                     <param id="0" name="X">Mouse.X</param>
                     <param id="1" name="Y">Mouse.Y</param>
                 </action>
+                <action disabled="1" id="-3" name="Set position" sid="363366760440699" type="MouseLight">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
+                </action>
                 <action disabled="1" id="-22" name="Set angle toward position" sid="505213798709838" type="MouseVision">
                     <param id="0" name="X">Mouse.X</param>
                     <param id="1" name="Y">Mouse.Y</param>
                 </action>
-                <action id="-22" name="Set angle toward position" sid="300100859006320" type="Shadow">
+                <action disabled="1" id="-5" name="Set width" sid="698602404299199" type="MouseVision">
+                    <param id="0" name="Width">abs(Mouse.X - Self.X) + Rectile.Width</param>
+                </action>
+                <action disabled="1" id="-6" name="Set height" sid="251083165258923" type="MouseVision">
+                    <param id="0" name="Height">abs(Mouse.X - Self.X) + Rectile.Width</param>
+                </action>
+                <action id="-22" name="Set angle toward position" sid="540049767063335" type="Shadow">
                     <param id="0" name="X">Mouse.X</param>
                     <param id="1" name="Y">Mouse.Y</param>
                 </action>
-                <action id="-16" name="Set opacity" sid="263102303934052" type="Shadow">
-                    <param id="0" name="Opacity">distance(Shadow.X,Shadow.Y,Mouse.X,Mouse.Y)*4</param>
-                </action>
-                <action id="-4" name="Set position to another object" sid="419744262971749" type="Shadow">
-                    <param id="0" name="Object">Player</param>
-                    <param id="1" name="Image point (optional)">0</param>
+                <action id="-5" name="Set width" sid="267583062368032" type="Shadow">
+                    <param id="0" name="Width">2*abs(Player.X - Mouse.X)</param>
                 </action>
             </actions>
         </event-block>
         <event-group description="" sid="884874334710201" title="Player">
             <sub-events>
+                <comment>Player Platformer</comment>
+                <event-block sid="703201017395159">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="799399248795623" type="Keyboard">
+                            <param id="0" name="Key">65</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="742144325072552" type="Player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="587754068601485">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="814144127872475" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="293399475321731" type="Player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Player 8-Directions</comment>
+                <event-block sid="307778313257581">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="704561544849875" type="Keyboard">
+                            <param id="0" name="Key">83</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="582052651374518" type="Player">
+                            <param id="0" name="Object">WalkThrough</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="11" name="Set enabled" sid="605689764450582" type="Player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="915550535003553">
                     <conditions>
                         <condition id="0" name="On key pressed" sid="435361296687837" type="Keyboard">
                             <param id="0" name="Key">87</param>
                         </condition>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="178403799515227" type="Player">
+                            <param id="0" name="Object">Ladder</param>
+                        </condition>
                     </conditions>
                     <actions>
+                        <action disabled="1" id="-16" name="Wait" sid="225400165337500" type="System">
+                            <param id="0" name="Seconds">0.5</param>
+                        </action>
                         <action behavior="Platform" id="7" name="Simulate control" sid="876305680820820" type="Player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                        <action id="0" name="Set text" sid="903579833178656" type="Debug">
+                            <param id="0" name="Text">choose(&quot;what?&quot;, &quot;stop&quot;, &quot;no&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="947570903692713">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="670622700509649" type="Keyboard">
+                            <param id="0" name="Key">87</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="140061878978687" type="Player">
                             <param id="0" name="Control">2</param>
                         </action>
                     </actions>
@@ -91,18 +186,25 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="Platform" id="7" name="Simulate control" sid="942107835155225" type="Player">
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="985586156381326" type="Player">
                             <param id="0" name="Control">0</param>
                         </action>
                     </actions>
                 </event-block>
                 <event-block sid="769006328941043">
                     <conditions>
-                        <condition id="0" name="On key pressed" sid="640456612868262" type="Keyboard">
+                        <condition id="2" name="Key is down" sid="198849020979690" type="Keyboard">
                             <param id="0" name="Key">83</param>
                         </condition>
+                        <condition id="1" name="Is overlapping another object" sid="812395967017087" type="Player">
+                            <param id="0" name="Object">Ladder</param>
+                        </condition>
                     </conditions>
-                    <actions />
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="705486820229783" type="Player">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
                 </event-block>
                 <event-block sid="466024102392767">
                     <conditions>
@@ -111,11 +213,69 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="Platform" id="7" name="Simulate control" sid="711787902232352" type="Player">
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="890375630345723" type="Player">
                             <param id="0" name="Control">1</param>
                         </action>
                     </actions>
                 </event-block>
+                <comment>Player Climbing</comment>
+                <event-block sid="410420387088445">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="424699330175294" type="Player">
+                            <param id="0" name="Object">Ladder</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="370356085786776">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="613364036482540" type="Keyboard">
+                                    <param id="0" name="Key">87</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="923752664519207" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action behavior="8Direction" id="8" name="Set enabled" sid="312508147389163" type="Player">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Platform" id="11" name="Set enabled" sid="147242707720356" type="Player">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="394444309825340">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="296924452679967" type="Keyboard">
+                                    <param id="0" name="Key">83</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="8" name="Set enabled" sid="980558396302352" type="Player">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Platform" id="11" name="Set enabled" sid="180839208062949" type="Player">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="283741220128945">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="253675535272014" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="8" name="Set enabled" sid="963474158079091" type="Player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action behavior="Platform" id="11" name="Set enabled" sid="166991222058813" type="Player">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Player Looking</comment>
                 <event-block sid="460951366311168">
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="492685933672468" type="System">
@@ -128,9 +288,6 @@
                     <actions>
                         <action id="7" name="Set mirrored" sid="160783022408962" type="Player">
                             <param id="0" name="State">1</param>
-                        </action>
-                        <action id="0" name="Set text" sid="822829067775390" type="Debug">
-                            <param id="0" name="Text">choose(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -147,11 +304,9 @@
                         <action id="7" name="Set mirrored" sid="532415437832936" type="Player">
                             <param id="0" name="State">0</param>
                         </action>
-                        <action id="0" name="Set text" sid="235276377509510" type="Debug">
-                            <param id="0" name="Text">choose(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</param>
-                        </action>
                     </actions>
                 </event-block>
+                <comment>Player Shooting</comment>
                 <event-block sid="223071851149215">
                     <conditions>
                         <condition id="0" name="On click" sid="327354669221684" type="Mouse">
@@ -654,8 +809,323 @@
                 </event-group>
             </sub-events>
         </event-group>
+        <event-group description="" sid="345118604402022" title="Enemy AI">
+            <sub-events>
+                <comment>Enemy Spawn</comment>
+                <event-block sid="585159431161441">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="180756202800923" type="Enemy" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="867724745854962" type="Enemy">
+                            <param id="0" name="Object">HpBar</param>
+                            <param id="1" name="Layer">&quot;HUD&quot;</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="279131647460351" type="Enemy">
+                            <param id="0" name="Object">HpBg</param>
+                            <param id="1" name="Layer">&quot;HUD&quot;</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="382025106090310" type="HpBar">
+                            <param id="0" name="X">HpBg.BBoxLeft</param>
+                            <param id="1" name="Y">HpBg.BBoxBottom</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="529336133897516" type="HpBar">
+                            <param id="0" name="Pin to">Enemy</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="695336691045524" type="HpBg">
+                            <param id="0" name="Pin to">Enemy</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="704829513929059" type="Enemy">
+                            <param id="0" name="Instance variable">Speed</param>
+                            <param id="1" name="Value">choose(Self.Speed - 10,  Self.Speed, Self.Speed + 10)</param>
+                        </action>
+                        <action behavior="Platform" id="1" name="Set max speed" sid="607151852786914" type="Enemy">
+                            <param id="0" name="Max Speed">Self.Speed</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Enemy Patrol</comment>
+                <event-block sid="389288313275299">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="265942711800177" type="Enemy">
+                            <param id="0" name="Object">EnemyBounceWall</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="382386048236525">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="316102402936157" type="Enemy">
+                                    <param id="0" name="Instance variable">State</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Left&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="358987899913716" type="Enemy">
+                                    <param id="0" name="Instance variable">State</param>
+                                    <param id="1" name="Value">&quot;Right&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="545484772678414">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="297894836689072" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="125179665679547" type="Enemy">
+                                    <param id="0" name="Instance variable">State</param>
+                                    <param id="1" name="Value">&quot;Left&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Enemy Attack</comment>
+                <event-block sid="823193857610757">
+                    <conditions>
+                        <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="659901380436027" type="Enemy">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="407279433524781" type="Enemy">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="844233008096248" type="Enemy">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;Dead&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="257838374070480" type="Enemy">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Value">&quot;Attack&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="150848444712810">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="272042959820095" type="Enemy">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;Attack&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="926955882941486" type="Enemy">
+                            <param id="0" name="Animation">&quot;Attack&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="266753156340380">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="161162859982862" type="Enemy">
+                            <param id="0" name="Animation">&quot;Attack&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="682632713478142" type="Enemy">
+                            <param id="0" name="Object">EnemyBullet</param>
+                            <param id="1" name="Layer">Enemy.LayerName</param>
+                            <param id="2" name="Image point">2</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="231327074348100" type="EnemyBullet">
+                            <param id="0" name="Instance variable">Damage</param>
+                            <param id="1" name="Value">Enemy.Damage</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="170701809448246">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="899820582914654" type="EnemyBullet">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="984333656341613" type="Player">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">EnemyBullet.Damage</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Enemy State Machine</comment>
+                <event-block sid="182868661959137">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="257992932328925" type="Enemy">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Left&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="604340144376227" type="Enemy">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="581457156641698" type="Enemy">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="803260129777109">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="326275898135654" type="Enemy">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Right&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="654678810060822" type="Enemy">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="229322237756440" type="Enemy">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Enemy Chase Player</comment>
+                <event-block sid="609703476880771">
+                    <conditions>
+                        <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="458861205229497" type="Enemy">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="266272422170543">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="587922449952206" type="Enemy">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="X co-ordinate">Player.X</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="168186657898937" type="Enemy">
+                                    <param id="0" name="Instance variable">State</param>
+                                    <param id="1" name="Value">&quot;Right&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="372024548001701">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="555149888524531" type="Enemy">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="X co-ordinate">Player.X</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="576251583761229" type="Enemy">
+                                    <param id="0" name="Instance variable">State</param>
+                                    <param id="1" name="Value">&quot;Left&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Enemy Death</comment>
+                <event-block sid="360786851888837">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="968614791110450" type="Enemy">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="406603718782917" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="519567601052252" type="Enemy" />
+                        <action id="-10" name="Set value" sid="370303605551297" type="Enemy">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Value">&quot;Dead&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="292075367670808">
+                            <conditions>
+                                <condition id="-33" name="Pick by comparison" sid="169706451077658" type="System">
+                                    <param id="0" name="Object">HpBar</param>
+                                    <param id="1" name="Expression">HpBar.Pin.PinnedUID</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">Enemy.UID</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="597873531715826" type="HpBar" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="116398542464845">
+                            <conditions>
+                                <condition id="-33" name="Pick by comparison" sid="730971286872008" type="System">
+                                    <param id="0" name="Object">HpBg</param>
+                                    <param id="1" name="Expression">HpBg.Pin.PinnedUID</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">Enemy.UID</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="522189168748903" type="HpBg" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group description="" sid="531631524112388" title="Bullets and Shells">
             <sub-events>
+                <comment>On Hit Enemy</comment>
+                <event-block sid="674915444163803">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="521432160376807" type="Bullet">
+                            <param id="0" name="Object">Enemy</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="195899252326116" type="Bullet">
+                            <param id="0" name="Instance variable">Hit</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="849862863471668" type="Enemy">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;Dead&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="965860960223788" type="Bullet" />
+                        <action id="-13" name="Set boolean" sid="289573059997152" type="Bullet">
+                            <param id="0" name="Instance variable">Hit</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-12" name="Subtract from" sid="563250086634920" type="Enemy">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">Bullet.Damage</param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="719188630900241" type="Enemy">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">0.1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="952663823789907">
+                            <conditions>
+                                <condition id="-33" name="Pick by comparison" sid="536033018323326" type="System">
+                                    <param id="0" name="Object">HpBar</param>
+                                    <param id="1" name="Expression">HpBar.Pin.PinnedUID</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">Enemy.UID</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="510677481527880" type="HpBar">
+                                    <param id="0" name="Width">(Enemy.Health/Enemy.hpConst)*HpBg.Width</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-block sid="969779088184441">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="462646513446297" type="Bullet">
@@ -705,9 +1175,6 @@
                         <action id="0" name="Set text" sid="710704218802435" type="ActionTxt">
                             <param id="0" name="Text">&quot;&quot;</param>
                         </action>
-                        <action id="0" name="Set text" sid="191804816236316" type="Debug">
-                            <param id="0" name="Text">choose(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</param>
-                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="324755790289718">
@@ -722,7 +1189,7 @@
                     <actions>
                         <action id="0" name="Call function" sid="685976545757195" type="Function">
                             <param id="0" name="Name">&quot;MoveToDoor&quot;</param>
-                            <param id="1" name="Parameter {n}">Doors.ID_CntdDoor</param>
+                            <param id="1" name="Parameter {n}">Doors.NextID</param>
                         </action>
                     </actions>
                 </event-block>
@@ -737,7 +1204,7 @@
                         <event-block sid="315506535531038">
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="704476060085619" type="Doors">
-                                    <param id="0" name="Instance variable">ID_Door</param>
+                                    <param id="0" name="Instance variable">ID</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">Function.Param(0)</param>
                                 </condition>
@@ -753,6 +1220,65 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="345118604402022" title="Enemy AI" />
+        <event-group description="" sid="831003655845788" title="Pick Ups">
+            <sub-events>
+                <event-block any="1" sid="623388292724924">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="598371975441235" type="Player">
+                            <param id="0" name="Object">AmmoCrate</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="126409857284688" type="Player">
+                            <param id="0" name="Object">HealthCrate</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="923056946474571" type="ActionTxt">
+                            <param id="0" name="Text">&quot;Press E&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="633850143443073">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="299978288532055" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="961088415102673" type="Player">
+                            <param id="0" name="Instance variable">AmntAmmo</param>
+                            <param id="1" name="Value">AmmoCrate.Ammo</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="671134456592480">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="284425394012098" type="Player">
+                                    <param id="0" name="Object">AmmoCrate</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="315476217026475" type="AmmoCrate" />
+                                <action id="0" name="Set text" sid="399766434854000" type="PlayerStatsTxt">
+                                    <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;newline&amp;&#x0D;&#x0A;&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="755251086825673">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="160184706228310" type="Player">
+                                    <param id="0" name="Object">HealthCrate</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="704609762858020" type="HealthCrate" />
+                                <action id="0" name="Set text" sid="729201579762342" type="PlayerStatsTxt">
+                                    <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;newline&amp;&#x0D;&#x0A;&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>
