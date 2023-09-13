@@ -791,13 +791,13 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-11" name="Add to" sid="205476497252684" type="Weapon">
-                                    <param id="0" name="Instance variable">AmmoLeft</param>
-                                    <param id="1" name="Value">Weapon.ReloadBullets</param>
-                                </action>
                                 <action id="-12" name="Subtract from" sid="145981847902333" type="Player">
                                     <param id="0" name="Instance variable">AmntAmmo</param>
-                                    <param id="1" name="Value">Weapon.ReloadBullets</param>
+                                    <param id="1" name="Value">Weapon.ReloadBullets - Weapon.AmmoLeft</param>
+                                </action>
+                                <action id="-11" name="Add to" sid="205476497252684" type="Weapon">
+                                    <param id="0" name="Instance variable">AmmoLeft</param>
+                                    <param id="1" name="Value">Weapon.ReloadBullets - Weapon.AmmoLeft</param>
                                 </action>
                                 <action id="-5" name="Set width" sid="370173441033640" type="Cnt_BulletsLeft">
                                     <param id="0" name="Width">(Weapon.AmmoLeft/Weapon.AmmoCapacity)*Cnt_Bullets.Width</param>
@@ -833,13 +833,29 @@
                                 <condition id="0" name="On key pressed" sid="423247003231827" type="Keyboard">
                                     <param id="0" name="Key">82</param>
                                 </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="689591978119170" type="Weapon">
+                                    <param id="0" name="Instance variable">Reloading</param>
+                                </condition>
                                 <condition id="-7" name="Compare instance variable" sid="814283427406470" type="Weapon">
                                     <param id="0" name="Instance variable">AmmoLeft</param>
                                     <param id="1" name="Comparison">3</param>
-                                    <param id="2" name="Value">0</param>
+                                    <param id="2" name="Value">Weapon.AmmoCapacity</param>
                                 </condition>
                             </conditions>
-                            <actions />
+                            <actions>
+                                <action behavior="Timer" id="0" name="Start timer" sid="454372088790972" type="Weapon">
+                                    <param id="0" name="Duration">Weapon.ReloadTime</param>
+                                    <param id="1" name="Type">1</param>
+                                    <param id="2" name="Tag">&quot;Reload&quot;</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="129021050929570" type="Weapon">
+                                    <param id="0" name="Instance variable">Reloading</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-5" name="Set width" sid="728334492376219" type="Cnt_BulletsLeft">
+                                    <param id="0" name="Width">0</param>
+                                </action>
+                            </actions>
                         </event-block>
                         <comment>Update the Bullets Left in Magazine</comment>
                         <event-block sid="124583908387470">
@@ -941,6 +957,33 @@
                         </event-block>
                     </sub-events>
                 </event-block>
+                <comment>Enemy Chase</comment>
+                <event-block sid="780718193231563">
+                    <conditions>
+                        <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="353835625289095" type="Enemy">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="750779759096012" type="Enemy">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="632541272574417" type="Enemy">
+                            <param id="0" name="Instance variable">Dist</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">64</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="731609742821790" type="Enemy">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;Dead&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="-10" name="Set value" sid="715355343585004" type="Enemy">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Value">&quot;Left&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <comment>Enemy Attack</comment>
                 <event-block sid="823193857610757">
                     <conditions>
@@ -950,17 +993,12 @@
                         <condition id="1" name="Is overlapping another object" sid="407279433524781" type="Enemy">
                             <param id="0" name="Object">Player</param>
                         </condition>
-                        <condition id="-7" name="Compare instance variable" sid="844233008096248" type="Enemy">
-                            <param id="0" name="Instance variable">State</param>
-                            <param id="1" name="Comparison">1</param>
-                            <param id="2" name="Value">&quot;Dead&quot;</param>
-                        </condition>
-                        <condition id="-7" name="Compare instance variable" sid="632541272574417" type="Enemy">
+                        <condition id="-7" name="Compare instance variable" sid="713540288871154" type="Enemy">
                             <param id="0" name="Instance variable">Dist</param>
-                            <param id="1" name="Comparison">5</param>
+                            <param id="1" name="Comparison">2</param>
                             <param id="2" name="Value">64</param>
                         </condition>
-                        <condition id="-7" name="Compare instance variable" sid="146858963881443" type="Enemy">
+                        <condition id="-7" name="Compare instance variable" sid="844233008096248" type="Enemy">
                             <param id="0" name="Instance variable">State</param>
                             <param id="1" name="Comparison">1</param>
                             <param id="2" name="Value">&quot;Dead&quot;</param>
@@ -973,21 +1011,23 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="150848444712810">
+                <comment>Attack Player</comment>
+                <event-block sid="580177929037100">
                     <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="272042959820095" type="Enemy">
+                        <condition id="-7" name="Compare instance variable" sid="743039428174451" type="Enemy">
                             <param id="0" name="Instance variable">State</param>
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">&quot;Attack&quot;</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="4" name="Set animation" sid="926955882941486" type="Enemy">
+                        <action id="4" name="Set animation" sid="627534864508646" type="Enemy">
                             <param id="0" name="Animation">&quot;Attack&quot;</param>
                             <param id="1" name="From">1</param>
                         </action>
                     </actions>
                 </event-block>
+                <comment>Damaging Player</comment>
                 <event-block sid="266753156340380">
                     <conditions>
                         <condition id="4" name="On finished" sid="161162859982862" type="Enemy">
@@ -1042,6 +1082,10 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="4" name="Set animation" sid="926955882941486" type="Enemy">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
                         <action behavior="Platform" id="7" name="Simulate control" sid="604340144376227" type="Enemy">
                             <param id="0" name="Control">0</param>
                         </action>
@@ -1059,6 +1103,10 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="4" name="Set animation" sid="855873950031427" type="Enemy">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
                         <action behavior="Platform" id="7" name="Simulate control" sid="654678810060822" type="Enemy">
                             <param id="0" name="Control">1</param>
                         </action>
