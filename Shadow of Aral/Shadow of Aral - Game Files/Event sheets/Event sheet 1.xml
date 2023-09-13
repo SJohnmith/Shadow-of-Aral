@@ -32,8 +32,8 @@
                     <param id="0" name="Pin to">LightCamera</param>
                     <param id="1" name="Mode">0</param>
                 </action>
-                <action id="0" name="Set text" sid="214255712196490" type="PlayerStatsTxt">
-                    <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;newline&amp;&#x0D;&#x0A;&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
+                <action id="0" name="Set text" sid="546460245522298" type="PlayerStatsTxt">
+                    <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
                 </action>
             </actions>
             <sub-events>
@@ -100,6 +100,10 @@
                 </action>
                 <action id="-5" name="Set width" sid="267583062368032" type="Shadow">
                     <param id="0" name="Width">2*abs(Player.X - Mouse.X)</param>
+                </action>
+                <action id="-10" name="Set value" sid="719153190197442" type="Enemy">
+                    <param id="0" name="Instance variable">Dist</param>
+                    <param id="1" name="Value">distance(Self.X, Self.Y, Player.X, Player.Y)</param>
                 </action>
             </actions>
         </event-block>
@@ -478,7 +482,7 @@
                             </conditions>
                             <actions />
                             <sub-events>
-                                <comment>Single Action</comment>
+                                <comment>Single Fire</comment>
                                 <event-block sid="836758649926717">
                                     <conditions>
                                         <condition id="-33" name="Pick by comparison" sid="412154572158272" type="System">
@@ -520,7 +524,7 @@
                                         </action>
                                     </actions>
                                 </event-block>
-                                <comment>Multi Action</comment>
+                                <comment>Multi Fire</comment>
                                 <event-block sid="626667195018363">
                                     <conditions>
                                         <condition id="-33" name="Pick by comparison" sid="403555981213969" type="System">
@@ -573,6 +577,11 @@
                                         <condition id="-7" name="Compare instance variable" sid="976576680000027" type="Weapon">
                                             <param id="0" name="Instance variable">AmmoLeft</param>
                                             <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="101308584083771" type="Player">
+                                            <param id="0" name="Instance variable">AmntAmmo</param>
+                                            <param id="1" name="Comparison">4</param>
                                             <param id="2" name="Value">0</param>
                                         </condition>
                                     </conditions>
@@ -638,6 +647,9 @@
                                     <param id="0" name="Object">Shell</param>
                                     <param id="1" name="Layer">Weapon.LayerName</param>
                                     <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="-5" name="Set width" sid="778767120257227" type="Cnt_BulletsLeft">
+                                    <param id="0" name="Width">(Weapon.AmmoLeft/Weapon.ReloadBullets)*Cnt_Bullets.Width</param>
                                 </action>
                                 <action disabled="1" id="28" name="Play at object (by name)" sid="719050857544938" type="Audio">
                                     <param id="0" name="Folder">0</param>
@@ -783,6 +795,13 @@
                                     <param id="0" name="Instance variable">AmmoLeft</param>
                                     <param id="1" name="Value">Weapon.ReloadBullets</param>
                                 </action>
+                                <action id="-12" name="Subtract from" sid="145981847902333" type="Player">
+                                    <param id="0" name="Instance variable">AmntAmmo</param>
+                                    <param id="1" name="Value">Weapon.ReloadBullets</param>
+                                </action>
+                                <action id="-5" name="Set width" sid="370173441033640" type="Cnt_BulletsLeft">
+                                    <param id="0" name="Width">(Weapon.AmmoLeft/Weapon.AmmoCapacity)*Cnt_Bullets.Width</param>
+                                </action>
                             </actions>
                             <sub-events>
                                 <event-block sid="686983645816517">
@@ -801,9 +820,46 @@
                                         <action behavior="Timer" id="1" name="Stop timer" sid="878613610151232" type="Weapon">
                                             <param id="0" name="Tag">&quot;Reload&quot;</param>
                                         </action>
+                                        <action id="0" name="Set text" sid="544715880647718" type="PlayerStatsTxt">
+                                            <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
+                                        </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
+                        </event-block>
+                        <comment>Manually Reload</comment>
+                        <event-block sid="973308379820646">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="423247003231827" type="Keyboard">
+                                    <param id="0" name="Key">82</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="814283427406470" type="Weapon">
+                                    <param id="0" name="Instance variable">AmmoLeft</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <comment>Update the Bullets Left in Magazine</comment>
+                        <event-block sid="124583908387470">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="622262655494888" type="System">
+                                    <param id="0" name="Interval (seconds)">0.01</param>
+                                </condition>
+                                <condition id="-5" name="Compare width" sid="111829497662688" type="Cnt_BulletsLeft">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Width">Cnt_Bullets.Width</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="997201573353897" type="Weapon">
+                                    <param id="0" name="Instance variable">Reloading</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="793655028424014" type="Cnt_BulletsLeft">
+                                    <param id="0" name="Width">Cnt_BulletsLeft.Width + 1.1</param>
+                                </action>
+                            </actions>
                         </event-block>
                     </sub-events>
                 </event-group>
@@ -899,6 +955,16 @@
                             <param id="1" name="Comparison">1</param>
                             <param id="2" name="Value">&quot;Dead&quot;</param>
                         </condition>
+                        <condition id="-7" name="Compare instance variable" sid="632541272574417" type="Enemy">
+                            <param id="0" name="Instance variable">Dist</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">64</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="146858963881443" type="Enemy">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;Dead&quot;</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-10" name="Set value" sid="257838374070480" type="Enemy">
@@ -911,7 +977,7 @@
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="272042959820095" type="Enemy">
                             <param id="0" name="Instance variable">State</param>
-                            <param id="1" name="Comparison">1</param>
+                            <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">&quot;Attack&quot;</param>
                         </condition>
                     </conditions>
@@ -938,8 +1004,13 @@
                             <param id="0" name="Instance variable">Damage</param>
                             <param id="1" name="Value">Enemy.Damage</param>
                         </action>
+                        <action id="4" name="Set animation" sid="407476812414974" type="Enemy">
+                            <param id="0" name="Animation">&quot;Attack&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
                     </actions>
                 </event-block>
+                <comment>Enemy Damage Player</comment>
                 <event-block sid="170701809448246">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="899820582914654" type="EnemyBullet">
@@ -950,6 +1021,14 @@
                         <action id="-12" name="Subtract from" sid="984333656341613" type="Player">
                             <param id="0" name="Instance variable">Health</param>
                             <param id="1" name="Value">EnemyBullet.Damage</param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="203749968597265" type="Player">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">0.2</param>
+                        </action>
+                        <action id="0" name="Set text" sid="555319154391908" type="PlayerStatsTxt">
+                            <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1237,18 +1316,39 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="955745286937380">
+                    <conditions>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="132739380722602" type="Player">
+                            <param id="0" name="Object">AmmoCrate</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="583830001478616" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="160293553855191" type="ActionTxt">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="824734521631921">
+                    <conditions>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="132905395881240" type="Player">
+                            <param id="0" name="Object">HealthCrate</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="947161933569616" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="832364537757588" type="ActionTxt">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="633850143443073">
                     <conditions>
                         <condition id="0" name="On key pressed" sid="299978288532055" type="Keyboard">
                             <param id="0" name="Key">69</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action id="-11" name="Add to" sid="961088415102673" type="Player">
-                            <param id="0" name="Instance variable">AmntAmmo</param>
-                            <param id="1" name="Value">AmmoCrate.Ammo</param>
-                        </action>
-                    </actions>
+                    <actions />
                     <sub-events>
                         <event-block sid="671134456592480">
                             <conditions>
@@ -1257,9 +1357,13 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action id="-11" name="Add to" sid="961088415102673" type="Player">
+                                    <param id="0" name="Instance variable">AmntAmmo</param>
+                                    <param id="1" name="Value">AmmoCrate.Ammo</param>
+                                </action>
                                 <action id="-9" name="Destroy" sid="315476217026475" type="AmmoCrate" />
-                                <action id="0" name="Set text" sid="399766434854000" type="PlayerStatsTxt">
-                                    <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;newline&amp;&#x0D;&#x0A;&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
+                                <action id="0" name="Set text" sid="682072968774442" type="PlayerStatsTxt">
+                                    <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -1271,8 +1375,8 @@
                             </conditions>
                             <actions>
                                 <action id="-9" name="Destroy" sid="704609762858020" type="HealthCrate" />
-                                <action id="0" name="Set text" sid="729201579762342" type="PlayerStatsTxt">
-                                    <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;newline&amp;&#x0D;&#x0A;&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
+                                <action id="0" name="Set text" sid="382892092236354" type="PlayerStatsTxt">
+                                    <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
                                 </action>
                             </actions>
                         </event-block>
