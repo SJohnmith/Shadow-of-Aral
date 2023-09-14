@@ -103,7 +103,7 @@
             <object-type name="PlayerStatsTxt" sid="290078261562595">
                 <plugin id="Text" />
             </object-type>
-            <object-type name="UI_Btn" sid="595535365364911">
+            <object-type name="UI_Holder" sid="595535365364911">
                 <plugin id="NinePatch" />
                 <texture />
             </object-type>
@@ -114,6 +114,17 @@
             <object-type name="Cnt_BulletsLeft" sid="742291430306225">
                 <plugin id="TiledBg" />
                 <texture />
+            </object-type>
+            <object-type name="Btn_Bg" sid="565780461630253">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="607139679983705" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="ReadTxt" sid="819083255960822">
+                <plugin id="Text" />
             </object-type>
         </object-folder>
         <object-folder name="HUD Assets">
@@ -148,11 +159,6 @@
             </object-type>
             <object-type name="LightCamera" sid="261861802333378">
                 <plugin id="Sprite" />
-                <behaviors>
-                    <behavior-type name="ScrollTo" sid="206407164330683">
-                        <behavior id="scrollto" />
-                    </behavior-type>
-                </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="808170957064412" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
@@ -252,8 +258,19 @@
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="583639471464888" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
-                    <animation framecount="1" loop="0" name="Main" pingpong="0" repeatcount="1" repeatto="0" sid="205711153524848" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.503817" />
+                    <animation framecount="1" loop="0" name="Main" pingpong="0" repeatcount="0" repeatto="0" sid="205711153524848" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503817">
+                            <image-point name="FrontArm" x="0.388889" y="0.435115" />
+                            <image-point name="HUD" x="0.5" y="0" />
+                            <collision-poly>
+                                <point x="0.0787037" y="0.0305344" />
+                                <point x="0.884259" y="0.0229008" />
+                                <point x="0.814815" y="0.377863" />
+                                <point x="0.967593" y="1" />
+                                <point x="0.263889" y="1" />
+                                <point x="0.226852" y="0.374046" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -281,13 +298,8 @@
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="818981085038695" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0.5">
-                            <image-point name="Imagepoint 1" x="1" y="0.5" />
-                        </frame>
-                    </animation>
-                    <animation framecount="1" loop="0" name="Ak47" pingpong="0" repeatcount="1" repeatto="0" sid="719086143609767" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0.514286">
+                    <animation framecount="1" loop="0" name="Ak47" pingpong="0" repeatcount="0" repeatto="0" sid="719086143609767" speed="0">
+                        <frame duration="1" hotspotX="0.00900901" hotspotY="0.142857">
                             <image-point name="Imagepoint 1" x="1.01802" y="0.228571" />
                         </frame>
                     </animation>
@@ -308,7 +320,7 @@
                             </collision-poly>
                         </frame>
                     </animation>
-                    <animation framecount="5" loop="0" name="Attack" pingpong="0" repeatcount="1" repeatto="0" sid="467393289887133" speed="5">
+                    <animation framecount="5" loop="0" name="Attack" pingpong="0" repeatcount="0" repeatto="0" sid="467393289887133" speed="20">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Hp" x="0.5" y="-0.5" />
                             <image-point name="Dmg" x="1" y="0.5" />
@@ -390,10 +402,7 @@
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="Main" pingpong="0" repeatcount="1" repeatto="0" sid="122063743650026" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="289519683986102" speed="0">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="122063743650026" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
@@ -409,10 +418,7 @@
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="Main" pingpong="0" repeatcount="1" repeatto="0" sid="497388353687109" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="233642412067255" speed="0">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="497388353687109" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
@@ -432,7 +438,7 @@
                             </collision-poly>
                         </frame>
                     </animation>
-                    <animation framecount="5" loop="0" name="Attack" pingpong="0" repeatcount="1" repeatto="0" sid="524870138093901" speed="5">
+                    <animation framecount="5" loop="0" name="Attack" pingpong="0" repeatcount="1" repeatto="0" sid="524870138093901" speed="20">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Hp" x="0.5" y="-0.0625" />
                             <image-point name="Dmg" x="1" y="0.5" />
@@ -561,7 +567,7 @@
                             </collision-poly>
                         </frame>
                     </animation>
-                    <animation framecount="5" loop="0" name="Attack" pingpong="0" repeatcount="1" repeatto="0" sid="944450747043142" speed="5">
+                    <animation framecount="5" loop="0" name="Attack" pingpong="0" repeatcount="1" repeatto="0" sid="944450747043142" speed="20">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Hp" x="0.5" y="-0.0625" />
                             <image-point name="Dmg" x="1" y="0.5" />

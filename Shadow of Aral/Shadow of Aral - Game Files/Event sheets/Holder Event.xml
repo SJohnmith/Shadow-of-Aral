@@ -2,5 +2,30 @@
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Holder Event</name>
-    <events />
+    <events>
+        <event-block sid="913903056206931">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="147962210293693" type="Mouse">
+                    <param id="0" name="Object">Btn_Bg</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="9" name="Set scale" sid="711103279304383" type="Btn_Bg">
+                    <param id="0" name="Scale">1.1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="903270432694884">
+            <conditions>
+                <condition id="7" inverted="1" name="Cursor is over object" sid="316946672937992" type="Mouse">
+                    <param id="0" name="Object">Btn_Bg</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="9" name="Set scale" sid="305168671835837" type="Btn_Bg">
+                    <param id="0" name="Scale">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
 </c2eventsheet>
