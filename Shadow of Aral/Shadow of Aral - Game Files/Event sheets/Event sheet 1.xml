@@ -126,7 +126,7 @@
                         <action id="0" name="Spawn another object" sid="448766298106533" type="Player">
                             <param id="0" name="Object">Weapon</param>
                             <param id="1" name="Layer">Player.LayerName</param>
-                            <param id="2" name="Image point">0</param>
+                            <param id="2" name="Image point">1</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="553593041691435" type="ShadowLight">
                             <param id="0" name="Pin to">LightCamera</param>
@@ -1023,7 +1023,7 @@
                     </sub-events>
                 </event-block>
                 <comment>Enemy Chase</comment>
-                <event-block sid="780718193231563">
+                <event-block disabled="1" sid="780718193231563">
                     <conditions>
                         <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="353835625289095" type="Enemy">
                             <param id="0" name="Object">Player</param>
@@ -1043,7 +1043,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action disabled="1" id="-10" name="Set value" sid="715355343585004" type="Enemy">
+                        <action id="-10" name="Set value" sid="715355343585004" type="Enemy">
                             <param id="0" name="Instance variable">State</param>
                             <param id="1" name="Value">&quot;Left&quot;</param>
                         </action>
@@ -1108,7 +1108,13 @@
                         <action id="0" name="Spawn another object" sid="682632713478142" type="Enemy">
                             <param id="0" name="Object">EnemyBullet</param>
                             <param id="1" name="Layer">Enemy.LayerName</param>
-                            <param id="2" name="Image point">2</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-6" name="Set height" sid="382820864720878" type="EnemyBullet">
+                            <param id="0" name="Height">Enemy.Height</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="836870008003135" type="EnemyBullet">
+                            <param id="0" name="Width">Enemy.Width + 2</param>
                         </action>
                         <action id="-10" name="Set value" sid="231327074348100" type="EnemyBullet">
                             <param id="0" name="Instance variable">Damage</param>

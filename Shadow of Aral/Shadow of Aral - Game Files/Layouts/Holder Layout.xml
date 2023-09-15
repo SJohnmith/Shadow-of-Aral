@@ -111,45 +111,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Weapon" uid="35">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Ak47</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <Name>AK-47</Name>
-                        <Type>Multi</Type>
-                        <Damage>10</Damage>
-                        <FireRate>0.1</FireRate>
-                        <ReloadTime>5</ReloadTime>
-                        <ReloadBullets>30</ReloadBullets>
-                        <AmmoCapacity>30</AmmoCapacity>
-                        <AmmoLeft>30</AmmoLeft>
-                        <FireRange>500</FireRange>
-                        <Fired>false</Fired>
-                        <Reloading>false</Reloading>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Pin" />
-                        <behavior-instance type="Timer" />
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>224</x>
-                        <y>320</y>
-                        <z>0</z>
-                        <width>111</width>
-                        <height>35</height>
-                        <depth>0</depth>
-                        <hotspotX>0.009009009</hotspotX>
-                        <hotspotY>0.142857149</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="Bullet" uid="37">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -364,6 +325,110 @@
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Player" uid="6">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Main</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Health>100</Health>
+                        <Speed>330</Speed>
+                        <AmntAmmo>120</AmntAmmo>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="BoundToLayout">
+                            <properties>
+                                <bound-by>Edge</bound-by>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="ScrollTo">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Platform">
+                            <properties>
+                                <max-speed>330</max-speed>
+                                <acceleration>1500</acceleration>
+                                <deceleration>1500</deceleration>
+                                <jump-strength>800</jump-strength>
+                                <gravity>2000</gravity>
+                                <max-fall-speed>1000</max-fall-speed>
+                                <double-jump>Disabled</double-jump>
+                                <jump-sustain>0</jump-sustain>
+                                <default-controls>Yes</default-controls>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="8Direction">
+                            <properties>
+                                <max-speed>330</max-speed>
+                                <acceleration>1500</acceleration>
+                                <deceleration>1500</deceleration>
+                                <directions>8 directions</directions>
+                                <set-angle>No</set-angle>
+                                <default-controls>No</default-controls>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Flash" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>240</x>
+                        <y>336</y>
+                        <z>0</z>
+                        <width>54</width>
+                        <height>131</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.503816783</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Weapon" uid="35">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Ak47</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Name>AK-47</Name>
+                        <Type>Multi</Type>
+                        <Damage>10</Damage>
+                        <FireRate>0.1</FireRate>
+                        <ReloadTime>5</ReloadTime>
+                        <ReloadBullets>30</ReloadBullets>
+                        <AmmoCapacity>30</AmmoCapacity>
+                        <AmmoLeft>30</AmmoLeft>
+                        <FireRange>500</FireRange>
+                        <Fired>false</Fired>
+                        <Reloading>false</Reloading>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Pin" />
+                        <behavior-instance type="Timer" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>232</x>
+                        <y>326</y>
+                        <z>0</z>
+                        <width>111</width>
+                        <height>35</height>
+                        <depth>0</depth>
+                        <hotspotX>0.009009009</hotspotX>
+                        <hotspotY>0.142857149</hotspotY>
+                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
