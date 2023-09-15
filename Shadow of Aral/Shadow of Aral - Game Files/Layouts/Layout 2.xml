@@ -2,7 +2,7 @@
 <c2layout>
     <name>Layout 2</name>
     <sid>189629555858468</sid>
-    <event-sheet>Event sheet 1</event-sheet>
+    <event-sheet>Game Event</event-sheet>
     <size>
         <width>3840</width>
         <height>2160</height>
@@ -594,7 +594,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <Ammo>0</Ammo>
+                        <HealthPoints>0</HealthPoints>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>

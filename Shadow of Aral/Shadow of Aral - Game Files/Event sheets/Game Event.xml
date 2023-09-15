@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
-    <name>Event sheet 1</name>
+    <name>Game Event</name>
     <events>
         <include>Holder Event</include>
         <event-block sid="112095789472498">
@@ -1114,7 +1114,7 @@
                             <param id="0" name="Height">Enemy.Height</param>
                         </action>
                         <action id="-5" name="Set width" sid="836870008003135" type="EnemyBullet">
-                            <param id="0" name="Width">Enemy.Width + 2</param>
+                            <param id="0" name="Width">abs(Enemy.Width) + 12</param>
                         </action>
                         <action id="-10" name="Set value" sid="231327074348100" type="EnemyBullet">
                             <param id="0" name="Instance variable">Damage</param>
@@ -1126,6 +1126,7 @@
                         </action>
                     </actions>
                 </event-block>
+                <comment>Enemy Damage Player on Collision</comment>
                 <event-block sid="944182341819843">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="824629830690919" type="Enemy">
@@ -1150,6 +1151,9 @@
                         <action id="0" name="Set text" sid="912537982522531" type="PlayerStatsTxt">
                             <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
                         </action>
+                        <action id="-5" name="Set width" sid="282502219653610" type="UI_Hp_Bar">
+                            <param id="0" name="Width">(Player.Health/100)*386</param>
+                        </action>
                     </actions>
                 </event-block>
                 <comment>Enemy Damage Player</comment>
@@ -1171,6 +1175,9 @@
                         </action>
                         <action id="0" name="Set text" sid="555319154391908" type="PlayerStatsTxt">
                             <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="860023893602994" type="UI_Hp_Bar">
+                            <param id="0" name="Width">(Player.Health/100)*386</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1527,9 +1534,18 @@
                                     <param id="0" name="Instance variable">AmntAmmo</param>
                                     <param id="1" name="Value">AmmoCrate.Ammo</param>
                                 </action>
-                                <action id="-9" name="Destroy" sid="315476217026475" type="AmmoCrate" />
                                 <action id="0" name="Set text" sid="682072968774442" type="PlayerStatsTxt">
                                     <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="315476217026475" type="AmmoCrate" />
+                                <action id="0" name="Spawn another object" sid="165921758441046" type="Player">
+                                    <param id="0" name="Object">ItemGain</param>
+                                    <param id="1" name="Layer">&quot;HUD&quot;</param>
+                                    <param id="2" name="Image point">2</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="736992806186146" type="ItemGain">
+                                    <param id="0" name="Animation">&quot;Ammo&quot;</param>
+                                    <param id="1" name="From">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -1540,13 +1556,60 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-9" name="Destroy" sid="704609762858020" type="HealthCrate" />
-                                <action id="0" name="Set text" sid="382892092236354" type="PlayerStatsTxt">
+                                <action id="-11" name="Add to" sid="209463778527359" type="Player">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Value">HealthCrate.HealthPoints</param>
+                                </action>
+                                <action id="-5" name="Set width" sid="720350036494032" type="UI_Hp_Bar">
+                                    <param id="0" name="Width">(Player.Health/100)*386</param>
+                                </action>
+                                <action id="0" name="Set text" sid="274599881265078" type="PlayerStatsTxt">
                                     <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
                                 </action>
+                                <action id="-9" name="Destroy" sid="704609762858020" type="HealthCrate" />
+                                <action id="0" name="Spawn another object" sid="297096699863305" type="Player">
+                                    <param id="0" name="Object">ItemGain</param>
+                                    <param id="1" name="Layer">&quot;HUD&quot;</param>
+                                    <param id="2" name="Image point">2</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="968608004677896" type="ItemGain">
+                                    <param id="0" name="Animation">&quot;Health&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="993351610530806">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="249358311789063" type="Player">
+                                            <param id="0" name="Instance variable">Health</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">100</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="924590188478219" type="Player">
+                                            <param id="0" name="Instance variable">Health</param>
+                                            <param id="1" name="Value">100</param>
+                                        </action>
+                                        <action id="-5" name="Set width" sid="255411973303449" type="UI_Hp_Bar">
+                                            <param id="0" name="Width">(Player.Health/100)*386</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="382892092236354" type="PlayerStatsTxt">
+                                            <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="797550163037527" title="Elevator">
+            <sub-events>
+                <event-block sid="426031961483786">
+                    <conditions />
+                    <actions />
                 </event-block>
             </sub-events>
         </event-group>

@@ -32,6 +32,7 @@
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
@@ -40,7 +41,9 @@
         <behavior author="Scirra" id="shadowcaster" version="1">Shadow Caster</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
-    <used-effects />
+    <used-effects>
+        <effect author="Scirra" id="hsladjust">Adjust HSL</effect>
+    </used-effects>
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
@@ -117,14 +120,54 @@
             </object-type>
             <object-type name="Btn_Bg" sid="565780461630253">
                 <plugin id="Sprite" />
+                <effects>
+                    <effect-type name="AdjustHSL">
+                        <effect id="hsladjust" />
+                    </effect-type>
+                </effects>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="607139679983705" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
             </object-type>
-            <object-type name="ReadTxt" sid="819083255960822">
+            <object-type name="Btn_Txt" sid="819083255960822">
                 <plugin id="Text" />
+            </object-type>
+            <object-type name="UI_Hp_Bar" sid="888254419153653">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="UI_Hp_Bg" sid="673668889589965">
+                <plugin id="NinePatch" />
+                <texture />
+            </object-type>
+            <object-type name="UI_Hp_Icon" sid="614350088156892">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="294896508555038" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="ItemGain" sid="518867264041109">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Sine" sid="279573413960721">
+                        <behavior id="Sin" />
+                    </behavior-type>
+                    <behavior-type name="Fade" sid="218481023957341">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Health" pingpong="0" repeatcount="0" repeatto="0" sid="744738201519909" speed="0">
+                        <frame duration="1" hotspotX="0.517241" hotspotY="0.517241" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="Ammo" pingpong="0" repeatcount="0" repeatto="0" sid="310171970694054" speed="0">
+                        <frame duration="1" hotspotX="0.517241" hotspotY="0.517241" />
+                    </animation>
+                </animation-folder>
             </object-type>
         </object-folder>
         <object-folder name="HUD Assets">
@@ -504,7 +547,7 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="342615873791703" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -537,7 +580,7 @@
             <object-type name="HealthCrate" sid="113062464836467">
                 <plugin id="Sprite" />
                 <instance-variables>
-                    <instance-variable name="Ammo" sid="953966835744574" type="number" />
+                    <instance-variable name="HealthPoints" sid="953966835744574" type="number" />
                 </instance-variables>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="877144119609738" speed="0">
@@ -752,10 +795,12 @@
         <layout>Layout 1.xml</layout>
         <layout>Layout 2.xml</layout>
         <layout>Holder Layout.xml</layout>
+        <layout>Main Menu.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>Event sheet 1.xml</event-sheet>
+        <event-sheet>Game Event.xml</event-sheet>
         <event-sheet>Holder Event.xml</event-sheet>
+        <event-sheet>Main Menu Event.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Mouse" uid="2" />
