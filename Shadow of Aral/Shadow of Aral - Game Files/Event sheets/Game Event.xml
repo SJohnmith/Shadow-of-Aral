@@ -24,12 +24,12 @@
                     </conditions>
                     <actions>
                         <action id="-3" name="Create object" sid="593664244786979" type="System">
-                            <param id="0" name="Object to create">SolidObjectShadow</param>
+                            <param id="0" name="Object to create">ShadowOffWalls</param>
                             <param id="1" name="Layer">&quot;Background&quot;</param>
                             <param id="2" name="X">SolidObject.X</param>
                             <param id="3" name="Y">SolidObject.Y</param>
                         </action>
-                        <action id="-7" name="Set size" sid="510239067271592" type="SolidObjectShadow">
+                        <action id="-7" name="Set size" sid="510239067271592" type="ShadowOffWalls">
                             <param id="0" name="Width">SolidObject.Width</param>
                             <param id="1" name="Height">SolidObject.Height</param>
                         </action>
@@ -83,6 +83,7 @@
         </event-block>
         <event-group description="" sid="884874334710201" title="Player">
             <sub-events>
+                <comment>Instantiate Player</comment>
                 <event-block sid="108395620183273">
                     <conditions>
                         <condition id="-18" name="On created" sid="711707628209907" type="Player" />
@@ -387,6 +388,33 @@
                         <action id="0" name="Call function" sid="726880829252684" type="Function">
                             <param id="0" name="Name">&quot;WeaponShot&quot;</param>
                             <param id="1" name="Parameter {n}">Player.UID{###}&quot;My&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Player Change Lights</comment>
+                <event-block sid="493225530331758">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="615565679111606" type="Player">
+                            <param id="0" name="Object">AreaDark</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-35" name="Set layer transparent" sid="893146871178208" type="System">
+                            <param id="0" name="Layer">&quot;Light&quot;</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="432308522296608">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="999482911368409" type="Player">
+                            <param id="0" name="Object">AreaLight</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-35" name="Set layer transparent" sid="454708292374662" type="System">
+                            <param id="0" name="Layer">&quot;Light&quot;</param>
+                            <param id="1" name="Mode">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -716,16 +744,12 @@
                                 <action id="-5" name="Set width" sid="778767120257227" type="Cnt_BulletsLeft">
                                     <param id="0" name="Width">(Weapon.AmmoLeft/Weapon.ReloadBullets)*Cnt_Bullets.Width</param>
                                 </action>
-                                <action disabled="1" id="28" name="Play at object (by name)" sid="719050857544938" type="Audio">
+                                <action disabled="1" id="7" name="Play (by name)" sid="477266532101901" type="Audio">
                                     <param id="0" name="Folder">0</param>
                                     <param id="1" name="Audio file name">&quot;ak47_Fire_1&quot;</param>
-                                    <param id="2" name="Loop">0</param>
-                                    <param id="3" name="Volume">0</param>
-                                    <param id="4" name="Object">Weapon</param>
-                                    <param id="5" name="Inner angle">0</param>
-                                    <param id="6" name="Outer angle">360</param>
-                                    <param id="7" name="Outer gain">0</param>
-                                    <param id="8" name="Tag (optional)">&quot;&quot;</param>
+                                    <param id="3" name="Loop">0</param>
+                                    <param id="4" name="Volume">0</param>
+                                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
                                 </action>
                             </actions>
                             <sub-events>

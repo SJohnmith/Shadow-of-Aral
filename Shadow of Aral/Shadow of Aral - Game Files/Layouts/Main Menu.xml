@@ -28,7 +28,35 @@
             <use-render-cells>0</use-render-cells>
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
-            <instances />
+            <instances>
+                <instance type="GameTitle_Txt" uid="141">
+                    <properties>
+                        <text>Shadow of Aral</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-96,400,0</font>
+                        <color>0,0,0</color>
+                        <horizontal-alignment>Center</horizontal-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
+                        <hotspot>Top</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>960</x>
+                        <y>128</y>
+                        <z>0</z>
+                        <width>960</width>
+                        <height>192</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+            </instances>
             <effects />
         </layer>
         <layer name="Buttons" sid="793241095805977">
@@ -66,7 +94,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>896</x>
+                        <x>960</x>
                         <y>576</y>
                         <z>0</z>
                         <width>256</width>
@@ -93,7 +121,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>896</x>
+                        <x>960</x>
                         <y>576</y>
                         <z>0</z>
                         <width>256</width>
@@ -124,7 +152,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>896</x>
+                        <x>960</x>
                         <y>704</y>
                         <z>0</z>
                         <width>256</width>
@@ -151,7 +179,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>896</x>
+                        <x>960</x>
                         <y>704</y>
                         <z>0</z>
                         <width>256</width>
@@ -182,7 +210,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>896</x>
+                        <x>960</x>
                         <y>832</y>
                         <z>0</z>
                         <width>256</width>
@@ -209,7 +237,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>896</x>
+                        <x>960</x>
                         <y>832</y>
                         <z>0</z>
                         <width>256</width>

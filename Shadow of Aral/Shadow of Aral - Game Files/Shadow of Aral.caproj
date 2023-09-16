@@ -237,15 +237,6 @@
                 </behaviors>
                 <texture />
             </object-type>
-            <object-type name="SolidObjectShadow" sid="997295942026626">
-                <plugin id="TiledBg" />
-                <behaviors>
-                    <behavior-type name="ShadowCaster" sid="600530498813468">
-                        <behavior id="shadowcaster" />
-                    </behavior-type>
-                </behaviors>
-                <texture />
-            </object-type>
             <object-type name="Ladder" sid="919889763398909">
                 <plugin id="Sprite" />
                 <animation-folder>
@@ -268,6 +259,31 @@
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="771395994581739" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="AreaDark" sid="165687062287724">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="234303823074684" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="SurfaceGround" sid="697894684198633">
+                <plugin id="TiledBg" />
+                <behaviors>
+                    <behavior-type name="Solid" sid="581501946678056">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <texture />
+            </object-type>
+            <object-type name="AreaLight" sid="296028791778927">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="893189250417866" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -306,8 +322,8 @@
                             <image-point name="FrontArm" x="0.388889" y="0.435115" />
                             <image-point name="HUD" x="0.5" y="0" />
                             <collision-poly>
-                                <point x="0.0787037" y="0.0305344" />
-                                <point x="0.884259" y="0.0229008" />
+                                <point x="0.0833333" y="0.0419848" />
+                                <point x="0.949074" y="0.0400764" />
                                 <point x="0.814815" y="0.377863" />
                                 <point x="0.967593" y="1" />
                                 <point x="0.263889" y="1" />
@@ -758,8 +774,20 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="ShadowOffWalls" sid="997295942026626">
+                <plugin id="TiledBg" />
+                <behaviors>
+                    <behavior-type name="ShadowCaster" sid="600530498813468">
+                        <behavior id="shadowcaster" />
+                    </behavior-type>
+                </behaviors>
+                <texture />
+            </object-type>
         </object-folder>
         <object-type name="Debug" sid="456501450273709">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="GameTitle_Txt" sid="801642566770385">
             <plugin id="Text" />
         </object-type>
     </object-folder>
@@ -792,10 +820,10 @@
         </family>
     </families>
     <layout-folder>
-        <layout>Layout 1.xml</layout>
-        <layout>Layout 2.xml</layout>
-        <layout>Holder Layout.xml</layout>
         <layout>Main Menu.xml</layout>
+        <layout>Holder Layout.xml</layout>
+        <layout>Level 1.xml</layout>
+        <layout>Level 2.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Game Event.xml</event-sheet>

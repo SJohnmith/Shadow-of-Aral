@@ -4,5 +4,26 @@
     <name>Main Menu Event</name>
     <events>
         <include>Holder Event</include>
+        <event-block sid="759375258194539">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="618926346793390" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">Btn_Bg</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="463430232838194" type="Btn_Bg">
+                    <param id="0" name="Object">Btn_Txt</param>
+                </condition>
+                <condition id="0" name="Compare text" sid="997546729161526" type="Btn_Txt">
+                    <param id="0" name="Text to compare">&quot;Play&quot;</param>
+                    <param id="1" name="Case sensitivity">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="445616438649730" type="System">
+                    <param id="0" name="Layout">&quot;Level 1&quot;</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>
