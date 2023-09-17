@@ -118,16 +118,42 @@
                         <action behavior="LiteTween" id="3" name="Set target" sid="885279126688415" type="Instruc_Bg">
                             <param id="0" name="Target is">1</param>
                             <param id="1" name="Relativity">0</param>
-                            <param id="2" name="Value">0</param>
+                            <param id="2" name="Value">-256</param>
                         </action>
-                        <action behavior="LiteTween" id="26" name="Create/Initialize tween" sid="134587447707510" type="Instruc_Bg">
-                            <param id="0" name="Tweened property">0</param>
-                            <param id="1" name="Function">0</param>
-                            <param id="2" name="Target">&quot;&quot;</param>
-                            <param id="3" name="Duration">0</param>
-                            <param id="4" name="Enforce mode">0</param>
+                        <action behavior="LiteTween" id="10" name="Start" sid="134587447707510" type="Instruc_Bg">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
                         </action>
                     </actions>
+                </event-block>
+                <event-block sid="899550982338969">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="127450638235201" type="Keyboard">
+                            <param id="0" name="Key">32</param>
+                        </condition>
+                        <condition id="-2" name="Compare Y" sid="711735929274624" type="Instruc_Bg">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="Y co-ordinate">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="291755465262090" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="241959328105467" type="Instruc_Bg">
+                            <param id="0" name="Target is">1</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">64</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="538567441440513" type="Instruc_Bg">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="765369406360306">
+                    <conditions />
+                    <actions />
                 </event-block>
             </sub-events>
         </event-group>
