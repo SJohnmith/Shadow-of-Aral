@@ -307,6 +307,14 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="TopWallBG" sid="673052407308536">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="LowerWallBG" sid="324231110243948">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder name="Main Assets">
             <object-type name="Player" sid="358775648016229">
@@ -334,21 +342,31 @@
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="583639471464888" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="Main" pingpong="0" repeatcount="0" repeatto="0" sid="205711153524848" speed="0">
+                    <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="205711153524848" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.503817">
-                            <image-point name="FrontArm" x="0.388889" y="0.435115" />
+                            <image-point name="Arm" x="0.388889" y="0.435115" />
                             <image-point name="HUD" x="0.5" y="0" />
-                            <image-point name="Feet" x="0.537037" y="0.70229" />
+                            <image-point name="Feet" x="0.611111" y="0.633588" />
                             <collision-poly>
-                                <point x="0.0833333" y="0.0419848" />
-                                <point x="0.949074" y="0.0400764" />
-                                <point x="0.814815" y="0.377863" />
-                                <point x="0.967593" y="1" />
-                                <point x="0.263889" y="1" />
-                                <point x="0.226852" y="0.374046" />
+                                <point x="0.0833333" y="0.0458015" />
+                                <point x="0.949074" y="0.0458015" />
+                                <point x="0.814815" y="0.374046" />
+                                <point x="0.814815" y="1" />
+                                <point x="0.222222" y="1" />
+                                <point x="0.222222" y="0.374046" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503817">
+                            <image-point name="Arm" x="0.388889" y="0.435115" />
+                            <image-point name="HUD" x="0.5" y="0" />
+                            <image-point name="Feet" x="0.611111" y="0.633588" />
+                            <collision-poly>
+                                <point x="0.0833333" y="0.0458015" />
+                                <point x="0.949074" y="0.0458015" />
+                                <point x="0.814815" y="0.374046" />
+                                <point x="0.814815" y="1" />
+                                <point x="0.222222" y="1" />
+                                <point x="0.222222" y="0.374046" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -708,6 +726,30 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="PlayerFeet" sid="350440589986108">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="908843707810760">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="436632708032575" speed="0">
+                        <frame duration="1" hotspotX="0.512821" hotspotY="0" />
+                    </animation>
+                    <animation framecount="9" loop="1" name="Walk" pingpong="0" repeatcount="1" repeatto="0" sid="721949185731317" speed="7">
+                        <frame duration="1" hotspotX="0.512821" hotspotY="0" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0" />
+                        <frame duration="1" hotspotX="0.507246" hotspotY="0" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0" />
+                        <frame duration="1" hotspotX="0.512821" hotspotY="0" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0" />
+                        <frame duration="1" hotspotX="0.508197" hotspotY="0" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0" />
+                        <frame duration="1" hotspotX="0.512821" hotspotY="0" />
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder name="Lighting Assets">
             <object-type name="MouseVision" sid="477260970888017">
@@ -760,16 +802,7 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="351661287587065" speed="5">
-                        <frame duration="1" hotspotX="0.02" hotspotY="0.5">
-                            <collision-poly>
-                                <point x="0.5" y="0.72" />
-                                <point x="0.1375" y="0.633333" />
-                                <point x="0.0125" y="0.5" />
-                                <point x="0.13" y="0.346667" />
-                                <point x="0.5" y="0.266667" />
-                                <point x="0.735" y="0.5" />
-                            </collision-poly>
-                        </frame>
+                        <frame duration="1" hotspotX="0.02" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -815,32 +848,6 @@
         </object-type>
         <object-type name="GameTitle_Txt" sid="801642566770385">
             <plugin id="Text" />
-        </object-type>
-        <object-type name="TopWallBG" sid="673052407308536">
-            <plugin id="TiledBg" />
-            <texture />
-        </object-type>
-        <object-type name="LowerWallBG" sid="324231110243948">
-            <plugin id="TiledBg" />
-            <texture />
-        </object-type>
-        <object-type name="PlayerFeet" sid="350440589986108">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Pin" sid="908843707810760">
-                    <behavior id="Pin" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="6" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="721949185731317" speed="5">
-                    <frame duration="1" hotspotX="0.512821" hotspotY="0" />
-                    <frame duration="1" hotspotX="0.5" hotspotY="0" />
-                    <frame duration="1" hotspotX="0.507246" hotspotY="0" />
-                    <frame duration="1" hotspotX="0.5" hotspotY="0" />
-                    <frame duration="1" hotspotX="0.508197" hotspotY="0" />
-                    <frame duration="1" hotspotX="0.5" hotspotY="0" />
-                </animation>
-            </animation-folder>
         </object-type>
     </object-folder>
     <families>

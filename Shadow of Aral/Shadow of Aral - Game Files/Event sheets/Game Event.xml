@@ -127,7 +127,20 @@
                         <action id="0" name="Spawn another object" sid="448766298106533" type="Player">
                             <param id="0" name="Object">Weapon</param>
                             <param id="1" name="Layer">Player.LayerName</param>
-                            <param id="2" name="Image point">1</param>
+                            <param id="2" name="Image point">&quot;Arm&quot;</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="430553357768815" type="Player">
+                            <param id="0" name="Object">PlayerFeet</param>
+                            <param id="1" name="Layer">Player.LayerName</param>
+                            <param id="2" name="Image point">&quot;Feet&quot;</param>
+                        </action>
+                        <action id="-29" name="Move to object" sid="769177588366397" type="PlayerFeet">
+                            <param id="0" name="Where">1</param>
+                            <param id="1" name="Object">Player</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="247989805488314" type="PlayerFeet">
+                            <param id="0" name="Pin to">Player</param>
+                            <param id="1" name="Mode">0</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="553593041691435" type="ShadowLight">
                             <param id="0" name="Pin to">LightCamera</param>
@@ -335,12 +348,24 @@
                         <action id="8" name="Set flipped" sid="801792067302352" type="Weapon">
                             <param id="0" name="State">1</param>
                         </action>
+                        <action id="7" name="Set mirrored" sid="645772172411991" type="PlayerFeet">
+                            <param id="0" name="State">1</param>
+                        </action>
                         <action behavior="Pin" id="1" name="Unpin" sid="266302193192386" type="Weapon" />
                         <action id="-4" name="Set position to another object" sid="558475642131562" type="Weapon">
                             <param id="0" name="Object">Player</param>
-                            <param id="1" name="Image point (optional)">1</param>
+                            <param id="1" name="Image point (optional)">&quot;Arm&quot;</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="753289806383077" type="Weapon">
+                            <param id="0" name="Pin to">Player</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action behavior="Pin" id="1" name="Unpin" sid="743724889269143" type="PlayerFeet" />
+                        <action id="-4" name="Set position to another object" sid="302798060414047" type="PlayerFeet">
+                            <param id="0" name="Object">Player</param>
+                            <param id="1" name="Image point (optional)">&quot;Feet&quot;</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="822365846163309" type="PlayerFeet">
                             <param id="0" name="Pin to">Player</param>
                             <param id="1" name="Mode">0</param>
                         </action>
@@ -362,6 +387,9 @@
                         <action id="8" name="Set flipped" sid="660135644242628" type="Weapon">
                             <param id="0" name="State">0</param>
                         </action>
+                        <action id="7" name="Set mirrored" sid="897506112976776" type="PlayerFeet">
+                            <param id="0" name="State">0</param>
+                        </action>
                         <action behavior="Pin" id="1" name="Unpin" sid="656226988815554" type="Weapon" />
                         <action id="-4" name="Set position to another object" sid="479972445129567" type="Weapon">
                             <param id="0" name="Object">Player</param>
@@ -370,6 +398,38 @@
                         <action behavior="Pin" id="0" name="Pin to object" sid="426304185446722" type="Weapon">
                             <param id="0" name="Pin to">Player</param>
                             <param id="1" name="Mode">0</param>
+                        </action>
+                        <action behavior="Pin" id="1" name="Unpin" sid="857558935794125" type="PlayerFeet" />
+                        <action id="-4" name="Set position to another object" sid="409869212071167" type="PlayerFeet">
+                            <param id="0" name="Object">Player</param>
+                            <param id="1" name="Image point (optional)">&quot;Feet&quot;</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="298756178807657" type="PlayerFeet">
+                            <param id="0" name="Pin to">Player</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Player when Moving</comment>
+                <event-block sid="832307245938714">
+                    <conditions>
+                        <condition behavior="Platform" id="8" name="On moved" sid="413398993766589" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="676525000032601" type="PlayerFeet">
+                            <param id="0" name="Animation">&quot;Walk&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="526723193996291">
+                    <conditions>
+                        <condition behavior="Platform" id="7" name="On stopped" sid="710372822845740" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="163496674126157" type="PlayerFeet">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
                         </action>
                     </actions>
                 </event-block>
