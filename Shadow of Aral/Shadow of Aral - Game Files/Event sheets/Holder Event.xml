@@ -3,18 +3,14 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Holder Event</name>
     <events>
-        <event-block sid="903237054123559">
+        <event-block sid="744812782702676">
             <conditions>
-                <condition id="0" name="On key pressed" sid="291041580789868" type="Keyboard">
-                    <param id="0" name="Key">32</param>
-                </condition>
+                <condition id="-2" name="On start of layout" sid="879275712165968" type="System" />
             </conditions>
             <actions>
-                <action id="-3" name="Create object" sid="333071507020295" type="System">
-                    <param id="0" name="Object to create">ItemGain</param>
-                    <param id="1" name="Layer">&quot;Base Holder&quot;</param>
-                    <param id="2" name="X">random(500, 800)</param>
-                    <param id="3" name="Y">random(500, 800)</param>
+                <action behavior="Pin" id="0" name="Pin to object" sid="204575865547358" type="Instruc_Txt">
+                    <param id="0" name="Pin to">Instruc_Bg</param>
+                    <param id="1" name="Mode">0</param>
                 </action>
             </actions>
         </event-block>
