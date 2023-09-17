@@ -175,11 +175,11 @@
                         <x>48</x>
                         <y>320</y>
                         <z>0</z>
-                        <width>32</width>
-                        <height>32</height>
+                        <width>34</width>
+                        <height>7</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0.571428597</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -222,11 +222,11 @@
                         <x>48</x>
                         <y>352</y>
                         <z>0</z>
-                        <width>34</width>
-                        <height>8</height>
+                        <width>15</width>
+                        <height>4</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>1.133333325</hotspotX>
+                        <hotspotY>1</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
