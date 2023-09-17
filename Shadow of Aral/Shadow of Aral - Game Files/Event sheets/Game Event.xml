@@ -739,7 +739,7 @@
                                 <action id="0" name="Spawn another object" sid="392679860650733" type="Weapon">
                                     <param id="0" name="Object">Shell</param>
                                     <param id="1" name="Layer">Weapon.LayerName</param>
-                                    <param id="2" name="Image point">0</param>
+                                    <param id="2" name="Image point">2</param>
                                 </action>
                                 <action id="-5" name="Set width" sid="778767120257227" type="Cnt_BulletsLeft">
                                     <param id="0" name="Width">(Weapon.AmmoLeft/Weapon.ReloadBullets)*Cnt_Bullets.Width</param>

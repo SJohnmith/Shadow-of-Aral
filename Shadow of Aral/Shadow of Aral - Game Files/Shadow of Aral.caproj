@@ -37,6 +37,7 @@
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
         <behavior author="Scirra" id="jumpthru" version="1">Jump-thru</behavior>
+        <behavior author="lunarray" id="lunarray_LiteTween" version="1.700000048">LiteTween</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="shadowcaster" version="1">Shadow Caster</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
@@ -168,6 +169,23 @@
                         <frame duration="1" hotspotX="0.517241" hotspotY="0.517241" />
                     </animation>
                 </animation-folder>
+            </object-type>
+            <object-type name="Instruc_Txt" sid="961738994252038">
+                <plugin id="Text" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="108820618464306">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+            </object-type>
+            <object-type name="Instruc_Bg" sid="513920479953499">
+                <plugin id="NinePatch" />
+                <behaviors>
+                    <behavior-type name="LiteTween" sid="919866663909691">
+                        <behavior id="lunarray_LiteTween" />
+                    </behavior-type>
+                </behaviors>
+                <texture />
             </object-type>
         </object-folder>
         <object-folder name="HUD Assets">
@@ -361,7 +379,8 @@
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Ak47" pingpong="0" repeatcount="0" repeatto="0" sid="719086143609767" speed="0">
                         <frame duration="1" hotspotX="0.00900901" hotspotY="0.142857">
-                            <image-point name="Imagepoint 1" x="1.01802" y="0.228571" />
+                            <image-point name="Bullet" x="1.01802" y="0.228571" />
+                            <image-point name="Shell" x="0.45045" y="0.142857" />
                         </frame>
                     </animation>
                 </animation-folder>
