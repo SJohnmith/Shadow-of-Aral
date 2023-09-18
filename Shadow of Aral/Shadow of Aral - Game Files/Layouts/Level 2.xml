@@ -39,6 +39,7 @@
                     <instance-variables>
                         <ID>0</ID>
                         <NextID>1</NextID>
+                        <PlayerSaved>false</PlayerSaved>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -65,6 +66,7 @@
                     <instance-variables>
                         <ID>1</ID>
                         <NextID>0</NextID>
+                        <PlayerSaved>false</PlayerSaved>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -91,6 +93,7 @@
                     <instance-variables>
                         <ID>2</ID>
                         <NextID>3</NextID>
+                        <PlayerSaved>false</PlayerSaved>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -117,6 +120,7 @@
                     <instance-variables>
                         <ID>3</ID>
                         <NextID>2</NextID>
+                        <PlayerSaved>false</PlayerSaved>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -415,8 +419,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <Go_To_Level>3</Go_To_Level>
+                        <Go_To_Level>1</Go_To_Level>
                         <Has_Access>false</Has_Access>
+                        <PlayerSaved>false</PlayerSaved>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -711,12 +716,13 @@
                                 <initial-state>Disabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Persist" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>3392</x>
-                        <y>704</y>
+                        <x>3456</x>
+                        <y>352</y>
                         <z>0</z>
                         <width>54</width>
                         <height>131</height>
@@ -766,6 +772,7 @@
                             </properties>
                         </behavior-instance>
                         <behavior-instance type="Flash" />
+                        <behavior-instance type="Persist" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -821,6 +828,7 @@
                             </properties>
                         </behavior-instance>
                         <behavior-instance type="Flash" />
+                        <behavior-instance type="Persist" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -876,6 +884,7 @@
                             </properties>
                         </behavior-instance>
                         <behavior-instance type="Flash" />
+                        <behavior-instance type="Persist" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -931,6 +940,7 @@
                             </properties>
                         </behavior-instance>
                         <behavior-instance type="Flash" />
+                        <behavior-instance type="Persist" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -986,6 +996,7 @@
                             </properties>
                         </behavior-instance>
                         <behavior-instance type="Flash" />
+                        <behavior-instance type="Persist" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>

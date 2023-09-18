@@ -30,6 +30,7 @@
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
         <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
+        <behavior author="Scirra" id="Persist" version="1">Persist</behavior>
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
@@ -316,6 +317,57 @@
                 <plugin id="TiledBg" />
                 <texture />
             </object-type>
+            <object-type name="Lamps" sid="661628654669132">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="739392671243387" speed="0">
+                        <frame duration="1" hotspotX="0.515152" hotspotY="0" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Sink" sid="250234327502887">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="678877713586145" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="TestLab" sid="724680354105786">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="479027141085734" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Tank" sid="796003511664364">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="767040465846620" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Table" sid="904734670025914">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="875090252129555" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Closet" sid="644858808344568">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="863942221558267" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="GameTitle_Txt" sid="801642566770385">
+                <plugin id="Text" />
+            </object-type>
         </object-folder>
         <object-folder name="Main Assets">
             <object-type name="Player" sid="358775648016229">
@@ -337,6 +389,9 @@
                     </behavior-type>
                     <behavior-type name="8Direction" sid="128396603883574">
                         <behavior id="EightDir" />
+                    </behavior-type>
+                    <behavior-type name="Persist" sid="125628340335334">
+                        <behavior id="Persist" />
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
@@ -404,6 +459,9 @@
                     </behavior-type>
                     <behavior-type name="Timer" sid="416049917997225">
                         <behavior id="Timer" />
+                    </behavior-type>
+                    <behavior-type name="Persist" sid="600438408844308">
+                        <behavior id="Persist" />
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
@@ -501,6 +559,7 @@
                 <instance-variables>
                     <instance-variable name="ID" sid="277378808162859" type="number" />
                     <instance-variable name="NextID" sid="183534943720368" type="number" />
+                    <instance-variable name="PlayerSaved" sid="586141043032640" type="boolean" />
                 </instance-variables>
                 <animation-folder>
                     <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="756717561720652" speed="0">
@@ -909,7 +968,7 @@
                     <instance-variable name="LoadTxt" sid="189927455235757" type="string" />
                 </instance-variables>
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="759335926395603" speed="5">
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="759335926395603" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
@@ -919,6 +978,7 @@
                 <instance-variables>
                     <instance-variable name="Go_To_Level" sid="678306846031211" type="number" />
                     <instance-variable name="Has_Access" sid="930385157636381" type="boolean" />
+                    <instance-variable name="PlayerSaved" sid="780385170641109" type="boolean" />
                 </instance-variables>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="771395994581739" speed="0">
@@ -1045,57 +1105,6 @@
         <object-type name="Debug" sid="456501450273709">
             <plugin id="Text" />
         </object-type>
-        <object-type name="GameTitle_Txt" sid="801642566770385">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="Lamps" sid="661628654669132">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="739392671243387" speed="0">
-                    <frame duration="1" hotspotX="0.515152" hotspotY="0" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Table" sid="904734670025914">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="875090252129555" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Sink" sid="250234327502887">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="678877713586145" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Tank" sid="796003511664364">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="767040465846620" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="TestLab" sid="724680354105786">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="479027141085734" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Closet" sid="644858808344568">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="863942221558267" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
-                </animation>
-            </animation-folder>
-        </object-type>
     </object-folder>
     <families>
         <family name="Enemy" plugin-id="Sprite" sid="585136534726861">
@@ -1121,6 +1130,9 @@
                 </behavior-type>
                 <behavior-type name="Flash" sid="580202008213190">
                     <behavior id="Flash" />
+                </behavior-type>
+                <behavior-type name="Persist" sid="576602245347554">
+                    <behavior id="Persist" />
                 </behavior-type>
             </behaviors>
         </family>
@@ -1158,7 +1170,17 @@
         </global-instance>
     </global-instances>
     <sounds-folder>
-        <file name="ak47_Fire_1.ogg" />
+        <sound-folder name="Weapon Fire">
+            <file name="ak47_Fire_1.ogg" />
+            <file name="ak47_Fire_2.ogg" />
+            <file name="ak47_Fire_3.ogg" />
+            <file name="ak47_Fire_4.ogg" />
+        </sound-folder>
+        <sound-folder name="Enemy Damage">
+            <file name="Enemy_Dmg_1.ogg" />
+            <file name="Enemy_Dmg_2.ogg" />
+        </sound-folder>
+        <file name="Gain_Ammo.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>

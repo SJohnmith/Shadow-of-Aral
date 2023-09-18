@@ -3,12 +3,18 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game Event</name>
     <events>
+        <variable constant="0" name="Level" sid="812717733755901" static="0" type="number">1</variable>
+        <variable constant="0" name="Ammo" sid="825174646312849" static="0" type="number">0</variable>
         <include>Holder Event</include>
         <event-block sid="112095789472498">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="507737457377206" type="System" />
             </conditions>
-            <actions />
+            <actions>
+                <action id="-5" name="Set width" sid="827201247817479" type="Cnt_BulletsLeft">
+                    <param id="0" name="Width">(Weapon.AmmoLeft/Weapon.AmmoCapacity)*Cnt_Bullets.Width</param>
+                </action>
+            </actions>
             <sub-events>
                 <comment>For Each Solid Spawn the Shadow</comment>
                 <event-block sid="932548416905199">
@@ -530,26 +536,68 @@
                         <condition id="-4" name="Trigger once while true" sid="762119737829422" type="System" />
                     </conditions>
                     <actions>
+                        <action id="-15" name="Set visible" sid="927515823969251" type="YouDied_Txt">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
                         <action behavior="Platform" id="5" name="Set gravity" sid="829206028332902" type="Player">
                             <param id="0" name="Gravity">0</param>
-                        </action>
-                        <action behavior="Platform" id="11" name="Set enabled" sid="672144755743010" type="Player">
-                            <param id="0" name="State">0</param>
-                        </action>
-                        <action behavior="8Direction" id="8" name="Set enabled" sid="113206577525974" type="Player">
-                            <param id="0" name="State">0</param>
                         </action>
                         <action id="11" name="Set collisions enabled" sid="591540126760811" type="Player">
                             <param id="0" name="Collisions">0</param>
                         </action>
-                        <action id="-15" name="Set visible" sid="927515823969251" type="YouDied_Txt">
-                            <param id="0" name="Visibility">1</param>
+                        <action id="4" name="Set animation" sid="372834807467184" type="PlayerFeet">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="108635839228396" type="System">
+                            <param id="0" name="Group name">&quot;Player&quot;</param>
+                            <param id="1" name="State">0</param>
                         </action>
                         <action id="-16" name="Wait" sid="761739287183410" type="System">
                             <param id="0" name="Seconds">3</param>
                         </action>
-                        <action id="-26" name="Restart layout" sid="849534187599755" type="System" />
+                        <action id="-9" name="Destroy" sid="550355824148337" type="Player" />
+                        <action id="-9" name="Destroy" sid="590099754928966" type="PlayerBody" />
+                        <action id="-9" name="Destroy" sid="125536879230546" type="Weapon" />
+                        <action id="-9" name="Destroy" sid="350805228023707" type="PlayerFeet" />
+                        <action id="-9" name="Destroy" sid="612068916692897" type="Rectile" />
+                        <action id="-9" name="Destroy" sid="337785662973658" type="Camera" />
+                        <action id="-9" name="Destroy" sid="461408710973854" type="LightCamera" />
+                        <action id="-9" name="Destroy" sid="738245093880570" type="PlayerVision" />
+                        <action id="-9" name="Destroy" sid="747828190921956" type="PlayerLight" />
+                        <action id="-9" name="Destroy" sid="772394201724873" type="ShadowLight" />
+                        <action id="-9" name="Destroy" sid="381813700287748" type="ActionTxt" />
+                        <action id="-16" name="Wait" sid="371487229554993" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="646913044317083">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="296993036161589" type="System">
+                                    <param id="0" name="Object">Doors</param>
+                                    <param id="1" name="Expression">Doors.PlayerSaved = 1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Set group active" sid="529869892495194" type="System">
+                                    <param id="0" name="Group name">&quot;Player&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="326211822338923" type="YouDied_Txt">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="653056538501789" type="Doors">
+                                    <param id="0" name="Object">Player</param>
+                                    <param id="1" name="Layer">&quot;Main&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="-5" name="Set width" sid="114227302866049" type="UI_Hp_Bar">
+                                    <param id="0" name="Width">(Player.Health/100)*386</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
@@ -877,9 +925,9 @@
                                 <action id="-5" name="Set width" sid="778767120257227" type="Cnt_BulletsLeft">
                                     <param id="0" name="Width">(Weapon.AmmoLeft/Weapon.ReloadBullets)*Cnt_Bullets.Width</param>
                                 </action>
-                                <action disabled="1" id="7" name="Play (by name)" sid="477266532101901" type="Audio">
+                                <action id="7" name="Play (by name)" sid="477266532101901" type="Audio">
                                     <param id="0" name="Folder">0</param>
-                                    <param id="1" name="Audio file name">&quot;ak47_Fire_1&quot;</param>
+                                    <param id="1" name="Audio file name">choose(&quot;ak47_Fire_1&quot;, &quot;ak47_Fire_2&quot;, &quot;ak47_Fire_3&quot;, &quot;ak47_Fire_4&quot;)</param>
                                     <param id="3" name="Loop">0</param>
                                     <param id="4" name="Volume">0</param>
                                     <param id="2" name="Tag (optional)">&quot;&quot;</param>
@@ -1109,6 +1157,11 @@
                 <event-block sid="585159431161441">
                     <conditions>
                         <condition id="-18" name="On created" sid="180756202800923" type="Enemy" />
+                        <condition id="-7" name="Compare instance variable" sid="339560338789928" type="Enemy">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">&quot;Dead&quot;</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="0" name="Spawn another object" sid="867724745854962" type="Enemy">
@@ -1599,6 +1652,13 @@
                             <param id="1" name="&apos;Off&apos; time">0.1</param>
                             <param id="2" name="Duration">0.1</param>
                         </action>
+                        <action id="7" name="Play (by name)" sid="867796802491757" type="Audio">
+                            <param id="0" name="Folder">0</param>
+                            <param id="1" name="Audio file name">choose(&quot;Enemy_Dmg_1&quot;, &quot;Enemy_Dmg_2&quot;)</param>
+                            <param id="3" name="Loop">0</param>
+                            <param id="4" name="Volume">0</param>
+                            <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                     </actions>
                     <sub-events>
                         <event-block sid="952663823789907">
@@ -1705,16 +1765,36 @@
                         <condition id="0" name="On key pressed" sid="343967118964027" type="Keyboard">
                             <param id="0" name="Key">69</param>
                         </condition>
-                        <condition id="1" name="Is overlapping another object" sid="231994665438233" type="Player">
-                            <param id="0" name="Object">Doors</param>
-                        </condition>
                     </conditions>
-                    <actions>
-                        <action id="0" name="Call function" sid="685976545757195" type="Function">
-                            <param id="0" name="Name">&quot;MoveToDoor&quot;</param>
-                            <param id="1" name="Parameter {n}">Doors.NextID</param>
-                        </action>
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="589828757044963">
+                            <conditions>
+                                <condition id="-19" name="Pick all" sid="135863977354502" type="System">
+                                    <param id="0" name="Object">Doors</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="876737655098845" type="Doors">
+                                    <param id="0" name="Instance variable">PlayerSaved</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="403882741328981">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="231994665438233" type="Player">
+                                    <param id="0" name="Object">Doors</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="685976545757195" type="Function">
+                                    <param id="0" name="Name">&quot;MoveToDoor&quot;</param>
+                                    <param id="1" name="Parameter {n}">Doors.NextID</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="949814344785801">
                     <conditions>
@@ -1736,6 +1816,10 @@
                                 <action id="-3" name="Set position" sid="838791523679218" type="Player">
                                     <param id="0" name="X">Doors.X</param>
                                     <param id="1" name="Y">Doors.Y - Player.Height/2</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="782927510847357" type="Doors">
+                                    <param id="0" name="Instance variable">PlayerSaved</param>
+                                    <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -1817,6 +1901,13 @@
                                 <action id="4" name="Set animation" sid="736992806186146" type="ItemGain">
                                     <param id="0" name="Animation">&quot;Ammo&quot;</param>
                                     <param id="1" name="From">1</param>
+                                </action>
+                                <action id="7" name="Play (by name)" sid="539586923016056" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">&quot;Gain_Ammo&quot;</param>
+                                    <param id="3" name="Loop">0</param>
+                                    <param id="4" name="Volume">0</param>
+                                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
