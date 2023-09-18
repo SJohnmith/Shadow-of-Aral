@@ -29,6 +29,144 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
+                <instance type="TopWallBG" uid="263">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>0</x>
+                        <y>0</y>
+                        <z>0</z>
+                        <width>1920</width>
+                        <height>1088</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="LowerWallBG" uid="261">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>0</x>
+                        <y>685</y>
+                        <z>0</z>
+                        <width>1920</width>
+                        <height>224</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="SolidObject" uid="262">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>0</x>
+                        <y>896</y>
+                        <z>0</z>
+                        <width>1920</width>
+                        <height>192</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="TestLab" uid="264">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1626.385742188</x>
+                        <y>896</y>
+                        <z>0</z>
+                        <width>480</width>
+                        <height>384</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>1</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Doors" uid="265">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <ID>2</ID>
+                        <NextID>3</NextID>
+                        <PlayerSaved>false</PlayerSaved>
+                    </instance-variables>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>960</x>
+                        <y>896</y>
+                        <z>0</z>
+                        <width>512</width>
+                        <height>704</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>1</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Rust" uid="266">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>960</x>
+                        <y>128</y>
+                        <z>0</z>
+                        <width>864</width>
+                        <height>192</height>
+                        <depth>0</depth>
+                        <hotspotX>0.500792384</hotspotX>
+                        <hotspotY>0.502732217</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
                 <instance type="GameTitle_Txt" uid="141">
                     <properties>
                         <text>Shadow of Aral</text>
@@ -44,8 +182,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>967</x>
-                        <y>132</y>
+                        <x>960</x>
+                        <y>32</y>
                         <z>0</z>
                         <width>960</width>
                         <height>192</height>
@@ -72,13 +210,35 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>960</x>
-                        <y>128</y>
+                        <y>32</y>
                         <z>0</z>
                         <width>960</width>
                         <height>192</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="NPC" uid="267">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>601.690795898</x>
+                        <y>877.870849609</y>
+                        <z>0</z>
+                        <width>466.49710083</width>
+                        <height>526.820007324</height>
+                        <depth>0</depth>
+                        <hotspotX>1.077586174</hotspotX>
+                        <hotspotY>0.95419848</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -115,7 +275,7 @@
                     <effect-instances>
                         <effect-instance type="AdjustHSL">
                             <parameters>
-                                <hue>0.5</hue>
+                                <hue>0</hue>
                                 <luminosity>1</luminosity>
                                 <saturation>1</saturation>
                             </parameters>
@@ -125,7 +285,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>960</x>
-                        <y>576</y>
+                        <y>352</y>
                         <z>0</z>
                         <width>256</width>
                         <height>64</height>
@@ -140,7 +300,7 @@
                     <properties>
                         <text>Play</text>
                         <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-32,400,0</font>
+                        <font>Algerian,-32,400,0</font>
                         <color>0,0,0</color>
                         <horizontal-alignment>Center</horizontal-alignment>
                         <vertical-alignment>Center</vertical-alignment>
@@ -155,7 +315,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>960</x>
-                        <y>576</y>
+                        <y>352</y>
                         <z>0</z>
                         <width>256</width>
                         <height>64</height>
@@ -179,7 +339,7 @@
                     <effect-instances>
                         <effect-instance type="AdjustHSL">
                             <parameters>
-                                <hue>0.5</hue>
+                                <hue>0</hue>
                                 <luminosity>1</luminosity>
                                 <saturation>1</saturation>
                             </parameters>
@@ -189,7 +349,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>960</x>
-                        <y>704</y>
+                        <y>480</y>
                         <z>0</z>
                         <width>256</width>
                         <height>64</height>
@@ -204,7 +364,7 @@
                     <properties>
                         <text>Credits</text>
                         <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-32,400,0</font>
+                        <font>Algerian,-32,400,0</font>
                         <color>0,0,0</color>
                         <horizontal-alignment>Center</horizontal-alignment>
                         <vertical-alignment>Center</vertical-alignment>
@@ -219,7 +379,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>960</x>
-                        <y>704</y>
+                        <y>480</y>
                         <z>0</z>
                         <width>256</width>
                         <height>64</height>
@@ -243,7 +403,7 @@
                     <effect-instances>
                         <effect-instance type="AdjustHSL">
                             <parameters>
-                                <hue>0.5</hue>
+                                <hue>0</hue>
                                 <luminosity>1</luminosity>
                                 <saturation>1</saturation>
                             </parameters>
@@ -253,7 +413,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>960</x>
-                        <y>832</y>
+                        <y>608</y>
                         <z>0</z>
                         <width>256</width>
                         <height>64</height>
@@ -268,7 +428,7 @@
                     <properties>
                         <text>Quit</text>
                         <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-32,400,0</font>
+                        <font>Algerian,-32,400,0</font>
                         <color>0,0,0</color>
                         <horizontal-alignment>Center</horizontal-alignment>
                         <vertical-alignment>Center</vertical-alignment>
@@ -283,7 +443,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>960</x>
-                        <y>832</y>
+                        <y>608</y>
                         <z>0</z>
                         <width>256</width>
                         <height>64</height>
