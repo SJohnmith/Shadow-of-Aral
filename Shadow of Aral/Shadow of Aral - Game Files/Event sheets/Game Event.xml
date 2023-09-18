@@ -1374,8 +1374,8 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="4" name="Set animation" sid="926955882941486" type="Enemy">
-                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                        <action id="4" name="Set animation" sid="339752602974065" type="Enemy">
+                            <param id="0" name="Animation">&quot;Walk&quot;</param>
                             <param id="1" name="From">1</param>
                         </action>
                         <action behavior="Platform" id="7" name="Simulate control" sid="604340144376227" type="Enemy">
@@ -1395,8 +1395,8 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="4" name="Set animation" sid="855873950031427" type="Enemy">
-                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                        <action id="4" name="Set animation" sid="121715803639706" type="Enemy">
+                            <param id="0" name="Animation">&quot;Walk&quot;</param>
                             <param id="1" name="From">1</param>
                         </action>
                         <action behavior="Platform" id="7" name="Simulate control" sid="654678810060822" type="Enemy">

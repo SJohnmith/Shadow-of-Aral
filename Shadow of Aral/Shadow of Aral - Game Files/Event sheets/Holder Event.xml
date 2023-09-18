@@ -50,6 +50,7 @@
         </event-block>
         <event-group description="" sid="767752425075557" title="Button Interaction">
             <sub-events>
+                <comment>Exit Game</comment>
                 <event-block sid="590023404601954">
                     <conditions>
                         <condition id="6" name="On object clicked" sid="409172429683524" type="Mouse">
