@@ -214,6 +214,22 @@
                 </behaviors>
                 <texture />
             </object-type>
+            <object-type name="Rust" sid="145005551959259">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="298806700260619" speed="5">
+                        <frame duration="1" hotspotX="0.500792" hotspotY="0.502732" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="NPC" sid="289627077968464">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="314769611105668" speed="5">
+                        <frame duration="1" hotspotX="1.07759" hotspotY="0.954198" />
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder name="HUD Assets">
             <object-type name="ActionTxt" sid="957150770858204">
@@ -367,6 +383,14 @@
             </object-type>
             <object-type name="GameTitle_Txt" sid="801642566770385">
                 <plugin id="Text" />
+            </object-type>
+            <object-type name="Ship" sid="945180005820232">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="587716482870067" speed="5">
+                        <frame duration="1" hotspotX="0.501416" hotspotY="0.730994" />
+                    </animation>
+                </animation-folder>
             </object-type>
         </object-folder>
         <object-folder name="Main Assets">
@@ -967,6 +991,22 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="Card" sid="425071166956933">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="810277271501500" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Document" sid="906583254426921">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="604100926307522" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder name="Lighting Assets">
             <object-type name="LampDirectionalLight" sid="477260970888017">
@@ -1086,6 +1126,7 @@
         <object-type name="Debug" sid="456501450273709">
             <plugin id="Text" />
         </object-type>
+<<<<<<< Updated upstream
         <object-type name="Ship" sid="945180005820232">
             <plugin id="Sprite" />
             <animation-folder>
@@ -1134,6 +1175,8 @@
                 </animation>
             </animation-folder>
         </object-type>
+=======
+>>>>>>> Stashed changes
     </object-folder>
     <families>
         <family name="Enemy" plugin-id="Sprite" sid="585136534726861">
