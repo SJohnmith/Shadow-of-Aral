@@ -592,8 +592,8 @@
                         <x>120</x>
                         <y>320</y>
                         <z>0</z>
-                        <width>64</width>
-                        <height>128</height>
+                        <width>54</width>
+                        <height>76</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>

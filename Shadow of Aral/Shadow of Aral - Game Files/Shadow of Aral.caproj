@@ -921,9 +921,8 @@
                     <instance-variable name="Has_Access" sid="930385157636381" type="boolean" />
                 </instance-variables>
                 <animation-folder>
-                    <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="771395994581739" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="1" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="771395994581739" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.992308" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -1049,6 +1048,54 @@
         <object-type name="GameTitle_Txt" sid="801642566770385">
             <plugin id="Text" />
         </object-type>
+        <object-type name="Lamps" sid="661628654669132">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="739392671243387" speed="0">
+                    <frame duration="1" hotspotX="0.515152" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Table" sid="904734670025914">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="875090252129555" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sink" sid="250234327502887">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="678877713586145" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Tank" sid="796003511664364">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="767040465846620" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TestLab" sid="724680354105786">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="479027141085734" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Closet" sid="644858808344568">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="863942221558267" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemy" plugin-id="Sprite" sid="585136534726861">
@@ -1091,11 +1138,11 @@
         <event-sheet>Main Menu Event.xml</event-sheet>
     </event-folder>
     <global-instances>
-        <global-instance type="Mouse" uid="2" />
-        <global-instance type="Keyboard" uid="3" />
-        <global-instance type="Function" uid="11" />
-        <global-instance type="AJAX" uid="17" />
-        <global-instance type="Audio" uid="29">
+        <global-instance type="Mouse" uid="3" />
+        <global-instance type="Keyboard" uid="11" />
+        <global-instance type="Function" uid="17" />
+        <global-instance type="AJAX" uid="29" />
+        <global-instance type="Audio" uid="249">
             <properties>
                 <timescale-audio>Off</timescale-audio>
                 <saveload>All</saveload>
