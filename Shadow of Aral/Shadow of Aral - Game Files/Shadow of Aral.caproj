@@ -1194,7 +1194,12 @@
             <file name="Enemy_Dmg_1.ogg" />
             <file name="Enemy_Dmg_2.ogg" />
         </sound-folder>
+        <sound-folder name="Player Damage">
+            <file name="Player_Dmg_1.ogg" />
+            <file name="Player_Dmg_2.ogg" />
+        </sound-folder>
         <file name="Gain_Ammo.ogg" />
+        <file name="Enemy_Sound.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>

@@ -4,7 +4,7 @@
     <name>Game Event</name>
     <events>
         <variable constant="0" name="Level" sid="812717733755901" static="0" type="number">1</variable>
-        <variable constant="0" name="Ammo" sid="825174646312849" static="0" type="number">0</variable>
+        <variable constant="0" name="Got_The_Documents" sid="825174646312849" static="0" type="text">No</variable>
         <include>Holder Event</include>
         <event-block sid="112095789472498">
             <conditions>
@@ -1294,6 +1294,7 @@
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">&quot;Attack&quot;</param>
                         </condition>
+                        <condition id="-4" name="Trigger once while true" sid="595043219984891" type="System" />
                     </conditions>
                     <actions>
                         <action id="4" name="Set animation" sid="627534864508646" type="Enemy">
@@ -1349,6 +1350,13 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="7" name="Play (by name)" sid="954069350634758" type="Audio">
+                            <param id="0" name="Folder">0</param>
+                            <param id="1" name="Audio file name">choose(&quot;Player_Dmg_1&quot;, &quot;Player_Dmg_2&quot;)</param>
+                            <param id="3" name="Loop">0</param>
+                            <param id="4" name="Volume">0</param>
+                            <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                         <action id="-12" name="Subtract from" sid="113285984185080" type="Player">
                             <param id="0" name="Instance variable">Health</param>
                             <param id="1" name="Value">Enemy.Damage</param>
@@ -1387,6 +1395,13 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="7" name="Play (by name)" sid="779203977474454" type="Audio">
+                            <param id="0" name="Folder">0</param>
+                            <param id="1" name="Audio file name">choose(&quot;Player_Dmg_1&quot;, &quot;Player_Dmg_2&quot;)</param>
+                            <param id="3" name="Loop">0</param>
+                            <param id="4" name="Volume">0</param>
+                            <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                         <action id="-12" name="Subtract from" sid="984333656341613" type="Player">
                             <param id="0" name="Instance variable">Health</param>
                             <param id="1" name="Value">EnemyBullet.Damage</param>
@@ -1473,6 +1488,26 @@
                         </action>
                     </actions>
                     <sub-events>
+                        <event-block sid="759803677999236">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="303549705049053" type="System">
+                                    <param id="0" name="Interval (seconds)">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="28" name="Play at object (by name)" sid="152817809630380" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">&quot;Enemy_Sound&quot;</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="4" name="Object">Enemy</param>
+                                    <param id="5" name="Inner angle">360</param>
+                                    <param id="6" name="Outer angle">0</param>
+                                    <param id="7" name="Outer gain">0</param>
+                                    <param id="8" name="Tag (optional)">&quot;Sight&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
                         <event-block sid="266272422170543">
                             <conditions>
                                 <condition id="-1" name="Compare X" sid="587922449952206" type="Enemy">
