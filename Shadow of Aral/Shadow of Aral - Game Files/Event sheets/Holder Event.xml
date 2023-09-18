@@ -56,6 +56,21 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="482665135633021">
+                    <conditions>
+                        <condition id="5" inverted="1" name="Is tag playing" sid="228377383834853" type="Audio">
+                            <param id="0" name="Tag">&quot;Bg_Music&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="967620421615608" type="Audio">
+                            <param id="0" name="Audio file">SCB</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-20</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-block>
         <event-group description="" sid="767752425075557" title="Button Interaction">

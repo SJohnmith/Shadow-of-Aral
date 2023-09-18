@@ -56,6 +56,7 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
+    <first-layout>Main Menu</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -214,6 +215,9 @@
                 </behaviors>
                 <texture />
             </object-type>
+            <object-type name="Credits" sid="140115981955649">
+                <plugin id="Text" />
+            </object-type>
         </object-folder>
         <object-folder name="HUD Assets">
             <object-type name="ActionTxt" sid="957150770858204">
@@ -367,6 +371,46 @@
             </object-type>
             <object-type name="GameTitle_Txt" sid="801642566770385">
                 <plugin id="Text" />
+            </object-type>
+            <object-type name="Rust" sid="145005551959259">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="298806700260619" speed="5">
+                        <frame duration="1" hotspotX="0.500792" hotspotY="0.502732" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="NPC" sid="289627077968464">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="314769611105668" speed="5">
+                        <frame duration="1" hotspotX="1.07759" hotspotY="0.954198" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Lamp" sid="553082910537763">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="611176545563607" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.517241" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Ship" sid="945180005820232">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="587716482870067" speed="5">
+                        <frame duration="1" hotspotX="0.501416" hotspotY="0.730994" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Paper" sid="470091325161857">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="886750353986110" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
             </object-type>
         </object-folder>
         <object-folder name="Main Assets">
@@ -666,6 +710,11 @@
                 <instance-variables>
                     <instance-variable name="Ammo" sid="911475591409830" type="number" />
                 </instance-variables>
+                <behaviors>
+                    <behavior-type name="Persist" sid="778701866794753">
+                        <behavior id="Persist" />
+                    </behavior-type>
+                </behaviors>
                 <animation-folder>
                     <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="521445811784951" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="1" />
@@ -685,6 +734,11 @@
                 <instance-variables>
                     <instance-variable name="HealthPoints" sid="953966835744574" type="number" />
                 </instance-variables>
+                <behaviors>
+                    <behavior-type name="Persist" sid="125896049392181">
+                        <behavior id="Persist" />
+                    </behavior-type>
+                </behaviors>
                 <animation-folder>
                     <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="877144119609738" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="1" />
@@ -776,29 +830,6 @@
                         <frame duration="1" hotspotX="0.596154" hotspotY="0" />
                         <frame duration="1" hotspotX="0.528571" hotspotY="0" />
                         <frame duration="1" hotspotX="0.596154" hotspotY="0" />
-                    </animation>
-                </animation-folder>
-            </object-type>
-            <object-type name="UndeadFeet" sid="656959895400231">
-                <plugin id="Sprite" />
-                <behaviors>
-                    <behavior-type name="Pin" sid="891594586103460">
-                        <behavior id="Pin" />
-                    </behavior-type>
-                </behaviors>
-                <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="904841340070596" speed="0">
-                        <frame duration="1" hotspotX="0.512821" hotspotY="0" />
-                    </animation>
-                    <animation framecount="8" loop="1" name="Walk" pingpong="0" repeatcount="1" repeatto="0" sid="995597415976287" speed="9">
-                        <frame duration="1" hotspotX="0.512821" hotspotY="0" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0" />
-                        <frame duration="1" hotspotX="0.538462" hotspotY="0" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0" />
-                        <frame duration="1" hotspotX="0.512821" hotspotY="0" />
-                        <frame duration="1" hotspotX="0.592593" hotspotY="0" />
-                        <frame duration="1" hotspotX="0.528571" hotspotY="0" />
-                        <frame duration="1" hotspotX="0.592593" hotspotY="0" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -967,6 +998,40 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="Card" sid="425071166956933">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Persist" sid="100608905169785">
+                        <behavior id="Persist" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="810277271501500" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Document" sid="906583254426921">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Persist" sid="211453425756331">
+                        <behavior id="Persist" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="604100926307522" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="WinTrig" sid="701371673855489">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="637266425554472" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder name="Lighting Assets">
             <object-type name="LampDirectionalLight" sid="477260970888017">
@@ -1084,65 +1149,6 @@
             </object-type>
         </object-folder>
         <object-type name="Debug" sid="456501450273709">
-            <plugin id="Text" />
-        </object-type>
-        <object-type name="Ship" sid="945180005820232">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="587716482870067" speed="5">
-                    <frame duration="1" hotspotX="0.501416" hotspotY="0.730994" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Rust" sid="145005551959259">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="298806700260619" speed="5">
-                    <frame duration="1" hotspotX="0.500792" hotspotY="0.502732" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="NPC" sid="289627077968464">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="314769611105668" speed="5">
-                    <frame duration="1" hotspotX="1.07759" hotspotY="0.954198" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Card" sid="425071166956933">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="810277271501500" speed="0">
-                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Document" sid="906583254426921">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="604100926307522" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="1" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Lamp" sid="553082910537763">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="611176545563607" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.517241" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Paper" sid="470091325161857">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="886750353986110" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Credits" sid="140115981955649">
             <plugin id="Text" />
         </object-type>
     </object-folder>
