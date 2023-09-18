@@ -15,6 +15,16 @@
                 <action id="0" name="Set text" sid="482970895842387" type="Instruc_Txt">
                     <param id="0" name="Text">&quot;Use W, A, S, D to move around.&quot;&amp;newline&amp;&#x0D;&#x0A;&quot;Left click to shoot your gun and R to reload weapon.&quot;&amp;newline&amp;&#x0D;&#x0A;&quot;E to interact with items.&quot;</param>
                 </action>
+                <action id="-3" name="Create object" sid="379213204862235" type="System">
+                    <param id="0" name="Object to create">Fade</param>
+                    <param id="1" name="Layer">&quot;UI&quot;</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-7" name="Set size" sid="672507899629708" type="Fade">
+                    <param id="0" name="Width">LayoutWidth</param>
+                    <param id="1" name="Height">LayoutHeight</param>
+                </action>
             </actions>
             <sub-events>
                 <event-block sid="809169615086562">
@@ -67,8 +77,9 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-2" name="Go to layout" sid="215273054787245" type="System">
-                            <param id="0" name="Layout">Main Menu</param>
+                        <action id="0" name="Call function" sid="232650184976653" type="Function">
+                            <param id="0" name="Name">&quot;Go to&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Main Menu&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -207,6 +218,53 @@
                             </actions>
                         </event-block>
                     </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="741665819273250" title="Layout Transition">
+            <sub-events>
+                <event-block sid="133051538821539">
+                    <conditions>
+                        <condition id="0" name="On function" sid="419283719378962" type="Function">
+                            <param id="0" name="Name">&quot;Go to&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="210887212725089" type="System">
+                            <param id="0" name="Object to create">Fade</param>
+                            <param id="1" name="Layer">5</param>
+                            <param id="2" name="X">0</param>
+                            <param id="3" name="Y">0</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="457746361159551" type="Fade">
+                            <param id="0" name="Width">LayoutWidth</param>
+                            <param id="1" name="Height">LayoutHeight</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="671007075452782" type="Fade">
+                            <param id="0" name="Opacity">0</param>
+                        </action>
+                        <action behavior="Fade" id="2" name="Set fade-in time" sid="294571400486435" type="Fade">
+                            <param id="0" name="Fade-in time">0.8</param>
+                        </action>
+                        <action behavior="Fade" id="4" name="Set fade-out time" sid="651587334523881" type="Fade">
+                            <param id="0" name="Fade-out time">0</param>
+                        </action>
+                        <action behavior="Fade" id="0" name="Restart fade" sid="544431485964673" type="Fade" />
+                        <action id="-10" name="Set value" sid="468625287794086" type="Fade">
+                            <param id="0" name="Instance variable">Go_to_Layout</param>
+                            <param id="1" name="Value">Function.Param(0)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="271493141950248">
+                    <conditions>
+                        <condition behavior="Fade" id="1" name="On fade-in finished" sid="319143738243720" type="Fade" />
+                    </conditions>
+                    <actions>
+                        <action id="-25" name="Go to layout (by name)" sid="278935775707797" type="System">
+                            <param id="0" name="Layout">Fade.Go_to_Layout</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>

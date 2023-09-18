@@ -201,6 +201,18 @@
             <object-type name="YouDied_Txt" sid="342244651806422">
                 <plugin id="Text" />
             </object-type>
+            <object-type name="Fade" sid="924962226457501">
+                <plugin id="TiledBg" />
+                <instance-variables>
+                    <instance-variable name="Go_to_Layout" sid="560344838379806" type="string" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Fade" sid="323877231183225">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder name="HUD Assets">
             <object-type name="ActionTxt" sid="957150770858204">

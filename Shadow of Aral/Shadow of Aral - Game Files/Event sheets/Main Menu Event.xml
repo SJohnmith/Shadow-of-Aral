@@ -20,8 +20,9 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="-25" name="Go to layout (by name)" sid="445616438649730" type="System">
-                    <param id="0" name="Layout">&quot;Level 1&quot;</param>
+                <action id="0" name="Call function" sid="871209640653701" type="Function">
+                    <param id="0" name="Name">&quot;Go to&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;Level 1&quot;</param>
                 </action>
             </actions>
         </event-block>
@@ -41,8 +42,9 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="-25" name="Go to layout (by name)" sid="554755551796395" type="System">
-                    <param id="0" name="Layout">&quot;Credits&quot;</param>
+                <action id="0" name="Call function" sid="275952907496446" type="Function">
+                    <param id="0" name="Name">&quot;Go to&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;Credits&quot;</param>
                 </action>
             </actions>
         </event-block>
@@ -62,8 +64,9 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="-25" name="Go to layout (by name)" sid="943576074241618" type="System">
-                    <param id="0" name="Layout">&quot;Main Menu&quot;</param>
+                <action id="0" name="Call function" sid="426176037355056" type="Function">
+                    <param id="0" name="Name">&quot;Go to&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;Main Menu&quot;</param>
                 </action>
             </actions>
         </event-block>
