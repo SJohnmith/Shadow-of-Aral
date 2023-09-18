@@ -1227,6 +1227,7 @@
         </sound-folder>
         <file name="Gain_Ammo.ogg" />
         <file name="Enemy_Sound.ogg" />
+        <file name="SCB.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>
