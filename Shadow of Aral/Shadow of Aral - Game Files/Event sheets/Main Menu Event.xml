@@ -25,5 +25,47 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="953003331493775">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="356235635883879" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">Btn_Bg</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="801889855416110" type="Btn_Bg">
+                    <param id="0" name="Object">Btn_Txt</param>
+                </condition>
+                <condition id="0" name="Compare text" sid="504595323002624" type="Btn_Txt">
+                    <param id="0" name="Text to compare">&quot;Credits&quot;</param>
+                    <param id="1" name="Case sensitivity">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="554755551796395" type="System">
+                    <param id="0" name="Layout">&quot;Credits&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="145177782707736">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="858694818491146" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">Btn_Bg</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="503530370748941" type="Btn_Bg">
+                    <param id="0" name="Object">Btn_Txt</param>
+                </condition>
+                <condition id="0" name="Compare text" sid="203261235351438" type="Btn_Txt">
+                    <param id="0" name="Text to compare">&quot;Go Back&quot;</param>
+                    <param id="1" name="Case sensitivity">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="943576074241618" type="System">
+                    <param id="0" name="Layout">&quot;Main Menu&quot;</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

@@ -12,7 +12,41 @@
                     <param id="0" name="Pin to">Instruc_Bg</param>
                     <param id="1" name="Mode">0</param>
                 </action>
+                <action id="0" name="Set text" sid="482970895842387" type="Instruc_Txt">
+                    <param id="0" name="Text">&quot;Use W, A, S, D to move around.&quot;&amp;newline&amp;&#x0D;&#x0A;&quot;Left click to shoot your gun and R to reload weapon.&quot;&amp;newline&amp;&#x0D;&#x0A;&quot;E to interact with items.&quot;</param>
+                </action>
             </actions>
+            <sub-events>
+                <event-block sid="809169615086562">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="645298032565684" type="Btn_Bg">
+                            <param id="0" name="Object">Instruc_Bg</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="251335840223719" type="Btn_Bg">
+                            <param id="0" name="Pin to">Instruc_Bg</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="491543414634538">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="821439542959060" type="System">
+                            <param id="0" name="Object">Btn_Bg</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="220039349602602" type="Btn_Bg">
+                            <param id="0" name="Object">Btn_Txt</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="759190247384866" type="Btn_Txt">
+                            <param id="0" name="Pin to">Btn_Bg</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-group description="" sid="767752425075557" title="Button Interaction">
             <sub-events>
@@ -27,13 +61,13 @@
                             <param id="0" name="Object">Btn_Txt</param>
                         </condition>
                         <condition id="0" name="Compare text" sid="193462695282139" type="Btn_Txt">
-                            <param id="0" name="Text to compare">&quot;Escape&quot;</param>
+                            <param id="0" name="Text to compare">&quot;Quit&quot;</param>
                             <param id="1" name="Case sensitivity">0</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="936117285930487" type="Debug">
-                            <param id="0" name="Text">&quot;Pressed Escape&quot;</param>
+                        <action id="-2" name="Go to layout" sid="215273054787245" type="System">
+                            <param id="0" name="Layout">Main Menu</param>
                         </action>
                     </actions>
                 </event-block>
@@ -99,14 +133,24 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="601839011315168" title="Tutorial Event">
+        <event-group description="" sid="601839011315168" title="Tutorial Events">
             <sub-events>
-                <event-block sid="799264380579497">
+                <comment>Hide the Instructions</comment>
+                <event-block sid="575108481822220">
                     <conditions>
-                        <condition id="0" name="On key pressed" sid="451882357730769" type="Keyboard">
-                            <param id="0" name="Key">32</param>
+                        <condition id="6" name="On object clicked" sid="579141386552014" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                            <param id="2" name="Object clicked">Btn_Bg</param>
                         </condition>
-                        <condition id="-2" name="Compare Y" sid="762192079832846" type="Instruc_Bg">
+                        <condition id="1" name="Is overlapping another object" sid="967105908226131" type="Btn_Bg">
+                            <param id="0" name="Object">Btn_Txt</param>
+                        </condition>
+                        <condition id="0" name="Compare text" sid="698321764801275" type="Btn_Txt">
+                            <param id="0" name="Text to compare">&quot;OK&quot;</param>
+                            <param id="1" name="Case sensitivity">0</param>
+                        </condition>
+                        <condition id="-2" name="Compare Y" sid="722149329448507" type="Instruc_Bg">
                             <param id="0" name="Comparison">4</param>
                             <param id="1" name="Y co-ordinate">0</param>
                         </condition>
@@ -126,34 +170,42 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="899550982338969">
+                <comment>Show the Instructions</comment>
+                <event-block sid="765369406360306">
                     <conditions>
-                        <condition id="0" name="On key pressed" sid="127450638235201" type="Keyboard">
-                            <param id="0" name="Key">32</param>
-                        </condition>
-                        <condition id="-2" name="Compare Y" sid="711735929274624" type="Instruc_Bg">
-                            <param id="0" name="Comparison">3</param>
-                            <param id="1" name="Y co-ordinate">0</param>
+                        <condition id="0" name="On collision with another object" sid="408523976738348" type="Player">
+                            <param id="0" name="Object">Tutorial_Trig</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-16" name="Wait" sid="291755465262090" type="System">
-                            <param id="0" name="Seconds">0.1</param>
-                        </action>
-                        <action behavior="LiteTween" id="3" name="Set target" sid="241959328105467" type="Instruc_Bg">
-                            <param id="0" name="Target is">1</param>
-                            <param id="1" name="Relativity">0</param>
-                            <param id="2" name="Value">64</param>
-                        </action>
-                        <action behavior="LiteTween" id="10" name="Start" sid="538567441440513" type="Instruc_Bg">
-                            <param id="0" name="Start Mode">0</param>
-                            <param id="1" name="Force use current">0</param>
+                        <action id="0" name="Set text" sid="759406266124761" type="Instruc_Txt">
+                            <param id="0" name="Text">Tutorial_Trig.LoadTxt</param>
                         </action>
                     </actions>
-                </event-block>
-                <event-block sid="765369406360306">
-                    <conditions />
-                    <actions />
+                    <sub-events>
+                        <event-block sid="358070852048798">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="811135903759075" type="Instruc_Bg">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Y co-ordinate">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="291755465262090" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action behavior="LiteTween" id="3" name="Set target" sid="241959328105467" type="Instruc_Bg">
+                                    <param id="0" name="Target is">1</param>
+                                    <param id="1" name="Relativity">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </action>
+                                <action behavior="LiteTween" id="10" name="Start" sid="538567441440513" type="Instruc_Bg">
+                                    <param id="0" name="Start Mode">0</param>
+                                    <param id="1" name="Force use current">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>

@@ -8,12 +8,7 @@
             <conditions>
                 <condition id="-2" name="On start of layout" sid="507737457377206" type="System" />
             </conditions>
-            <actions>
-                <action behavior="Pin" disabled="1" id="0" name="Pin to object" sid="173884849053383" type="MouseVision">
-                    <param id="0" name="Pin to">Player</param>
-                    <param id="1" name="Mode">0</param>
-                </action>
-            </actions>
+            <actions />
             <sub-events>
                 <comment>For Each Solid Spawn the Shadow</comment>
                 <event-block sid="932548416905199">
@@ -58,28 +53,46 @@
                     <param id="0" name="X">Mouse.X</param>
                     <param id="1" name="Y">Mouse.Y</param>
                 </action>
-                <action id="-22" name="Set angle toward position" sid="540049767063335" type="Shadow">
+                <action id="-22" name="Set angle toward position" sid="540049767063335" type="PlayerLight">
                     <param id="0" name="X">Mouse.X</param>
                     <param id="1" name="Y">Mouse.Y</param>
-                </action>
-                <action id="-5" name="Set width" sid="267583062368032" type="Shadow">
-                    <param id="0" name="Width">2*abs(Player.X - Mouse.X)</param>
                 </action>
                 <action id="-10" name="Set value" sid="719153190197442" type="Enemy">
                     <param id="0" name="Instance variable">Dist</param>
                     <param id="1" name="Value">distance(Self.X, Self.Y, Player.X, Player.Y)</param>
                 </action>
-                <action disabled="1" id="-22" name="Set angle toward position" sid="505213798709838" type="MouseVision">
-                    <param id="0" name="X">Mouse.X</param>
-                    <param id="1" name="Y">Mouse.Y</param>
-                </action>
-                <action disabled="1" id="-5" name="Set width" sid="698602404299199" type="MouseVision">
-                    <param id="0" name="Width">abs(Mouse.X - Self.X) + Rectile.Width</param>
-                </action>
-                <action disabled="1" id="-6" name="Set height" sid="251083165258923" type="MouseVision">
-                    <param id="0" name="Height">abs(Mouse.X - Self.X) + Rectile.Width</param>
-                </action>
             </actions>
+            <sub-events>
+                <comment>Set the Player Light</comment>
+                <event-block sid="203876886803449">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="524142769506023" type="System">
+                            <param id="0" name="First value">abs(Player.X - Mouse.X)</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">400</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-5" name="Set width" sid="143990753017033" type="PlayerLight">
+                            <param id="0" name="Width">2*400</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="875556754624405">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="838672622782015" type="System">
+                            <param id="0" name="First value">abs(Player.X - Mouse.X)</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">400</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-5" name="Set width" sid="267583062368032" type="PlayerLight">
+                            <param id="0" name="Width">2*abs(Player.X - Mouse.X)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-group description="" sid="884874334710201" title="Player">
             <sub-events>
@@ -110,7 +123,7 @@
                             <param id="2" name="Image point">0</param>
                         </action>
                         <action id="0" name="Spawn another object" sid="452563809975556" type="Player">
-                            <param id="0" name="Object">Shadow</param>
+                            <param id="0" name="Object">PlayerLight</param>
                             <param id="1" name="Layer">&quot;Light&quot;</param>
                             <param id="2" name="Image point">0</param>
                         </action>
@@ -124,21 +137,30 @@
                             <param id="1" name="Layer">&quot;HUD&quot;</param>
                             <param id="2" name="Image point">2</param>
                         </action>
-                        <action id="0" name="Spawn another object" sid="448766298106533" type="Player">
-                            <param id="0" name="Object">Weapon</param>
-                            <param id="1" name="Layer">Player.LayerName</param>
-                            <param id="2" name="Image point">&quot;Arm&quot;</param>
-                        </action>
                         <action id="0" name="Spawn another object" sid="430553357768815" type="Player">
                             <param id="0" name="Object">PlayerFeet</param>
                             <param id="1" name="Layer">Player.LayerName</param>
                             <param id="2" name="Image point">&quot;Feet&quot;</param>
                         </action>
-                        <action id="-29" name="Move to object" sid="769177588366397" type="PlayerFeet">
-                            <param id="0" name="Where">1</param>
-                            <param id="1" name="Object">Player</param>
+                        <action id="0" name="Spawn another object" sid="188645914232176" type="Player">
+                            <param id="0" name="Object">PlayerBody</param>
+                            <param id="1" name="Layer">Player.LayerName</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="448766298106533" type="Player">
+                            <param id="0" name="Object">Weapon</param>
+                            <param id="1" name="Layer">Player.LayerName</param>
+                            <param id="2" name="Image point">&quot;Arm&quot;</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="247989805488314" type="PlayerFeet">
+                            <param id="0" name="Pin to">Player</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="643586219030784" type="PlayerBody">
+                            <param id="0" name="Pin to">Player</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="664347195574889" type="Weapon">
                             <param id="0" name="Pin to">Player</param>
                             <param id="1" name="Mode">0</param>
                         </action>
@@ -150,7 +172,7 @@
                             <param id="0" name="Pin to">Player</param>
                             <param id="1" name="Mode">0</param>
                         </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="119218678793951" type="Shadow">
+                        <action behavior="Pin" id="0" name="Pin to object" sid="119218678793951" type="PlayerLight">
                             <param id="0" name="Pin to">Player</param>
                             <param id="1" name="Mode">0</param>
                         </action>
@@ -158,12 +180,8 @@
                             <param id="0" name="Pin to">Player</param>
                             <param id="1" name="Mode">0</param>
                         </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="664347195574889" type="Weapon">
-                            <param id="0" name="Pin to">Player</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
                         <action id="0" name="Set text" sid="546460245522298" type="PlayerStatsTxt">
-                            <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
+                            <param id="0" name="Text">&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
                         </action>
                     </actions>
                 </event-block>
@@ -345,6 +363,9 @@
                         <action id="7" name="Set mirrored" sid="160783022408962" type="Player">
                             <param id="0" name="State">1</param>
                         </action>
+                        <action id="7" name="Set mirrored" sid="307142680283118" type="PlayerBody">
+                            <param id="0" name="State">1</param>
+                        </action>
                         <action id="8" name="Set flipped" sid="801792067302352" type="Weapon">
                             <param id="0" name="State">1</param>
                         </action>
@@ -384,6 +405,9 @@
                         <action id="7" name="Set mirrored" sid="532415437832936" type="Player">
                             <param id="0" name="State">0</param>
                         </action>
+                        <action id="7" name="Set mirrored" sid="274258394100984" type="PlayerBody">
+                            <param id="0" name="State">0</param>
+                        </action>
                         <action id="8" name="Set flipped" sid="660135644242628" type="Weapon">
                             <param id="0" name="State">0</param>
                         </action>
@@ -411,13 +435,27 @@
                     </actions>
                 </event-block>
                 <comment>Player when Moving</comment>
-                <event-block sid="832307245938714">
+                <event-block sid="140913840967870">
                     <conditions>
-                        <condition behavior="Platform" id="8" name="On moved" sid="413398993766589" type="Player" />
+                        <condition behavior="Platform" id="0" name="Is moving" sid="955666234255600" type="Player" />
+                        <condition behavior="Platform" id="3" inverted="1" name="Is jumping" sid="918722395741916" type="Player" />
+                        <condition id="-4" name="Trigger once while true" sid="233124854888677" type="System" />
                     </conditions>
                     <actions>
-                        <action id="4" name="Set animation" sid="676525000032601" type="PlayerFeet">
+                        <action id="4" name="Set animation" sid="566673395708372" type="PlayerFeet">
                             <param id="0" name="Animation">&quot;Walk&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="765130864309309">
+                    <conditions>
+                        <condition behavior="Platform" id="9" name="On landed" sid="191428254433287" type="Player" />
+                        <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="850798456972230" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="315643402979734" type="PlayerFeet">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
                             <param id="1" name="From">1</param>
                         </action>
                     </actions>
@@ -442,6 +480,9 @@
                         </condition>
                         <condition id="7" inverted="1" name="Cursor is over object" sid="996579056451170" type="Mouse">
                             <param id="0" name="Object">UI_Bg</param>
+                        </condition>
+                        <condition id="7" inverted="1" name="Cursor is over object" sid="794492507084179" type="Mouse">
+                            <param id="0" name="Object">Btn_Bg</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -476,6 +517,38 @@
                             <param id="0" name="Layer">&quot;Light&quot;</param>
                             <param id="1" name="Mode">1</param>
                         </action>
+                    </actions>
+                </event-block>
+                <comment>Player Death</comment>
+                <event-block sid="992160224076130">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="286815194678508" type="Player">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="762119737829422" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="5" name="Set gravity" sid="829206028332902" type="Player">
+                            <param id="0" name="Gravity">0</param>
+                        </action>
+                        <action behavior="Platform" id="11" name="Set enabled" sid="672144755743010" type="Player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action behavior="8Direction" id="8" name="Set enabled" sid="113206577525974" type="Player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="11" name="Set collisions enabled" sid="591540126760811" type="Player">
+                            <param id="0" name="Collisions">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="927515823969251" type="YouDied_Txt">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="761739287183410" type="System">
+                            <param id="0" name="Seconds">3</param>
+                        </action>
+                        <action id="-26" name="Restart layout" sid="849534187599755" type="System" />
                     </actions>
                 </event-block>
             </sub-events>
@@ -969,8 +1042,8 @@
                                         <action behavior="Timer" id="1" name="Stop timer" sid="878613610151232" type="Weapon">
                                             <param id="0" name="Tag">&quot;Reload&quot;</param>
                                         </action>
-                                        <action id="0" name="Set text" sid="544715880647718" type="PlayerStatsTxt">
-                                            <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
+                                        <action id="0" name="Set text" sid="387996154669499" type="PlayerStatsTxt">
+                                            <param id="0" name="Text">&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -1062,7 +1135,7 @@
                         </action>
                         <action id="-10" name="Set value" sid="704829513929059" type="Enemy">
                             <param id="0" name="Instance variable">Speed</param>
-                            <param id="1" name="Value">choose(Self.Speed - 10,  Self.Speed, Self.Speed + 10)</param>
+                            <param id="1" name="Value">choose(Self.Speed - 20, Self.Speed - 10,  Self.Speed, Self.Speed + 10, Self.Speed + 20)</param>
                         </action>
                         <action behavior="Platform" id="1" name="Set max speed" sid="607151852786914" type="Enemy">
                             <param id="0" name="Max Speed">Self.Speed</param>
@@ -1227,16 +1300,29 @@
                             <param id="0" name="Instance variable">Health</param>
                             <param id="1" name="Value">Enemy.Damage</param>
                         </action>
-                        <action behavior="Flash" id="0" name="Flash" sid="288114519703454" type="Player">
-                            <param id="0" name="&apos;On&apos; time">0.1</param>
-                            <param id="1" name="&apos;Off&apos; time">0.1</param>
-                            <param id="2" name="Duration">0.2</param>
-                        </action>
-                        <action id="0" name="Set text" sid="912537982522531" type="PlayerStatsTxt">
-                            <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
-                        </action>
                         <action id="-5" name="Set width" sid="282502219653610" type="UI_Hp_Bar">
                             <param id="0" name="Width">(Player.Health/100)*386</param>
+                        </action>
+                        <action id="0" name="Set text" sid="862777897722886" type="PlayerStatsTxt">
+                            <param id="0" name="Text">&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
+                        </action>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="280749090558452" type="Player">
+                            <param id="0" name="Magnitude">12</param>
+                            <param id="1" name="Duration">0.2</param>
+                            <param id="2" name="Mode">0</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="661065911025641" type="PlayerBody">
+                            <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">80</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="430549073925857" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="750159319221629" type="PlayerBody">
+                            <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1252,16 +1338,29 @@
                             <param id="0" name="Instance variable">Health</param>
                             <param id="1" name="Value">EnemyBullet.Damage</param>
                         </action>
-                        <action behavior="Flash" id="0" name="Flash" sid="203749968597265" type="Player">
-                            <param id="0" name="&apos;On&apos; time">0.1</param>
-                            <param id="1" name="&apos;Off&apos; time">0.1</param>
-                            <param id="2" name="Duration">0.2</param>
-                        </action>
-                        <action id="0" name="Set text" sid="555319154391908" type="PlayerStatsTxt">
-                            <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
-                        </action>
                         <action id="-5" name="Set width" sid="860023893602994" type="UI_Hp_Bar">
                             <param id="0" name="Width">(Player.Health/100)*386</param>
+                        </action>
+                        <action id="0" name="Set text" sid="200797268186503" type="PlayerStatsTxt">
+                            <param id="0" name="Text">&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
+                        </action>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="547641732395762" type="Player">
+                            <param id="0" name="Magnitude">12</param>
+                            <param id="1" name="Duration">0.2</param>
+                            <param id="2" name="Mode">0</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="203817218366195" type="PlayerBody">
+                            <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">80</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="413797335826026" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="186878211313715" type="PlayerBody">
+                            <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1366,19 +1465,27 @@
                 <comment>Enemy Death</comment>
                 <event-block sid="360786851888837">
                     <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="968614791110450" type="Enemy">
+                        <condition disabled="1" id="-7" name="Compare instance variable" sid="968614791110450" type="Enemy">
                             <param id="0" name="Instance variable">Health</param>
                             <param id="1" name="Comparison">3</param>
                             <param id="2" name="Value">0</param>
                         </condition>
-                        <condition id="-4" name="Trigger once while true" sid="406603718782917" type="System" />
+                        <condition id="-34" name="Pick by evaluate" sid="154891738771040" type="System">
+                            <param id="0" name="Object">Enemy</param>
+                            <param id="1" name="Expression">Enemy.Health &lt;= 0</param>
+                        </condition>
+                        <condition disabled="1" id="-4" name="Trigger once while true" sid="406603718782917" type="System" />
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" sid="519567601052252" type="Enemy" />
+                        <action id="4" name="Set animation" sid="184530885811779" type="Enemy">
+                            <param id="0" name="Animation">&quot;Dead&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
                         <action id="-10" name="Set value" sid="370303605551297" type="Enemy">
                             <param id="0" name="Instance variable">State</param>
                             <param id="1" name="Value">&quot;Dead&quot;</param>
                         </action>
+                        <action disabled="1" id="-9" name="Destroy" sid="519567601052252" type="Enemy" />
                     </actions>
                     <sub-events>
                         <event-block sid="292075367670808">
@@ -1405,6 +1512,55 @@
                             </conditions>
                             <actions>
                                 <action id="-9" name="Destroy" sid="522189168748903" type="HpBg" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Dead Body on Ground</comment>
+                <event-block sid="168725617417099">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="151075861873591" type="Enemy">
+                            <param id="0" name="Object">SolidObject</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="495485912910610" type="Enemy">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Dead&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="11" name="Set collisions enabled" sid="910620953685289" type="Enemy">
+                            <param id="0" name="Collisions">0</param>
+                        </action>
+                        <action behavior="Platform" id="5" name="Set gravity" sid="344936833644379" type="Enemy">
+                            <param id="0" name="Gravity">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="981243803312255">
+                            <conditions>
+                                <condition id="-33" name="Pick by comparison" sid="686852882228731" type="System">
+                                    <param id="0" name="Object">HpBar</param>
+                                    <param id="1" name="Expression">HpBar.Pin.PinnedUID</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">Enemy.UID</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="287025425437321" type="HpBar" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="896433983345286">
+                            <conditions>
+                                <condition id="-33" name="Pick by comparison" sid="784436899894326" type="System">
+                                    <param id="0" name="Object">HpBg</param>
+                                    <param id="1" name="Expression">HpBg.Pin.PinnedUID</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">Enemy.UID</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="928796169340462" type="HpBg" />
                             </actions>
                         </event-block>
                     </sub-events>
@@ -1469,7 +1625,27 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="0" name="Spawn another object" sid="488473918643018" type="Bullet">
+                            <param id="0" name="Object">BulletCollision</param>
+                            <param id="1" name="Layer">&quot;Main&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
                         <action id="-9" name="Destroy" sid="390446213340997" type="Bullet" />
+                    </actions>
+                </event-block>
+                <event-block sid="986962735916184">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="690294804334003" type="Bullet">
+                            <param id="0" name="Object">SurfaceGround</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="844367982833761" type="Bullet">
+                            <param id="0" name="Object">BulletCollision</param>
+                            <param id="1" name="Layer">&quot;Main&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="508815828823377" type="Bullet" />
                     </actions>
                 </event-block>
                 <event-block sid="744517062889251">
@@ -1482,6 +1658,17 @@
                         <action behavior="Physics" id="21" name="Set immovable" sid="473415254392378" type="Shell">
                             <param id="0" name="Setting">1</param>
                         </action>
+                    </actions>
+                </event-block>
+                <event-block sid="960189581158219">
+                    <conditions>
+                        <condition behavior="Bullet" id="1" name="Compare distance travelled" sid="679224162989637" type="Bullet">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Distance">Weapon.FireRange</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="292878758507831" type="Bullet" />
                     </actions>
                 </event-block>
             </sub-events>
@@ -1618,10 +1805,10 @@
                                     <param id="0" name="Instance variable">AmntAmmo</param>
                                     <param id="1" name="Value">AmmoCrate.Ammo</param>
                                 </action>
-                                <action id="0" name="Set text" sid="682072968774442" type="PlayerStatsTxt">
-                                    <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
-                                </action>
                                 <action id="-9" name="Destroy" sid="315476217026475" type="AmmoCrate" />
+                                <action id="0" name="Set text" sid="771249968957891" type="PlayerStatsTxt">
+                                    <param id="0" name="Text">&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
+                                </action>
                                 <action id="0" name="Spawn another object" sid="165921758441046" type="Player">
                                     <param id="0" name="Object">ItemGain</param>
                                     <param id="1" name="Layer">&quot;HUD&quot;</param>
@@ -1647,10 +1834,10 @@
                                 <action id="-5" name="Set width" sid="720350036494032" type="UI_Hp_Bar">
                                     <param id="0" name="Width">(Player.Health/100)*386</param>
                                 </action>
-                                <action id="0" name="Set text" sid="274599881265078" type="PlayerStatsTxt">
-                                    <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
-                                </action>
                                 <action id="-9" name="Destroy" sid="704609762858020" type="HealthCrate" />
+                                <action id="0" name="Set text" sid="203260584437828" type="PlayerStatsTxt">
+                                    <param id="0" name="Text">&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
+                                </action>
                                 <action id="0" name="Spawn another object" sid="297096699863305" type="Player">
                                     <param id="0" name="Object">ItemGain</param>
                                     <param id="1" name="Layer">&quot;HUD&quot;</param>
@@ -1675,11 +1862,11 @@
                                             <param id="0" name="Instance variable">Health</param>
                                             <param id="1" name="Value">100</param>
                                         </action>
+                                        <action id="0" name="Set text" sid="994395212550655" type="PlayerStatsTxt">
+                                            <param id="0" name="Text">&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
+                                        </action>
                                         <action id="-5" name="Set width" sid="255411973303449" type="UI_Hp_Bar">
                                             <param id="0" name="Width">(Player.Health/100)*386</param>
-                                        </action>
-                                        <action id="0" name="Set text" sid="382892092236354" type="PlayerStatsTxt">
-                                            <param id="0" name="Text">&quot;Health: &quot;&amp;Player.Health&amp;&quot;   Ammo: &quot;&amp;Player.AmntAmmo</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -1692,8 +1879,31 @@
         <event-group description="" sid="797550163037527" title="Elevator">
             <sub-events>
                 <event-block sid="426031961483786">
-                    <conditions />
-                    <actions />
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="484149213840066" type="Player">
+                            <param id="0" name="Object">Elevator</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="619070817532006" type="ActionTxt">
+                            <param id="0" name="Text">&quot;Press E&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="229577951422291">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="625677511859662" type="Keyboard">
+                            <param id="0" name="Key">69</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="489951667185783" type="Player">
+                            <param id="0" name="Object">Elevator</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-25" name="Go to layout (by name)" sid="314572482446795" type="System">
+                            <param id="0" name="Layout">&quot;Level &quot;&amp;Elevator.Go_To_Level</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>
