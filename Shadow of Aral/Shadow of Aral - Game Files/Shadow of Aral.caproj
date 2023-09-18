@@ -957,6 +957,14 @@
                         <frame duration="1" hotspotX="0.50505" hotspotY="0.503497" />
                         <frame duration="1" hotspotX="0.50505" hotspotY="0.503497" />
                     </animation>
+                    <animation framecount="6" loop="1" name="Attack" pingpong="0" repeatcount="1" repeatto="0" sid="811658724765879" speed="10">
+                        <frame duration="1" hotspotX="0.50505" hotspotY="0.503497" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.504673" hotspotY="0.50303" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
                 </animation-folder>
             </object-type>
         </object-folder>
@@ -1115,6 +1123,14 @@
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="604100926307522" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Lamp" sid="553082910537763">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="611176545563607" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.517241" />
                 </animation>
             </animation-folder>
         </object-type>
