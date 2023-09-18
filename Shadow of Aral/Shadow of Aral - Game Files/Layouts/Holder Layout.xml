@@ -654,7 +654,7 @@
                 <instance type="Undead" uid="115">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Undead</initial-animation>
+                        <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>

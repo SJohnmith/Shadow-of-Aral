@@ -538,74 +538,73 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="412002251129143" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                            <image-point name="Hp" x="0.5" y="-0.0625" />
+                        <frame duration="1" hotspotX="0.506329" hotspotY="0.5">
+                            <image-point name="Hp" x="0.506329" y="-0.0625" />
                             <image-point name="Dmg" x="1" y="0.5" />
-                            <collision-poly>
-                                <point x="1" y="1" />
-                                <point x="0" y="1" />
-                                <point x="0" y="0" />
-                                <point x="1" y="0" />
-                            </collision-poly>
                         </frame>
                     </animation>
-                    <animation framecount="5" loop="0" name="Attack" pingpong="0" repeatcount="1" repeatto="0" sid="524870138093901" speed="20">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                            <image-point name="Hp" x="0.5" y="-0.0625" />
+                    <animation framecount="12" loop="0" name="Attack" pingpong="0" repeatcount="1" repeatto="0" sid="524870138093901" speed="20">
+                        <frame duration="1" hotspotX="0.506329" hotspotY="0.5">
+                            <image-point name="Hp" x="0.506329" y="-0.0625" />
                             <image-point name="Dmg" x="1" y="0.5" />
-                            <collision-poly>
-                                <point x="1" y="1" />
-                                <point x="0" y="1" />
-                                <point x="0" y="0" />
-                                <point x="1" y="0" />
-                            </collision-poly>
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Hp" x="0.5" y="-0.0625" />
                             <image-point name="Dmg" x="1" y="0.5" />
-                            <collision-poly>
-                                <point x="1" y="1" />
-                                <point x="0" y="1" />
-                                <point x="0" y="0" />
-                                <point x="1" y="0" />
-                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.507937" hotspotY="0.5">
+                            <image-point name="Hp" x="0.507937" y="-0.0625" />
+                            <image-point name="Dmg" x="1" y="0.5" />
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Hp" x="0.5" y="-0.0625" />
                             <image-point name="Dmg" x="1" y="0.5" />
-                            <collision-poly>
-                                <point x="1" y="1" />
-                                <point x="0" y="1" />
-                                <point x="0" y="0" />
-                                <point x="1" y="0" />
-                            </collision-poly>
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Hp" x="0.5" y="-0.0625" />
                             <image-point name="Dmg" x="1" y="0.5" />
-                            <collision-poly>
-                                <point x="1" y="1" />
-                                <point x="0" y="1" />
-                                <point x="0" y="0" />
-                                <point x="1" y="0" />
-                            </collision-poly>
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Hp" x="0.5" y="-0.0625" />
                             <image-point name="Dmg" x="1" y="0.5" />
-                            <collision-poly>
-                                <point x="1" y="1" />
-                                <point x="0" y="1" />
-                                <point x="0" y="0" />
-                                <point x="1" y="0" />
-                            </collision-poly>
                         </frame>
+                        <frame duration="1" hotspotX="0.507937" hotspotY="0.5">
+                            <image-point name="Hp" x="0.507937" y="-0.0625" />
+                            <image-point name="Dmg" x="1" y="0.5" />
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="Hp" x="0.5" y="-0.0625" />
+                            <image-point name="Dmg" x="1" y="0.5" />
+                        </frame>
+                        <frame duration="1" hotspotX="0.506329" hotspotY="0.5">
+                            <image-point name="Hp" x="0.506329" y="-0.0625" />
+                            <image-point name="Dmg" x="1" y="0.5" />
+                        </frame>
+                        <frame duration="1" hotspotX="0.571429" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.530303" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.571429" hotspotY="0.5" />
                     </animation>
                     <animation framecount="1" loop="0" name="Dead" pingpong="0" repeatcount="0" repeatto="0" sid="945416412194175" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0">
-                            <image-point name="Hp" x="0.5" y="1.0625" />
-                            <image-point name="Dmg" x="0" y="0.5" />
+                        <frame duration="1" hotspotX="0" hotspotY="0.189873">
+                            <image-point name="Hp" x="1.0625" y="0.189873" />
+                            <image-point name="Dmg" x="0.5" y="1" />
+                            <collision-poly>
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                            </collision-poly>
                         </frame>
+                    </animation>
+                    <animation framecount="8" loop="0" name="Walk" pingpong="0" repeatcount="1" repeatto="0" sid="758902492210357" speed="5">
+                        <frame duration="1" hotspotX="0.506849" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.513514" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.512821" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.513514" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.506849" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.506667" hotspotY="0.503597" />
+                        <frame duration="1" hotspotX="0.506024" hotspotY="0.503704" />
+                        <frame duration="1" hotspotX="0.506667" hotspotY="0.503597" />
                     </animation>
                 </animation-folder>
             </object-type>
