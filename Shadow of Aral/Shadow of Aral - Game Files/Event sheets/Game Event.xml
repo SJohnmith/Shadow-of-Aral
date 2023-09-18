@@ -36,6 +36,32 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="845852975070352">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="262493527937713" type="System">
+                            <param id="0" name="Variable">Got_The_Documents</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Yes&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="165765225023338">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="228979480646551" type="System">
+                                    <param id="0" name="Object">EnemyBounceWall</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="537650916630325" type="EnemyBounceWall">
+                                    <param id="0" name="Object">Enemy</param>
+                                    <param id="1" name="Layer">&quot;Main&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
             </sub-events>
         </event-block>
         <event-block sid="302166846933468">
@@ -1872,10 +1898,16 @@
                         <condition id="0" name="On collision with another object" sid="126409857284688" type="Player">
                             <param id="0" name="Object">HealthCrate</param>
                         </condition>
+                        <condition id="0" name="On collision with another object" sid="586737816154536" type="Player">
+                            <param id="0" name="Object">Card</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="714881731413378" type="Player">
+                            <param id="0" name="Object">Document</param>
+                        </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="923056946474571" type="ActionTxt">
-                            <param id="0" name="Text">&quot;Press E&quot;</param>
+                        <action id="0" name="Set text" sid="174234809727606" type="ActionTxt">
+                            <param id="0" name="Text">&quot;Press E to Pick Up&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1901,6 +1933,32 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="832364537757588" type="ActionTxt">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="564352261702004">
+                    <conditions>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="791364962757081" type="Player">
+                            <param id="0" name="Object">Document</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="380437839953081" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="653624637058368" type="ActionTxt">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="989913316051778">
+                    <conditions>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="619675027271296" type="Player">
+                            <param id="0" name="Object">Card</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="378465461382490" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="507141775997289" type="ActionTxt">
                             <param id="0" name="Text">&quot;&quot;</param>
                         </action>
                     </actions>
@@ -1993,6 +2051,110 @@
                                         </action>
                                         <action id="-5" name="Set width" sid="255411973303449" type="UI_Hp_Bar">
                                             <param id="0" name="Width">(Player.Health/100)*386</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="272420235729847">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="746819438481307" type="Player">
+                                    <param id="0" name="Object">Document</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="728899162516329" type="Instruc_Txt">
+                                    <param id="0" name="Text">&quot;You got the Documents. Now Get Out of Here!&quot;</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="731598214068077" type="Document" />
+                                <action id="-9" name="Set value" sid="667222357038944" type="System">
+                                    <param id="0" name="Variable">Got_The_Documents</param>
+                                    <param id="1" name="Value">&quot;Yes&quot;</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="949169487611815">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="142213454846356" type="Instruc_Bg">
+                                            <param id="0" name="Comparison">3</param>
+                                            <param id="1" name="Y co-ordinate">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="961513134701775" type="System">
+                                            <param id="0" name="Seconds">0.1</param>
+                                        </action>
+                                        <action behavior="LiteTween" id="3" name="Set target" sid="880146951998835" type="Instruc_Bg">
+                                            <param id="0" name="Target is">1</param>
+                                            <param id="1" name="Relativity">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </action>
+                                        <action behavior="LiteTween" id="10" name="Start" sid="476126411976903" type="Instruc_Bg">
+                                            <param id="0" name="Start Mode">0</param>
+                                            <param id="1" name="Force use current">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="882391392679754">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="856494560622322" type="System">
+                                            <param id="0" name="Variable">Got_The_Documents</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Yes&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="504318624460734">
+                                            <conditions>
+                                                <condition id="-11" name="For Each" sid="269764811459398" type="System">
+                                                    <param id="0" name="Object">EnemyBounceWall</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Spawn another object" sid="932523301907059" type="EnemyBounceWall">
+                                                    <param id="0" name="Object">Enemy</param>
+                                                    <param id="1" name="Layer">&quot;Main&quot;</param>
+                                                    <param id="2" name="Image point">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="287150387892593">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="963862515899932" type="Player">
+                                    <param id="0" name="Object">Card</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="437975560953599" type="Instruc_Txt">
+                                    <param id="0" name="Text">&quot;You can now use the Elevators.&quot;</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="312796988169695" type="Card" />
+                            </actions>
+                            <sub-events>
+                                <event-block sid="419299194910242">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="461452903165080" type="Instruc_Bg">
+                                            <param id="0" name="Comparison">3</param>
+                                            <param id="1" name="Y co-ordinate">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="569449555368023" type="System">
+                                            <param id="0" name="Seconds">0.1</param>
+                                        </action>
+                                        <action behavior="LiteTween" id="3" name="Set target" sid="472182791577022" type="Instruc_Bg">
+                                            <param id="0" name="Target is">1</param>
+                                            <param id="1" name="Relativity">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </action>
+                                        <action behavior="LiteTween" id="10" name="Start" sid="529945688345142" type="Instruc_Bg">
+                                            <param id="0" name="Start Mode">0</param>
+                                            <param id="1" name="Force use current">0</param>
                                         </action>
                                     </actions>
                                 </event-block>
