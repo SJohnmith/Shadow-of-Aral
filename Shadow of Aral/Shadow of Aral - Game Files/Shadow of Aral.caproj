@@ -1134,6 +1134,17 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Paper" sid="470091325161857">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="886750353986110" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Credits" sid="140115981955649">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemy" plugin-id="Sprite" sid="585136534726861">
