@@ -1,2 +1,3 @@
 # Shadow of Aral
  
+Since the death of the Aral Sea, there were many abandoned laboratories left behind by military scientists. You as a Stalker, live and survive in the hostile environment of the forgotten zone. Today, you must venture into an abandoned military laboratory and retrieve secret documents. You might as well find some medical kits and extra munitions along the way. It is very dangerous down there as there are a lot of monsters created by scientists. Enter at your own risk!
