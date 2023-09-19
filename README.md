@@ -1,3 +1,5 @@
 # Shadow of Aral
- 
-Since the death of the Aral Sea, there were many abandoned laboratories left behind by military scientists. You as a Stalker, live and survive in the hostile environment of the forgotten zone. Today, you must venture into an abandoned military laboratory and retrieve secret documents. You might as well find some medical kits and extra munitions along the way. It is very dangerous down there as there are a lot of monsters created by scientists. Enter at your own risk!
+
+Take a quick look on the [game](https://raw.githack.com/SJohnmith/Shadow-of-Aral/21783bedda77f3633d6941ddc1753d7f32625506/Shadow%20of%20Aral/Shadow%20of%20Aral%20-%20Root/index.html).
+
+A 2D shooter platformer game made in 10 days for a game jam inspired by "S.T.A.L.K.E.R Shadow of Chernobyl". Your objective is to find the laboratory's secret documents and get back to the surface.
