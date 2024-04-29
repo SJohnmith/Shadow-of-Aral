@@ -1190,6 +1190,7 @@
         <layout>Credits.xml</layout>
         <layout>Level 1.xml</layout>
         <layout>Level 2.xml</layout>
+        <layout>Test Scene.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Game Event.xml</event-sheet>

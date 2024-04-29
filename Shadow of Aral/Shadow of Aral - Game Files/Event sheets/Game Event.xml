@@ -128,95 +128,100 @@
         </event-block>
         <event-group description="" sid="884874334710201" title="Player">
             <sub-events>
-                <comment>Instantiate Player</comment>
-                <event-block sid="108395620183273">
-                    <conditions>
-                        <condition id="-18" name="On created" sid="711707628209907" type="Player" />
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Spawn another object" sid="914204239594823" type="Player">
-                            <param id="0" name="Object">Rectile</param>
-                            <param id="1" name="Layer">&quot;HUD&quot;</param>
-                            <param id="2" name="Image point">0</param>
-                        </action>
-                        <action id="0" name="Spawn another object" sid="441825434986807" type="Player">
-                            <param id="0" name="Object">Camera</param>
-                            <param id="1" name="Layer">&quot;HUD&quot;</param>
-                            <param id="2" name="Image point">0</param>
-                        </action>
-                        <action id="0" name="Spawn another object" sid="357786461097785" type="Player">
-                            <param id="0" name="Object">LightCamera</param>
-                            <param id="1" name="Layer">&quot;HUD&quot;</param>
-                            <param id="2" name="Image point">0</param>
-                        </action>
-                        <action id="0" name="Spawn another object" sid="901438764252520" type="Player">
-                            <param id="0" name="Object">PlayerVision</param>
-                            <param id="1" name="Layer">&quot;Light&quot;</param>
-                            <param id="2" name="Image point">0</param>
-                        </action>
-                        <action id="0" name="Spawn another object" sid="452563809975556" type="Player">
-                            <param id="0" name="Object">PlayerLight</param>
-                            <param id="1" name="Layer">&quot;Light&quot;</param>
-                            <param id="2" name="Image point">0</param>
-                        </action>
-                        <action id="0" name="Spawn another object" sid="487880589635084" type="Player">
-                            <param id="0" name="Object">ShadowLight</param>
-                            <param id="1" name="Layer">&quot;Light&quot;</param>
-                            <param id="2" name="Image point">0</param>
-                        </action>
-                        <action id="0" name="Spawn another object" sid="181898640047927" type="Player">
-                            <param id="0" name="Object">ActionTxt</param>
-                            <param id="1" name="Layer">&quot;HUD&quot;</param>
-                            <param id="2" name="Image point">2</param>
-                        </action>
-                        <action id="0" name="Spawn another object" sid="430553357768815" type="Player">
-                            <param id="0" name="Object">PlayerFeet</param>
-                            <param id="1" name="Layer">Player.LayerName</param>
-                            <param id="2" name="Image point">&quot;Feet&quot;</param>
-                        </action>
-                        <action id="0" name="Spawn another object" sid="188645914232176" type="Player">
-                            <param id="0" name="Object">PlayerBody</param>
-                            <param id="1" name="Layer">Player.LayerName</param>
-                            <param id="2" name="Image point">0</param>
-                        </action>
-                        <action id="0" name="Spawn another object" sid="448766298106533" type="Player">
-                            <param id="0" name="Object">Weapon</param>
-                            <param id="1" name="Layer">Player.LayerName</param>
-                            <param id="2" name="Image point">&quot;Arm&quot;</param>
-                        </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="247989805488314" type="PlayerFeet">
-                            <param id="0" name="Pin to">Player</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="643586219030784" type="PlayerBody">
-                            <param id="0" name="Pin to">Player</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="664347195574889" type="Weapon">
-                            <param id="0" name="Pin to">Player</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="553593041691435" type="ShadowLight">
-                            <param id="0" name="Pin to">LightCamera</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="374753708070396" type="PlayerVision">
-                            <param id="0" name="Pin to">Player</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="119218678793951" type="PlayerLight">
-                            <param id="0" name="Pin to">Player</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="664134287811585" type="ActionTxt">
-                            <param id="0" name="Pin to">Player</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
-                        <action id="0" name="Set text" sid="546460245522298" type="PlayerStatsTxt">
-                            <param id="0" name="Text">&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
-                        </action>
-                    </actions>
-                </event-block>
+                <event-group description="" sid="535938880335791" title="Player Initialize">
+                    <sub-events>
+                        <comment>Instantiate Player</comment>
+                        <event-block sid="108395620183273">
+                            <conditions>
+                                <condition id="-18" name="On created" sid="711707628209907" type="Player" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="914204239594823" type="Player">
+                                    <param id="0" name="Object">Rectile</param>
+                                    <param id="1" name="Layer">&quot;HUD&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="441825434986807" type="Player">
+                                    <param id="0" name="Object">Camera</param>
+                                    <param id="1" name="Layer">&quot;HUD&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="357786461097785" type="Player">
+                                    <param id="0" name="Object">LightCamera</param>
+                                    <param id="1" name="Layer">&quot;HUD&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="901438764252520" type="Player">
+                                    <param id="0" name="Object">PlayerVision</param>
+                                    <param id="1" name="Layer">&quot;Light&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="452563809975556" type="Player">
+                                    <param id="0" name="Object">PlayerLight</param>
+                                    <param id="1" name="Layer">&quot;Light&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="487880589635084" type="Player">
+                                    <param id="0" name="Object">ShadowLight</param>
+                                    <param id="1" name="Layer">&quot;Light&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="181898640047927" type="Player">
+                                    <param id="0" name="Object">ActionTxt</param>
+                                    <param id="1" name="Layer">&quot;HUD&quot;</param>
+                                    <param id="2" name="Image point">2</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="430553357768815" type="Player">
+                                    <param id="0" name="Object">PlayerFeet</param>
+                                    <param id="1" name="Layer">Player.LayerName</param>
+                                    <param id="2" name="Image point">&quot;Feet&quot;</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="188645914232176" type="Player">
+                                    <param id="0" name="Object">PlayerBody</param>
+                                    <param id="1" name="Layer">Player.LayerName</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="448766298106533" type="Player">
+                                    <param id="0" name="Object">Weapon</param>
+                                    <param id="1" name="Layer">Player.LayerName</param>
+                                    <param id="2" name="Image point">&quot;Arm&quot;</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="247989805488314" type="PlayerFeet">
+                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="643586219030784" type="PlayerBody">
+                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="664347195574889" type="Weapon">
+                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="553593041691435" type="ShadowLight">
+                                    <param id="0" name="Pin to">LightCamera</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="374753708070396" type="PlayerVision">
+                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="119218678793951" type="PlayerLight">
+                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="664134287811585" type="ActionTxt">
+                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="546460245522298" type="PlayerStatsTxt">
+                                    <param id="0" name="Text">&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="351905299263012" title="Player API" />
                 <comment>Player Platformer</comment>
                 <event-block sid="703201017395159">
                     <conditions>
