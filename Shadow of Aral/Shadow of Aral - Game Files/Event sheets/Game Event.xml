@@ -85,6 +85,9 @@
                     <param id="0" name="X">Mouse.X</param>
                     <param id="1" name="Y">Mouse.Y</param>
                 </action>
+                <action id="-8" name="Set angle" sid="664485869821454" type="BackArm">
+                    <param id="0" name="Angle">Weapon.Angle</param>
+                </action>
                 <action id="-22" name="Set angle toward position" sid="540049767063335" type="PlayerLight">
                     <param id="0" name="X">Mouse.X</param>
                     <param id="1" name="Y">Mouse.Y</param>
@@ -176,6 +179,11 @@
                                     <param id="1" name="Layer">Player.LayerName</param>
                                     <param id="2" name="Image point">&quot;Feet&quot;</param>
                                 </action>
+                                <action id="0" name="Spawn another object" sid="706555936540422" type="Player">
+                                    <param id="0" name="Object">BackArm</param>
+                                    <param id="1" name="Layer">Player.LayerName</param>
+                                    <param id="2" name="Image point">&quot;BackArm&quot;</param>
+                                </action>
                                 <action id="0" name="Spawn another object" sid="188645914232176" type="Player">
                                     <param id="0" name="Object">PlayerBody</param>
                                     <param id="1" name="Layer">Player.LayerName</param>
@@ -184,7 +192,7 @@
                                 <action id="0" name="Spawn another object" sid="448766298106533" type="Player">
                                     <param id="0" name="Object">Weapon</param>
                                     <param id="1" name="Layer">Player.LayerName</param>
-                                    <param id="2" name="Image point">&quot;Arm&quot;</param>
+                                    <param id="2" name="Image point">&quot;FrontArm&quot;</param>
                                 </action>
                                 <action behavior="Pin" id="0" name="Pin to object" sid="247989805488314" type="PlayerFeet">
                                     <param id="0" name="Pin to">Player</param>
@@ -196,6 +204,10 @@
                                 </action>
                                 <action behavior="Pin" id="0" name="Pin to object" sid="664347195574889" type="Weapon">
                                     <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="371944275035622" type="BackArm">
+                                    <param id="0" name="Pin to">Weapon</param>
                                     <param id="1" name="Mode">0</param>
                                 </action>
                                 <action behavior="Pin" id="0" name="Pin to object" sid="553593041691435" type="ShadowLight">
@@ -386,7 +398,7 @@
                         </action>
                     </actions>
                 </event-block>
-                <comment>Player Looking</comment>
+                <comment>Player Looking (Set lock limits on the Player Viewing Down and Up)</comment>
                 <event-block sid="460951366311168">
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="492685933672468" type="System">
@@ -406,16 +418,28 @@
                         <action id="8" name="Set flipped" sid="801792067302352" type="Weapon">
                             <param id="0" name="State">1</param>
                         </action>
+                        <action id="8" name="Set flipped" sid="759222541502046" type="BackArm">
+                            <param id="0" name="State">1</param>
+                        </action>
                         <action id="7" name="Set mirrored" sid="645772172411991" type="PlayerFeet">
                             <param id="0" name="State">1</param>
                         </action>
                         <action behavior="Pin" id="1" name="Unpin" sid="266302193192386" type="Weapon" />
+                        <action behavior="Pin" id="1" name="Unpin" sid="331790236432107" type="BackArm" />
                         <action id="-4" name="Set position to another object" sid="558475642131562" type="Weapon">
                             <param id="0" name="Object">Player</param>
-                            <param id="1" name="Image point (optional)">&quot;Arm&quot;</param>
+                            <param id="1" name="Image point (optional)">&quot;FrontArm&quot;</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="753289806383077" type="Weapon">
                             <param id="0" name="Pin to">Player</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="618647986260638" type="BackArm">
+                            <param id="0" name="Object">Weapon</param>
+                            <param id="1" name="Image point (optional)">&quot;2nd Arm&quot;</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="985640868006920" type="BackArm">
+                            <param id="0" name="Pin to">Weapon</param>
                             <param id="1" name="Mode">0</param>
                         </action>
                         <action behavior="Pin" id="1" name="Unpin" sid="743724889269143" type="PlayerFeet" />
@@ -448,16 +472,28 @@
                         <action id="8" name="Set flipped" sid="660135644242628" type="Weapon">
                             <param id="0" name="State">0</param>
                         </action>
+                        <action id="8" name="Set flipped" sid="240211285864301" type="BackArm">
+                            <param id="0" name="State">0</param>
+                        </action>
                         <action id="7" name="Set mirrored" sid="897506112976776" type="PlayerFeet">
                             <param id="0" name="State">0</param>
                         </action>
                         <action behavior="Pin" id="1" name="Unpin" sid="656226988815554" type="Weapon" />
+                        <action behavior="Pin" id="1" name="Unpin" sid="265122924435502" type="BackArm" />
                         <action id="-4" name="Set position to another object" sid="479972445129567" type="Weapon">
                             <param id="0" name="Object">Player</param>
                             <param id="1" name="Image point (optional)">1</param>
                         </action>
                         <action behavior="Pin" id="0" name="Pin to object" sid="426304185446722" type="Weapon">
                             <param id="0" name="Pin to">Player</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="910170763013336" type="BackArm">
+                            <param id="0" name="Object">Weapon</param>
+                            <param id="1" name="Image point (optional)">&quot;2nd Arm&quot;</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="582271837569152" type="BackArm">
+                            <param id="0" name="Pin to">Weapon</param>
                             <param id="1" name="Mode">0</param>
                         </action>
                         <action behavior="Pin" id="1" name="Unpin" sid="857558935794125" type="PlayerFeet" />

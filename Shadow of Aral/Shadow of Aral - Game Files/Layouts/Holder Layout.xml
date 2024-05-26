@@ -29,9 +29,35 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
+                <instance type="BackArm" uid="445">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Pin" />
+                        <behavior-instance type="Persist" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>247</x>
+                        <y>96</y>
+                        <z>0</z>
+                        <width>46</width>
+                        <height>45</height>
+                        <depth>0</depth>
+                        <hotspotX>0.260869563</hotspotX>
+                        <hotspotY>0.155555561</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
                 <instance type="Player" uid="6">
                     <properties>
-                        <initial-visibility>Invisible</initial-visibility>
+                        <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
@@ -284,7 +310,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>288</x>
+                        <x>352</x>
                         <y>96</y>
                         <z>0</z>
                         <width>15</width>
@@ -455,11 +481,11 @@
                         <x>240</x>
                         <y>136</y>
                         <z>0</z>
-                        <width>39</width>
-                        <height>47</height>
+                        <width>48</width>
+                        <height>54</height>
                         <depth>0</depth>
-                        <hotspotX>0.512820542</hotspotX>
-                        <hotspotY>0</hotspotY>
+                        <hotspotX>0.583333313</hotspotX>
+                        <hotspotY>0.037037037</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -467,7 +493,7 @@
                 <instance type="PlayerBody" uid="165">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
+                        <initial-animation>New</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
@@ -493,8 +519,8 @@
                         <width>54</width>
                         <height>131</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.503816783</hotspotY>
+                        <hotspotX>0.518518507</hotspotX>
+                        <hotspotY>0.603053451</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -528,13 +554,13 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>224</x>
-                        <y>112</y>
+                        <y>96</y>
                         <z>0</z>
                         <width>111</width>
-                        <height>35</height>
+                        <height>54</height>
                         <depth>0</depth>
-                        <hotspotX>0.009009009</hotspotX>
-                        <hotspotY>0.142857149</hotspotY>
+                        <hotspotX>0.171171173</hotspotX>
+                        <hotspotY>0.148148149</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

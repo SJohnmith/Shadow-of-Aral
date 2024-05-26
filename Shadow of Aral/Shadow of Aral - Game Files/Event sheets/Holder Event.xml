@@ -56,7 +56,7 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="482665135633021">
+                <event-block disabled="1" sid="482665135633021">
                     <conditions>
                         <condition id="5" inverted="1" name="Is tag playing" sid="228377383834853" type="Audio">
                             <param id="0" name="Tag">&quot;Bg_Music&quot;</param>
