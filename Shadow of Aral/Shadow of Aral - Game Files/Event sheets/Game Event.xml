@@ -81,12 +81,21 @@
                     <param id="0" name="X">Mouse.X</param>
                     <param id="1" name="Y">Mouse.Y</param>
                 </action>
-                <action id="-22" name="Set angle toward position" sid="125194450134995" type="Weapon">
+                <action disabled="1" id="-22" name="Set angle toward position" sid="125194450134995" type="Weapon">
                     <param id="0" name="X">Mouse.X</param>
                     <param id="1" name="Y">Mouse.Y</param>
                 </action>
+                <action id="-8" name="Set angle" sid="717708959781192" type="Weapon">
+                    <param id="0" name="Angle">angle(Self.X, Self.Y, Mouse.X, Mouse.Y)</param>
+                </action>
                 <action id="-8" name="Set angle" sid="664485869821454" type="BackArm">
-                    <param id="0" name="Angle">Weapon.Angle</param>
+                    <param id="0" name="Angle">angle(Self.X, Self.Y, Mouse.X, Mouse.Y)</param>
+                </action>
+                <action id="-8" name="Set angle" sid="503834155706002" type="FrontArm">
+                    <param id="0" name="Angle">angle(Self.X, Self.Y, Mouse.X, Mouse.Y)</param>
+                </action>
+                <action id="-8" name="Set angle" sid="276704449221972" type="PlayerHead">
+                    <param id="0" name="Angle">angle(Self.X, Self.Y, Mouse.X, Mouse.Y)</param>
                 </action>
                 <action id="-22" name="Set angle toward position" sid="540049767063335" type="PlayerLight">
                     <param id="0" name="X">Mouse.X</param>
@@ -95,6 +104,12 @@
                 <action id="-10" name="Set value" sid="719153190197442" type="Enemy">
                     <param id="0" name="Instance variable">Dist</param>
                     <param id="1" name="Value">distance(Self.X, Self.Y, Player.X, Player.Y)</param>
+                </action>
+                <action id="-8" name="Set angle" sid="924208615389918" type="BackArm">
+                    <param id="0" name="Angle">Weapon.Angle</param>
+                </action>
+                <action id="-8" name="Set angle" sid="581831538250216" type="PlayerHead">
+                    <param id="0" name="Angle">Weapon.Angle</param>
                 </action>
             </actions>
             <sub-events>
@@ -189,25 +204,52 @@
                                     <param id="1" name="Layer">Player.LayerName</param>
                                     <param id="2" name="Image point">0</param>
                                 </action>
+                                <action id="0" name="Spawn another object" sid="663615989639555" type="Player">
+                                    <param id="0" name="Object">PlayerHead</param>
+                                    <param id="1" name="Layer">Player.LayerName</param>
+                                    <param id="2" name="Image point">&quot;Head&quot;</param>
+                                </action>
                                 <action id="0" name="Spawn another object" sid="448766298106533" type="Player">
-                                    <param id="0" name="Object">Weapon</param>
+                                    <param id="0" name="Object">FrontArm</param>
                                     <param id="1" name="Layer">Player.LayerName</param>
                                     <param id="2" name="Image point">&quot;FrontArm&quot;</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="810695817023419" type="Player">
+                                    <param id="0" name="Object">ArmReference</param>
+                                    <param id="1" name="Layer">Player.LayerName</param>
+                                    <param id="2" name="Image point">&quot;FrontArm&quot;</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="884025439461322" type="ArmReference">
+                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="763436461737983" type="FrontArm">
+                                    <param id="0" name="Object">Weapon</param>
+                                    <param id="1" name="Layer">Player.LayerName</param>
+                                    <param id="2" name="Image point">1</param>
                                 </action>
                                 <action behavior="Pin" id="0" name="Pin to object" sid="247989805488314" type="PlayerFeet">
                                     <param id="0" name="Pin to">Player</param>
                                     <param id="1" name="Mode">0</param>
                                 </action>
                                 <action behavior="Pin" id="0" name="Pin to object" sid="643586219030784" type="PlayerBody">
-                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="0" name="Pin to">ArmReference</param>
                                     <param id="1" name="Mode">0</param>
                                 </action>
-                                <action behavior="Pin" id="0" name="Pin to object" sid="664347195574889" type="Weapon">
-                                    <param id="0" name="Pin to">Player</param>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="664347195574889" type="FrontArm">
+                                    <param id="0" name="Pin to">ArmReference</param>
                                     <param id="1" name="Mode">0</param>
                                 </action>
                                 <action behavior="Pin" id="0" name="Pin to object" sid="371944275035622" type="BackArm">
                                     <param id="0" name="Pin to">Weapon</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="519468918192224" type="PlayerHead">
+                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="941873363928587" type="Weapon">
+                                    <param id="0" name="Pin to">FrontArm</param>
                                     <param id="1" name="Mode">0</param>
                                 </action>
                                 <action behavior="Pin" id="0" name="Pin to object" sid="553593041691435" type="ShadowLight">
@@ -229,443 +271,500 @@
                                 <action id="0" name="Set text" sid="546460245522298" type="PlayerStatsTxt">
                                     <param id="0" name="Text">&quot;Ammo: &quot;&amp;Player.AmntAmmo</param>
                                 </action>
+                                <action id="-10" name="Set value" sid="892601935823881" type="Weapon">
+                                    <param id="0" name="Instance variable">Inherited_UID</param>
+                                    <param id="1" name="Value">FrontArm.UID</param>
+                                </action>
+                                <action id="-29" name="Move to object" sid="615308304097569" type="Weapon">
+                                    <param id="0" name="Where">1</param>
+                                    <param id="1" name="Object">FrontArm</param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group description="" sid="351905299263012" title="Player API" />
-                <comment>Player Platformer</comment>
-                <event-block sid="703201017395159">
-                    <conditions>
-                        <condition id="2" name="Key is down" sid="799399248795623" type="Keyboard">
-                            <param id="0" name="Key">65</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="Platform" id="7" name="Simulate control" sid="742144325072552" type="Player">
-                            <param id="0" name="Control">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="587754068601485">
-                    <conditions>
-                        <condition id="2" name="Key is down" sid="814144127872475" type="Keyboard">
-                            <param id="0" name="Key">68</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="Platform" id="7" name="Simulate control" sid="293399475321731" type="Player">
-                            <param id="0" name="Control">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <comment>Player 8-Directions</comment>
-                <event-block sid="307778313257581">
-                    <conditions>
-                        <condition id="0" name="On key pressed" sid="704561544849875" type="Keyboard">
-                            <param id="0" name="Key">83</param>
-                        </condition>
-                        <condition id="1" name="Is overlapping another object" sid="582052651374518" type="Player">
-                            <param id="0" name="Object">WalkThrough</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="Platform" id="11" name="Set enabled" sid="605689764450582" type="Player">
-                            <param id="0" name="State">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="915550535003553">
-                    <conditions>
-                        <condition id="0" name="On key pressed" sid="435361296687837" type="Keyboard">
-                            <param id="0" name="Key">87</param>
-                        </condition>
-                        <condition id="1" inverted="1" name="Is overlapping another object" sid="178403799515227" type="Player">
-                            <param id="0" name="Object">Ladder</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="Platform" id="7" name="Simulate control" sid="876305680820820" type="Player">
-                            <param id="0" name="Control">2</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="947570903692713">
-                    <conditions>
-                        <condition id="2" name="Key is down" sid="670622700509649" type="Keyboard">
-                            <param id="0" name="Key">87</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="8Direction" id="7" name="Simulate control" sid="140061878978687" type="Player">
-                            <param id="0" name="Control">2</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="254979610034474">
-                    <conditions>
-                        <condition id="2" name="Key is down" sid="202226075225115" type="Keyboard">
-                            <param id="0" name="Key">65</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="8Direction" id="7" name="Simulate control" sid="985586156381326" type="Player">
-                            <param id="0" name="Control">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="769006328941043">
-                    <conditions>
-                        <condition id="2" name="Key is down" sid="198849020979690" type="Keyboard">
-                            <param id="0" name="Key">83</param>
-                        </condition>
-                        <condition id="1" name="Is overlapping another object" sid="812395967017087" type="Player">
-                            <param id="0" name="Object">Ladder</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="8Direction" id="7" name="Simulate control" sid="705486820229783" type="Player">
-                            <param id="0" name="Control">3</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="466024102392767">
-                    <conditions>
-                        <condition id="2" name="Key is down" sid="888477656265249" type="Keyboard">
-                            <param id="0" name="Key">68</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="8Direction" id="7" name="Simulate control" sid="890375630345723" type="Player">
-                            <param id="0" name="Control">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <comment>Player Climbing</comment>
-                <event-block sid="410420387088445">
-                    <conditions>
-                        <condition id="1" name="Is overlapping another object" sid="424699330175294" type="Player">
-                            <param id="0" name="Object">Ladder</param>
-                        </condition>
-                    </conditions>
-                    <actions />
+                <event-group description="" sid="351905299263012" title="Player API">
                     <sub-events>
-                        <event-block sid="370356085786776">
+                        <event-block sid="430125956138236">
                             <conditions>
-                                <condition id="2" name="Key is down" sid="613364036482540" type="Keyboard">
+                                <condition id="0" name="On function" sid="489450202722126" type="Function">
+                                    <param id="0" name="Name">&quot;Pin Unpin Player&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Pin" id="1" name="Unpin" sid="638341984970809" type="PlayerHead" />
+                                <action behavior="Pin" id="1" name="Unpin" sid="454037424412939" type="FrontArm" />
+                                <action behavior="Pin" id="1" name="Unpin" sid="872172765428321" type="BackArm" />
+                                <action behavior="Pin" id="1" name="Unpin" sid="694780964264746" type="PlayerFeet" />
+                                <action behavior="Pin" id="1" name="Unpin" sid="927964248266975" type="Weapon" />
+                                <action behavior="Pin" id="1" name="Unpin" sid="964069590210404" type="ArmReference" />
+                                <action behavior="Pin" id="1" name="Unpin" sid="462699507521506" type="PlayerBody" />
+                                <action id="-4" name="Set position to another object" sid="527703218620869" type="ArmReference">
+                                    <param id="0" name="Object">Player</param>
+                                    <param id="1" name="Image point (optional)">&quot;FrontArm&quot;</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="245413283972703" type="ArmReference">
+                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="676888081655443" type="PlayerBody">
+                                    <param id="0" name="Object">Player</param>
+                                    <param id="1" name="Image point (optional)">0</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="392505787774996" type="PlayerBody">
+                                    <param id="0" name="Pin to">ArmReference</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="980624500197431" type="PlayerHead">
+                                    <param id="0" name="Object">Player</param>
+                                    <param id="1" name="Image point (optional)">&quot;Head&quot;</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="381972746405387" type="PlayerHead">
+                                    <param id="0" name="Pin to">ArmReference</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="102647815368545" type="FrontArm">
+                                    <param id="0" name="Object">Player</param>
+                                    <param id="1" name="Image point (optional)">&quot;FrontArm&quot;</param>
+                                </action>
+                                <action behavior="Pin" disabled="1" id="0" name="Pin to object" sid="249244570608527" type="FrontArm">
+                                    <param id="0" name="Pin to">Player</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="795524463127064" type="FrontArm">
+                                    <param id="0" name="Object">ArmReference</param>
+                                    <param id="1" name="Image point (optional)">0</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="202487347215911" type="FrontArm">
+                                    <param id="0" name="Pin to">ArmReference</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="367751201388292" type="BackArm">
+                                    <param id="0" name="Object">Weapon</param>
+                                    <param id="1" name="Image point (optional)">&quot;2nd Arm&quot;</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="599082253810228" type="BackArm">
+                                    <param id="0" name="Pin to">Weapon</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="622951795693875" type="PlayerFeet">
+                                    <param id="0" name="Object">Player</param>
+                                    <param id="1" name="Image point (optional)">&quot;Feet&quot;</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="616260244132630" type="PlayerFeet">
+                                    <param id="0" name="Pin to">ArmReference</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="273276876127019" type="Weapon">
+                                    <param id="0" name="Object">FrontArm</param>
+                                    <param id="1" name="Image point (optional)">&quot;Equip&quot;</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="905072013185157" type="Weapon">
+                                    <param id="0" name="Pin to">FrontArm</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Player Platformer</comment>
+                        <event-block sid="703201017395159">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="799399248795623" type="Keyboard">
+                                    <param id="0" name="Key">65</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="742144325072552" type="Player">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="587754068601485">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="814144127872475" type="Keyboard">
+                                    <param id="0" name="Key">68</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="293399475321731" type="Player">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Player 8-Directions</comment>
+                        <event-block sid="307778313257581">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="704561544849875" type="Keyboard">
+                                    <param id="0" name="Key">83</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="582052651374518" type="Player">
+                                    <param id="0" name="Object">WalkThrough</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="11" name="Set enabled" sid="605689764450582" type="Player">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="915550535003553">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="435361296687837" type="Keyboard">
+                                    <param id="0" name="Key">87</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="178403799515227" type="Player">
+                                    <param id="0" name="Object">Ladder</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="876305680820820" type="Player">
+                                    <param id="0" name="Control">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="947570903692713">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="670622700509649" type="Keyboard">
                                     <param id="0" name="Key">87</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-16" name="Wait" sid="923752664519207" type="System">
-                                    <param id="0" name="Seconds">0.1</param>
-                                </action>
-                                <action behavior="8Direction" id="8" name="Set enabled" sid="312508147389163" type="Player">
-                                    <param id="0" name="State">1</param>
-                                </action>
-                                <action behavior="Platform" id="11" name="Set enabled" sid="147242707720356" type="Player">
-                                    <param id="0" name="State">0</param>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="140061878978687" type="Player">
+                                    <param id="0" name="Control">2</param>
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="394444309825340">
+                        <event-block sid="254979610034474">
                             <conditions>
-                                <condition id="2" name="Key is down" sid="296924452679967" type="Keyboard">
+                                <condition id="2" name="Key is down" sid="202226075225115" type="Keyboard">
+                                    <param id="0" name="Key">65</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="985586156381326" type="Player">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="769006328941043">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="198849020979690" type="Keyboard">
                                     <param id="0" name="Key">83</param>
                                 </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="8" name="Set enabled" sid="980558396302352" type="Player">
-                                    <param id="0" name="State">1</param>
-                                </action>
-                                <action behavior="Platform" id="11" name="Set enabled" sid="180839208062949" type="Player">
-                                    <param id="0" name="State">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
-                <event-block sid="283741220128945">
-                    <conditions>
-                        <condition id="-22" name="Else" sid="253675535272014" type="System" />
-                    </conditions>
-                    <actions>
-                        <action behavior="8Direction" id="8" name="Set enabled" sid="963474158079091" type="Player">
-                            <param id="0" name="State">0</param>
-                        </action>
-                        <action behavior="Platform" id="11" name="Set enabled" sid="166991222058813" type="Player">
-                            <param id="0" name="State">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <comment>Player Looking (Set lock limits on the Player Viewing Down and Up)</comment>
-                <event-block sid="460951366311168">
-                    <conditions>
-                        <condition id="-8" name="Compare two values" sid="492685933672468" type="System">
-                            <param id="0" name="First value">Player.X</param>
-                            <param id="1" name="Comparison">2</param>
-                            <param id="2" name="Second value">Mouse.X</param>
-                        </condition>
-                        <condition id="-4" name="Trigger once while true" sid="832569803603624" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="7" name="Set mirrored" sid="160783022408962" type="Player">
-                            <param id="0" name="State">1</param>
-                        </action>
-                        <action id="7" name="Set mirrored" sid="307142680283118" type="PlayerBody">
-                            <param id="0" name="State">1</param>
-                        </action>
-                        <action id="8" name="Set flipped" sid="801792067302352" type="Weapon">
-                            <param id="0" name="State">1</param>
-                        </action>
-                        <action id="8" name="Set flipped" sid="759222541502046" type="BackArm">
-                            <param id="0" name="State">1</param>
-                        </action>
-                        <action id="7" name="Set mirrored" sid="645772172411991" type="PlayerFeet">
-                            <param id="0" name="State">1</param>
-                        </action>
-                        <action behavior="Pin" id="1" name="Unpin" sid="266302193192386" type="Weapon" />
-                        <action behavior="Pin" id="1" name="Unpin" sid="331790236432107" type="BackArm" />
-                        <action id="-4" name="Set position to another object" sid="558475642131562" type="Weapon">
-                            <param id="0" name="Object">Player</param>
-                            <param id="1" name="Image point (optional)">&quot;FrontArm&quot;</param>
-                        </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="753289806383077" type="Weapon">
-                            <param id="0" name="Pin to">Player</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
-                        <action id="-4" name="Set position to another object" sid="618647986260638" type="BackArm">
-                            <param id="0" name="Object">Weapon</param>
-                            <param id="1" name="Image point (optional)">&quot;2nd Arm&quot;</param>
-                        </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="985640868006920" type="BackArm">
-                            <param id="0" name="Pin to">Weapon</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
-                        <action behavior="Pin" id="1" name="Unpin" sid="743724889269143" type="PlayerFeet" />
-                        <action id="-4" name="Set position to another object" sid="302798060414047" type="PlayerFeet">
-                            <param id="0" name="Object">Player</param>
-                            <param id="1" name="Image point (optional)">&quot;Feet&quot;</param>
-                        </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="822365846163309" type="PlayerFeet">
-                            <param id="0" name="Pin to">Player</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="274844778323418">
-                    <conditions>
-                        <condition id="-8" name="Compare two values" sid="823520795808309" type="System">
-                            <param id="0" name="First value">Player.X</param>
-                            <param id="1" name="Comparison">5</param>
-                            <param id="2" name="Second value">Mouse.X</param>
-                        </condition>
-                        <condition id="-4" name="Trigger once while true" sid="930098879193327" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="7" name="Set mirrored" sid="532415437832936" type="Player">
-                            <param id="0" name="State">0</param>
-                        </action>
-                        <action id="7" name="Set mirrored" sid="274258394100984" type="PlayerBody">
-                            <param id="0" name="State">0</param>
-                        </action>
-                        <action id="8" name="Set flipped" sid="660135644242628" type="Weapon">
-                            <param id="0" name="State">0</param>
-                        </action>
-                        <action id="8" name="Set flipped" sid="240211285864301" type="BackArm">
-                            <param id="0" name="State">0</param>
-                        </action>
-                        <action id="7" name="Set mirrored" sid="897506112976776" type="PlayerFeet">
-                            <param id="0" name="State">0</param>
-                        </action>
-                        <action behavior="Pin" id="1" name="Unpin" sid="656226988815554" type="Weapon" />
-                        <action behavior="Pin" id="1" name="Unpin" sid="265122924435502" type="BackArm" />
-                        <action id="-4" name="Set position to another object" sid="479972445129567" type="Weapon">
-                            <param id="0" name="Object">Player</param>
-                            <param id="1" name="Image point (optional)">1</param>
-                        </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="426304185446722" type="Weapon">
-                            <param id="0" name="Pin to">Player</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
-                        <action id="-4" name="Set position to another object" sid="910170763013336" type="BackArm">
-                            <param id="0" name="Object">Weapon</param>
-                            <param id="1" name="Image point (optional)">&quot;2nd Arm&quot;</param>
-                        </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="582271837569152" type="BackArm">
-                            <param id="0" name="Pin to">Weapon</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
-                        <action behavior="Pin" id="1" name="Unpin" sid="857558935794125" type="PlayerFeet" />
-                        <action id="-4" name="Set position to another object" sid="409869212071167" type="PlayerFeet">
-                            <param id="0" name="Object">Player</param>
-                            <param id="1" name="Image point (optional)">&quot;Feet&quot;</param>
-                        </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="298756178807657" type="PlayerFeet">
-                            <param id="0" name="Pin to">Player</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <comment>Player when Moving</comment>
-                <event-block sid="140913840967870">
-                    <conditions>
-                        <condition behavior="Platform" id="0" name="Is moving" sid="955666234255600" type="Player" />
-                        <condition behavior="Platform" id="3" inverted="1" name="Is jumping" sid="918722395741916" type="Player" />
-                        <condition id="-4" name="Trigger once while true" sid="233124854888677" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="4" name="Set animation" sid="566673395708372" type="PlayerFeet">
-                            <param id="0" name="Animation">&quot;Walk&quot;</param>
-                            <param id="1" name="From">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="765130864309309">
-                    <conditions>
-                        <condition behavior="Platform" id="9" name="On landed" sid="191428254433287" type="Player" />
-                        <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="850798456972230" type="Player" />
-                    </conditions>
-                    <actions>
-                        <action id="4" name="Set animation" sid="315643402979734" type="PlayerFeet">
-                            <param id="0" name="Animation">&quot;Default&quot;</param>
-                            <param id="1" name="From">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="526723193996291">
-                    <conditions>
-                        <condition behavior="Platform" id="7" name="On stopped" sid="710372822845740" type="Player" />
-                    </conditions>
-                    <actions>
-                        <action id="4" name="Set animation" sid="163496674126157" type="PlayerFeet">
-                            <param id="0" name="Animation">&quot;Default&quot;</param>
-                            <param id="1" name="From">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <comment>Player Shooting</comment>
-                <event-block sid="223071851149215">
-                    <conditions>
-                        <condition id="0" name="On click" sid="327354669221684" type="Mouse">
-                            <param id="0" name="Mouse button">0</param>
-                            <param id="1" name="Click type">0</param>
-                        </condition>
-                        <condition id="7" inverted="1" name="Cursor is over object" sid="996579056451170" type="Mouse">
-                            <param id="0" name="Object">UI_Bg</param>
-                        </condition>
-                        <condition id="7" inverted="1" name="Cursor is over object" sid="794492507084179" type="Mouse">
-                            <param id="0" name="Object">Btn_Bg</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Call function" sid="726880829252684" type="Function">
-                            <param id="0" name="Name">&quot;WeaponShot&quot;</param>
-                            <param id="1" name="Parameter {n}">Player.UID{###}&quot;My&quot;</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <comment>Player Change Lights</comment>
-                <event-block sid="493225530331758">
-                    <conditions>
-                        <condition id="0" name="On collision with another object" sid="615565679111606" type="Player">
-                            <param id="0" name="Object">AreaDark</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-35" name="Set layer transparent" sid="893146871178208" type="System">
-                            <param id="0" name="Layer">&quot;Light&quot;</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="432308522296608">
-                    <conditions>
-                        <condition id="0" name="On collision with another object" sid="999482911368409" type="Player">
-                            <param id="0" name="Object">AreaLight</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-35" name="Set layer transparent" sid="454708292374662" type="System">
-                            <param id="0" name="Layer">&quot;Light&quot;</param>
-                            <param id="1" name="Mode">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <comment>Player Death</comment>
-                <event-block sid="992160224076130">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="286815194678508" type="Player">
-                            <param id="0" name="Instance variable">Health</param>
-                            <param id="1" name="Comparison">3</param>
-                            <param id="2" name="Value">0</param>
-                        </condition>
-                        <condition id="-4" name="Trigger once while true" sid="762119737829422" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="-15" name="Set visible" sid="927515823969251" type="YouDied_Txt">
-                            <param id="0" name="Visibility">1</param>
-                        </action>
-                        <action behavior="Platform" id="5" name="Set gravity" sid="829206028332902" type="Player">
-                            <param id="0" name="Gravity">0</param>
-                        </action>
-                        <action id="11" name="Set collisions enabled" sid="591540126760811" type="Player">
-                            <param id="0" name="Collisions">0</param>
-                        </action>
-                        <action id="4" name="Set animation" sid="372834807467184" type="PlayerFeet">
-                            <param id="0" name="Animation">&quot;Default&quot;</param>
-                            <param id="1" name="From">1</param>
-                        </action>
-                        <action id="-12" name="Set group active" sid="108635839228396" type="System">
-                            <param id="0" name="Group name">&quot;Player&quot;</param>
-                            <param id="1" name="State">0</param>
-                        </action>
-                        <action id="-16" name="Wait" sid="761739287183410" type="System">
-                            <param id="0" name="Seconds">3</param>
-                        </action>
-                        <action id="-9" name="Destroy" sid="550355824148337" type="Player" />
-                        <action id="-9" name="Destroy" sid="590099754928966" type="PlayerBody" />
-                        <action id="-9" name="Destroy" sid="125536879230546" type="Weapon" />
-                        <action id="-9" name="Destroy" sid="350805228023707" type="PlayerFeet" />
-                        <action id="-9" name="Destroy" sid="612068916692897" type="Rectile" />
-                        <action id="-9" name="Destroy" sid="337785662973658" type="Camera" />
-                        <action id="-9" name="Destroy" sid="461408710973854" type="LightCamera" />
-                        <action id="-9" name="Destroy" sid="738245093880570" type="PlayerVision" />
-                        <action id="-9" name="Destroy" sid="747828190921956" type="PlayerLight" />
-                        <action id="-9" name="Destroy" sid="772394201724873" type="ShadowLight" />
-                        <action id="-9" name="Destroy" sid="381813700287748" type="ActionTxt" />
-                        <action id="-16" name="Wait" sid="371487229554993" type="System">
-                            <param id="0" name="Seconds">0.1</param>
-                        </action>
-                    </actions>
-                    <sub-events>
-                        <event-block sid="646913044317083">
-                            <conditions>
-                                <condition id="-34" name="Pick by evaluate" sid="296993036161589" type="System">
-                                    <param id="0" name="Object">Doors</param>
-                                    <param id="1" name="Expression">Doors.PlayerSaved = 1</param>
+                                <condition id="1" name="Is overlapping another object" sid="812395967017087" type="Player">
+                                    <param id="0" name="Object">Ladder</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-12" name="Set group active" sid="529869892495194" type="System">
-                                    <param id="0" name="Group name">&quot;Player&quot;</param>
-                                    <param id="1" name="State">1</param>
-                                </action>
-                                <action id="-15" name="Set visible" sid="326211822338923" type="YouDied_Txt">
-                                    <param id="0" name="Visibility">0</param>
-                                </action>
-                                <action id="0" name="Spawn another object" sid="653056538501789" type="Doors">
-                                    <param id="0" name="Object">Player</param>
-                                    <param id="1" name="Layer">&quot;Main&quot;</param>
-                                    <param id="2" name="Image point">0</param>
-                                </action>
-                                <action id="-5" name="Set width" sid="114227302866049" type="UI_Hp_Bar">
-                                    <param id="0" name="Width">(Player.Health/100)*386</param>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="705486820229783" type="Player">
+                                    <param id="0" name="Control">3</param>
                                 </action>
                             </actions>
                         </event-block>
+                        <event-block sid="466024102392767">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="888477656265249" type="Keyboard">
+                                    <param id="0" name="Key">68</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="890375630345723" type="Player">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Player Climbing</comment>
+                        <event-block sid="410420387088445">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="424699330175294" type="Player">
+                                    <param id="0" name="Object">Ladder</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="370356085786776">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="613364036482540" type="Keyboard">
+                                            <param id="0" name="Key">87</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="923752664519207" type="System">
+                                            <param id="0" name="Seconds">0.1</param>
+                                        </action>
+                                        <action behavior="8Direction" id="8" name="Set enabled" sid="312508147389163" type="Player">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                        <action behavior="Platform" id="11" name="Set enabled" sid="147242707720356" type="Player">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="394444309825340">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="296924452679967" type="Keyboard">
+                                            <param id="0" name="Key">83</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="8" name="Set enabled" sid="980558396302352" type="Player">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                        <action behavior="Platform" id="11" name="Set enabled" sid="180839208062949" type="Player">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="283741220128945">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="253675535272014" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="8" name="Set enabled" sid="963474158079091" type="Player">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action behavior="Platform" id="11" name="Set enabled" sid="166991222058813" type="Player">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Player Looking (Set lock limits on the Player Viewing Down and Up)</comment>
+                        <event-block sid="460951366311168">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="492685933672468" type="System">
+                                    <param id="0" name="First value">Player.X</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">Mouse.X</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="832569803603624" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="160783022408962" type="Player">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action id="8" name="Set flipped" sid="909312392183945" type="PlayerHead">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="307142680283118" type="PlayerBody">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action id="8" name="Set flipped" sid="801792067302352" type="Weapon">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action id="8" name="Set flipped" sid="759222541502046" type="BackArm">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action id="8" name="Set flipped" sid="422237696977959" type="FrontArm">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="645772172411991" type="PlayerFeet">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="672845211657816" type="Function">
+                                    <param id="0" name="Name">&quot;Pin Unpin Player&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="274844778323418">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="823520795808309" type="System">
+                                    <param id="0" name="First value">Player.X</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">Mouse.X</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="930098879193327" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="532415437832936" type="Player">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="8" name="Set flipped" sid="489404382244285" type="PlayerHead">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="274258394100984" type="PlayerBody">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="8" name="Set flipped" sid="660135644242628" type="Weapon">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="8" name="Set flipped" sid="240211285864301" type="BackArm">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="8" name="Set flipped" sid="604022897891553" type="FrontArm">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="897506112976776" type="PlayerFeet">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="0" name="Call function" sid="933627845564790" type="Function">
+                                    <param id="0" name="Name">&quot;Pin Unpin Player&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Player when Moving</comment>
+                        <event-block sid="140913840967870">
+                            <conditions>
+                                <condition behavior="Platform" id="0" name="Is moving" sid="955666234255600" type="Player" />
+                                <condition behavior="Platform" id="3" inverted="1" name="Is jumping" sid="918722395741916" type="Player" />
+                                <condition id="-4" name="Trigger once while true" sid="233124854888677" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="566673395708372" type="PlayerFeet">
+                                    <param id="0" name="Animation">&quot;Walk&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="765130864309309">
+                            <conditions>
+                                <condition behavior="Platform" id="9" name="On landed" sid="191428254433287" type="Player" />
+                                <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="850798456972230" type="Player" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="315643402979734" type="PlayerFeet">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="526723193996291">
+                            <conditions>
+                                <condition behavior="Platform" id="7" name="On stopped" sid="710372822845740" type="Player" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="163496674126157" type="PlayerFeet">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Player Shooting (Player.UID, &quot;My&quot;)</comment>
+                        <event-block sid="223071851149215">
+                            <conditions>
+                                <condition id="0" name="On click" sid="327354669221684" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                </condition>
+                                <condition id="7" inverted="1" name="Cursor is over object" sid="996579056451170" type="Mouse">
+                                    <param id="0" name="Object">UI_Bg</param>
+                                </condition>
+                                <condition id="7" inverted="1" name="Cursor is over object" sid="794492507084179" type="Mouse">
+                                    <param id="0" name="Object">Btn_Bg</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="726880829252684" type="Function">
+                                    <param id="0" name="Name">&quot;WeaponShot&quot;</param>
+                                    <param id="1" name="Parameter {n}">FrontArm.UID{###}&quot;My&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Player Change Lights</comment>
+                        <event-block sid="493225530331758">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="615565679111606" type="Player">
+                                    <param id="0" name="Object">AreaDark</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-35" name="Set layer transparent" sid="893146871178208" type="System">
+                                    <param id="0" name="Layer">&quot;Light&quot;</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="432308522296608">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="999482911368409" type="Player">
+                                    <param id="0" name="Object">AreaLight</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-35" name="Set layer transparent" sid="454708292374662" type="System">
+                                    <param id="0" name="Layer">&quot;Light&quot;</param>
+                                    <param id="1" name="Mode">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Player Death</comment>
+                        <event-block sid="992160224076130">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="286815194678508" type="Player">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="762119737829422" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="927515823969251" type="YouDied_Txt">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action behavior="Platform" id="5" name="Set gravity" sid="829206028332902" type="Player">
+                                    <param id="0" name="Gravity">0</param>
+                                </action>
+                                <action id="11" name="Set collisions enabled" sid="591540126760811" type="Player">
+                                    <param id="0" name="Collisions">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="372834807467184" type="PlayerFeet">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="108635839228396" type="System">
+                                    <param id="0" name="Group name">&quot;Player&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="761739287183410" type="System">
+                                    <param id="0" name="Seconds">3</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="550355824148337" type="Player" />
+                                <action id="-9" name="Destroy" sid="590099754928966" type="PlayerBody" />
+                                <action id="-9" name="Destroy" sid="125536879230546" type="Weapon" />
+                                <action id="-9" name="Destroy" sid="350805228023707" type="PlayerFeet" />
+                                <action id="-9" name="Destroy" sid="612068916692897" type="Rectile" />
+                                <action id="-9" name="Destroy" sid="337785662973658" type="Camera" />
+                                <action id="-9" name="Destroy" sid="461408710973854" type="LightCamera" />
+                                <action id="-9" name="Destroy" sid="738245093880570" type="PlayerVision" />
+                                <action id="-9" name="Destroy" sid="747828190921956" type="PlayerLight" />
+                                <action id="-9" name="Destroy" sid="772394201724873" type="ShadowLight" />
+                                <action id="-9" name="Destroy" sid="381813700287748" type="ActionTxt" />
+                                <action id="-16" name="Wait" sid="371487229554993" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="646913044317083">
+                                    <conditions>
+                                        <condition id="-34" name="Pick by evaluate" sid="296993036161589" type="System">
+                                            <param id="0" name="Object">Doors</param>
+                                            <param id="1" name="Expression">Doors.PlayerSaved = 1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-12" name="Set group active" sid="529869892495194" type="System">
+                                            <param id="0" name="Group name">&quot;Player&quot;</param>
+                                            <param id="1" name="State">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="326211822338923" type="YouDied_Txt">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="653056538501789" type="Doors">
+                                            <param id="0" name="Object">Player</param>
+                                            <param id="1" name="Layer">&quot;Main&quot;</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action id="-5" name="Set width" sid="114227302866049" type="UI_Hp_Bar">
+                                            <param id="0" name="Width">(Player.Health/100)*386</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
                     </sub-events>
-                </event-block>
+                </event-group>
             </sub-events>
         </event-group>
         <event-group description="" sid="335154314906850" title="Weapon">
@@ -963,8 +1062,11 @@
                                     <param id="1" name="Layer">Weapon.LayerName</param>
                                     <param id="2" name="Image point">1</param>
                                 </action>
-                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="149947444613763" type="Bullet">
-                                    <param id="0" name="Angle">angle(Weapon.ImagePointX(0), Weapon.ImagePointY(0), Weapon.ImagePointX(1), Weapon.ImagePointY(0))</param>
+                                <action behavior="Bullet" disabled="1" id="3" name="Set angle of motion" sid="928463889404850" type="Bullet">
+                                    <param id="0" name="Angle">angle(Weapon.ImagePointX(0), Weapon.ImagePointY(0), Weapon.ImagePointX(1), Weapon.ImagePointY(1))</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="387488856022927" type="Bullet">
+                                    <param id="0" name="Angle">Weapon.Angle</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="931409693554242" type="Bullet">
                                     <param id="0" name="Instance variable">Damage</param>
@@ -992,7 +1094,7 @@
                                 <action id="-5" name="Set width" sid="778767120257227" type="Cnt_BulletsLeft">
                                     <param id="0" name="Width">(Weapon.AmmoLeft/Weapon.ReloadBullets)*Cnt_Bullets.Width</param>
                                 </action>
-                                <action id="7" name="Play (by name)" sid="477266532101901" type="Audio">
+                                <action disabled="1" id="7" name="Play (by name)" sid="477266532101901" type="Audio">
                                     <param id="0" name="Folder">0</param>
                                     <param id="1" name="Audio file name">choose(&quot;ak47_Fire_1&quot;, &quot;ak47_Fire_2&quot;, &quot;ak47_Fire_3&quot;, &quot;ak47_Fire_4&quot;)</param>
                                     <param id="3" name="Loop">0</param>
@@ -1056,7 +1158,7 @@
                                     </conditions>
                                     <actions />
                                     <sub-events>
-                                        <event-block sid="297068427742605">
+                                        <event-block disabled="1" sid="297068427742605">
                                             <conditions>
                                                 <condition id="-33" name="Pick by comparison" sid="159401430264112" type="System">
                                                     <param id="0" name="Object">Player</param>
@@ -1072,6 +1174,22 @@
                                                 </action>
                                             </actions>
                                         </event-block>
+                                        <event-block sid="707169625091955">
+                                            <conditions>
+                                                <condition id="-33" name="Pick by comparison" sid="119518955325716" type="System">
+                                                    <param id="0" name="Object">FrontArm</param>
+                                                    <param id="1" name="Expression">FrontArm.UID</param>
+                                                    <param id="2" name="Comparison">0</param>
+                                                    <param id="3" name="Value">Weapon.Pin.PinnedUID</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="890671860645199" type="Function">
+                                                    <param id="0" name="Name">&quot;WeaponFire&quot;</param>
+                                                    <param id="1" name="Parameter {n}">FrontArm.UID{###}&quot;My&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
                                     </sub-events>
                                 </event-block>
                                 <comment>Cease Auto Fire for Players</comment>
@@ -1084,7 +1202,7 @@
                                             <param id="0" name="Object">Weapon</param>
                                             <param id="1" name="Expression">Weapon.Pin.PinnedUID</param>
                                             <param id="2" name="Comparison">0</param>
-                                            <param id="3" name="Value">Player.UID</param>
+                                            <param id="3" name="Value">Weapon.Inherited_UID</param>
                                         </condition>
                                         <condition id="-4" name="Trigger once while true" sid="427495480042465" type="System" />
                                     </conditions>

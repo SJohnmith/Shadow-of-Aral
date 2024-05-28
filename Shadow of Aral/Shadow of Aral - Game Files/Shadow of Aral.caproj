@@ -513,7 +513,8 @@
                                 </collision-poly>
                             </frame>
                         </animation>
-                        <animation framecount="1" loop="1" name="New" pingpong="0" repeatcount="0" repeatto="0" sid="235662842946251" speed="8">
+                        <animation framecount="2" loop="1" name="New" pingpong="0" repeatcount="0" repeatto="0" sid="235662842946251" speed="0">
+                            <frame duration="1" hotspotX="0.518519" hotspotY="0.603053" />
                             <frame duration="1" hotspotX="0.518519" hotspotY="0.603053" />
                         </animation>
                     </animation-folder>
@@ -556,6 +557,7 @@
                         <instance-variable name="FireRange" sid="327547421937273" type="number" />
                         <instance-variable name="Fired" sid="312998298159086" type="boolean" />
                         <instance-variable name="Reloading" sid="840635482707394" type="boolean" />
+                        <instance-variable name="Inherited_UID" sid="991692513386863" type="number" />
                     </instance-variables>
                     <behaviors>
                         <behavior-type name="Pin" sid="155991830412459">
@@ -573,6 +575,7 @@
                             <frame duration="1" hotspotX="0.413043" hotspotY="0.195122">
                                 <image-point name="Bullet" x="2.45652" y="0.658537" />
                                 <image-point name="Shell" x="1.08696" y="0.585366" />
+                                <image-point name="Hand" x="0.826087" y="0.804878" />
                             </frame>
                         </animation>
                         <animation framecount="2" loop="0" name="Ak47" pingpong="0" repeatcount="0" repeatto="0" sid="719086143609767" speed="0">
@@ -584,6 +587,13 @@
                             <frame duration="1" hotspotX="0.00900901" hotspotY="0.142857">
                                 <image-point name="Bullet" x="1.01802" y="0.228571" />
                                 <image-point name="Shell" x="0.45045" y="0.142857" />
+                            </frame>
+                        </animation>
+                        <animation framecount="1" loop="0" name="AK_47" pingpong="0" repeatcount="0" repeatto="0" sid="183837539477202" speed="0">
+                            <frame duration="1" hotspotX="0.320755" hotspotY="0.457143">
+                                <image-point name="Bullet" x="1.01887" y="0.2" />
+                                <image-point name="Shell" x="0.471698" y="0.114286" />
+                                <image-point name="2nd Arm" x="0.679245" y="0.2" />
                             </frame>
                         </animation>
                     </animation-folder>
@@ -619,6 +629,7 @@
                                 <image-point name="BackArm" x="0.740741" y="0.305344" />
                                 <image-point name="HUD" x="0.5" y="0" />
                                 <image-point name="Feet" x="0.611111" y="0.633588" />
+                                <image-point name="Head" x="0.5" y="0.244275" />
                                 <collision-poly>
                                     <point x="0.0833333" y="0.0458015" />
                                     <point x="0.949074" y="0.0458015" />
@@ -645,6 +656,66 @@
                         <animation framecount="2" loop="0" name="BackArm" pingpong="0" repeatcount="0" repeatto="0" sid="803336152650945" speed="0">
                             <frame duration="1" hotspotX="0.847826" hotspotY="0.644444" />
                             <frame duration="1" hotspotX="0.847826" hotspotY="0.644444" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="PlayerHead" sid="182613118425681">
+                    <plugin id="Sprite" />
+                    <behaviors>
+                        <behavior-type name="Flash" sid="896947300406247">
+                            <behavior id="Flash" />
+                        </behavior-type>
+                        <behavior-type name="Pin" sid="173375492623212">
+                            <behavior id="Pin" />
+                        </behavior-type>
+                    </behaviors>
+                    <effects>
+                        <effect-type name="AdjustHSL">
+                            <effect id="hsladjust" />
+                        </effect-type>
+                    </effects>
+                    <animation-folder>
+                        <animation framecount="1" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="140917899047449" speed="8">
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.862745" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="FrontArm" sid="311146012564764">
+                    <plugin id="Sprite" />
+                    <behaviors>
+                        <behavior-type name="Pin" sid="620375285151639">
+                            <behavior id="Pin" />
+                        </behavior-type>
+                        <behavior-type name="Timer" sid="327823386206583">
+                            <behavior id="Timer" />
+                        </behavior-type>
+                        <behavior-type name="Persist" sid="608313021271604">
+                            <behavior id="Persist" />
+                        </behavior-type>
+                    </behaviors>
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="FrontArm" pingpong="0" repeatcount="0" repeatto="0" sid="243549207093243" speed="0">
+                            <frame duration="1" hotspotX="0.413043" hotspotY="0.243902">
+                                <image-point name="Equip" x="0.804348" y="0.804878" />
+                            </frame>
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="ArmReference" sid="177393303461694">
+                    <plugin id="Sprite" />
+                    <behaviors>
+                        <behavior-type name="Pin" sid="308296164089236">
+                            <behavior id="Pin" />
+                        </behavior-type>
+                    </behaviors>
+                    <effects>
+                        <effect-type name="AdjustHSL">
+                            <effect id="hsladjust" />
+                        </effect-type>
+                    </effects>
+                    <animation-folder>
+                        <animation framecount="1" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="832430241420978" speed="8">
+                            <frame duration="1" hotspotX="0.571429" hotspotY="0.571429" />
                         </animation>
                     </animation-folder>
                 </object-type>
