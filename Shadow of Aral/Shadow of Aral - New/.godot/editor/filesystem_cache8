@@ -1,10 +1,13 @@
 2a60927148abd1d33b818b535e306557
-::res://::1716863036
+::res://::1716942431
 icon.svg::CompressedTexture2D::6209416049252493865::1716860689::1716860707::1::::<><>::
 ::res://Files/::1716861096
 ::res://Layouts/::1716861085
 ::res://Object Types/::1716863046
 ::res://Object Types/Background Assets/::1716863046
-::res://Object Types/Main Assets/::1716863036
-::res://Object Types/Main Assets/Player/::1716862959
-player.tscn::PackedScene::8176947325885082967::1716862959::0::1::::<><>::
+::res://Object Types/Main Assets/::1716863054
+::res://Object Types/Main Assets/Enemy/::1716863054
+::res://Object Types/Main Assets/Player/::1716949519
+Player Default.png::CompressedTexture2D::4728419111613552042::1716949339::1716949520::1::::<><>::
+player.tscn::PackedScene::8176947325885082967::1716947514::0::1::::<><>::
+player_rig.tscn::PackedScene::8168251605764349975::1716949444::0::1::::<><>::

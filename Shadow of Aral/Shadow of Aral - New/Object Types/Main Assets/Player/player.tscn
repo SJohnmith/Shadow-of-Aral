@@ -1,14 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://doq8elyw4yubv"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2a4e3"]
+[ext_resource type="PackedScene" uid="uid://dom057ujlqxv8" path="res://Object Types/Main Assets/Player/player_rig.tscn" id="1_ynira"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rw1vc"]
-size = Vector2(120, 269)
+size = Vector2(120, 306)
 
 [node name="Player" type="CharacterBody2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_2a4e3")
+[node name="Player Rig" parent="." instance=ExtResource("1_ynira")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rw1vc")
