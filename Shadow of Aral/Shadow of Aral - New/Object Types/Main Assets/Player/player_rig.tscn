@@ -299,7 +299,7 @@ tracks/11/keys = {
 [sub_resource type="Animation" id="Animation_q55eg"]
 resource_name = "Run"
 length = 0.8
-loop_mode = 2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -308,7 +308,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(-1.18921, -1.18921, -1.18921, -1.18921, 1),
+"transitions": PackedFloat32Array(-1.27456, -1.27456, -1.27456, -1.27456, -1.27456),
 "update": 0,
 "values": [Vector2(-20, 53), Vector2(-20, 50), Vector2(-20, 53), Vector2(-20, 53), Vector2(-20, 53)]
 }
@@ -320,7 +320,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(-1.18921, -1.18921, -1.18921, -1.18921, 1),
+"transitions": PackedFloat32Array(-1.27456, -1.27456, -1.27456, -1.27456, -1.27456),
 "update": 0,
 "values": [0.0, -0.617313, 0.0, 1.27098, 0.0]
 }
@@ -332,7 +332,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(-1.18921, -1.18921, -1.18921, -1.18921, 1),
+"transitions": PackedFloat32Array(-1.27456, -1.27456, -1.27456, -1.27456, -1.27456),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -17), Vector2(0, 0), Vector2(0, -17), Vector2(0, 0)]
 }
@@ -344,7 +344,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(-1.18921, -1.18921, -1.18921, -1.18921, 1),
+"transitions": PackedFloat32Array(-1.27456, -1.27456, -1.27456, -1.27456, -1.27456),
 "update": 0,
 "values": [0.0, 0.0, 0.0, 0.0, 0.0]
 }
@@ -356,7 +356,7 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7),
-"transitions": PackedFloat32Array(1, -1.18921, -1.18921, -1.18921, -1.18921),
+"transitions": PackedFloat32Array(-1.27456, -1.27456, -1.27456, -1.27456, -1.27456),
 "update": 0,
 "values": [Vector2(33, -48), Vector2(33, -48), Vector2(33, -48), Vector2(33, -48), Vector2(33, -48)]
 }
@@ -368,7 +368,7 @@ tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7),
-"transitions": PackedFloat32Array(1, -1.18921, -1.18921, -1.18921, -1.18921),
+"transitions": PackedFloat32Array(-1.27456, -1.27456, -1.27456, -1.27456, -1.27456),
 "update": 0,
 "values": [0.0, 0.0, 0.187492, 0.0, 0.187492]
 }
@@ -380,7 +380,7 @@ tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.8),
-"transitions": PackedFloat32Array(-1.18921, -1.18921, -1.18921, 1),
+"transitions": PackedFloat32Array(-1.27456, -1.27456, -1.27456, -1.27456),
 "update": 0,
 "values": [Vector2(7, -62), Vector2(7, -62), Vector2(7, -62), Vector2(7, -62)]
 }
@@ -392,7 +392,7 @@ tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.8),
-"transitions": PackedFloat32Array(-1.18921, -1.18921, -1.18921, 1),
+"transitions": PackedFloat32Array(-1.27456, -1.27456, -1.27456, -1.27456),
 "update": 0,
 "values": [0.0, 0.0, 0.0, 0.0]
 }
@@ -404,7 +404,7 @@ tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7),
-"transitions": PackedFloat32Array(1, -1.18921, -1.18921, -1.18921, -1.18921),
+"transitions": PackedFloat32Array(-1.27456, -1.27456, -1.27456, -1.27456, -1.27456),
 "update": 0,
 "values": [Vector2(-27, -39), Vector2(-27, -39), Vector2(-27, -39), Vector2(-27, -39), Vector2(-27, -39)]
 }
@@ -416,7 +416,7 @@ tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7),
-"transitions": PackedFloat32Array(1, -1.18921, -1.18921, -1.18921, -1.18921),
+"transitions": PackedFloat32Array(-1.27456, -1.27456, -1.27456, -1.27456, -1.27456),
 "update": 0,
 "values": [0.0, 0.0, 0.264517, 0.0, 0.264517]
 }
@@ -428,7 +428,7 @@ tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(-1.18921, -1.18921, -1.18921, -1.18921, 1),
+"transitions": PackedFloat32Array(-1.27456, -1.27456, -1.27456, -1.27456, -1.27456),
 "update": 0,
 "values": [Vector2(13, 49), Vector2(21, 47), Vector2(13, 49), Vector2(13, 49), Vector2(13, 49)]
 }
@@ -440,7 +440,7 @@ tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(-1.18921, -1.18921, -1.18921, -1.18921, 1),
+"transitions": PackedFloat32Array(-1.27456, -1.27456, -1.27456, -1.27456, -1.27456),
 "update": 0,
 "values": [0.0, 1.06391, 0.0, -0.755267, 0.0]
 }
