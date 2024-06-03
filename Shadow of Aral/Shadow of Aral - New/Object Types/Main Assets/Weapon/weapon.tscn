@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxnvg3jjcgt3r"]
+
+[ext_resource type="Texture2D" uid="uid://k8ycxb855ayn" path="res://Object Types/Main Assets/Weapon/AK-47.png" id="1_0k6k7"]
+
+[node name="Weapon" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0k6k7")
+offset = Vector2(37, 3)
+
+[node name="BulletStartPosition" type="Node2D" parent="."]
+position = Vector2(147, -16)
+
+[node name="Muzzle1" type="Marker2D" parent="BulletStartPosition"]
+
+[node name="Muzzle2" type="Marker2D" parent="BulletStartPosition"]
+position = Vector2(0, -3)
+
+[node name="Muzzle3" type="Marker2D" parent="BulletStartPosition"]
+position = Vector2(0, 3)

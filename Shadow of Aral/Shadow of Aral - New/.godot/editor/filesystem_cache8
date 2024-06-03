@@ -1,15 +1,25 @@
 2a60927148abd1d33b818b535e306557
-::res://::1717035367
+::res://::1717359473
 icon.svg::CompressedTexture2D::6209416049252493865::1716860689::1716860707::1::::<><>::
 ::res://Files/::1716861096
-::res://Layouts/::1717035358
-test_world.tscn::PackedScene::459019376801940075::1717035358::0::1::::<><>::uid://yu0ykfvugnux
+::res://Layouts/::1717367904
+event_handler.gd::GDScript::-1::1717360369::0::1::::<>Node2D<>::
+test_world.tscn::PackedScene::4012601791130537731::1717367904::0::1::::<><>::uid://yu0ykfvugnux<>res://Layouts/event_handler.gd<>uid://doq8elyw4yubv
 ::res://Object Types/::1717033311
 ::res://Object Types/Background Assets/::1717034392
 Tiles.svg::CompressedTexture2D::1727381120205497539::1717034390::1717034392::1::::<><>::
-::res://Object Types/Main Assets/::1716863054
+::res://Object Types/Main Assets/::1717351867
+::res://Object Types/Main Assets/Bullet/::1717368508
+Bullet.png::CompressedTexture2D::1347058646606585894::1717368494::1717368511::1::::<><>::
+bullet.tscn::PackedScene::1958511181007555602::1717367904::0::1::::<><>::res://Object Types/Main Assets/Bullet/bullet.gd<>uid://tgr4hee1eyag
+bullet.gd::GDScript::-1::1717364353::0::1::::<>Area2D<>::
 ::res://Object Types/Main Assets/Enemy/::1716863054
-::res://Object Types/Main Assets/Player/::1717031592
+::res://Object Types/Main Assets/Player/::1717368184
 Player Default.png::CompressedTexture2D::4728419111613552042::1716949339::1716949520::1::::<><>::
-player.tscn::PackedScene::8176947325885082967::1717031592::0::1::::<><>::uid://dom057ujlqxv8
-player_rig.tscn::PackedScene::8168251605764349975::1717031336::0::1::::<><>::uid://b8mqmv7vuox5c
+player.gd::GDScript::-1::1717368113::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::8176947325885082967::1717368184::0::1::::<><>::res://Object Types/Main Assets/Player/player.gd<>uid://dom057ujlqxv8
+player_rig.gd::GDScript::-1::1717366363::0::1::::<>Node2D<>::
+player_rig.tscn::PackedScene::8168251605764349975::1717367904::0::1::::<><>::uid://b8mqmv7vuox5c<>res://Object Types/Main Assets/Player/player_rig.gd<>uid://cxnvg3jjcgt3r
+::res://Object Types/Main Assets/Weapon/::1717368476
+AK-47.png::CompressedTexture2D::771474892800998125::1717351948::1717352421::1::::<><>::
+weapon.tscn::PackedScene::6415308938444143173::1717368476::0::1::::<><>::uid://k8ycxb855ayn

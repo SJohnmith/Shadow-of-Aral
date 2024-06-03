@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dom057ujlqxv8"]
+[gd_scene load_steps=8 format=3 uid="uid://dom057ujlqxv8"]
 
 [ext_resource type="Texture2D" uid="uid://b8mqmv7vuox5c" path="res://Object Types/Main Assets/Player/Player Default.png" id="1_tgwa6"]
+[ext_resource type="Script" path="res://Object Types/Main Assets/Player/player_rig.gd" id="1_thliw"]
+[ext_resource type="PackedScene" uid="uid://cxnvg3jjcgt3r" path="res://Object Types/Main Assets/Weapon/weapon.tscn" id="3_naw4j"]
 
 [sub_resource type="Animation" id="Animation_m6feo"]
 resource_name = "Idle"
@@ -453,6 +455,7 @@ _data = {
 }
 
 [node name="Player Rig" type="Node2D"]
+script = ExtResource("1_thliw")
 
 [node name="Torso" type="Sprite2D" parent="."]
 texture = ExtResource("1_tgwa6")
@@ -470,7 +473,7 @@ region_rect = Rect2(117.594, 261.568, 92.5624, 92.159)
 [node name="Head" type="Sprite2D" parent="Torso"]
 position = Vector2(7, -62)
 texture = ExtResource("1_tgwa6")
-offset = Vector2(1, -40)
+offset = Vector2(-1, -43)
 region_enabled = true
 region_rect = Rect2(0, 0, 105.806, 99.8082)
 
@@ -480,6 +483,10 @@ texture = ExtResource("1_tgwa6")
 offset = Vector2(9, 23)
 region_enabled = true
 region_rect = Rect2(111.094, 141.524, 95.9744, 86.1811)
+
+[node name="Weapon" parent="Torso/FrontArm" instance=ExtResource("3_naw4j")]
+position = Vector2(39, 46)
+scale = Vector2(1, 1)
 
 [node name="BackLeg" type="Sprite2D" parent="Torso"]
 z_index = -1

@@ -24,16 +24,17 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="0.9443105"
-     inkscape:cx="286.98188"
-     inkscape:cy="680.39061"
+     inkscape:zoom="0.47215525"
+     inkscape:cx="29.651264"
+     inkscape:cy="426.76641"
      inkscape:window-width="3840"
      inkscape:window-height="2066"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer9"
-     units="px" />
+     units="px"
+     inkscape:lockguides="true" />
   <defs
      id="defs2" />
   <g
@@ -788,7 +789,7 @@
     </g>
     <g
        id="g3245-0-2"
-       transform="matrix(0.64115025,0,0,0.71132777,177.10098,-18.353513)"
+       transform="matrix(0.64115025,0,0,0.71132777,236.43053,-22.836502)"
        style="display:inline;mix-blend-mode:normal;stroke-width:0.888193;stroke-miterlimit:4;stroke-dasharray:none"
        inkscape:export-filename="C:\Users\KMI\Desktop\Николай\Video Games Design\Games Designed\Shadow of Aral\Shadow-of-Aral\Shadow of Aral\Shadow of Aral - Image Files\g53519.png"
        inkscape:export-xdpi="96"
@@ -975,6 +976,14 @@
            d="m 16.026737,23.995634 c -0.4066,0 -0.76488,0.199054 -0.9834,0.505396 0.0262,-0.02279 0.0522,-0.04548 0.0522,-0.04548 0,0 0.19871,-0.233511 0.74827,-0.291973 0.39125,-0.04165 1.57282,-0.02985 2.22674,-0.01964 -0.49894,-0.17644 -1.44218,-0.07035 -2.0438,-0.148312 z" />
       </g>
     </g>
+    <path
+       style="fill:#c87137;stroke:#000000;stroke-width:0.671153px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 137.77173,184.85108 c 3.37962,0.36766 7.02458,0.46996 9.56394,1.67789 -2.83044,1.54253 -6.33406,1.23385 -9.56394,1.67786 z"
+       id="path21183"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="C:\Users\KMI\Desktop\Николай\Video Games Design\Games Designed\Shadow of Aral\Shadow-of-Aral\Shadow of Aral\Shadow of Aral - Image Files\path21183.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
   <g
      inkscape:groupmode="layer"
