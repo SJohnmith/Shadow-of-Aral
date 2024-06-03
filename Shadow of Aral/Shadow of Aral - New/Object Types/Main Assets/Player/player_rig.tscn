@@ -486,7 +486,6 @@ region_rect = Rect2(111.094, 141.524, 95.9744, 86.1811)
 
 [node name="Weapon" parent="Torso/FrontArm" instance=ExtResource("3_naw4j")]
 position = Vector2(39, 46)
-scale = Vector2(1, 1)
 
 [node name="BackLeg" type="Sprite2D" parent="Torso"]
 z_index = -1
