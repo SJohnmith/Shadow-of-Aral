@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed: float = 600.0
-@export var jump_velocity: float = -300.0
+@export var speed: float = 700.0
+@export var jump_velocity: float = -400.0
 
 signal open_fire(muzzle_pos, muzzle_drctn)
 
@@ -40,15 +40,15 @@ func player_movement(delta):
      
 # Update the Player Position and Direction
      move_and_slide()
-#     $"Player Rig".update_facing_direction(direction)
+#     $"Player Rig".update_walk_direction(direction)
 
 # Handle Player Movement
 func player_action():
      # Gun Not Attached to Front Arm
-#     var muzzle_path = $"Player Rig".get_child(0).get_child(2).get_child(1).get_children()
+     var muzzle_path = $"Player Rig".get_child(0).get_child(2).get_child(1).get_children()
 
      # Gun Attached to Front Arm (Hard Coded the Path to Child Object Weapon)
-     var muzzle_path = $"Player Rig".get_child(0).get_child(2).get_child(0).get_child(1).get_children()
+#     var muzzle_path = $"Player Rig".get_child(0).get_child(2).get_child(0).get_child(1).get_children()
      var front_arm_path = $"Player Rig".get_child(0).get_child(2)
      
      var arm_pointing_direction = Vector2(cos(front_arm_path.rotation), sin(front_arm_path.rotation))*($"Player Rig".scale)
