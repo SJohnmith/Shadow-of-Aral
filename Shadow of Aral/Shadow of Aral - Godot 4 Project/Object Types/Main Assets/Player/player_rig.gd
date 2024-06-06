@@ -11,7 +11,7 @@ func _ready():
      grip_path = $Torso/Weapon.get_child(2)
      hand_pos = $Torso/BackArm.position
 
-func _process(delta):
+func _process(_delta):
      # Set rotation of the arms to mouse position
      $Torso/FrontArm.look_at(get_global_mouse_position())
      $Torso/BackArm.look_at(get_global_mouse_position())

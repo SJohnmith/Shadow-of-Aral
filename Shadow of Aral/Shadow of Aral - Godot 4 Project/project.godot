@@ -60,6 +60,13 @@ Right={
 [layer_names]
 
 2d_physics/layer_1="Ground"
+2d_physics/layer_2="Walls"
+2d_physics/layer_3="Player"
+2d_physics/layer_4="Enemies"
+2d_physics/layer_5="Projectiles"
+2d_physics/layer_6="Objects"
+2d_physics/layer_7="Items"
+2d_physics/layer_8="Zones"
 
 [rendering]
 

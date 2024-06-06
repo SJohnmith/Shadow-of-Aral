@@ -55,7 +55,7 @@ func player_action():
      
      # Look Towards Mouse Position
      var mouse_direction = (get_global_mouse_position() - position).normalized()
-     var muzzle_direction: Vector2 = Vector2.ZERO
+#     var muzzle_direction: Vector2 = Vector2.ZERO
      
      # Firing the Gun
      if Input.is_action_pressed("Left Click") and can_shoot:

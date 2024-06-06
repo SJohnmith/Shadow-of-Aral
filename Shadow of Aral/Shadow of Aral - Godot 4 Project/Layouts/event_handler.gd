@@ -5,7 +5,7 @@ var bullet_scene: PackedScene = preload("res://Object Types/Main Assets/Bullet/b
 func _ready():
      pass
 
-func _process(delta):
+func _process(_delta):
      pass
 
 
