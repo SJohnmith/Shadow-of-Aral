@@ -15,6 +15,10 @@ run/main_scene="res://Layouts/test_world.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EventBus="*res://Object Types/Singleton/EventBus.gd"
+
 [display]
 
 window/size/viewport_width=1920

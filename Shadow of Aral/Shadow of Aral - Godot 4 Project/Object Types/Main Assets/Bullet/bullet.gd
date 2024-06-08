@@ -2,6 +2,7 @@ extends Area2D
 
 @export var speed: int = 3000
 var direction: Vector2 = Vector2.ZERO
+var emitted_bullet: bool = false
 
 func _ready():
      $SelfDestructTimer.start()

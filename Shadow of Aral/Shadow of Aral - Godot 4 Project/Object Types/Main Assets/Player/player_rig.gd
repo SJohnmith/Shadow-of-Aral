@@ -24,7 +24,7 @@ func _process(_delta):
      hand_pos = $Torso/BackArm.get_global_position()
      hand_ang = $Torso/BackArm.get_global_rotation()
      
-#     print(stock_grip_ang)
+     
      
 func update_animation(animation_name):
      $AnimationPlayer.play(animation_name)
@@ -43,6 +43,12 @@ func update_facing_direction(direction):
      elif direction.x < 0:
           $".".scale = Vector2(-1, 1)
 
-
+# Received from Player a Signal to Shoot the Equipped Weapon
+func player_shoot():
+     # Front Arm Pointing Direction
+     var wpn_pointing_direction = Vector2(cos($Torso/FrontArm.rotation), sin($Torso/FrontArm.rotation))*($".".scale)
+     
+     if $Torso/Weapon.has_method("shoot"):
+          $Torso/Weapon.shoot(wpn_pointing_direction)
 
 

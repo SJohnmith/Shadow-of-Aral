@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxnvg3jjcgt3r"]
+[gd_scene load_steps=3 format=3 uid="uid://cxnvg3jjcgt3r"]
 
 [ext_resource type="Texture2D" uid="uid://k8ycxb855ayn" path="res://Object Types/Main Assets/Weapon/AK-47.png" id="1_0k6k7"]
+[ext_resource type="Script" path="res://Object Types/Main Assets/Weapon/weapon.gd" id="1_lbaem"]
 
 [node name="Weapon" type="Node2D"]
+script = ExtResource("1_lbaem")
 
 [node name="WeaponImage" type="Sprite2D" parent="."]
 texture = ExtResource("1_0k6k7")
@@ -21,3 +23,7 @@ position = Vector2(0, 3)
 
 [node name="HandGrip" type="Marker2D" parent="."]
 position = Vector2(75, -19)
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
