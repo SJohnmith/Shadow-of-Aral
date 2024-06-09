@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxfy723ijocsx"]
+[gd_scene load_steps=7 format=3 uid="uid://bxfy723ijocsx"]
 
 [ext_resource type="Texture2D" uid="uid://yu0ykfvugnux" path="res://Object Types/Background Assets/Tiles.svg" id="1_d623g"]
 [ext_resource type="Script" path="res://Layouts/event_handler.gd" id="1_orufu"]
 [ext_resource type="PackedScene" uid="uid://doq8elyw4yubv" path="res://Object Types/Main Assets/Player/player.tscn" id="2_ee7qh"]
+[ext_resource type="PackedScene" uid="uid://ddv4yxbj7ojmq" path="res://Layouts/UI.tscn" id="4_s2kw3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_malja"]
 texture = ExtResource("1_d623g")
@@ -93,5 +94,7 @@ layer_0/tile_data = PackedInt32Array(3997695, 1, 0, 4063231, 1, 1, 4128767, 1, 1
 position = Vector2(1053, 807)
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("4_s2kw3")]
 
 [connection signal="open_fire" from="Player" to="." method="_on_player_open_fire"]

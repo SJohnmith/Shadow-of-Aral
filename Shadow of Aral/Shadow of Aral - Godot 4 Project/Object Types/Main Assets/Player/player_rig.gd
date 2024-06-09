@@ -17,12 +17,12 @@ func _process(_delta):
      $Torso/BackArm.look_at(get_global_mouse_position())
      
      # Get Gun Stock Grip Position
-     stock_grip_pos = grip_path.get_global_position()
-     stock_grip_ang = grip_path.get_global_rotation()
+#     stock_grip_pos = grip_path.get_global_position()
+#     stock_grip_ang = grip_path.get_global_rotation()
      
      # Get Back Arm Hand Position
-     hand_pos = $Torso/BackArm.get_global_position()
-     hand_ang = $Torso/BackArm.get_global_rotation()
+#     hand_pos = $Torso/BackArm.get_global_position()
+#     hand_ang = $Torso/BackArm.get_global_rotation()
      
      
      
@@ -43,7 +43,7 @@ func update_facing_direction(direction):
      elif direction.x < 0:
           $".".scale = Vector2(-1, 1)
 
-# Received from Player a Signal to Shoot the Equipped Weapon
+# Received from Player a Signal to Shoot Equipped Weapon
 func player_shoot():
      # Front Arm Pointing Direction
      var wpn_pointing_direction = Vector2(cos($Torso/FrontArm.rotation), sin($Torso/FrontArm.rotation))*($".".scale)

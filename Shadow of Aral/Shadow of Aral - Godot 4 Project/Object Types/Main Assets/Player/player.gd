@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 700.0
-@export var jump_velocity: float = -1000.0
+@export var jump_velocity: float = -900.0
 
 signal open_fire(muzzle_pos, muzzle_drctn)
 
@@ -42,7 +42,7 @@ func player_movement(delta):
      move_and_slide()
 #     $"Player Rig".update_walk_direction(direction)
 
-# Handle Player Movement
+# Handle Player Actions
 func player_action():
      # Gun Not Attached to Front Arm Get Muzzle Positions [Hardcoded Path to Child Object Weapon]
      var muzzle_path = $"Player Rig".get_child(0).get_child(2).get_child(1).get_children()
@@ -58,12 +58,12 @@ func player_action():
      var mouse_direction = (get_global_mouse_position() - position).normalized()
      
      # Firing the Gun
-#     if Input.is_action_pressed("Left Click") and can_shoot:
+     if Input.is_action_pressed("Left Click") and can_shoot:
 #          var muzzle_markers = muzzle_path
 #          var selected_muzzle = muzzle_markers[randi()%muzzle_markers.size()]
-#          can_shoot = false
-#          $ShootTimer.start()
-#
+          can_shoot = false
+          $ShootTimer.start()
+          print("Trigger")
 #          # Emit the Open Fire Signal
 #          open_fire.emit(selected_muzzle.global_position, arm_pointing_direction)
      
