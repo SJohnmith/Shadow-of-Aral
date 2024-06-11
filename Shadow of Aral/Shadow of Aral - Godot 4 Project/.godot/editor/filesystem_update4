@@ -1,12 +1,11 @@
+res://Layouts/UI.tscn
 res://Layouts/test_world.tscn
 res://Object Types/Main Assets/Player/player.tscn
 res://Object Types/Main Assets/Player/player_rig.tscn
 res://Object Types/Main Assets/Weapon/weapon.tscn
 res://Object Types/Main Assets/Bullet/bullet.tscn
+res://Object Types/Main Assets/Player/player.gd
 res://Object Types/Main Assets/Player/player_rig.gd
 res://Object Types/Main Assets/Weapon/weapon.gd
-res://Object Types/Main Assets/Player/player.gd
-res://Object Types/Main Assets/Bullet/bullet.gd
-res://Layouts/UI.tscn
+res://Layouts/event_handler.gd
 res://Globals/globals.gd
-res://Layouts/ui.gd

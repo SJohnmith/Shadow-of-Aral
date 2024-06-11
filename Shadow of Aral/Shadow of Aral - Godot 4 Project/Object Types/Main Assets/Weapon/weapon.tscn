@@ -24,6 +24,9 @@ position = Vector2(0, 3)
 [node name="HandGrip" type="Marker2D" parent="."]
 position = Vector2(75, -19)
 
-[node name="ShootTimer" type="Timer" parent="."]
+[node name="FiredTimer" type="Timer" parent="."]
 
-[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[node name="ReloadTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="FiredTimer" to="." method="_on_fired_timer_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

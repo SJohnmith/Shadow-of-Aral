@@ -1,3 +1,3 @@
 extends Node
 
-var bullets = 30
+var bullets = 0

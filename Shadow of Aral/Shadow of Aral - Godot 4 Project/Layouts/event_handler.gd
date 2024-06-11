@@ -14,3 +14,6 @@ func _on_player_open_fire(muzzle_pos, muzzle_drctn):
      bullet_instance.position = muzzle_pos
      bullet_instance.rotation = muzzle_drctn.angle()
      bullet_instance.direction = muzzle_drctn
+     
+     # For Testing Purposes
+     $UI.update_bullet_text()

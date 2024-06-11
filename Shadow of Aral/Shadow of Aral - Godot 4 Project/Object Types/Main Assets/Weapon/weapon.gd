@@ -1,4 +1,4 @@
-class_name Weapon extends Node2D
+class_name weapon extends Node2D
 
 # Weapon Signals
 signal open_fire(muzzle_pos, muzzle_drctn)
@@ -13,34 +13,56 @@ var reload_bullets: int = 30       # How Much Bullets to Add
 var ammo_capacity: int = 30        # Limit on Bullets to Add
 var ammo_left: int = 30            # Current Bullet Count
 var fire_range: float = 500.0      # Bullet Travel Range
-var fired: bool = true             # Gun Has Been Fired
-var reloading: bool = true         # Gun Is Reloading
+var fired: bool = false            # Gun Has Been Fired
+var reloading: bool = false        # Gun Is Reloading
+
+# Weapon Attributes
+@onready var timer_fired: Timer = $FiredTimer
+@onready var timer_reload: Timer = $ReloadTimer
+var muzzle_markers
+var selected_muzzle
 
 # Object Ready
 func _ready():
      # Connect the Weapon Signal to a Global Data Bus
      connect("open_fire", EventBus.send_signal_to_parent)
      
-     # Set the Shooter Time to Fire Rate
-     $ShootTimer.wait_time = fire_rate
+     # Set Fired Timer and Reload Timer
+     timer_fired.wait_time = fire_rate
+     timer_reload.wait_time = reload_time
 
 # Weapon Shoot
 func shoot(wpn_pointing_direction):
      # Get Muzzle Objects
-     var muzzle_markers = $BulletStartPosition.get_children()
+     muzzle_markers = $BulletStartPosition.get_children()
      # Select a Random Muzzle Object
-     var selected_muzzle = muzzle_markers[randi()%muzzle_markers.size()]
+     selected_muzzle = muzzle_markers[randi()%muzzle_markers.size()]
      
-     # Check that the Gun Can Shoot
-     if fired:
-          # Disable Shoot
-          fired = false
+     # Check if Gun Fired and has Ammo
+     if !fired and ammo_left > 0:
+          # Gun Fired
+          fired = true
+          # Subtract Ammo
+          ammo_left -= 1
+          Globals.bullets = ammo_left
           # Restart Timer
-          $ShootTimer.start()
+          timer_fired.start()
           # Emit the Open Fire Signal [Figure This Part Out]
           open_fire.emit(selected_muzzle.global_position, wpn_pointing_direction)
-
-# On Shoot Timer Timeout
-func _on_shoot_timer_timeout():
+          
+          
+# Weapon Reload
+func reload():
+     print("Reload Now!")
+     
+# On Fired Timer Timeout
+func _on_fired_timer_timeout():
      # Enable Shoot
-     fired = true
+     fired = false
+     
+# On Reload Timer Timeout
+func _on_reload_timer_timeout():
+     # Reload Finished
+     reloading = false
+
+
