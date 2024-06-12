@@ -18,6 +18,11 @@ var can_shoot: bool = true
 var Weapon = weapon.new()
 @onready var player_body: Node2D = $"Player Rig"
 
+func _ready():
+     
+     $"Player Rig".get_child(0).get_child(3).add_child(Weapon)
+     
+# Handle Player Physics
 func _physics_process(delta):
      # Call these methods
      player_movement(delta)
@@ -78,7 +83,8 @@ func player_action():
      # If Mouse Left Button is Down Player Shoots [How to Avoid Calling Method Continuously]
      if Input.is_action_pressed("Left Click") and player_body.has_method("player_shoot"):
           player_body.player_shoot()
-          print(Weapon.fired)
+#          print(Weapon.shoot(Vector2(cos($"Player Rig".rotation), sin($"Player Rig".rotation))*($".".scale)))
+#          print(Weapon.timer_fired)
      
      # Player Reload Weapon
      if Input.is_action_just_pressed("Reload"):
