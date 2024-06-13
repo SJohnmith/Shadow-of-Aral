@@ -2,6 +2,7 @@ class_name weapon extends Node2D
 
 # Weapon Signals
 signal open_fire(muzzle_pos, muzzle_drctn)
+signal updt_ammo()
 
 # Weapon Properties
 var wpn_name: String = "AK-47"     # Object Name
@@ -9,7 +10,7 @@ var wpn_type: String = "Multi"     # Single or Multi Shot Gun
 var wpn_damage: float = 10.0       # Bullet Damage
 var fire_rate: float = 0.1         # Seconds per Bullet
 var reload_time: float = 4.0       # Reload Animation
-var reload_bullets: int = 30       # How Much Bullets to Add
+var reload_bullets: int = 30       # How Many Bullets to Add
 var ammo_capacity: int = 30        # Limit on Bullets to Add
 var ammo_left: int = 30            # Current Bullet Count
 var fire_range: float = 500.0      # Bullet Travel Range
@@ -25,8 +26,8 @@ var selected_muzzle
 # Object Ready
 func _ready():
      # Connect the Weapon Signal to a Global Data Bus
-     connect("open_fire", EventBus.send_signal_to_parent)
-     
+     connect("open_fire", EventBus.wpn_fired)
+     connect("updt_ammo", EventBus.update_ui)
      # Set Fired Timer and Reload Timer
      timer_fired.wait_time = fire_rate
      timer_reload.wait_time = reload_time
@@ -38,8 +39,8 @@ func shoot(wpn_pointing_direction):
      # Select a Random Muzzle Object
      selected_muzzle = muzzle_markers[randi()%muzzle_markers.size()]
      
-     # Check if Gun Fired and has Ammo
-     if !fired and ammo_left > 0:
+     # Check Not Gun Fired, Has Ammo, and Not Reloading
+     if !fired and ammo_left > 0 and !reloading:
           # Gun Fired
           fired = true
           # Subtract Ammo
@@ -49,11 +50,12 @@ func shoot(wpn_pointing_direction):
           timer_fired.start()
           # Emit the Open Fire Signal [Figure This Part Out]
           open_fire.emit(selected_muzzle.global_position, wpn_pointing_direction)
-          
+          updt_ammo.emit()
           
 # Weapon Reload
 func reload():
-     print("Reload Now!")
+     reloading = true
+     timer_reload.start()
      
 # On Fired Timer Timeout
 func _on_fired_timer_timeout():
@@ -64,5 +66,9 @@ func _on_fired_timer_timeout():
 func _on_reload_timer_timeout():
      # Reload Finished
      reloading = false
+     
+     # Reload the Weapon
+     ammo_left = ammo_capacity
+     Globals.bullets = ammo_left
 
-
+     updt_ammo.emit()

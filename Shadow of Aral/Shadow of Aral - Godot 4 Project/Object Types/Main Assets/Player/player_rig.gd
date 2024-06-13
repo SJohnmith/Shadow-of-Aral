@@ -7,8 +7,11 @@ var hand_pos = Vector2.ZERO
 var stock_grip_ang = 0.0
 var hand_ang = 0.0
 
+@onready var path_to_wpn: Node2D = $Torso/Weapon
+
+
 func _ready():
-     grip_path = $Torso/Weapon.get_child(2)
+     grip_path = path_to_wpn.get_child(2)
      hand_pos = $Torso/BackArm.position
 
 func _process(_delta):
@@ -42,14 +45,23 @@ func update_facing_direction(direction):
      elif direction.x < 0:
           $".".scale = Vector2(-1, 1)
 
-# Received from Player a Signal to Shoot Equipped Weapon
-func player_shoot():
+
+# Received from Player a Command to use Equipped Weapon
+func player_wpn_action(action):
      # Front Arm Pointing Direction
      var wpn_pointing_direction = Vector2(cos($Torso/FrontArm.rotation), sin($Torso/FrontArm.rotation))*($".".scale)
      
+     # If Player is Shooting the Weapon
+     if action == "shoot":
      # Check that the Weapon Has Method Shoot
-     if $Torso/Weapon.has_method("shoot"):
-          # Call the Shoot Method
-          $Torso/Weapon.shoot(wpn_pointing_direction)
-
+          if path_to_wpn.has_method("shoot"):
+               # Call the Shoot Method
+               path_to_wpn.shoot(wpn_pointing_direction)  
+     
+     # If Player is Reloading the Weapon
+     elif action == "reload":
+     # Check that the Weapon Has Method Shoot
+          if path_to_wpn.has_method("reload"):
+               # Call the Shoot Method
+               path_to_wpn.reload()
 

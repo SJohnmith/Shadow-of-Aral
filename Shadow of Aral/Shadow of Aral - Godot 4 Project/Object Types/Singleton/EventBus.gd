@@ -1,9 +1,11 @@
 extends Node
 
-signal glob_signal(arg1, arg2)
+signal wpn_shoot_bullets(muzzle_pos, muzzle_drctn)
+signal ui_update()
 
-func _ready():
-     pass
 
-func send_signal_to_parent(arg1, arg2):
-     glob_signal.emit(arg1, arg2)
+func wpn_fired(muzzle_pos, muzzle_drctn):
+     wpn_shoot_bullets.emit(muzzle_pos, muzzle_drctn)
+
+func update_ui():
+     ui_update.emit()

@@ -1,8 +1,10 @@
 extends Area2D
 
+# Bullet Properties
 @export var speed: int = 3000
 @export var damage: int = 10
 
+# Bullet Attributes
 var direction: Vector2 = Vector2.ZERO
 var emitted_bullet: bool = false
 

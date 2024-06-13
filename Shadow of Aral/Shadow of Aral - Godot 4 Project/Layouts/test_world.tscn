@@ -96,5 +96,3 @@ position = Vector2(1053, 807)
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="UI" parent="." instance=ExtResource("4_s2kw3")]
-
-[connection signal="open_fire" from="Player" to="." method="_on_player_open_fire"]

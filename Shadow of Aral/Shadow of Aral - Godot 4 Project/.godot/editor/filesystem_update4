@@ -1,8 +1,12 @@
+res://Object Types/Main Assets/Player/player.tscn
 res://Layouts/UI.tscn
 res://Layouts/test_world.tscn
-res://Object Types/Main Assets/Player/player.tscn
 res://Object Types/Main Assets/Player/player_rig.tscn
 res://Object Types/Main Assets/Weapon/weapon.tscn
 res://Object Types/Main Assets/Bullet/bullet.tscn
 res://Object Types/Main Assets/Player/player.gd
+res://Object Types/Main Assets/Bullet/bullet.gd
+res://Object Types/Main Assets/Player/player_rig.gd
 res://Object Types/Main Assets/Weapon/weapon.gd
+res://Layouts/event_handler.gd
+res://Object Types/Singleton/EventBus.gd
