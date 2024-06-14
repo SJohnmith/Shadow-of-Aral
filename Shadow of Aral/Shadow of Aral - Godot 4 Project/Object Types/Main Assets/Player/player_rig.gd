@@ -60,8 +60,9 @@ func player_wpn_action(action):
      
      # If Player is Reloading the Weapon
      elif action == "reload":
+          $AnimationArms.play("Reload")
      # Check that the Weapon Has Method Shoot
           if path_to_wpn.has_method("reload"):
                # Call the Shoot Method
                path_to_wpn.reload()
-
+               
