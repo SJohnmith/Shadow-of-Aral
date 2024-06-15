@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2k3gfx6gq16"]
+
+[ext_resource type="Texture2D" uid="uid://bppmlkv20ksow" path="res://Object Types/Main Assets/Weapon/AK-47 Magazine.png" id="1_p1okb"]
+
+[node name="Magazine" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p1okb")

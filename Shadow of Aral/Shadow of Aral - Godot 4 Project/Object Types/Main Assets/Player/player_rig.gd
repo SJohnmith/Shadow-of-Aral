@@ -1,31 +1,22 @@
 extends Node2D
 
-var grip_path = 0
-var stock_grip_pos = Vector2.ZERO
-var hand_pos = Vector2.ZERO
+# Player Properties
+var stock_grip_pos: Vector2 = Vector2.ZERO
+var hand_pos: Vector2 = Vector2.ZERO
 
-var stock_grip_ang = 0.0
-var hand_ang = 0.0
-
+# Player Attributes
 @onready var path_to_wpn: Node2D = $Torso/Weapon
-
+@onready var grip_path = path_to_wpn.get_child(2)
+@onready var front_arm: Node2D = $Torso/FrontArm
+@onready var back_arm: Node2D = $Torso/BackArm
 
 func _ready():
-     grip_path = path_to_wpn.get_child(2)
-     hand_pos = $Torso/BackArm.position
+     hand_pos = back_arm.position
 
 func _process(_delta):
      # Set rotation of the arms to mouse position
-     $Torso/FrontArm.look_at(get_global_mouse_position())
-     $Torso/BackArm.look_at(get_global_mouse_position())
-     
-     # Get Gun Stock Grip Position
-#     stock_grip_pos = grip_path.get_global_position()
-#     stock_grip_ang = grip_path.get_global_rotation()
-     
-     # Get Back Arm Hand Position
-#     hand_pos = $Torso/BackArm.get_global_position()
-#     hand_ang = $Torso/BackArm.get_global_rotation()
+     front_arm.look_at(get_global_mouse_position())
+     back_arm.look_at(get_global_mouse_position())
      
      
 func update_animation(animation_name):
@@ -49,7 +40,7 @@ func update_facing_direction(direction):
 # Received from Player a Command to use Equipped Weapon
 func player_wpn_action(action):
      # Front Arm Pointing Direction
-     var wpn_pointing_direction = Vector2(cos($Torso/FrontArm.rotation), sin($Torso/FrontArm.rotation))*($".".scale)
+     var wpn_pointing_direction = Vector2(cos(front_arm.rotation), sin(front_arm.rotation))*($".".scale)
      
      # If Player is Shooting the Weapon
      if action == "shoot":
@@ -65,4 +56,4 @@ func player_wpn_action(action):
           if path_to_wpn.has_method("reload"):
                # Call the Shoot Method
                path_to_wpn.reload()
-               
+               $Torso/Magazine.z_index = -1

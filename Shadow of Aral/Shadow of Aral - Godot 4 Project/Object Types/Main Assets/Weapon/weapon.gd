@@ -20,8 +20,8 @@ var reloading: bool = false        # Gun Is Reloading
 # Weapon Attributes
 @onready var timer_fired: Timer = $FiredTimer
 @onready var timer_reload: Timer = $ReloadTimer
-var muzzle_markers
-var selected_muzzle
+@onready var muzzle_markers := $BulletStartPosition.get_children()
+@onready var selected_muzzle := muzzle_markers[randi()%muzzle_markers.size()]
 
 # Object Ready
 func _ready():
@@ -35,7 +35,7 @@ func _ready():
 # Weapon Shoot
 func shoot(wpn_pointing_direction):
      # Get Muzzle Objects
-     muzzle_markers = $BulletStartPosition.get_children()
+#     muzzle_markers = $BulletStartPosition.get_children()
      # Select a Random Muzzle Object
      selected_muzzle = muzzle_markers[randi()%muzzle_markers.size()]
      
