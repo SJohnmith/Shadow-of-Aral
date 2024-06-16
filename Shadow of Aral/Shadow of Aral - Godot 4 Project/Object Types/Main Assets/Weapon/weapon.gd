@@ -17,6 +17,10 @@ var fire_range: float = 500.0      # Bullet Travel Range
 var fired: bool = false            # Gun Has Been Fired
 var reloading: bool = false        # Gun Is Reloading
 
+var current_recoil: float = 0.0    # Current Recoil
+var max_recoil: float = 5.0        # Max Recoil
+var recoil_increment: float = 0.0  # Increment Recoil
+
 # Weapon Attributes
 @onready var timer_fired: Timer = $FiredTimer
 @onready var timer_reload: Timer = $ReloadTimer
@@ -32,10 +36,9 @@ func _ready():
      timer_fired.wait_time = fire_rate
      timer_reload.wait_time = reload_time
 
+
 # Weapon Shoot
-func shoot(wpn_pointing_direction):
-     # Get Muzzle Objects
-#     muzzle_markers = $BulletStartPosition.get_children()
+func shoot(wpn_pointing_direction):     
      # Select a Random Muzzle Object
      selected_muzzle = muzzle_markers[randi()%muzzle_markers.size()]
      
@@ -48,7 +51,7 @@ func shoot(wpn_pointing_direction):
           Globals.bullets = ammo_left
           # Restart Timer
           timer_fired.start()
-          # Emit the Open Fire Signal [Figure This Part Out]
+          # Emit the Open Fire Signal
           open_fire.emit(selected_muzzle.global_position, wpn_pointing_direction)
           updt_ammo.emit()
           

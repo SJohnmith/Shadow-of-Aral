@@ -586,3 +586,5 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_e42dj")
 }
+
+[connection signal="animation_finished" from="AnimationArms" to="." method="_on_animation_arms_animation_finished"]
