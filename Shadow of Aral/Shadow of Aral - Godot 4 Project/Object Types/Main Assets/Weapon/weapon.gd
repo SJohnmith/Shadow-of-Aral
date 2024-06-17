@@ -24,8 +24,11 @@ var recoil_increment: float = 0.0  # Increment Recoil
 # Weapon Attributes
 @onready var timer_fired: Timer = $FiredTimer
 @onready var timer_reload: Timer = $ReloadTimer
-@onready var muzzle_markers := $BulletStartPosition.get_children()
+@onready var wpn_img: Sprite2D = $WeaponImage
+@onready var muzzle_markers := $WeaponImage/BulletStartPosition.get_children()
 @onready var selected_muzzle := muzzle_markers[randi()%muzzle_markers.size()]
+
+@onready var front_arm := get_parent().get_child(4)
 
 # Object Ready
 func _ready():
@@ -35,7 +38,8 @@ func _ready():
      # Set Fired Timer and Reload Timer
      timer_fired.wait_time = fire_rate
      timer_reload.wait_time = reload_time
-
+     
+     print(front_arm.position)
 
 # Weapon Shoot
 func shoot(wpn_pointing_direction):     
@@ -46,6 +50,8 @@ func shoot(wpn_pointing_direction):
      if !fired and ammo_left > 0 and !reloading:
           # Gun Fired
           fired = true
+          # Gun Recoil
+          wpn_arm_recoil(wpn_img)
           # Subtract Ammo
           ammo_left -= 1
           Globals.bullets = ammo_left
@@ -59,7 +65,24 @@ func shoot(wpn_pointing_direction):
 func reload():
      reloading = true
      timer_reload.start()
+
+# Weapon Recoil Animation [Hardcoded]
+func wpn_arm_recoil(wpn_dir):
+     var recoil_tween = create_tween()
+     var tween_up_time := 0.01
+     var tween_down_time := 0.2
+     var random_recoil_rotation = randf_range(deg_to_rad(-5), deg_to_rad(0))
+     recoil_tween.tween_property(wpn_dir, "position", Vector2(-5,5), tween_up_time)
+     recoil_tween.tween_property(wpn_dir, "rotation", random_recoil_rotation, tween_up_time)
      
+      # Arm Recoil
+     recoil_tween.tween_property(front_arm, "position", front_arm.position + Vector2(-5,0), 0.02)
+     recoil_tween.tween_property(front_arm, "position", front_arm.position - Vector2(-5,0), 0.02)
+     
+     recoil_tween.tween_property(wpn_dir, "position", Vector2(0,0), tween_down_time)
+     recoil_tween.tween_property(wpn_dir, "rotation", 0, tween_down_time)
+
+
 # On Fired Timer Timeout
 func _on_fired_timer_timeout():
      # Enable Shoot

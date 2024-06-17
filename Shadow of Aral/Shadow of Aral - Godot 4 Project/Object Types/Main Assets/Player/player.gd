@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 # Player Signals
-#signal open_fire(muzzle_pos, muzzle_drctn)
 
 # Player Properties
 @export var health: float = 100
@@ -15,11 +14,8 @@ var mouse_direction: Vector2 = Vector2.ZERO
 var can_shoot: bool = true
 
 # Player Attributes
-#var Weapon = weapon.new()
 @onready var player_body: Node2D = $"Player Rig"
 
-#func _ready():
-#     $"Player Rig".get_child(0).get_child(3).add_child(Weapon)
      
 # Handle Player Physics
 func _physics_process(delta):
@@ -56,39 +52,28 @@ func player_movement(delta):
 
 # Handle Player Actions
 func player_action():
-     # Gun Not Attached to Front Arm Get Muzzle Positions [Hardcoded Path to Child Object Weapon]
-#     var muzzle_path = player_body.get_child(0).get_child(2).get_child(1).get_children()
-     
-     # Gun Attached to Front Arm [Hard Coded the Path to Child Object Weapon]
-#     var muzzle_path = player_body.get_child(0).get_child(2).get_child(0).get_child(1).get_children()
-#     var front_arm_path = player_body.get_child(0).get_child(2)
-     
-     # Front Arm Pointing Direction
-#     var arm_pointing_direction = Vector2(cos(front_arm_path.rotation), sin(front_arm_path.rotation))*(player_body.scale)
-     
      # Look Towards Mouse Position
      mouse_direction = (get_global_mouse_position() - position).normalized()
      
      # Firing the Gun
-     if Input.is_action_pressed("Left Click") and can_shoot:
+#     if Input.is_action_pressed("Left Click") and can_shoot:
 #          var muzzle_markers = muzzle_path
 #          var selected_muzzle = muzzle_markers[randi()%muzzle_markers.size()]
-          can_shoot = false
-          $ShootTimer.start()
+#          can_shoot = false
+#          $ShootTimer.start()
 #          print("This is the effect we want to achieve call method once ready not all the time")
 #          # Emit the Open Fire Signal
 #          open_fire.emit(selected_muzzle.global_position, arm_pointing_direction)
      
      # If Mouse Left Button is Down Player Shoots [How to Avoid Calling Method Continuously]
-     if Input.is_action_pressed("Left Click") and player_body.has_method("player_wpn_action"):
+     if Input.is_action_pressed("Left Click") and player_body.has_method("player_wpn_action") and can_shoot:
           player_body.player_wpn_action("shoot")
-#          print(Weapon.shoot(Vector2(cos($"Player Rig".rotation), sin($"Player Rig".rotation))*($".".scale)))
-
+#          can_shoot = false
+#          $ShootTimer.start()
      
      # Player Reload Weapon
      if Input.is_action_just_pressed("Reload") and player_body.has_method("player_wpn_action"):
           player_body.player_wpn_action("reload")
-#          Weapon.reload() # [Referencing the Object as Class is Easier]
           
      # Update the Player Viewing Direction     
      player_body.update_facing_direction(mouse_direction)

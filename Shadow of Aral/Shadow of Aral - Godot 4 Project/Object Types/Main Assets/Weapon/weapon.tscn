@@ -7,23 +7,22 @@
 script = ExtResource("1_lbaem")
 
 [node name="WeaponImage" type="Sprite2D" parent="."]
-position = Vector2(0, -9)
 texture = ExtResource("2_54fvk")
 offset = Vector2(37, 3)
 
-[node name="BulletStartPosition" type="Node2D" parent="."]
-position = Vector2(147, -16)
+[node name="BulletStartPosition" type="Node2D" parent="WeaponImage"]
+position = Vector2(147, -7)
 
-[node name="Muzzle1" type="Marker2D" parent="BulletStartPosition"]
+[node name="Muzzle1" type="Marker2D" parent="WeaponImage/BulletStartPosition"]
 
-[node name="Muzzle2" type="Marker2D" parent="BulletStartPosition"]
+[node name="Muzzle2" type="Marker2D" parent="WeaponImage/BulletStartPosition"]
 position = Vector2(0, -3)
 
-[node name="Muzzle3" type="Marker2D" parent="BulletStartPosition"]
+[node name="Muzzle3" type="Marker2D" parent="WeaponImage/BulletStartPosition"]
 position = Vector2(0, 3)
 
 [node name="HandGrip" type="Marker2D" parent="."]
-position = Vector2(75, -19)
+position = Vector2(74, -10)
 
 [node name="FiredTimer" type="Timer" parent="."]
 one_shot = true
