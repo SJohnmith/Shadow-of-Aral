@@ -8,6 +8,7 @@ var bullet_scene: PackedScene = preload("res://Object Types/Main Assets/Bullet/b
 func _ready():
      EventBus.wpn_shoot_bullets.connect(_on_player_open_fire)
      EventBus.ui_update.connect(_update_ui_elements)
+     
 # Player Fires Spawn Bullets
 func _on_player_open_fire(muzzle_pos, muzzle_drctn):
      var bullet_instance = bullet_scene.instantiate() as Area2D

@@ -2,6 +2,7 @@ class_name weapon extends Node2D
 
 # Weapon Signals
 signal open_fire(muzzle_pos, muzzle_drctn)
+signal recoil()     # [Best to Use a Signal Instead of Using get_parent().get_child(4)]
 signal updt_ammo()
 
 # Weapon Properties
@@ -28,6 +29,7 @@ var recoil_increment: float = 0.0  # Increment Recoil
 @onready var muzzle_markers := $WeaponImage/BulletStartPosition.get_children()
 @onready var selected_muzzle := muzzle_markers[randi()%muzzle_markers.size()]
 
+# How to Reference the First Parent this Object is Attached too which is Remote2D [Hardcoded]
 @onready var front_arm := get_parent().get_child(4)
 
 # Object Ready
@@ -38,8 +40,6 @@ func _ready():
      # Set Fired Timer and Reload Timer
      timer_fired.wait_time = fire_rate
      timer_reload.wait_time = reload_time
-     
-     print(front_arm.position)
 
 # Weapon Shoot
 func shoot(wpn_pointing_direction):     

@@ -535,8 +535,12 @@ region_rect = Rect2(0, 0, 105.806, 99.8082)
 [node name="Weapon" parent="Torso" instance=ExtResource("3_naw4j")]
 position = Vector2(15, -2)
 
+[node name="MagazineLocation" type="RemoteTransform2D" parent="Torso/Weapon"]
+position = Vector2(56, 23)
+remote_path = NodePath("../../Magazine")
+
 [node name="Magazine" parent="Torso" instance=ExtResource("4_dxblx")]
-position = Vector2(72, 22)
+position = Vector2(71, 21)
 
 [node name="FrontArm" type="Sprite2D" parent="Torso"]
 position = Vector2(-27, -39)
@@ -556,10 +560,6 @@ texture = ExtResource("1_tgwa6")
 offset = Vector2(15, 28)
 region_enabled = true
 region_rect = Rect2(117.594, 261.568, 92.5624, 92.159)
-
-[node name="MagazineLocation" type="RemoteTransform2D" parent="Torso/FrontArm/RearArm"]
-position = Vector2(54, 70)
-remote_path = NodePath("../../../Magazine")
 
 [node name="BackLeg" type="Sprite2D" parent="Torso"]
 z_index = -1
