@@ -536,7 +536,7 @@ region_rect = Rect2(0, 0, 105.806, 99.8082)
 position = Vector2(15, -2)
 
 [node name="Magazine" parent="Torso" instance=ExtResource("4_dxblx")]
-position = Vector2(72, 22)
+position = Vector2(87, 22)
 
 [node name="FrontArm" type="Sprite2D" parent="Torso"]
 position = Vector2(-27, -39)
