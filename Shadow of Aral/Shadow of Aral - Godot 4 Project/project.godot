@@ -18,12 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 EventBus="*res://Object Types/Singleton/EventBus.gd"
-Globals="*res://Globals/Globals.gd"
+Globals="*res://Globals/globals.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1600
+window/size/viewport_height=900
 
 [input]
 
