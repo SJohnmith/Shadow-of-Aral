@@ -3,6 +3,7 @@ res://Object Types/Singleton/EventBus.gd
 res://Object Types/Main Assets/Player/player.gd
 res://Object Types/Main Assets/Player/player_rig.gd
 res://Layouts/ui.gd
+res://Object Types/Main Assets/Weapon/weapon.gd
 res://Layouts/test_world.tscn
 res://Object Types/Main Assets/Player/player.tscn
 res://Object Types/Main Assets/Player/player_rig.tscn
