@@ -1,2 +1,6 @@
+# Construct 2 specific ignores
 *.uistate.json
 *.uistate.xml
+
+# Godot 4+ specific ignores
+.godot/
