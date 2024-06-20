@@ -92,9 +92,6 @@ layer_0/tile_data = PackedInt32Array(3997695, 1, 0, 4063231, 1, 1, 4128767, 1, 1
 
 [node name="Player" parent="." instance=ExtResource("2_ee7qh")]
 position = Vector2(1053, 807)
-health = 100.0
-speed = 700.0
-jump_velocity = -900.0
 
 [node name="Projectiles" type="Node2D" parent="."]
 
