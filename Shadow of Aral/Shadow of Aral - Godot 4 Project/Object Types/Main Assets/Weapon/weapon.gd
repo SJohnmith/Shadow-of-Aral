@@ -34,67 +34,62 @@ var recoil_increment: float = 0.0  # Increment Recoil
 
 # Object Ready
 func _ready():
-      # Connect the Weapon Signal to a Global Data Bus
-      connect("open_fire", EventBus.wpn_fired)
-      connect("updt_ammo", EventBus.update_ui)
-      # Set Fired Timer and Reload Timer
-      timer_fired.wait_time = fire_rate
-      timer_reload.wait_time = reload_time
+# Connect the Weapon Signal to a Global Data Bus
+	connect("open_fire", EventBus.wpn_fired)
+	connect("updt_ammo", EventBus.update_ui)
+# Set Fired Timer and Reload Timer
+	timer_fired.wait_time = fire_rate
+	timer_reload.wait_time = reload_time
 
 # Weapon Shoot
-func shoot(wpn_pointing_direction):     
-      # Select a Random Muzzle Object
-      selected_muzzle = muzzle_markers[randi()%muzzle_markers.size()]
-      
-      # Check Not Gun Fired, Has Ammo, and Not Reloading
-      if !fired and ammo_left > 0 and !reloading:
-            # Gun Fired
-            fired = true
-            # Gun Recoil
-            wpn_arm_recoil(wpn_img)
-            # Subtract Ammo
-            ammo_left -= 1
-            Globals.bullets = ammo_left
-            # Restart Timer
-            timer_fired.start()
-            # Emit the Open Fire Signal
-            open_fire.emit(selected_muzzle.global_position, wpn_pointing_direction)
-            updt_ammo.emit()
-            
+func shoot(wpn_pointing_direction):
+# Select a Random Muzzle Object
+	selected_muzzle = muzzle_markers[randi()%muzzle_markers.size()]
+# Check Not Gun Fired, Has Ammo, and Not Reloading
+	if !fired and ammo_left > 0 and !reloading:
+			# Gun Fired
+		fired = true
+			# Gun Recoil
+		wpn_arm_recoil(wpn_img)
+			# Subtract Ammo
+		ammo_left -= 1
+		Globals.bullets = ammo_left
+			# Restart Timer
+		timer_fired.start()
+			# Emit the Open Fire Signal
+		open_fire.emit(selected_muzzle.global_position, wpn_pointing_direction)
+		updt_ammo.emit()
+			
 # Weapon Reload
 func reload():
-      reloading = true
-      timer_reload.start()
+	reloading = true
+	timer_reload.start()
 
 # Weapon Recoil Animation [Hardcoded]
 func wpn_arm_recoil(wpn_dir):
-      var recoil_tween = create_tween()
-      var tween_up_time := 0.01
-      var tween_down_time := 0.2
-      var random_recoil_rotation = randf_range(deg_to_rad(-5), deg_to_rad(0))
-      recoil_tween.tween_property(wpn_dir, "position", Vector2(-5,5), tween_up_time)
-      recoil_tween.tween_property(wpn_dir, "rotation", random_recoil_rotation, tween_up_time)
-      
-       # Arm Recoil
-      recoil_tween.tween_property(front_arm, "position", front_arm.position + Vector2(-5,0), 0.02)
-      recoil_tween.tween_property(front_arm, "position", front_arm.position - Vector2(-5,0), 0.02)
-      
-      recoil_tween.tween_property(wpn_dir, "position", Vector2(0,0), tween_down_time)
-      recoil_tween.tween_property(wpn_dir, "rotation", 0, tween_down_time)
+	var recoil_tween = create_tween()
+	var tween_up_time := 0.01
+	var tween_down_time := 0.2
+	var random_recoil_rotation = randf_range(deg_to_rad(-5), deg_to_rad(0))
+	recoil_tween.tween_property(wpn_dir, "position", Vector2(-5,5), tween_up_time)
+	recoil_tween.tween_property(wpn_dir, "rotation", random_recoil_rotation, tween_up_time)
+# Arm Recoil
+	recoil_tween.tween_property(front_arm, "position", front_arm.position + Vector2(-5,0), 0.02)
+	recoil_tween.tween_property(front_arm, "position", front_arm.position - Vector2(-5,0), 0.02)  
+	recoil_tween.tween_property(wpn_dir, "position", Vector2(0,0), tween_down_time)
+	recoil_tween.tween_property(wpn_dir, "rotation", 0, tween_down_time)
 
 
 # On Fired Timer Timeout
 func _on_fired_timer_timeout():
-      # Enable Shoot
-      fired = false
-      
+# Enable Shoot
+	fired = false  
 # On Reload Timer Timeout
 func _on_reload_timer_timeout():
-      # Reload Finished
-      reloading = false
-      
-      # Reload the Weapon
-      ammo_left = ammo_capacity
-      Globals.bullets = ammo_left
+# Reload Finished
+	reloading = false
+# Reload the Weapon
+	ammo_left = ammo_capacity
+	Globals.bullets = ammo_left
 
-      updt_ammo.emit()
+	updt_ammo.emit()
