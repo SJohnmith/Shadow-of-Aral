@@ -26,22 +26,27 @@ func _physics_process(delta):
 func player_movement(delta):
      # Get Main Input Argument
      direction = Input.get_vector("Left", "Right", "Up", "Down")
-     # Horizontal Movement
-     # Player is Moving
-     if direction:
+
+     # Player is Moving Left or Right
+     if direction == Vector2(1, 0) or direction == Vector2(-1, 0):
           velocity.x = direction.x * speed
           player_body.update_animation("Run")
-     # Player Stops Moving
+     # Player Crouching
+     elif direction == Vector2(0,1):
+          player_body.update_animation("Crouch")
+          $CollisionShape2D.scale.y = 0.6
      else:
           velocity.x = move_toward(velocity.x, 0, speed)
           player_body.update_animation("Idle")
-     # Vertical Movements
+          $CollisionShape2D.scale.y = 1
+          
      # Player Jumps
      if Input.is_action_just_pressed("Up") and is_on_floor():
           velocity.y = jump_velocity
      # Player Falls
      if not is_on_floor():
           velocity.y += gravity * delta
+
      # Update the Player Position and Direction
      move_and_slide()
 #     player_body.update_walk_direction(direction)

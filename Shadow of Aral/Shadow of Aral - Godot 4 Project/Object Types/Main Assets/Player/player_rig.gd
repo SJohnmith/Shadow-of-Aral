@@ -19,7 +19,7 @@ var max_recoil: float = 10.0       # Max Recoil
 var recoil_increment: float = 0.0  # Increment Recoil
 
 func _process(_delta):
-          # Set rotation of the arms to mouse position
+     # Set rotation of the arms to mouse position
      front_arm.look_at(get_global_mouse_position())
 #     pass
 func update_animation(animation_name):
@@ -31,7 +31,8 @@ func update_walk_direction(direction):
           $Torso/FrontLeg.flip_h = false
      elif direction.x < 0:
           $Torso/BackLeg.flip_h = true
-          $Torso/FrontLeg.flip_h = true   
+          $Torso/FrontLeg.flip_h = true
+            
 func update_facing_direction(direction):
      if direction.x > 0:
           $".".scale = Vector2(1, 1)

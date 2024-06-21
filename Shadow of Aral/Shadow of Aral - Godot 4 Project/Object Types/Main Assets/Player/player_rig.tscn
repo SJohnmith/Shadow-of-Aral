@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dom057ujlqxv8"]
+[gd_scene load_steps=11 format=3 uid="uid://dom057ujlqxv8"]
 
 [ext_resource type="Texture2D" uid="uid://b8mqmv7vuox5c" path="res://Object Types/Main Assets/Player/Player Default.png" id="1_tgwa6"]
 [ext_resource type="Script" path="res://Object Types/Main Assets/Player/player_rig.gd" id="1_thliw"]
@@ -354,7 +354,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_q55eg"]
 resource_name = "Run"
 length = 0.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -500,8 +499,61 @@ tracks/11/keys = {
 "values": [0.0, 1.06391, 0.0, -0.755267, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_d2x0e"]
+resource_name = "Crouch"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torso/BackLeg:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(13, 49), Vector2(11.5, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Torso/BackLeg:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Torso/FrontLeg:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-20, 53), Vector2(-21.5, 9)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Torso/FrontLeg:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e42dj"]
 _data = {
+"Crouch": SubResource("Animation_d2x0e"),
 "Idle": SubResource("Animation_m6feo"),
 "RESET": SubResource("Animation_cku2r"),
 "Reload": SubResource("Animation_4lu7e"),
