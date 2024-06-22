@@ -65,17 +65,19 @@ func reload():
      reloading = true
      timer_reload.start()
 
-# Weapon Recoil Animation [Hardcoded]
+# Weapon Recoil Animation [Hardcoded the Arm Recoil]
 func wpn_arm_recoil(wpn_dir):
      var recoil_tween = create_tween()
      var tween_up_time := 0.01
      var tween_down_time := 0.2
      var random_recoil_rotation = randf_range(deg_to_rad(-5), deg_to_rad(0))
+     # Start the Weapon Recoil
      recoil_tween.tween_property(wpn_dir, "position", Vector2(-5,5), tween_up_time)
      recoil_tween.tween_property(wpn_dir, "rotation", random_recoil_rotation, tween_up_time)
      # Arm Recoil
      recoil_tween.tween_property(front_arm, "position", front_arm.position + Vector2(-5,0), 0.02)
-     recoil_tween.tween_property(front_arm, "position", front_arm.position - Vector2(-5,0), 0.02)  
+     recoil_tween.tween_property(front_arm, "position", front_arm.position - Vector2(-5,0), 0.02)
+     # Weapon Retrun to Rest 
      recoil_tween.tween_property(wpn_dir, "position", Vector2(0,0), tween_down_time)
      recoil_tween.tween_property(wpn_dir, "rotation", 0, tween_down_time)
 

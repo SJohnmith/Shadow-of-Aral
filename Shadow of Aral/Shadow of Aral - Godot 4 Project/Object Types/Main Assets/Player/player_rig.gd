@@ -21,7 +21,7 @@ var recoil_increment: float = 0.0  # Increment Recoil
 func _process(_delta):
      # Set rotation of the arms to mouse position
      front_arm.look_at(get_global_mouse_position())
-#     pass
+     
 func update_animation(animation_name):
      $AnimationPlayer.play(animation_name)
 

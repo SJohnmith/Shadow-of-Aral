@@ -12,33 +12,57 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2 = Vector2.ZERO
 var mouse_direction: Vector2 = Vector2.ZERO
 var can_shoot: bool = true
+var is_crouching: bool = false
 
 # Player Attributes
 @onready var player_body: Node2D = $"Player Rig"
 
 # Handle Player Physics
 func _physics_process(delta):
-     # Call these methods
      player_movement(delta)
      player_action()
 
 # Handle Player Movement
 func player_movement(delta):
-     # Get Main Input Argument
+     # Get a Vector from Keyboard Argument
      direction = Input.get_vector("Left", "Right", "Up", "Down")
+     
+     if is_on_floor():
+          # Player is Not Moving
+          if direction.x == 0:
+               velocity.x = move_toward(velocity.x, 0, speed)
+               if is_crouching:
+                    player_body.update_animation("Crouch")
+               else:     
+                    player_body.update_animation("Idle")
+          # Player is Moving Left or Right
+          if direction.x < 0 or direction.x > 0:
+               velocity.x = direction.x * speed
+               if is_crouching:
+                    player_body.update_animation("Crouch Walk")
+               else:
+                    player_body.update_animation("Run")
+     print(direction)
 
      # Player is Moving Left or Right
-     if direction == Vector2(1, 0) or direction == Vector2(-1, 0):
-          velocity.x = direction.x * speed
-          player_body.update_animation("Run")
+#     if (direction.x < 0 or direction.x > 0) and direction.y <= 0:
+#          velocity.x = direction.x * speed
+#          player_body.update_animation("Run")
+#     # Player Crouching
+#     elif direction.y > 0:
+#          player_body.update_animation("Crouch")
+#          $CollisionShape2D.scale.y = 0.6
+#     # Player Not Moving
+#     else:
+#          velocity.x = move_toward(velocity.x, 0, speed)
+#          player_body.update_animation("Idle")
+#          $CollisionShape2D.scale.y = 1
+
      # Player Crouching
-     elif direction == Vector2(0,1):
-          player_body.update_animation("Crouch")
-          $CollisionShape2D.scale.y = 0.6
-     else:
-          velocity.x = move_toward(velocity.x, 0, speed)
-          player_body.update_animation("Idle")
-          $CollisionShape2D.scale.y = 1
+     if Input.is_action_just_pressed("Down") and is_on_floor():
+          is_crouching = true
+     elif Input.is_action_just_released("Down"):
+          is_crouching = false
           
      # Player Jumps
      if Input.is_action_just_pressed("Up") and is_on_floor():
@@ -49,7 +73,6 @@ func player_movement(delta):
 
      # Update the Player Position and Direction
      move_and_slide()
-#     player_body.update_walk_direction(direction)
 
 # Handle Player Actions
 func player_action():
