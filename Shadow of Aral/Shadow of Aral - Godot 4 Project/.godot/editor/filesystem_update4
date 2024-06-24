@@ -1,12 +1,3 @@
-<<<<<<< Updated upstream
-res://Object Types/Main Assets/Weapon/weapon.tscn
 res://Layouts/test_world.tscn
-res://Object Types/Main Assets/Player/player.tscn
-res://Object Types/Main Assets/Player/player_rig.tscn
-=======
-res://Layouts/test_world.tscn
-res://Object Types/Main Assets/Player/player.tscn
-res://Object Types/Main Assets/Player/player_rig.tscn
 res://Object Types/Main Assets/Weapon/weapon.tscn
->>>>>>> Stashed changes
 res://Object Types/Main Assets/Weapon/magazine.tscn
