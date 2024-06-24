@@ -11,7 +11,7 @@ texture = ExtResource("2_54fvk")
 offset = Vector2(37, 3)
 
 [node name="BulletStartPosition" type="Node2D" parent="WeaponImage"]
-position = Vector2(150, -13)
+position = Vector2(147, -7)
 
 [node name="Muzzle1" type="Marker2D" parent="WeaponImage/BulletStartPosition"]
 
