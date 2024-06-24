@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://dko0bbw8pbmwb"
+=======
+uid="uid://dk6hwxt7lgcg0"
+>>>>>>> Stashed changes
 path="res://.godot/imported/PMakarov.png-821671b51699284aa095266100d5e954.ctex"
 metadata={
 "vram_texture": false

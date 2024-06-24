@@ -134,9 +134,12 @@ tracks/5/keys = {
 "values": [0.0, 0.0]
 }
 
+<<<<<<< Updated upstream
 [sub_resource type="Animation" id="Animation_to0gc"]
 resource_name = "Falling"
 
+=======
+>>>>>>> Stashed changes
 [sub_resource type="Animation" id="Animation_m6feo"]
 resource_name = "Idle"
 tracks/0/type = "value"
