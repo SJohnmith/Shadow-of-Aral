@@ -27,22 +27,30 @@ func player_movement(delta):
      # Get a Vector from Keyboard Argument
      direction = Input.get_vector("Left", "Right", "Up", "Down")
      
+     # Player is Moving
+     if direction:
+          velocity.x = direction.x * speed
+     # Player Not Moving
+     else:
+          velocity.x = move_toward(velocity.x, 0, speed)
+     
+     # Player Animations
      if is_on_floor():
-          # Player is Not Moving
+          # Player Not Moving
           if direction.x == 0:
-               velocity.x = move_toward(velocity.x, 0, speed)
                if is_crouching:
                     player_body.update_animation("Crouch")
-               else:     
+               else:
                     player_body.update_animation("Idle")
-          # Player is Moving Left or Right
-          if direction.x < 0 or direction.x > 0:
-               velocity.x = direction.x * speed
+          # Player is Moving
+          if direction:
                if is_crouching:
                     player_body.update_animation("Crouch Walk")
                else:
                     player_body.update_animation("Run")
-     print(direction)
+     else:
+          if velocity.y > 0:
+               print("Falling")
 
      # Player is Moving Left or Right
 #     if (direction.x < 0 or direction.x > 0) and direction.y <= 0:
@@ -51,12 +59,10 @@ func player_movement(delta):
 #     # Player Crouching
 #     elif direction.y > 0:
 #          player_body.update_animation("Crouch")
-#          $CollisionShape2D.scale.y = 0.6
 #     # Player Not Moving
 #     else:
 #          velocity.x = move_toward(velocity.x, 0, speed)
 #          player_body.update_animation("Idle")
-#          $CollisionShape2D.scale.y = 1
 
      # Player Crouching
      if Input.is_action_just_pressed("Down") and is_on_floor():
@@ -64,10 +70,10 @@ func player_movement(delta):
      elif Input.is_action_just_released("Down"):
           is_crouching = false
           
-     # Player Jumps
+     # Player Jumping
      if Input.is_action_just_pressed("Up") and is_on_floor():
           velocity.y = jump_velocity
-     # Player Falls
+     # Player Falling
      if not is_on_floor():
           velocity.y += gravity * delta
 
@@ -96,7 +102,7 @@ func player_action():
      if Input.is_action_just_pressed("Reload") and player_body.has_method("player_wpn_action"):
           player_body.player_wpn_action("reload")
      # Update the Player Viewing Direction     
-     player_body.update_facing_direction(mouse_direction) 
+     player_body.update_facing_direction(mouse_direction)
 
 # On Shoot Timer Timeout
 func _on_shoot_timer_timeout():
