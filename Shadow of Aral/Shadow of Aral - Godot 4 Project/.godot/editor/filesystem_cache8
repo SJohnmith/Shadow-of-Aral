@@ -1,38 +1,38 @@
 2a60927148abd1d33b818b535e306557
-::res://::1719200610
-icon.svg::CompressedTexture2D::6209416049252493865::1718763202::1719029232::1::::<><>::
-::res://Globals/::1718763202
-globals.gd::GDScript::-1::1718763202::0::1::::<>Node<>::
-::res://Layouts/::1719029234
-main_events.gd::GDScript::-1::1718853314::0::1::::<>Node2D<>::
-test_world.tscn::PackedScene::5126567201140929190::1719029234::0::1::::<><>::uid://yu0ykfvugnux<>res://Layouts/main_events.gd<>uid://doq8elyw4yubv<>uid://ddv4yxbj7ojmq
-ui.gd::GDScript::-1::1718853314::0::1::::<>CanvasLayer<>::
-UI.tscn::PackedScene::7414985376706700956::1718853388::0::1::::<><>::res://Layouts/ui.gd
-::res://Object Types/::1718763202
-::res://Object Types/Background Assets/::1719029232
-Tiles.svg::CompressedTexture2D::1727381120205497539::1718763202::1719029232::1::::<><>::
-::res://Object Types/Main Assets/::1719028402
-::res://Object Types/Main Assets/Bullet/::1718763202
-bullet.gd::GDScript::-1::1718763202::0::1::::<>Area2D<>::
-Bullet.png::CompressedTexture2D::1347058646606585894::1718763202::1718763202::1::::<><>::
-bullet.tscn::PackedScene::1958511181007555602::1718763202::0::1::::<><>::res://Object Types/Main Assets/Bullet/bullet.gd<>uid://tgr4hee1eyag
-::res://Object Types/Main Assets/Enemies/::1719200321
-Uzbek.png::CompressedTexture2D::4481910820282393792::1719028766::1719200610::1::::<><>::
-::res://Object Types/Main Assets/Player/::1719200321
-Player Default.png::CompressedTexture2D::4728419111613552042::1718763202::1718763202::1::::<><>::
-player.gd::GDScript::-1::1719200243::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::8176947325885082967::1719029234::0::1::::<><>::res://Object Types/Main Assets/Player/player.gd<>uid://dom057ujlqxv8
-player_rig.gd::GDScript::-1::1719029204::0::1::::<>Node2D<>::
-player_rig.tscn::PackedScene::8168251605764349975::1719200321::0::1::::<><>::uid://b8mqmv7vuox5c<>res://Object Types/Main Assets/Player/player_rig.gd<>uid://cxnvg3jjcgt3r<>uid://b2k3gfx6gq16
-::res://Object Types/Main Assets/Weapon/::1719200321
-AK-47 Magazine.png::CompressedTexture2D::3470967811155608250::1718852455::1718852591::1::::<><>::
-AK-47 No Magazine.png::CompressedTexture2D::6432377341308171695::1718852455::1718852691::1::::<><>::
-AK-47.png::CompressedTexture2D::771474892800998125::1718852455::1718852591::1::::<><>::
-DoubleBarrel.png::CompressedTexture2D::8015090613979747773::1719028949::1719200610::1::::<><>::
-magazine.tscn::PackedScene::126584539105467411::1719029234::0::1::::<><>::uid://bppmlkv20ksow
-MakarovMagazine.png::CompressedTexture2D::3886130164591077385::1719028949::1719200610::1::::<><>::
-PMakarov.png::CompressedTexture2D::3416499454450224029::1719028949::1719200610::1::::<><>::
-weapon.gd::GDScript::-1::1719029204::0::1::::weapon<>Node2D<>::
-weapon.tscn::PackedScene::6415308938444143173::1719200243::0::1::::<><>::res://Object Types/Main Assets/Weapon/weapon.gd<>uid://cxv5kyf5600l4
-::res://Object Types/Singleton/::1718853314
-EventBus.gd::GDScript::-1::1718853314::0::1::::<>Node<>::
+::res://::1719285730
+icon.svg::CompressedTexture2D::6209416049252493865::1719283874::1719283874::1::::<><>::
+::res://Globals/::1719283931
+globals.gd::GDScript::-1::1719283874::0::1::::<>Node<>::
+::res://Layouts/::1719285648
+main_events.gd::GDScript::-1::1719283874::0::1::::<>Node2D<>::
+test_world.tscn::PackedScene::5126567201140929190::1719284289::0::1::::<><>::uid://yu0ykfvugnux<>res://Layouts/main_events.gd<>uid://doq8elyw4yubv<>uid://ddv4yxbj7ojmq
+ui.gd::GDScript::-1::1719283874::0::1::::<>CanvasLayer<>::
+UI.tscn::PackedScene::7414985376706700956::1719283874::0::1::::<><>::res://Layouts/ui.gd
+::res://Object Types/::1719283931
+::res://Object Types/Background Assets/::1719283931
+Tiles.svg::CompressedTexture2D::1727381120205497539::1719283874::1719283874::1::::<><>::
+::res://Object Types/Main Assets/::1719283931
+::res://Object Types/Main Assets/Bullet/::1719283931
+bullet.gd::GDScript::-1::1719283874::0::1::::<>Area2D<>::
+Bullet.png::CompressedTexture2D::1347058646606585894::1719283874::1719283874::1::::<><>::
+bullet.tscn::PackedScene::1958511181007555602::1719283874::0::1::::<><>::res://Object Types/Main Assets/Bullet/bullet.gd<>uid://tgr4hee1eyag
+::res://Object Types/Main Assets/Enemies/::1719285690
+Uzbek.png::CompressedTexture2D::4870808301967498692::1719283874::1719283963::1::::<><>::
+::res://Object Types/Main Assets/Player/::1719285648
+Player Default.png::CompressedTexture2D::4728419111613552042::1719283874::1719283874::1::::<><>::
+player.gd::GDScript::-1::1719284302::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::8176947325885082967::1719284302::0::1::::<><>::res://Object Types/Main Assets/Player/player.gd<>uid://dom057ujlqxv8
+player_rig.gd::GDScript::-1::1719284060::0::1::::<>Node2D<>::
+player_rig.tscn::PackedScene::8168251605764349975::1719284289::0::1::::<><>::uid://b8mqmv7vuox5c<>res://Object Types/Main Assets/Player/player_rig.gd<>uid://cxnvg3jjcgt3r<>uid://b2k3gfx6gq16
+::res://Object Types/Main Assets/Weapon/::1719285690
+AK-47 Magazine.png::CompressedTexture2D::3470967811155608250::1719283874::1719283874::1::::<><>::
+AK-47 No Magazine.png::CompressedTexture2D::6432377341308171695::1719283874::1719283874::1::::<><>::
+AK-47.png::CompressedTexture2D::771474892800998125::1719283874::1719283874::1::::<><>::
+DoubleBarrel.png::CompressedTexture2D::72793896577287025::1719283874::1719283963::1::::<><>::
+magazine.tscn::PackedScene::126584539105467411::1719284289::0::1::::<><>::uid://bppmlkv20ksow
+MakarovMagazine.png::CompressedTexture2D::8783045608702573200::1719283874::1719283963::1::::<><>::
+PMakarov.png::CompressedTexture2D::7891571574658045621::1719283874::1719283963::1::::<><>::
+weapon.gd::GDScript::-1::1719283874::0::1::::weapon<>Node2D<>::
+weapon.tscn::PackedScene::6415308938444143173::1719284289::0::1::::<><>::res://Object Types/Main Assets/Weapon/weapon.gd<>uid://cxv5kyf5600l4
+::res://Object Types/Singleton/::1719283931
+EventBus.gd::GDScript::-1::1719283874::0::1::::<>Node<>::

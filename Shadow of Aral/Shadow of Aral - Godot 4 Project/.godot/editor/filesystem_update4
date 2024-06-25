@@ -1,4 +1,5 @@
 res://Layouts/test_world.tscn
+res://Object Types/Main Assets/Player/player.tscn
+res://Object Types/Main Assets/Player/player_rig.tscn
 res://Object Types/Main Assets/Weapon/weapon.tscn
 res://Object Types/Main Assets/Weapon/magazine.tscn
-res://Object Types/Main Assets/Player/player.tscn
