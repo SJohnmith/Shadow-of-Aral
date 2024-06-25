@@ -13,6 +13,7 @@ var direction: Vector2 = Vector2.ZERO
 var mouse_direction: Vector2 = Vector2.ZERO
 var can_shoot: bool = true
 var is_crouching: bool = false
+var start_falling: bool = false
 
 # Player Attributes
 @onready var player_body: Node2D = $"Player Rig"
@@ -42,7 +43,16 @@ func player_movement(delta):
                     player_body.update_animation("Crouch Walk")
                else:
                     player_body.update_animation("Run")
+<<<<<<< HEAD
      print(direction)
+=======
+     else:
+          # Player is Falling
+          if velocity.y > 0 and start_falling:
+               start_falling = false
+               player_body.update_animation("Falling")
+               print("Started Falling")
+>>>>>>> Back_to_what_Works
 
      # Player is Moving Left or Right
 #     if (direction.x < 0 or direction.x > 0) and direction.y <= 0:
@@ -70,6 +80,10 @@ func player_movement(delta):
      # Player Falls
      if not is_on_floor():
           velocity.y += gravity * delta
+          
+          # Hardcoded a Way to Stop Calling the Player Fall Animation
+          if (velocity.y > 1 and velocity.y < 100) and !start_falling:
+               start_falling = true
 
      # Update the Player Position and Direction
      move_and_slide()
