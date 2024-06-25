@@ -25,20 +25,20 @@ func _process(_delta):
 func update_animation(animation_name):
      $AnimationPlayer.play(animation_name)
 
-# Don't Need This
-#func update_walk_direction(direction):
-#     if direction.x > 0:
-#          $Torso/BackLeg.flip_h = false
-#          $Torso/FrontLeg.flip_h = false
-#     elif direction.x < 0:
-#          $Torso/BackLeg.flip_h = true
-#          $Torso/FrontLeg.flip_h = true
+func update_walk_direction(direction):
+     if direction.x > 0:
+          $Torso/BackLeg.flip_h = false
+          $Torso/FrontLeg.flip_h = false
+     elif direction.x < 0:
+          $Torso/BackLeg.flip_h = true
+          $Torso/FrontLeg.flip_h = true
             
 func update_facing_direction(direction):
      if direction.x > 0:
           $".".scale = Vector2(1, 1)
      elif direction.x < 0:
           $".".scale = Vector2(-1, 1)
+
 
 # Received from Player a Command to use Equipped Weapon
 func player_wpn_action(action):
