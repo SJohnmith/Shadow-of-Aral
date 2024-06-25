@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dmgtmvlhvyrf6"
+=======
+uid="uid://bbi5085aodo0"
+>>>>>>> ca9d3e3137ae185ed38f5a993744e80fd05896d4
 path="res://.godot/imported/DoubleBarrel.png-e9cedfd6eb812ac185f98e83f88e8be0.ctex"
 metadata={
 "vram_texture": false
