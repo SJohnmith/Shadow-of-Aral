@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://doq8elyw4yubv"]
+
+[ext_resource type="Script" path="res://Object Types/Main Assets/Player/player.gd" id="1_2hx6j"]
+[ext_resource type="PackedScene" uid="uid://dom057ujlqxv8" path="res://Object Types/Main Assets/Player/player_rig.tscn" id="1_ynira"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rw1vc"]
+size = Vector2(120, 301)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 255
+script = ExtResource("1_2hx6j")
+
+[node name="Player Rig" parent="." instance=ExtResource("1_ynira")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_rw1vc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
