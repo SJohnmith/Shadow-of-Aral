@@ -54,7 +54,6 @@ func player_movement(delta):
           if velocity.y > 0 and start_falling:
                start_falling = false
                player_body.update_animation("Falling")
-               print("Started Falling")
 
      # Player is Moving Left or Right
 #     if (direction.x < 0 or direction.x > 0) and direction.y <= 0:
