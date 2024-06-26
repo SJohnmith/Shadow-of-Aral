@@ -91,15 +91,7 @@ func player_movement(delta):
 func player_action():
      # Look Towards Mouse Position
      mouse_direction = (get_global_mouse_position() - position).normalized()
-# Firing the Gun
-#     if Input.is_action_pressed("Left Click") and can_shoot:
-#          var muzzle_markers = muzzle_path
-#          var selected_muzzle = muzzle_markers[randi()%muzzle_markers.size()]
-#          can_shoot = false
-#          $ShootTimer.start()
-#          print("This is the effect we want to achieve call method once ready not all the time")
-#          # Emit the Open Fire Signal
-#          open_fire.emit(selected_muzzle.global_position, arm_pointing_direction)
+     
      # If Mouse Left Button is Down Player Shoots [How to Avoid Calling Method Continuously]
      if Input.is_action_pressed("Left Click") and player_body.has_method("player_wpn_action") and can_shoot:
           player_body.player_wpn_action("shoot")
