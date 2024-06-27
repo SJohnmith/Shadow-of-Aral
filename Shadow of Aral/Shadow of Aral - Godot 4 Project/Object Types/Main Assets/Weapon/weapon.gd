@@ -40,6 +40,8 @@ func _ready():
      # Set Fired Timer and Reload Timer
      timer_fired.wait_time = fire_rate
      timer_reload.wait_time = reload_time
+     
+#     print(get_parent().find_node())
 
 # Weapon Shoot
 func shoot(wpn_pointing_direction):
@@ -74,12 +76,17 @@ func wpn_arm_recoil(wpn_dir):
      # Start the Weapon Recoil
      recoil_tween.tween_property(wpn_dir, "position", Vector2(-5,5), tween_up_time)
      recoil_tween.tween_property(wpn_dir, "rotation", random_recoil_rotation, tween_up_time)
-     # Arm Recoil
+     
+     # Arm Recoil (Create a Method to Call the Parent Object for Arm Recoil)
      recoil_tween.tween_property(front_arm, "position", front_arm.position + Vector2(-5,0), 0.02)
      recoil_tween.tween_property(front_arm, "position", front_arm.position - Vector2(-5,0), 0.02)
+     
      # Weapon Retrun to Rest 
      recoil_tween.tween_property(wpn_dir, "position", Vector2(0,0), tween_down_time)
      recoil_tween.tween_property(wpn_dir, "rotation", 0, tween_down_time)
+     
+#     if recoil_tween:
+#          recoil_tween.kill()
 
 
 # On Fired Timer Timeout

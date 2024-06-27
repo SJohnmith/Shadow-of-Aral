@@ -1,6 +1,7 @@
 extends Node2D
 
 # Player Body Properties
+#@export var front_arm_path: Node2D = $Torso/FrontArm/WeaponLocation
 var stock_grip_pos: Vector2 = Vector2.ZERO
 
 # Player Body Attributes
@@ -24,15 +25,6 @@ func _process(_delta):
      
 func update_animation(animation_name):
      $AnimationPlayer.play(animation_name)
-
-# Don't Need This
-#func update_walk_direction(direction):
-#     if direction.x > 0:
-#          $Torso/BackLeg.flip_h = false
-#          $Torso/FrontLeg.flip_h = false
-#     elif direction.x < 0:
-#          $Torso/BackLeg.flip_h = true
-#          $Torso/FrontLeg.flip_h = true
             
 func update_facing_direction(direction):
      if direction.x > 0:
@@ -42,6 +34,7 @@ func update_facing_direction(direction):
 
 # Received from Player a Command to use Equipped Weapon
 func player_wpn_action(action):
+#     var arm_recoil_tween = create_tween()
      # Front Arm Pointing Direction
      wpn_pointing_direction = Vector2(cos(front_arm.rotation), sin(front_arm.rotation))*($".".scale)
           
@@ -51,6 +44,11 @@ func player_wpn_action(action):
           if path_to_wpn.has_method("shoot"):
                # Call the Shoot Method
                path_to_wpn.shoot(wpn_pointing_direction)
+               
+               # Arm Recoil
+#               arm_recoil_tween.tween_property(front_arm, "position", front_arm.position + Vector2(-5,0), 0.02)
+#               arm_recoil_tween.tween_property(front_arm, "position", front_arm.position - Vector2(-5,0), 0.02)
+     
      # If Player is Reloading the Weapon
      elif action == "reload":
           $AnimationArms.play("Reload")
