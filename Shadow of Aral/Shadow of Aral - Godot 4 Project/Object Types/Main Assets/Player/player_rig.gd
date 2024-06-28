@@ -1,7 +1,6 @@
 extends Node2D
 
 # Player Body Properties
-#@export var front_arm_path: Node2D = $Torso/FrontArm/WeaponLocation
 var stock_grip_pos: Vector2 = Vector2.ZERO
 
 # Player Body Attributes
@@ -18,6 +17,9 @@ var wpn_pointing_direction: Vector2 = Vector2.ZERO
 var current_recoil: float = 0.0    # Current Recoil
 var max_recoil: float = 10.0       # Max Recoil
 var recoil_increment: float = 0.0  # Increment Recoil
+
+#func _ready():
+#     print("Child Called me via super method")
 
 func _process(_delta):
      # Set rotation of the arms to mouse position
@@ -66,6 +68,8 @@ func player_wpn_action(action):
 #     var random_recoil_rotation = randf_range(deg_to_rad(max_recoil), deg_to_rad(5))
 #     tween.tween_property(front_arm, "rotation", wpn_dir, 0.1)
 
+func test_call():
+     print("Hello")
 # On Animation Finished
 func _on_animation_arms_animation_finished(anim_name):
      if anim_name == "Reload":

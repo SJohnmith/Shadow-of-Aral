@@ -2,7 +2,7 @@ class_name weapon extends Node2D
 
 # Weapon Signals
 signal open_fire(muzzle_pos, muzzle_drctn)
-signal recoil()     # [Best to Use a Signal Instead of Using get_parent().get_child(4)]
+signal recoil()     # [Best to Use a Signal Instead of Using get_parent().get_child(4)] or use super
 signal updt_ammo()
 
 # Weapon Properties
@@ -36,13 +36,12 @@ var recoil_increment: float = 0.0  # Increment Recoil
 func _ready():
      # Connect the Weapon Signal to a Global Data Bus
      connect("open_fire", EventBus.wpn_fired)
+#     connect("recoil",)
      connect("updt_ammo", EventBus.update_ui)
      # Set Fired Timer and Reload Timer
      timer_fired.wait_time = fire_rate
      timer_reload.wait_time = reload_time
      
-#     print(get_parent().find_node())
-
 # Weapon Shoot
 func shoot(wpn_pointing_direction):
      # Select a Random Muzzle Object
@@ -85,6 +84,8 @@ func wpn_arm_recoil(wpn_dir):
      recoil_tween.tween_property(wpn_dir, "position", Vector2(0,0), tween_down_time)
      recoil_tween.tween_property(wpn_dir, "rotation", 0, tween_down_time)
      
+     # Do it Like this Easily done through Inheritance
+     get_parent().get_parent().test_call()
 #     if recoil_tween:
 #          recoil_tween.kill()
 

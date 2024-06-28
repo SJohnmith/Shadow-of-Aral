@@ -716,7 +716,6 @@ _data = {
 
 [node name="Player Rig" type="Node2D"]
 script = ExtResource("1_thliw")
-health = null
 
 [node name="Torso" type="Sprite2D" parent="."]
 texture = ExtResource("1_tgwa6")
