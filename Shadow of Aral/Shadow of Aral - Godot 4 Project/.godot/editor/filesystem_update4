@@ -4,3 +4,4 @@ res://Object Types/Main Assets/Player/player_rig.tscn
 res://Object Types/Main Assets/Weapon/weapon.tscn
 res://Object Types/Main Assets/Player/player_rig.gd
 res://Object Types/Main Assets/Weapon/weapon.gd
+res://Object Types/Main Assets/Weapon/magazine.tscn

@@ -2,7 +2,7 @@ class_name weapon extends Node2D
 
 # Weapon Signals
 signal open_fire(muzzle_pos, muzzle_drctn)
-signal recoil()     # [Best to Use a Signal Instead of Using get_parent().get_child(4)] or use super
+signal recoil()     # Probably won't need this
 signal updt_ammo()
 
 # Weapon Properties
@@ -29,8 +29,8 @@ var recoil_increment: float = 0.0  # Increment Recoil
 @onready var muzzle_markers := $WeaponImage/BulletStartPosition.get_children()
 @onready var selected_muzzle := muzzle_markers[randi()%muzzle_markers.size()]
 
-# How to Reference the First Parent this Object is Attached too which is Remote2D [Hardcoded]
-@onready var front_arm := get_parent().get_child(4)
+# Parent Attributes
+@onready var front_arm := get_parent().get_parent()
 
 # Object Ready
 func _ready():
@@ -48,16 +48,16 @@ func shoot(wpn_pointing_direction):
      selected_muzzle = muzzle_markers[randi()%muzzle_markers.size()]
      # Check Not Gun Fired, Has Ammo, and Not Reloading
      if !fired and ammo_left > 0 and !reloading:
-               # Gun Fired
+          # Gun Fired
           fired = true
-               # Gun Recoil
+          # Gun Recoil
           wpn_arm_recoil(wpn_img)
-               # Subtract Ammo
+          # Subtract Ammo
           ammo_left -= 1
           Globals.bullets = ammo_left
-               # Restart Timer
+          # Restart Timer
           timer_fired.start()
-               # Emit the Open Fire Signal
+          # Emit the Open Fire Signal
           open_fire.emit(selected_muzzle.global_position, wpn_pointing_direction)
           updt_ammo.emit()
                
@@ -76,19 +76,16 @@ func wpn_arm_recoil(wpn_dir):
      recoil_tween.tween_property(wpn_dir, "position", Vector2(-5,5), tween_up_time)
      recoil_tween.tween_property(wpn_dir, "rotation", random_recoil_rotation, tween_up_time)
      
-     # Arm Recoil (Create a Method to Call the Parent Object for Arm Recoil)
-     recoil_tween.tween_property(front_arm, "position", front_arm.position + Vector2(-5,0), 0.02)
-     recoil_tween.tween_property(front_arm, "position", front_arm.position - Vector2(-5,0), 0.02)
-     
      # Weapon Retrun to Rest 
      recoil_tween.tween_property(wpn_dir, "position", Vector2(0,0), tween_down_time)
      recoil_tween.tween_property(wpn_dir, "rotation", 0, tween_down_time)
      
-     # Do it Like this Easily done through Inheritance
-     get_parent().get_parent().test_call()
+     # Arm Recoil
+     if front_arm.has_method("arm_recoil"):
+          front_arm.arm_recoil()
+
 #     if recoil_tween:
 #          recoil_tween.kill()
-
 
 # On Fired Timer Timeout
 func _on_fired_timer_timeout():
@@ -97,9 +94,9 @@ func _on_fired_timer_timeout():
 
 # On Reload Timer Timeout
 func _on_reload_timer_timeout():
-# Reload Finished
+     # Reload Finished
      reloading = false
-# Reload the Weapon
+     # Reload the Weapon
      ammo_left = ammo_capacity
      Globals.bullets = ammo_left
 

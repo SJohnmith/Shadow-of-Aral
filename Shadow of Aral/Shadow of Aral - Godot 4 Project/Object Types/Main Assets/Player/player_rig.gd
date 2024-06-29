@@ -36,7 +36,6 @@ func update_facing_direction(direction):
 
 # Received from Player a Command to use Equipped Weapon
 func player_wpn_action(action):
-#     var arm_recoil_tween = create_tween()
      # Front Arm Pointing Direction
      wpn_pointing_direction = Vector2(cos(front_arm.rotation), sin(front_arm.rotation))*($".".scale)
           
@@ -46,10 +45,6 @@ func player_wpn_action(action):
           if path_to_wpn.has_method("shoot"):
                # Call the Shoot Method
                path_to_wpn.shoot(wpn_pointing_direction)
-               
-               # Arm Recoil
-#               arm_recoil_tween.tween_property(front_arm, "position", front_arm.position + Vector2(-5,0), 0.02)
-#               arm_recoil_tween.tween_property(front_arm, "position", front_arm.position - Vector2(-5,0), 0.02)
      
      # If Player is Reloading the Weapon
      elif action == "reload":
@@ -61,17 +56,14 @@ func player_wpn_action(action):
                $Torso/Magazine.z_index = -1
 
 # Arm Recoil Animation
-#func wpn_arm_recoil(wpn_dir):
-#     var tween = create_tween()
+func arm_recoil():
+     var recoil_tween = create_tween()
 #     var tween_up_time := 0.1
 #     var tween_down_time := 0.2
-#     var random_recoil_rotation = randf_range(deg_to_rad(max_recoil), deg_to_rad(5))
-#     tween.tween_property(front_arm, "rotation", wpn_dir, 0.1)
-
-func test_call():
-     print("Hello")
+     recoil_tween.tween_property(front_arm, "position", front_arm.position + Vector2(-5,0), 0.02)
+     recoil_tween.tween_property(front_arm, "position", front_arm.position - Vector2(-5,0), 0.02)
+     
 # On Animation Finished
 func _on_animation_arms_animation_finished(anim_name):
      if anim_name == "Reload":
           $Torso/Magazine.z_index = 1
-
