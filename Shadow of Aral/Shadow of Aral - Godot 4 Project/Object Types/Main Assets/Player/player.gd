@@ -14,9 +14,15 @@ var mouse_direction: Vector2 = Vector2.ZERO
 var can_shoot: bool = true
 var is_crouching: bool = false
 var start_falling: bool = false
+var stuck_under_obj: bool = false
 
 # Player Attributes
 @onready var player_body: Node2D = $"Player Rig"
+@onready var player_collision: Node2D = $Collision
+@onready var crouch_front_raycast: Node2D = $CrouchFrontRayCast
+@onready var crouch_back_raycast: Node2D = $CroucBackRayCast
+var standing_collision = preload("res://Object Types/Main Assets/Player/player_standing.tres")
+var crouching_collision = preload("res://Object Types/Main Assets/Player/player_crouching.tres")
 
 # Handle Player Physics
 func _physics_process(delta):
@@ -70,8 +76,22 @@ func player_movement(delta):
      # Player Crouching
      if Input.is_action_just_pressed("Down") and is_on_floor():
           is_crouching = true
+          player_collision.shape = crouching_collision
      elif Input.is_action_just_released("Down"):
+          if can_stand():
+               is_crouching = false
+               player_collision.shape = standing_collision
+          else:
+               if stuck_under_obj != true:
+                    stuck_under_obj = true
+               is_crouching = true               
+               player_collision.shape = crouching_collision
+     
+     # Check if Player can Stand Up   
+     if stuck_under_obj and can_stand():
           is_crouching = false
+          player_collision.shape = standing_collision
+          stuck_under_obj = false
           
      # Player Jumping
      if Input.is_action_just_pressed("Up") and is_on_floor():
@@ -86,7 +106,16 @@ func player_movement(delta):
 
      # Update the Player Position and Direction
      move_and_slide()
+     
+# Player Can Stand Up
+func can_stand() -> bool:
+     # Check above Player that there are no obstacles
+     var check_res = !crouch_front_raycast.is_colliding() && !crouch_back_raycast.is_colliding()
+     return check_res
 
+func stop_anim():
+     pass
+     
 # Handle Player Actions
 func player_action():
      # Look Towards Mouse Position
@@ -106,3 +135,5 @@ func player_action():
 # On Shoot Timer Timeout
 func _on_shoot_timer_timeout():
      can_shoot = true
+
+
