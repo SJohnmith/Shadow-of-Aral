@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcw6cxbj5anll"]
+
+[ext_resource type="Script" path="res://Object Types/Main Assets/Enemies/enemy.gd" id="1_p86lj"]
+[ext_resource type="PackedScene" uid="uid://bvwhfh02vsmqy" path="res://Object Types/Main Assets/Enemies/enemy_body.tscn" id="1_pg71j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd2is"]
+size = Vector2(94, 300)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 243
+script = ExtResource("1_p86lj")
+
+[node name="Enemy Body" parent="." instance=ExtResource("1_pg71j")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kd2is")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

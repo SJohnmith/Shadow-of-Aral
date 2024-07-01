@@ -77,16 +77,19 @@ func player_movement(delta):
      if Input.is_action_just_pressed("Down") and is_on_floor():
           is_crouching = true
           player_collision.shape = crouching_collision
+          player_collision.position = Vector2(0, -15)
      elif Input.is_action_just_released("Down"):
           if can_stand():
                is_crouching = false
                player_collision.shape = standing_collision
+               player_collision.position = Vector2(0, 0)
           else:
                if stuck_under_obj != true:
                     stuck_under_obj = true
                is_crouching = true               
                player_collision.shape = crouching_collision
-     
+               player_collision.position = Vector2(0, -15)
+
      # Check if Player can Stand Up   
      if stuck_under_obj and can_stand():
           is_crouching = false
