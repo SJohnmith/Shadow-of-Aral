@@ -63,4 +63,4 @@ func arm_recoil():
 # On Animation Finished
 func _on_animation_arms_animation_finished(anim_name):
      if anim_name == "Reload":
-          $Torso/Magazine.z_index = 1
+          $Torso/Magazine.z_index = 0
