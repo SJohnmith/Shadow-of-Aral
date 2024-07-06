@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcw6cxbj5anll"]
+[gd_scene load_steps=5 format=3 uid="uid://bcw6cxbj5anll"]
 
 [ext_resource type="Script" path="res://Object Types/Main Assets/Enemies/enemy.gd" id="1_p86lj"]
 [ext_resource type="PackedScene" uid="uid://bvwhfh02vsmqy" path="res://Object Types/Main Assets/Enemies/enemy_body.tscn" id="1_pg71j"]
+[ext_resource type="Script" path="res://Object Types/State Machine.gd" id="3_p5x2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd2is"]
 size = Vector2(94, 300)
@@ -18,5 +19,8 @@ shape = SubResource("RectangleShape2D_kd2is")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="State Machine" type="Node2D" parent="."]
+script = ExtResource("3_p5x2i")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,4 @@
-res://Object Types/Main Assets/Player/player_rig.tscn
-res://Object Types/Main Assets/Player/player_rig.gd
-res://Layouts/test_world.tscn
-res://Object Types/Main Assets/Player/player.tscn
-res://Object Types/Main Assets/Enemies/enemy.tscn
-res://Object Types/Main Assets/Enemies/enemy_body.tscn
 res://Object Types/Main Assets/Weapon/weapon.tscn
+res://Object Types/Main Assets/Enemies/enemy.tscn
+res://Object Types/State Machine.gd
+res://Object Types/State.gd
