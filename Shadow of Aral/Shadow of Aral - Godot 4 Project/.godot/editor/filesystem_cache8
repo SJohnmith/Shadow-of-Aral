@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1720231403
+::res://::1720282448
 icon.svg::CompressedTexture2D::6209416049252493865::1719283874::1719283874::1::::<><>::
 ::res://Globals/::1719283931
 globals.gd::GDScript::-1::1719283874::0::1::::<>Node<>::
@@ -8,8 +8,8 @@ main_events.gd::GDScript::-1::1719283874::0::1::::<>Node2D<>::
 test_world.tscn::PackedScene::5126567201140929190::1720148713::0::1::::<><>::uid://yu0ykfvugnux<>res://Layouts/main_events.gd<>uid://doq8elyw4yubv<>uid://ddv4yxbj7ojmq<>uid://bcw6cxbj5anll
 ui.gd::GDScript::-1::1719283874::0::1::::<>CanvasLayer<>::
 UI.tscn::PackedScene::7414985376706700956::1719283874::0::1::::<><>::res://Layouts/ui.gd
-::res://Object Types/::1720238148
-State Machine.gd::GDScript::-1::1720238148::0::1::::<>Node2D<>::
+::res://Object Types/::1720285552
+State Machine.gd::GDScript::-1::1720285552::0::1::::<>Node2D<>::
 State.gd::GDScript::-1::1720237888::0::1::::State<>Node<>::
 ::res://Object Types/Background Assets/::1720149074
 Tiles.svg::CompressedTexture2D::1727381120205497539::0::0::1::::<><>::
@@ -18,9 +18,9 @@ Tiles.svg::CompressedTexture2D::1727381120205497539::0::0::1::::<><>::
 bullet.gd::GDScript::-1::1719283874::0::1::::<>Area2D<>::
 Bullet.png::CompressedTexture2D::1347058646606585894::1719283874::1719283874::1::::<><>::
 bullet.tscn::PackedScene::1958511181007555602::1719283874::0::1::::<><>::res://Object Types/Main Assets/Bullet/bullet.gd<>uid://tgr4hee1eyag
-::res://Object Types/Main Assets/Enemies/::1720238157
+::res://Object Types/Main Assets/Enemies/::1720323230
 enemy.gd::GDScript::-1::1719805394::0::1::::Enemy<>CharacterBody2D<>::
-enemy.tscn::PackedScene::2574101689952933109::1720238157::0::1::::<><>::res://Object Types/Main Assets/Enemies/enemy.gd<>uid://bvwhfh02vsmqy<>res://Object Types/State Machine.gd
+enemy.tscn::PackedScene::2574101689952933109::1720323230::0::1::::<><>::res://Object Types/Main Assets/Enemies/enemy.gd<>uid://bvwhfh02vsmqy<>res://Object Types/State Machine.gd
 enemy_body.tscn::PackedScene::3906237066139088744::1720148713::0::1::::<><>::uid://cbnprbjhf70we<>uid://b2k3gfx6gq16<>uid://cxnvg3jjcgt3r
 Uzbek.png::CompressedTexture2D::4870808301967498692::1719283874::1719283963::1::::<><>::
 ::res://Object Types/Main Assets/Player/::1720148713

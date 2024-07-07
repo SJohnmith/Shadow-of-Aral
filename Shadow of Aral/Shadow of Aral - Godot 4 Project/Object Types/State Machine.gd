@@ -5,13 +5,16 @@ extends Node2D
 var cur_state : State
 var states: Dictionary = {}
 
-
 func _ready():
      for child in get_children():
           if child is State:
                states[child.name.to_lower()] = child
                child.Transitioned.connect("on_child_transition")
-
+          
+     if init_state:
+          init_state.Enter()
+          cur_state = init_state  
+          
 func _process(delta):
      if cur_state:
           cur_state.Update(delta)

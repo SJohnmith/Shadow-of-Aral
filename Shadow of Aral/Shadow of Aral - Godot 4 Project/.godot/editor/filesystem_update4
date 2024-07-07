@@ -1,4 +1,2 @@
-res://Object Types/Main Assets/Weapon/weapon.tscn
 res://Object Types/Main Assets/Enemies/enemy.tscn
 res://Object Types/State Machine.gd
-res://Object Types/State.gd
