@@ -1,37 +1,39 @@
 2a60927148abd1d33b818b535e306557
-::res://::1720282448
+::res://::1720404709
 icon.svg::CompressedTexture2D::6209416049252493865::1719283874::1719283874::1::::<><>::
 ::res://Globals/::1719283931
 globals.gd::GDScript::-1::1719283874::0::1::::<>Node<>::
-::res://Layouts/::1720148713
+::res://Layouts/::1720404872
 main_events.gd::GDScript::-1::1719283874::0::1::::<>Node2D<>::
-test_world.tscn::PackedScene::5126567201140929190::1720148713::0::1::::<><>::uid://yu0ykfvugnux<>res://Layouts/main_events.gd<>uid://doq8elyw4yubv<>uid://ddv4yxbj7ojmq<>uid://bcw6cxbj5anll
+test_world.tscn::PackedScene::5126567201140929190::1720404872::0::1::::<><>::uid://yu0ykfvugnux<>res://Layouts/main_events.gd<>uid://doq8elyw4yubv<>uid://ddv4yxbj7ojmq<>uid://cne11vdmfd5y3
 ui.gd::GDScript::-1::1719283874::0::1::::<>CanvasLayer<>::
 UI.tscn::PackedScene::7414985376706700956::1719283874::0::1::::<><>::res://Layouts/ui.gd
-::res://Object Types/::1720285552
-State Machine.gd::GDScript::-1::1720285552::0::1::::<>Node2D<>::
-State.gd::GDScript::-1::1720237888::0::1::::State<>Node<>::
+::res://Object Types/::1720373119
 ::res://Object Types/Background Assets/::1720149074
 Tiles.svg::CompressedTexture2D::1727381120205497539::0::0::1::::<><>::
+::res://Object Types/Finite State Machine/::1720404853
+EnemyIdle.gd::GDScript::-1::1720404853::0::1::::EnemyIdle<>State<>::
+State Machine.gd::GDScript::-1::1720404835::0::1::::<>Node<>::
+State.gd::GDScript::-1::1720395981::0::1::::State<>Node<>::
 ::res://Object Types/Main Assets/::1719283931
 ::res://Object Types/Main Assets/Bullet/::1719283931
 bullet.gd::GDScript::-1::1719283874::0::1::::<>Area2D<>::
 Bullet.png::CompressedTexture2D::1347058646606585894::1719283874::1719283874::1::::<><>::
 bullet.tscn::PackedScene::1958511181007555602::1719283874::0::1::::<><>::res://Object Types/Main Assets/Bullet/bullet.gd<>uid://tgr4hee1eyag
-::res://Object Types/Main Assets/Enemies/::1720323230
-enemy.gd::GDScript::-1::1719805394::0::1::::Enemy<>CharacterBody2D<>::
-enemy.tscn::PackedScene::2574101689952933109::1720323230::0::1::::<><>::res://Object Types/Main Assets/Enemies/enemy.gd<>uid://bvwhfh02vsmqy<>res://Object Types/State Machine.gd
-enemy_body.tscn::PackedScene::3906237066139088744::1720148713::0::1::::<><>::uid://cbnprbjhf70we<>uid://b2k3gfx6gq16<>uid://cxnvg3jjcgt3r
+::res://Object Types/Main Assets/Enemies/::1720404985
+enemy.gd::GDScript::-1::1720404985::0::1::::Enemy<>CharacterBody2D<>::
+enemy.tscn::PackedScene::5695180026327144044::1720404985::0::1::::<><>::res://Object Types/Main Assets/Enemies/enemy.gd<>uid://bvwhfh02vsmqy<>res://Object Types/Finite State Machine/State Machine.gd<>res://Object Types/Finite State Machine/EnemyIdle.gd
+enemy_body.tscn::PackedScene::3906237066139088744::1720404873::0::1::::<><>::uid://cbnprbjhf70we<>uid://b2k3gfx6gq16<>uid://cxnvg3jjcgt3r
 Uzbek.png::CompressedTexture2D::4870808301967498692::1719283874::1719283963::1::::<><>::
-::res://Object Types/Main Assets/Player/::1720148713
+::res://Object Types/Main Assets/Player/::1720384600
 Player Default.png::CompressedTexture2D::4728419111613552042::1719283874::1719283874::1::::<><>::
-player.gd::GDScript::-1::1719805507::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::8176947325885082967::1720148713::0::1::::<><>::res://Object Types/Main Assets/Player/player.gd<>uid://dom057ujlqxv8<>uid://b8un0w1n8eabj
+player.gd::GDScript::-1::1720384600::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::8176947325885082967::1720383479::0::1::::<><>::res://Object Types/Main Assets/Player/player.gd<>uid://dom057ujlqxv8<>uid://b8un0w1n8eabj
 player_crouching.tres::RectangleShape2D::5830100062392235651::1719712420::0::1::::<><>::
 player_rig.gd::GDScript::-1::1720056530::0::1::::<>Node2D<>::
-player_rig.tscn::PackedScene::8168251605764349975::1720148713::0::1::::<><>::uid://b8mqmv7vuox5c<>res://Object Types/Main Assets/Player/player_rig.gd<>uid://cxnvg3jjcgt3r<>uid://b2k3gfx6gq16
+player_rig.tscn::PackedScene::8168251605764349975::1720383479::0::1::::<><>::uid://b8mqmv7vuox5c<>res://Object Types/Main Assets/Player/player_rig.gd<>uid://cxnvg3jjcgt3r<>uid://b2k3gfx6gq16
 player_standing.tres::RectangleShape2D::4744775240896486523::1719714361::0::1::::<><>::
-::res://Object Types/Main Assets/Weapon/::1720236723
+::res://Object Types/Main Assets/Weapon/::1720383480
 AK-47 Magazine.png::CompressedTexture2D::3470967811155608250::1719283874::1719283874::1::::<><>::
 AK-47 No Magazine.png::CompressedTexture2D::6432377341308171695::1719283874::1719283874::1::::<><>::
 AK-47.png::CompressedTexture2D::771474892800998125::1719283874::1719283874::1::::<><>::
@@ -40,6 +42,6 @@ magazine.tscn::PackedScene::126584539105467411::1719790986::0::1::::<><>::uid://
 MakarovMagazine.png::CompressedTexture2D::8783045608702573200::1719283874::1719283963::1::::<><>::
 PMakarov.png::CompressedTexture2D::7891571574658045621::1719283874::1719283963::1::::<><>::
 weapon.gd::GDScript::-1::1719631806::0::1::::weapon<>Node2D<>::
-weapon.tscn::PackedScene::6415308938444143173::1720236723::0::1::::<><>::res://Object Types/Main Assets/Weapon/weapon.gd<>uid://cxv5kyf5600l4
+weapon.tscn::PackedScene::6415308938444143173::1720383479::0::1::::<><>::res://Object Types/Main Assets/Weapon/weapon.gd<>uid://cxv5kyf5600l4
 ::res://Object Types/Singleton/::1719283931
 EventBus.gd::GDScript::-1::1719283874::0::1::::<>Node<>::

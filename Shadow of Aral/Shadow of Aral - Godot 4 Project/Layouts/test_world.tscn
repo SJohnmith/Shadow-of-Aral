@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Layouts/main_events.gd" id="1_g38ul"]
 [ext_resource type="PackedScene" uid="uid://doq8elyw4yubv" path="res://Object Types/Main Assets/Player/player.tscn" id="2_ee7qh"]
 [ext_resource type="PackedScene" uid="uid://ddv4yxbj7ojmq" path="res://Layouts/UI.tscn" id="4_s2kw3"]
-[ext_resource type="PackedScene" uid="uid://bcw6cxbj5anll" path="res://Object Types/Main Assets/Enemies/enemy.tscn" id="5_aa5im"]
+[ext_resource type="PackedScene" uid="uid://cne11vdmfd5y3" path="res://Object Types/Main Assets/Enemies/enemy.tscn" id="5_aa5im"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_malja"]
 texture = ExtResource("1_d623g")

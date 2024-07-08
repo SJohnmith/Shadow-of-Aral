@@ -2,12 +2,11 @@ extends CharacterBody2D
 
 # Player Signals
 
-# Player Properties
+# Player Variables
 @export var health: float = 100
 @export var speed: float = 700.0
 @export var jump_velocity: float = -900.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2 = Vector2.ZERO
 var mouse_direction: Vector2 = Vector2.ZERO
@@ -16,7 +15,7 @@ var is_crouching: bool = false
 var start_falling: bool = false
 var stuck_under_obj: bool = false
 
-# Player Attributes
+# Player Properties Attributes
 @onready var player_body: Node2D = $"Player Rig"
 @onready var player_collision: Node2D = $Collision
 @onready var crouch_front_raycast: Node2D = $CrouchFrontRayCast

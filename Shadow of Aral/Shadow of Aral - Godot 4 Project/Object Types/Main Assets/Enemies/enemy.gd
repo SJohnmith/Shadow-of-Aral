@@ -2,7 +2,7 @@ class_name Enemy extends CharacterBody2D
 
 # Enemy Signals
 
-# Enemy Properties
+# Enemy Variables
 @export var health: float = 100
 @export var speed: float = 700.0
 @export var jump_velocity: float = -900.0
@@ -26,27 +26,26 @@ var is_roaming: bool = false
 #var standing_collision = preload("res://Object Types/Main Assets/Player/player_standing.tres")
 #var crouching_collision = preload("res://Object Types/Main Assets/Player/player_crouching.tres")
 
-func _physics_process(delta):
-     # Enemy is Moving
-     if direction:
-          velocity.x = direction.x * speed
-     # Enemy Not Moving
-     else:
-          velocity.x = move_toward(velocity.x, 0, speed)
+# Enemy Properties
 
+func _physics_process(delta):
+#     # Enemy is Moving
+#     if direction:
+#          velocity.x = direction.x * speed
+#     # Enemy Not Moving
+#     else:
+#          velocity.x = move_toward(velocity.x, 0, speed)
+#
      # Enemy Falling
      if not is_on_floor():
           velocity.y += gravity * delta
           velocity.x = 0
-          
-     move_and_slide()
-
 
 func _on_timer_timeout():
      $Timer.wait_time = choose([0.5, 1, 1.5])
-     
-     if !is_chasing:
-          direction = choose([Vector2.RIGHT, Vector2.LEFT])
+
+#     if !is_chasing:
+#          direction = choose([Vector2.RIGHT, Vector2.LEFT])
 #          velocity.x = 0
 
 func choose(array):

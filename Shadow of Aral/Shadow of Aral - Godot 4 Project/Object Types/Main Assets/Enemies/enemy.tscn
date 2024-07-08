@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcw6cxbj5anll"]
+[gd_scene load_steps=6 format=3 uid="uid://cne11vdmfd5y3"]
 
 [ext_resource type="Script" path="res://Object Types/Main Assets/Enemies/enemy.gd" id="1_p86lj"]
 [ext_resource type="PackedScene" uid="uid://bvwhfh02vsmqy" path="res://Object Types/Main Assets/Enemies/enemy_body.tscn" id="1_pg71j"]
-[ext_resource type="Script" path="res://Object Types/State Machine.gd" id="3_p5x2i"]
+[ext_resource type="Script" path="res://Object Types/Finite State Machine/State Machine.gd" id="3_lo8ak"]
+[ext_resource type="Script" path="res://Object Types/Finite State Machine/EnemyIdle.gd" id="4_677wn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd2is"]
 size = Vector2(94, 300)
@@ -20,7 +21,11 @@ shape = SubResource("RectangleShape2D_kd2is")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="State Machine" type="Node2D" parent="."]
-script = ExtResource("3_p5x2i")
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("init_state")]
+script = ExtResource("3_lo8ak")
+init_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="State Machine"]
+script = ExtResource("4_677wn")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
