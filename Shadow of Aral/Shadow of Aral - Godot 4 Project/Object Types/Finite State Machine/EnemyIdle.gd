@@ -3,17 +3,19 @@ class_name EnemyIdle extends State
 @onready var enemy = $"../.." as Enemy
 var direction: Vector2
 var wander_time: float
+var player: CharacterBody2D
 
 func choose(array):
      array.shuffle()
      return array.front()
      
 func randomize_wander():
-     wander_time = randf_range(0, 1.5)
+     wander_time = randf_range(0, 1)
      direction = choose([Vector2.RIGHT, Vector2.LEFT])
 
 func Enter():
      randomize_wander()
+     player = get_tree().get_first_node_in_group("Player")
 
 func Exit():
      pass
@@ -28,14 +30,12 @@ func Update(delta: float):
 func Physics_Update(_delta: float):
      # Enemy is Moving
      if direction:
-          enemy.velocity.x = direction.x * $"../..".speed
+          enemy.velocity.x = direction.x * enemy.speed
      # Enemy Not Moving
      else:
-          enemy.velocity.x = move_toward(enemy.velocity.x, 0, $"../..".speed)
-
-     # Enemy Falling
-#     if not is_on_floor():
-#          enemy.velocity.y += $"../..".gravity * delta
-#          enemy.velocity.x = 0
-
-     enemy.move_and_slide()
+          enemy.velocity.x = move_toward(enemy.velocity.x, 0, enemy.speed)
+     
+#     if (player.global_position - enemy.global_position).length() < 220:
+#          Transitioned.emit(self, "idle")
+     
+     

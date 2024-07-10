@@ -95,7 +95,7 @@ layer_0/tile_data = PackedInt32Array(3997695, 1, 0, 4063231, 1, 1, 4128767, 1, 1
 position = Vector2(1020, 671)
 
 [node name="Enemy" parent="." instance=ExtResource("5_aa5im")]
-position = Vector2(2256, 775)
+position = Vector2(1372, 759)
 
 [node name="Projectiles" type="Node2D" parent="."]
 

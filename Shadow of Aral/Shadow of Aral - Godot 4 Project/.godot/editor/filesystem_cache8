@@ -1,34 +1,35 @@
 2a60927148abd1d33b818b535e306557
-::res://::1720404709
+::res://::1720572808
 icon.svg::CompressedTexture2D::6209416049252493865::1719283874::1719283874::1::::<><>::
 ::res://Globals/::1719283931
 globals.gd::GDScript::-1::1719283874::0::1::::<>Node<>::
-::res://Layouts/::1720404872
+::res://Layouts/::1720578762
 main_events.gd::GDScript::-1::1719283874::0::1::::<>Node2D<>::
-test_world.tscn::PackedScene::5126567201140929190::1720404872::0::1::::<><>::uid://yu0ykfvugnux<>res://Layouts/main_events.gd<>uid://doq8elyw4yubv<>uid://ddv4yxbj7ojmq<>uid://cne11vdmfd5y3
+test_world.tscn::PackedScene::5126567201140929190::1720578762::0::1::::<><>::uid://yu0ykfvugnux<>res://Layouts/main_events.gd<>uid://doq8elyw4yubv<>uid://ddv4yxbj7ojmq<>uid://cne11vdmfd5y3
 ui.gd::GDScript::-1::1719283874::0::1::::<>CanvasLayer<>::
 UI.tscn::PackedScene::7414985376706700956::1719283874::0::1::::<><>::res://Layouts/ui.gd
 ::res://Object Types/::1720373119
 ::res://Object Types/Background Assets/::1720149074
 Tiles.svg::CompressedTexture2D::1727381120205497539::0::0::1::::<><>::
-::res://Object Types/Finite State Machine/::1720404853
-EnemyIdle.gd::GDScript::-1::1720404853::0::1::::EnemyIdle<>State<>::
-State Machine.gd::GDScript::-1::1720404835::0::1::::<>Node<>::
+::res://Object Types/Finite State Machine/::1720578762
+EnemyFollow.gd::GDScript::-1::1720578762::0::1::::EnemyFollow<>State<>::
+EnemyIdle.gd::GDScript::-1::1720578632::0::1::::EnemyIdle<>State<>::
+State Machine.gd::GDScript::-1::1720571033::0::1::::<>Node<>::
 State.gd::GDScript::-1::1720395981::0::1::::State<>Node<>::
 ::res://Object Types/Main Assets/::1719283931
 ::res://Object Types/Main Assets/Bullet/::1719283931
 bullet.gd::GDScript::-1::1719283874::0::1::::<>Area2D<>::
 Bullet.png::CompressedTexture2D::1347058646606585894::1719283874::1719283874::1::::<><>::
 bullet.tscn::PackedScene::1958511181007555602::1719283874::0::1::::<><>::res://Object Types/Main Assets/Bullet/bullet.gd<>uid://tgr4hee1eyag
-::res://Object Types/Main Assets/Enemies/::1720404985
-enemy.gd::GDScript::-1::1720404985::0::1::::Enemy<>CharacterBody2D<>::
-enemy.tscn::PackedScene::5695180026327144044::1720404985::0::1::::<><>::res://Object Types/Main Assets/Enemies/enemy.gd<>uid://bvwhfh02vsmqy<>res://Object Types/Finite State Machine/State Machine.gd<>res://Object Types/Finite State Machine/EnemyIdle.gd
-enemy_body.tscn::PackedScene::3906237066139088744::1720404873::0::1::::<><>::uid://cbnprbjhf70we<>uid://b2k3gfx6gq16<>uid://cxnvg3jjcgt3r
+::res://Object Types/Main Assets/Enemies/::1720578783
+enemy.gd::GDScript::-1::1720572329::0::1::::Enemy<>CharacterBody2D<>::
+enemy.tscn::PackedScene::5695180026327144044::1720578783::0::1::::<><>::res://Object Types/Main Assets/Enemies/enemy.gd<>uid://bvwhfh02vsmqy<>res://Object Types/Finite State Machine/EnemyFollow.gd<>res://Object Types/Finite State Machine/State Machine.gd<>res://Object Types/Finite State Machine/EnemyIdle.gd
+enemy_body.tscn::PackedScene::3906237066139088744::1720578762::0::1::::<><>::uid://cbnprbjhf70we<>uid://b2k3gfx6gq16<>uid://cxnvg3jjcgt3r
 Uzbek.png::CompressedTexture2D::4870808301967498692::1719283874::1719283963::1::::<><>::
-::res://Object Types/Main Assets/Player/::1720384600
+::res://Object Types/Main Assets/Player/::1720578762
 Player Default.png::CompressedTexture2D::4728419111613552042::1719283874::1719283874::1::::<><>::
 player.gd::GDScript::-1::1720384600::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::8176947325885082967::1720383479::0::1::::<><>::res://Object Types/Main Assets/Player/player.gd<>uid://dom057ujlqxv8<>uid://b8un0w1n8eabj
+player.tscn::PackedScene::8176947325885082967::1720578762::0::1::::<><>::res://Object Types/Main Assets/Player/player.gd<>uid://dom057ujlqxv8<>uid://b8un0w1n8eabj
 player_crouching.tres::RectangleShape2D::5830100062392235651::1719712420::0::1::::<><>::
 player_rig.gd::GDScript::-1::1720056530::0::1::::<>Node2D<>::
 player_rig.tscn::PackedScene::8168251605764349975::1720383479::0::1::::<><>::uid://b8mqmv7vuox5c<>res://Object Types/Main Assets/Player/player_rig.gd<>uid://cxnvg3jjcgt3r<>uid://b2k3gfx6gq16
