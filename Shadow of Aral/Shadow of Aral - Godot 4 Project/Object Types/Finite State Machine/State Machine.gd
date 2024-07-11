@@ -1,9 +1,10 @@
 extends Node
 
 # Finite State Machine Properties
-@onready var enemy = $".." as Enemy
-#@export var enemy: CharacterBody2D
+#@onready var enemy = $".." as Enemy
 @export var init_state: State
+
+#var player : Player
 
 var cur_state: State
 var states: Dictionary = {}
@@ -44,8 +45,8 @@ func on_child_transition(this_state, new_state_name):
           return
      # If Current State Exists
      if cur_state:
-          cur_state.exit()
+          cur_state.Exit()
           
      # Enter New State and Update Current State to New
-     new_state.enter()
+     new_state.Enter()
      cur_state = new_state

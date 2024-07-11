@@ -3,6 +3,8 @@ class_name State extends Node
 # Empty Signal to Use
 signal Transitioned
 
+@onready var enemy: Enemy = get_owner()
+
 # Entering a State
 func Enter():
      pass
