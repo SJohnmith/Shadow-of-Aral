@@ -29,6 +29,9 @@ var is_roaming: bool = false
 # Enemy Properties
 
 func _physics_process(delta):
+     if health < 0:
+          # Destroy Enemy
+          queue_free()
 #     # Enemy is Moving
 #     if direction:
 #          velocity.x = direction.x * speed
@@ -49,7 +52,10 @@ func _on_timer_timeout():
 #     if !is_chasing:
 #          direction = choose([Vector2.RIGHT, Vector2.LEFT])
 #          velocity.x = 0
-
+     
 func choose(array):
      array.shuffle()
      return array.front()
+     
+func hit(damage):
+     health = health - damage

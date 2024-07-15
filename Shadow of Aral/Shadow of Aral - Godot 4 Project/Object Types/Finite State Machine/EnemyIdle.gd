@@ -1,7 +1,6 @@
 class_name EnemyIdle extends State
 
-#@onready var enemy = $"../.." as Enemy
-var player: CharacterBody2D
+#var player: CharacterBody2D
 var direction: Vector2
 var wander_time: float
 
@@ -34,9 +33,8 @@ func Physics_Update(_delta: float):
      # Enemy Not Moving
      else:
           enemy.velocity.x = move_toward(enemy.velocity.x, 0, enemy.speed)
-          
-#     print("Idle")
-#     print((player.global_position - enemy.global_position).length())
+     
+     # Transition to Follow State
      if (player.global_position - enemy.global_position).length() < 600:
           Transitioned.emit(self, "follow")
      

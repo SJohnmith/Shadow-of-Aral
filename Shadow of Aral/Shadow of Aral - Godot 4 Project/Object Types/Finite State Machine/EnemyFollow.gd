@@ -1,9 +1,11 @@
 class_name EnemyFollow extends State
 
-#@onready var enemy = $"../.." as Enemy
-var player: CharacterBody2D
+#var player: CharacterBody2D
 var direction: Vector2
 
+func _ready():
+     print(enemy)
+     
 func Enter():
      player = get_tree().get_first_node_in_group("Player")
 
@@ -22,8 +24,7 @@ func Physics_Update(_delta: float):
      # Once Reached the Target Stop
      else:
           enemy.velocity = Vector2.ZERO
-          
+     # Transition to Idle State
      if distance.length() > 600:
           Transitioned.emit(self, "idle")
-#     print(distance.length())
-#     print("Follow")
+

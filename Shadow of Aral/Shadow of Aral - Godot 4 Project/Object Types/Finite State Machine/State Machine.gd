@@ -1,10 +1,7 @@
 extends Node
 
 # Finite State Machine Properties
-#@onready var enemy = $".." as Enemy
 @export var init_state: State
-
-#var player : Player
 
 var cur_state: State
 var states: Dictionary = {}
@@ -15,12 +12,12 @@ func _ready():
           if child is State:
                states[child.name.to_lower()] = child
                child.Transitioned.connect(on_child_transition)
-               
+     
      # If State Exists Enter the State
      if init_state:
           init_state.Enter()
           cur_state = init_state
-
+     
 # Call the Process Update
 func _process(delta):
      if cur_state:

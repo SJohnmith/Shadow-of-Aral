@@ -22,7 +22,7 @@ var stuck_under_obj: bool = false
 @onready var crouch_back_raycast: Node2D = $CroucBackRayCast
 var standing_collision = preload("res://Object Types/Main Assets/Player/player_standing.tres")
 var crouching_collision = preload("res://Object Types/Main Assets/Player/player_crouching.tres")
-
+     
 # Handle Player Physics
 func _physics_process(delta):
      player_movement(delta)
@@ -137,5 +137,3 @@ func player_action():
 # On Shoot Timer Timeout
 func _on_shoot_timer_timeout():
      can_shoot = true
-
-

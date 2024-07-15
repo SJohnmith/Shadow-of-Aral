@@ -1,40 +1,42 @@
 2a60927148abd1d33b818b535e306557
-::res://::1720650304
+::res://::1720980387
 icon.svg::CompressedTexture2D::6209416049252493865::1719283874::1719283874::1::::<><>::
 ::res://Globals/::1719283931
 globals.gd::GDScript::-1::1719283874::0::1::::<>Node<>::
-::res://Layouts/::1720667084
+::res://Layouts/::1721012048
 main_events.gd::GDScript::-1::1719283874::0::1::::<>Node2D<>::
-test_world.tscn::PackedScene::5126567201140929190::1720667084::0::1::::<><>::uid://yu0ykfvugnux<>res://Layouts/main_events.gd<>uid://doq8elyw4yubv<>uid://ddv4yxbj7ojmq<>uid://cne11vdmfd5y3
+test_world.tscn::PackedScene::5126567201140929190::1721012048::0::1::::<><>::uid://yu0ykfvugnux<>res://Layouts/main_events.gd<>uid://doq8elyw4yubv<>uid://ddv4yxbj7ojmq<>uid://cne11vdmfd5y3
 ui.gd::GDScript::-1::1719283874::0::1::::<>CanvasLayer<>::
 UI.tscn::PackedScene::7414985376706700956::1719283874::0::1::::<><>::res://Layouts/ui.gd
-::res://Object Types/::1720373119
+::res://Object Types/::1720980240
+Reticle.png::CompressedTexture2D::7484821894213431287::1720980204::1720980240::1::::<><>::
 ::res://Object Types/Background Assets/::1720578820
 Tiles.svg::CompressedTexture2D::1727381120205497539::0::0::1::::<><>::
-::res://Object Types/Finite State Machine/::1720666885
-EnemyFollow.gd::GDScript::-1::1720666885::0::1::::EnemyFollow<>State<>::
-EnemyIdle.gd::GDScript::-1::1720666797::0::1::::EnemyIdle<>State<>::
-State Machine.gd::GDScript::-1::1720666405::0::1::::<>Node<>::
-State.gd::GDScript::-1::1720666406::0::1::::State<>Node<>::
+::res://Object Types/Finite State Machine/::1720928951
+EnemyFollow.gd::GDScript::-1::1720928945::0::1::::EnemyFollow<>State<>::
+EnemyIdle.gd::GDScript::-1::1720928951::0::1::::EnemyIdle<>State<>::
+State Machine.gd::GDScript::-1::1720754432::0::1::::<>Node<>::
+State.gd::GDScript::-1::1720752092::0::1::::State<>Node<>::
 ::res://Object Types/Main Assets/::1719283931
-::res://Object Types/Main Assets/Bullet/::1719283931
-bullet.gd::GDScript::-1::1719283874::0::1::::<>Area2D<>::
+::res://Object Types/Main Assets/Bullet/::1720931650
+bullet.gd::GDScript::-1::1720931650::0::1::::<>Area2D<>::
 Bullet.png::CompressedTexture2D::1347058646606585894::1719283874::1719283874::1::::<><>::
 bullet.tscn::PackedScene::1958511181007555602::1719283874::0::1::::<><>::res://Object Types/Main Assets/Bullet/bullet.gd<>uid://tgr4hee1eyag
-::res://Object Types/Main Assets/Enemies/::1720667084
-enemy.gd::GDScript::-1::1720572329::0::1::::Enemy<>CharacterBody2D<>::
-enemy.tscn::PackedScene::5695180026327144044::1720667084::0::1::::<><>::res://Object Types/Main Assets/Enemies/enemy.gd<>uid://bvwhfh02vsmqy<>res://Object Types/Finite State Machine/EnemyFollow.gd<>res://Object Types/Finite State Machine/State Machine.gd<>res://Object Types/Finite State Machine/EnemyIdle.gd
-enemy_body.tscn::PackedScene::3906237066139088744::1720667084::0::1::::<><>::uid://cbnprbjhf70we<>uid://b2k3gfx6gq16<>uid://cxnvg3jjcgt3r
+::res://Object Types/Main Assets/Enemies/::1721012048
+enemy.gd::GDScript::-1::1720931800::0::1::::Enemy<>CharacterBody2D<>::
+enemy.tscn::PackedScene::5695180026327144044::1721012048::0::1::::<><>::res://Object Types/Main Assets/Enemies/enemy.gd<>uid://bvwhfh02vsmqy<>res://Object Types/Finite State Machine/EnemyFollow.gd<>res://Object Types/Finite State Machine/State Machine.gd<>res://Object Types/Finite State Machine/EnemyIdle.gd
+enemy_body.tscn::PackedScene::3906237066139088744::1721012048::0::1::::<><>::uid://cbnprbjhf70we<>uid://b2k3gfx6gq16<>uid://cxnvg3jjcgt3r
 Uzbek.png::CompressedTexture2D::4870808301967498692::1719283874::1719283963::1::::<><>::
-::res://Object Types/Main Assets/Player/::1720667084
+::res://Object Types/Main Assets/Player/::1721012048
+Camera2D.gd::GDScript::-1::1720980561::0::1::::<>Camera2D<>::
 Player Default.png::CompressedTexture2D::4728419111613552042::1719283874::1719283874::1::::<><>::
-player.gd::GDScript::-1::1720384600::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::8176947325885082967::1720667084::0::1::::<><>::res://Object Types/Main Assets/Player/player.gd<>uid://dom057ujlqxv8<>uid://b8un0w1n8eabj
+player.gd::GDScript::-1::1720980810::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::8176947325885082967::1721012048::0::1::::<><>::res://Object Types/Main Assets/Player/player.gd<>uid://dom057ujlqxv8<>uid://b8un0w1n8eabj<>res://Object Types/Main Assets/Player/Camera2D.gd
 player_crouching.tres::RectangleShape2D::5830100062392235651::1719712420::0::1::::<><>::
 player_rig.gd::GDScript::-1::1720056530::0::1::::<>Node2D<>::
-player_rig.tscn::PackedScene::8168251605764349975::1720383479::0::1::::<><>::uid://b8mqmv7vuox5c<>res://Object Types/Main Assets/Player/player_rig.gd<>uid://cxnvg3jjcgt3r<>uid://b2k3gfx6gq16
+player_rig.tscn::PackedScene::8168251605764349975::1721012048::0::1::::<><>::uid://b8mqmv7vuox5c<>res://Object Types/Main Assets/Player/player_rig.gd<>uid://cxnvg3jjcgt3r<>uid://b2k3gfx6gq16
 player_standing.tres::RectangleShape2D::4744775240896486523::1719714361::0::1::::<><>::
-::res://Object Types/Main Assets/Weapon/::1720383480
+::res://Object Types/Main Assets/Weapon/::1721012048
 AK-47 Magazine.png::CompressedTexture2D::3470967811155608250::1719283874::1719283874::1::::<><>::
 AK-47 No Magazine.png::CompressedTexture2D::6432377341308171695::1719283874::1719283874::1::::<><>::
 AK-47.png::CompressedTexture2D::771474892800998125::1719283874::1719283874::1::::<><>::
@@ -42,7 +44,7 @@ DoubleBarrel.png::CompressedTexture2D::72793896577287025::1719283874::1719283963
 magazine.tscn::PackedScene::126584539105467411::1719790986::0::1::::<><>::uid://bppmlkv20ksow
 MakarovMagazine.png::CompressedTexture2D::8783045608702573200::1719283874::1719283963::1::::<><>::
 PMakarov.png::CompressedTexture2D::7891571574658045621::1719283874::1719283963::1::::<><>::
-weapon.gd::GDScript::-1::1719631806::0::1::::weapon<>Node2D<>::
-weapon.tscn::PackedScene::6415308938444143173::1720383479::0::1::::<><>::res://Object Types/Main Assets/Weapon/weapon.gd<>uid://cxv5kyf5600l4
+weapon.gd::GDScript::-1::1721012048::0::1::::weapon<>Node2D<>::
+weapon.tscn::PackedScene::6415308938444143173::1721012048::0::1::::<><>::res://Object Types/Main Assets/Weapon/weapon.gd<>uid://cxv5kyf5600l4
 ::res://Object Types/Singleton/::1719283931
 EventBus.gd::GDScript::-1::1719283874::0::1::::<>Node<>::

@@ -3,7 +3,8 @@ class_name State extends Node
 # Empty Signal to Use
 signal Transitioned
 
-@onready var enemy: Enemy = get_owner()
+@onready var enemy: Enemy = get_owner() as CharacterBody2D
+var player: CharacterBody2D
 
 # Entering a State
 func Enter():
