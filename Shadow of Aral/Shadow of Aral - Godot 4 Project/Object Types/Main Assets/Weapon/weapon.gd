@@ -45,7 +45,7 @@ func _process(_delta):
      if not Input.is_action_pressed("Left Click"):
           recoil_increment = max_recoil * 0.1
           current_recoil = clamp(current_recoil - recoil_increment, 0.0, max_recoil)
-     print(current_recoil)
+#     print(current_recoil)
 
 # Weapon Shoot
 func shoot(wpn_pointing_direction):
