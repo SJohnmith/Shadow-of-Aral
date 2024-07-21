@@ -42,6 +42,7 @@ func player_wpn_action(action):
           if path_to_wpn.has_method("shoot"):
                # Call the Shoot Method
                path_to_wpn.shoot(wpn_pointing_direction)
+               path_to_wpn.gun_fire(true)
      
      # If Player is Reloading the Weapon
      elif action == "reload":
@@ -51,6 +52,9 @@ func player_wpn_action(action):
                # Call the Shoot Method
                path_to_wpn.reload()
                $Torso/Magazine.z_index = -1
+     # Else Signal That the Gun Is Not Shooting
+     else:
+          path_to_wpn.gun_fire(false)
 
 # Arm Recoil Animation
 func arm_recoil():

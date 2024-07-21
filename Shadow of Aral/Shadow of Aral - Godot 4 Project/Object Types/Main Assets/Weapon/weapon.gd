@@ -22,6 +22,7 @@ var max_recoil: float = 10.0       # Max Recoil
 var recoil_increment: float = 0.0  # Increment Recoil
 
 # Weapon Attributes
+var fcn_shoot_called: bool = false
 @onready var timer_fired: Timer = $FiredTimer
 @onready var timer_reload: Timer = $ReloadTimer
 @onready var wpn_img: Sprite2D = $WeaponImage
@@ -35,17 +36,24 @@ var recoil_increment: float = 0.0  # Increment Recoil
 func _ready():
      # Connect the Weapon Signal to a Global Data Bus
      connect("open_fire", EventBus.wpn_fired)
-#     connect("recoil",)
      connect("updt_ammo", EventBus.update_ui)
      # Set Fired Timer and Reload Timer
      timer_fired.wait_time = fire_rate
      timer_reload.wait_time = reload_time
 
 func _process(_delta):
+     # This Will Work Good for Player But Not for General Purpose Use
      if not Input.is_action_pressed("Left Click"):
           recoil_increment = max_recoil * 0.1
           current_recoil = clamp(current_recoil - recoil_increment, 0.0, max_recoil)
-#     print(current_recoil)
+#     if not fcn_shoot_called:
+#          recoil_increment = max_recoil * 0.1
+#          current_recoil = clamp(current_recoil - recoil_increment, 0.0, max_recoil)
+     print(current_recoil)
+
+func gun_fire(arg):
+     print(arg)
+     fcn_shoot_called = arg
 
 # Weapon Shoot
 func shoot(wpn_pointing_direction):
@@ -59,7 +67,7 @@ func shoot(wpn_pointing_direction):
           wpn_arm_recoil(wpn_img)
           # Subtract Ammo
           ammo_left -= 1
-          Globals.bullets = ammo_left
+          Globals.bullets = ammo_left   # Also Hardcoded and Not Unique to Player
           # Restart Timer
           timer_fired.start()
           # Emit the Open Fire Signal
@@ -71,7 +79,7 @@ func reload():
      reloading = true
      timer_reload.start()
 
-# Weapong Recoil Bullets
+# Weapon Recoil Bullets
 func recoil(wpn_pointing_direction):
      recoil_increment = max_recoil * 0.1
      current_recoil = clamp(current_recoil + recoil_increment, 0, max_recoil)
@@ -95,13 +103,11 @@ func wpn_arm_recoil(wpn_dir):
      # Weapon Retrun to Rest 
      recoil_tween.tween_property(wpn_dir, "position", Vector2(0,0), tween_down_time)
      recoil_tween.tween_property(wpn_dir, "rotation", 0, tween_down_time)
-     
+#     if recoil_tween:
+#          recoil_tween.kill()
      # Arm Recoil
      if front_arm.has_method("arm_recoil"):
           front_arm.arm_recoil()
-
-#     if recoil_tween:
-#          recoil_tween.kill()
 
 # On Fired Timer Timeout
 func _on_fired_timer_timeout():

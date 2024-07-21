@@ -128,9 +128,11 @@ func player_action():
           player_body.player_wpn_action("shoot")
 #          can_shoot = false
 #          $ShootTimer.start()
+
      # Player Reload Weapon
      if Input.is_action_just_pressed("Reload") and player_body.has_method("player_wpn_action"):
           player_body.player_wpn_action("reload")
+     
      # Update the Player Viewing Direction     
      player_body.update_facing_direction(mouse_direction)
 
