@@ -42,21 +42,21 @@ func _ready():
      timer_reload.wait_time = reload_time
 
 func _process(_delta):
+#     print(fcn_shoot_called)
      # This Will Work Good for Player But Not for General Purpose Use
      if not Input.is_action_pressed("Left Click"):
+#     if not fcn_shoot_called:
           recoil_increment = max_recoil * 0.1
           current_recoil = clamp(current_recoil - recoil_increment, 0.0, max_recoil)
-#     if not fcn_shoot_called:
-#          recoil_increment = max_recoil * 0.1
-#          current_recoil = clamp(current_recoil - recoil_increment, 0.0, max_recoil)
      print(current_recoil)
-
-func gun_fire(arg):
-     print(arg)
-     fcn_shoot_called = arg
-
+     
+func stop_shoot():
+     fcn_shoot_called = false
+     
 # Weapon Shoot
 func shoot(wpn_pointing_direction):
+     fcn_shoot_called = true
+     
      # Select a Random Muzzle Object
      selected_muzzle = muzzle_markers[randi()%muzzle_markers.size()]
      # Check Not Gun Fired, Has Ammo, and Not Reloading
@@ -67,7 +67,7 @@ func shoot(wpn_pointing_direction):
           wpn_arm_recoil(wpn_img)
           # Subtract Ammo
           ammo_left -= 1
-          Globals.bullets = ammo_left   # Also Hardcoded and Not Unique to Player
+          Globals.bullets = ammo_left   # Hardcoded and Not Unique to Player
           # Restart Timer
           timer_fired.start()
           # Emit the Open Fire Signal

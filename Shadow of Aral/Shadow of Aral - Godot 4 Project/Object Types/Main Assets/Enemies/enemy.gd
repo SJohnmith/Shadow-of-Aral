@@ -16,7 +16,7 @@ var start_falling: bool = false
 var stuck_under_obj: bool = false
 
 # Enemy Attributes
-var knockback_force := 200
+var knockback_force: int = 200
 var is_chasing: bool = false
 var is_roaming: bool = false
 #@onready var player_body: Node2D = $"Player Rig"

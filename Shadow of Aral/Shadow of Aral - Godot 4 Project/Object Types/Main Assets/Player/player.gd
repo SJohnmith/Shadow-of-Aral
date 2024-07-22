@@ -115,20 +115,20 @@ func can_stand() -> bool:
      var check_res = !crouch_front_raycast.is_colliding() && !crouch_back_raycast.is_colliding()
      return check_res
 
-func stop_anim():
-     pass
-     
 # Handle Player Actions
 func player_action():
      # Look Towards Mouse Position
      mouse_direction = (get_global_mouse_position() - position).normalized()
      
-     # If Mouse Left Button is Down Player Shoots [How to Avoid Calling Method Continuously]
+     # [How to Avoid Calling Method Continuously]
+     # If Mouse Left Button is Down Player Shoots
      if Input.is_action_pressed("Left Click") and player_body.has_method("player_wpn_action") and can_shoot:
           player_body.player_wpn_action("shoot")
 #          can_shoot = false
 #          $ShootTimer.start()
-
+     # If Mouse Left Button is NOT Down
+     if not Input.is_action_pressed("Left Click") and player_body.has_method("player_wpn_action"):
+          player_body.player_wpn_action("stop shoot")
      # Player Reload Weapon
      if Input.is_action_just_pressed("Reload") and player_body.has_method("player_wpn_action"):
           player_body.player_wpn_action("reload")
