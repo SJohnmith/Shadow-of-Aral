@@ -20,7 +20,6 @@ func Exit():
      pass
      
 func Update(delta: float):
-
      if wander_time > 0:
           wander_time -= delta
      else:
@@ -38,4 +37,8 @@ func Physics_Update(_delta: float):
      if (player.global_position - enemy.global_position).length() < 600:
           Transitioned.emit(self, "follow")
      
-     
+     # For Now Copy Paste Code For Both States and Character Image Object
+     if enemy.velocity.x > 0:
+          enemy.get_child(0).scale = Vector2(1, 1)
+     elif enemy.velocity.x < 0:
+          enemy.get_child(0).scale = Vector2(-1, 1)

@@ -44,11 +44,12 @@ func _ready():
 func _process(_delta):
 #     print(fcn_shoot_called)
      # This Will Work Good for Player But Not for General Purpose Use
-     if not Input.is_action_pressed("Left Click"):
-#     if not fcn_shoot_called:
+#     if not Input.is_action_pressed("Left Click"):
+     # Works but there has to be a better way of doing this
+     # If Weapon is Not being Fired Return Recoil to Zero
+     if not fcn_shoot_called:
           recoil_increment = max_recoil * 0.1
           current_recoil = clamp(current_recoil - recoil_increment, 0.0, max_recoil)
-     print(current_recoil)
      
 func stop_shoot():
      fcn_shoot_called = false
@@ -67,7 +68,7 @@ func shoot(wpn_pointing_direction):
           wpn_arm_recoil(wpn_img)
           # Subtract Ammo
           ammo_left -= 1
-          Globals.bullets = ammo_left   # Hardcoded and Not Unique to Player
+          Globals.bullets = ammo_left   # [Hardcoded and Not Unique to Player when Enemy Uses Should Create a Conflict]
           # Restart Timer
           timer_fired.start()
           # Emit the Open Fire Signal

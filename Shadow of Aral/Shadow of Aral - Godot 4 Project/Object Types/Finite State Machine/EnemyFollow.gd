@@ -14,8 +14,10 @@ func Physics_Update(_delta: float):
      
      if player.global_position.x > enemy.global_position.x:
           direction = Vector2.RIGHT
-     else:
+     elif player.global_position.x < enemy.global_position.x:
           direction = Vector2.LEFT
+     else:
+          direction = Vector2.ZERO
      
      # If Target is Far Away Chase It
      if distance.length() > 200:
@@ -27,4 +29,9 @@ func Physics_Update(_delta: float):
      # Transition to Idle State
      if distance.length() > 600:
           Transitioned.emit(self, "idle")
-
+     
+     # For Now Copy Paste Code For Both States and Character Image Object
+     if enemy.velocity.x > 0:
+          enemy.get_child(0).scale = Vector2(1, 1)
+     elif enemy.velocity.x < 0:
+          enemy.get_child(0).scale = Vector2(-1, 1)

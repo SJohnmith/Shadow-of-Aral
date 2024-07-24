@@ -43,7 +43,7 @@ func _physics_process(delta):
      if not is_on_floor():
           velocity.y += gravity * delta
           velocity.x = 0
-     
+#     print(velocity)
      move_and_slide()
 
 func _on_timer_timeout():

@@ -120,7 +120,7 @@ func player_action():
      # Look Towards Mouse Position
      mouse_direction = (get_global_mouse_position() - position).normalized()
      
-     # [How to Avoid Calling Method Continuously]
+     # [Methods are Being Called Continuously here but only executed so fast at the source]
      # If Mouse Left Button is Down Player Shoots
      if Input.is_action_pressed("Left Click") and player_body.has_method("player_wpn_action") and can_shoot:
           player_body.player_wpn_action("shoot")
