@@ -16,7 +16,7 @@ var start_falling: bool = false
 var stuck_under_obj: bool = false
 
 # Player Properties Attributes
-@onready var player_body: Node2D = $"Player Rig"
+@onready var player_body: Node2D = $"Player Body"
 @onready var player_collision: Node2D = $Collision
 @onready var crouch_front_raycast: Node2D = $CrouchFrontRayCast
 @onready var crouch_back_raycast: Node2D = $CroucBackRayCast

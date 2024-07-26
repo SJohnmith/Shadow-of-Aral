@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://doq8elyw4yubv"]
+[gd_scene load_steps=5 format=3 uid="uid://cm3p6iv0o4gq3"]
 
 [ext_resource type="Script" path="res://Object Types/Main Assets/Player/player.gd" id="1_2hx6j"]
-[ext_resource type="PackedScene" uid="uid://dom057ujlqxv8" path="res://Object Types/Main Assets/Player/player_rig.tscn" id="1_ynira"]
+[ext_resource type="PackedScene" uid="uid://dtgk5utlpwhck" path="res://Object Types/Main Assets/Player/player_body.tscn" id="1_ynira"]
 [ext_resource type="Shape2D" uid="uid://b8un0w1n8eabj" path="res://Object Types/Main Assets/Player/player_standing.tres" id="3_setgj"]
 [ext_resource type="Script" path="res://Object Types/Main Assets/Player/Camera2D.gd" id="4_3kjjn"]
 
@@ -10,7 +10,7 @@ collision_layer = 4
 collision_mask = 243
 script = ExtResource("1_2hx6j")
 
-[node name="Player Rig" parent="." instance=ExtResource("1_ynira")]
+[node name="Player Body" parent="." instance=ExtResource("1_ynira")]
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = ExtResource("3_setgj")

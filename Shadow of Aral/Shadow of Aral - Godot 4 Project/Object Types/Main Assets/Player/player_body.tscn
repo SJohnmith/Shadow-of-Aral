@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dom057ujlqxv8"]
+[gd_scene load_steps=13 format=3 uid="uid://dtgk5utlpwhck"]
 
-[ext_resource type="Texture2D" uid="uid://b8mqmv7vuox5c" path="res://Object Types/Main Assets/Player/Player Default.png" id="1_tgwa6"]
-[ext_resource type="Script" path="res://Object Types/Main Assets/Player/player_rig.gd" id="1_thliw"]
-[ext_resource type="PackedScene" uid="uid://cxnvg3jjcgt3r" path="res://Object Types/Main Assets/Weapon/weapon.tscn" id="3_naw4j"]
-[ext_resource type="PackedScene" uid="uid://b2k3gfx6gq16" path="res://Object Types/Main Assets/Weapon/magazine.tscn" id="4_dxblx"]
+[ext_resource type="Script" path="res://Object Types/Main Assets/Player/player_body.gd" id="1_utne5"]
+[ext_resource type="Texture2D" uid="uid://b8mqmv7vuox5c" path="res://Object Types/Main Assets/Player/Player Default.png" id="2_hep44"]
+[ext_resource type="PackedScene" uid="uid://b2k3gfx6gq16" path="res://Object Types/Main Assets/Weapon/magazine.tscn" id="3_vbnvr"]
+[ext_resource type="PackedScene" uid="uid://cxnvg3jjcgt3r" path="res://Object Types/Main Assets/Weapon/weapon.tscn" id="4_s4fk2"]
 
 [sub_resource type="Animation" id="Animation_d2x0e"]
 resource_name = "Crouch"
@@ -859,24 +859,24 @@ _data = {
 }
 
 [node name="Player Rig" type="Node2D"]
-script = ExtResource("1_thliw")
+script = ExtResource("1_utne5")
 
 [node name="BackLeg" type="Sprite2D" parent="."]
 position = Vector2(13, 49)
-texture = ExtResource("1_tgwa6")
+texture = ExtResource("2_hep44")
 offset = Vector2(14, 41)
 region_enabled = true
 region_rect = Rect2(8.1858, 250.459, 63.5114, 108.51)
 
 [node name="FrontLeg" type="Sprite2D" parent="."]
 position = Vector2(-20, 53)
-texture = ExtResource("1_tgwa6")
+texture = ExtResource("2_hep44")
 offset = Vector2(14, 41)
 region_enabled = true
 region_rect = Rect2(8.1858, 250.459, 63.5114, 108.51)
 
 [node name="Torso" type="Sprite2D" parent="."]
-texture = ExtResource("1_tgwa6")
+texture = ExtResource("2_hep44")
 region_enabled = true
 region_rect = Rect2(5.35574, 111.285, 87.189, 134.984)
 
@@ -884,27 +884,27 @@ region_rect = Rect2(5.35574, 111.285, 87.189, 134.984)
 visible = false
 z_index = -1
 position = Vector2(33, -48)
-texture = ExtResource("1_tgwa6")
+texture = ExtResource("2_hep44")
 offset = Vector2(15, 28)
 region_enabled = true
 region_rect = Rect2(117.594, 261.568, 92.5624, 92.159)
 
 [node name="Head" type="Sprite2D" parent="Torso"]
 position = Vector2(7, -62)
-texture = ExtResource("1_tgwa6")
+texture = ExtResource("2_hep44")
 offset = Vector2(-1, -43)
 region_enabled = true
 region_rect = Rect2(0, 0, 105.806, 99.8082)
 
-[node name="Magazine" parent="Torso" instance=ExtResource("4_dxblx")]
+[node name="Magazine" parent="Torso" instance=ExtResource("3_vbnvr")]
 position = Vector2(64, 24)
 
-[node name="Weapon" parent="Torso" instance=ExtResource("3_naw4j")]
+[node name="Weapon" parent="Torso" instance=ExtResource("4_s4fk2")]
 position = Vector2(15, -2)
 
 [node name="FrontArm" type="Sprite2D" parent="Torso"]
 position = Vector2(-27, -39)
-texture = ExtResource("1_tgwa6")
+texture = ExtResource("2_hep44")
 offset = Vector2(9, 23)
 region_enabled = true
 region_rect = Rect2(111.094, 141.524, 95.9744, 86.1811)
@@ -917,7 +917,7 @@ remote_path = NodePath("../../Weapon")
 [node name="RearArm" type="Sprite2D" parent="Torso/FrontArm"]
 z_index = -1
 position = Vector2(60, -9)
-texture = ExtResource("1_tgwa6")
+texture = ExtResource("2_hep44")
 offset = Vector2(15, 28)
 region_enabled = true
 region_rect = Rect2(117.594, 261.568, 92.5624, 92.159)
