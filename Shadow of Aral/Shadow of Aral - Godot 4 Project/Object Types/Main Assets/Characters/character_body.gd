@@ -1,4 +1,4 @@
-class_name character extends Node
+class_name Character_Body extends Node
 
 # Character Body Properties
 var stock_grip_pos: Vector2 = Vector2.ZERO

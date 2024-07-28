@@ -1,13 +1,10 @@
 class_name Enemy extends CharacterBody2D
 
-# Enemy Signals
-
 # Enemy Variables
 @export var health: float = 100
 @export var speed: float = 700.0
 @export var jump_velocity: float = -900.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2 = Vector2.ZERO
 var can_shoot: bool = true
@@ -19,7 +16,7 @@ var stuck_under_obj: bool = false
 var knockback_force: int = 200
 var is_chasing: bool = false
 var is_roaming: bool = false
-#@onready var player_body: Node2D = $"Player Rig"
+@onready var enemy_body: Node2D = $"Enemy Body"
 #@onready var player_collision: Node2D = $Collision
 #@onready var crouch_front_raycast: Node2D = $CrouchFrontRayCast
 #@onready var crouch_back_raycast: Node2D = $CroucBackRayCast

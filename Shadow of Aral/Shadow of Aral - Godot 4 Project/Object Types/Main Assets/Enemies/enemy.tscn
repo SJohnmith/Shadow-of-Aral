@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cne11vdmfd5y3"]
+[gd_scene load_steps=8 format=3 uid="uid://cne11vdmfd5y3"]
 
 [ext_resource type="Script" path="res://Object Types/Main Assets/Enemies/enemy.gd" id="1_p86lj"]
 [ext_resource type="PackedScene" uid="uid://bvwhfh02vsmqy" path="res://Object Types/Main Assets/Enemies/enemy_body.tscn" id="1_pg71j"]
 [ext_resource type="Script" path="res://Object Types/Finite State Machine/EnemyFollow.gd" id="3_qisw5"]
 [ext_resource type="Script" path="res://Object Types/Finite State Machine/State Machine.gd" id="3_rhmgp"]
 [ext_resource type="Script" path="res://Object Types/Finite State Machine/EnemyIdle.gd" id="4_677wn"]
+[ext_resource type="Script" path="res://Object Types/Finite State Machine/EnemyAttack.gd" id="6_yksg7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd2is"]
 size = Vector2(94, 300)
@@ -31,5 +32,8 @@ script = ExtResource("4_677wn")
 
 [node name="Follow" type="Node" parent="State Machine"]
 script = ExtResource("3_qisw5")
+
+[node name="Attack" type="Node" parent="State Machine"]
+script = ExtResource("6_yksg7")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

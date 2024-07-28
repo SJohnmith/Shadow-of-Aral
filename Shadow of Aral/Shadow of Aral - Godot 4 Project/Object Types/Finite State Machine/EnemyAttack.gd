@@ -1,4 +1,4 @@
-class_name EnemyFollow extends State
+class_name EnemyAttack extends State
 
 var direction: Vector2
 
@@ -11,27 +11,24 @@ func Enter():
 func Physics_Update(_delta: float):
      var distance = player.global_position - enemy.global_position
      
-     if player.global_position.x > enemy.global_position.x:
-          direction = Vector2.RIGHT
-     elif player.global_position.x < enemy.global_position.x:
-          direction = Vector2.LEFT
+     if distance.length() < 100:
+          print("Enemy cease fire")
      else:
-          direction = Vector2.ZERO
+          print("Enemy will fire")
+          enemy.enemy_body.player_wpn_action("shoot")
+
      
      # If Target is Far Away Chase It
      if distance.length() > 200:
           enemy.velocity.x = direction.x * enemy.speed
-#          print(distance.length())
+          
      # Once Reached the Target Stop
      else:
           enemy.velocity = Vector2.ZERO
-     
      # Transition to Idle State
-     if distance.length() > 600:
-          Transitioned.emit(self, "idle")
-     # Transition to Attack State
-     elif distance.length() > 300:
-          Transitioned.emit(self, "attack")
+     if distance.length() > 300:
+          Transitioned.emit(self, "follow")
+     
      
      # For Now Copy Paste Code For Both States and Character Image Object
      if enemy.velocity.x > 0:

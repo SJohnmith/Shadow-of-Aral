@@ -25,6 +25,7 @@ func _process(delta):
 
 # Call the Physics Update
 func _physics_process(delta):
+     # If this State Exists Update It
      if cur_state:
           cur_state.Physics_Update(delta)
           

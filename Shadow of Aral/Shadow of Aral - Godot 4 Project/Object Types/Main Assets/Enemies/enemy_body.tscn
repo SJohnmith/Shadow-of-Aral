@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvwhfh02vsmqy"]
+[gd_scene load_steps=13 format=3 uid="uid://bvwhfh02vsmqy"]
 
+[ext_resource type="Script" path="res://Object Types/Main Assets/Enemies/enemy_body.gd" id="1_kpd16"]
 [ext_resource type="Texture2D" uid="uid://cbnprbjhf70we" path="res://Object Types/Main Assets/Enemies/Uzbek.png" id="2_a1j17"]
 [ext_resource type="PackedScene" uid="uid://b2k3gfx6gq16" path="res://Object Types/Main Assets/Weapon/magazine.tscn" id="3_xr8dl"]
 [ext_resource type="PackedScene" uid="uid://cxnvg3jjcgt3r" path="res://Object Types/Main Assets/Weapon/weapon.tscn" id="4_bfk8j"]
@@ -714,6 +715,7 @@ _data = {
 }
 
 [node name="Enemy Body" type="Node2D"]
+script = ExtResource("1_kpd16")
 
 [node name="Torso" type="Sprite2D" parent="."]
 texture = ExtResource("2_a1j17")

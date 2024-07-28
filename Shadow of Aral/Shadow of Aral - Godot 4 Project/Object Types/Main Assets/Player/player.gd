@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-# Player Signals
-
 # Player Variables
 @export var health: float = 100
 @export var speed: float = 700.0

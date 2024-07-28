@@ -1,6 +1,5 @@
 class_name EnemyIdle extends State
 
-#var player: CharacterBody2D
 var direction: Vector2
 var wander_time: float
 
