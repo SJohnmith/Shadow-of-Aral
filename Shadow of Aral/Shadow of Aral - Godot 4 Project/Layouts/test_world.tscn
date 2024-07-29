@@ -1,13 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfbl2vumrgtes"]
+[gd_scene load_steps=8 format=3 uid="uid://cfbl2vumrgtes"]
 
 [ext_resource type="Texture2D" uid="uid://yu0ykfvugnux" path="res://Object Types/Background Assets/Tiles.svg" id="1_d623g"]
 [ext_resource type="Script" path="res://Layouts/main_events.gd" id="1_g38ul"]
-<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://cm3p6iv0o4gq3" path="res://Object Types/Main Assets/Player/player.tscn" id="2_ee7qh"]
-=======
-[ext_resource type="PackedScene" uid="uid://c55whopg7brct" path="res://Object Types/Background Assets/level_1.tscn" id="2_5gtsd"]
-[ext_resource type="PackedScene" uid="uid://doq8elyw4yubv" path="res://Object Types/Main Assets/Player/player.tscn" id="2_ee7qh"]
->>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://ddv4yxbj7ojmq" path="res://Layouts/UI.tscn" id="4_s2kw3"]
 [ext_resource type="PackedScene" uid="uid://cne11vdmfd5y3" path="res://Object Types/Main Assets/Enemies/enemy.tscn" id="5_aa5im"]
 
@@ -89,8 +84,6 @@ sources/1 = SubResource("TileSetAtlasSource_malja")
 
 [node name="Test World" type="Node2D"]
 script = ExtResource("1_g38ul")
-
-[node name="Level1" parent="." instance=ExtResource("2_5gtsd")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_l5dil")
