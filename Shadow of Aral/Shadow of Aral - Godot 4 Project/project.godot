@@ -24,7 +24,7 @@ Globals="*res://Globals/globals.gd"
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
-mouse_cursor/custom_image="res://Object Types/Reticle.png"
+mouse_cursor/custom_image="res://Object Types/UI Assets/Reticle.png"
 mouse_cursor/custom_image_hotspot=Vector2(82, 82)
 
 [input]

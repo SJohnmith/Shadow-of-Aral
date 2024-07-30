@@ -29,7 +29,6 @@ func Physics_Update(_delta: float):
      if distance.length() > 300:
           Transitioned.emit(self, "follow")
      
-     
      # For Now Copy Paste Code For Both States and Character Image Object
      if enemy.velocity.x > 0:
           enemy.get_child(0).scale = Vector2(1, 1)

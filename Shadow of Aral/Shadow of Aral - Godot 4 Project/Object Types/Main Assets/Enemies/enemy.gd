@@ -23,8 +23,6 @@ var is_roaming: bool = false
 #var standing_collision = preload("res://Object Types/Main Assets/Player/player_standing.tres")
 #var crouching_collision = preload("res://Object Types/Main Assets/Player/player_crouching.tres")
 
-# Enemy Properties
-
 func _physics_process(delta):
      if health < 0:
           # Destroy Enemy
