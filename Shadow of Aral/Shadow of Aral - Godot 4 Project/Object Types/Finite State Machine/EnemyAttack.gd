@@ -12,9 +12,10 @@ func Physics_Update(_delta: float):
      var distance = player.global_position - enemy.global_position
      
      if distance.length() < 100:
-          print("Enemy cease fire")
+          pass
+#          print("Enemy cease fire")
      else:
-          print("Enemy will fire")
+#          print("Enemy will fire")
           enemy.enemy_body.player_wpn_action("shoot")
 
      

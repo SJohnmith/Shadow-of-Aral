@@ -2,9 +2,6 @@ class_name EnemyFollow extends State
 
 var direction: Vector2
 
-#func _ready():
-#     print(enemy)
-     
 func Enter():
      player = get_tree().get_first_node_in_group("Player")
 

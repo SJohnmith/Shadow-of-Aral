@@ -3,7 +3,7 @@ extends Character_Body
 func _ready():
      pass
 
-func _process(delta):
+func _process(_delta):
      pass
 
 #func enemy_wpn_action(action):

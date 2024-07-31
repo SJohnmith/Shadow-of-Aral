@@ -2,6 +2,7 @@ class_name Character extends CharacterBody2D
 
 # Character Variables
 @export var body: Node2D
+@export var collision_box: Node2D
 @export var health: float = 100
 @export var speed: float = 700.0
 @export var jump_velocity: float = -900.0
@@ -21,7 +22,11 @@ var stuck_under_obj: bool = false
 @onready var crouch_back_raycast: Node2D
 var standing_collision = preload("res://Object Types/Main Assets/Player/player_standing.tres")
 var crouching_collision = preload("res://Object Types/Main Assets/Player/player_crouching.tres")
-     
+
+var receives_knockback: bool = true
+var knockback_force: int = 200
+
+
 # Handle Player Physics
 func _physics_process(delta):
      character_movement(delta)
@@ -102,9 +107,19 @@ func can_stand() -> bool:
      return check_res
      
 # Character Take Damage
-func hit(damage):
-     health = health - damage
-     
+#func hit(damage):
+#     receive_knockback(collision_box.global_position, damage)
+#     health = health - damage
+
+# Character Knockback
+#func receive_knockback(damage_src_pos: Vector2, received_damage: int):
+#     if receives_knockback:
+#          var knockback_dir = damage_src_pos.direction_to(self.global_position)
+#          var knockback_strength = received_damage + knockback_force
+#          var knockback = knockback_dir*knockback_strength
+#
+#          self.global_position += knockback
+
 # Character Destroy
 func death():
      if health < 0:
