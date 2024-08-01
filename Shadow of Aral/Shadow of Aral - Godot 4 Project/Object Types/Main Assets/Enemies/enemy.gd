@@ -26,6 +26,7 @@ class_name Enemy extends Character
 #var crouching_collision = preload("res://Object Types/Main Assets/Player/player_crouching.tres")
 
 func _physics_process(delta):
+#     character_movement(delta)
 #     death()
      # Enemy Falling
      if not is_on_floor():
@@ -45,7 +46,8 @@ func hit(damage):
      health = health - damage
      
      # Do it like this or something simple to give a knockback [Need to update the velocity not position]
-     velocity.x = 500
+     velocity.x = 1000
+     
 #     receive_knockback($CollisionShape2D.global_position, damage)
      
 #func receive_knockback(damage_src_pos: Vector2, received_damage: int):

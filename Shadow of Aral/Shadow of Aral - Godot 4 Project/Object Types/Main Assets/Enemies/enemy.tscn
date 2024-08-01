@@ -10,12 +10,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd2is"]
 size = Vector2(94, 300)
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("body", "collision_box")]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("body")]
 collision_layer = 8
 collision_mask = 243
 script = ExtResource("1_p86lj")
 body = NodePath("Enemy Body")
-collision_box = NodePath("CollisionShape2D")
 
 [node name="Enemy Body" parent="." instance=ExtResource("1_pg71j")]
 

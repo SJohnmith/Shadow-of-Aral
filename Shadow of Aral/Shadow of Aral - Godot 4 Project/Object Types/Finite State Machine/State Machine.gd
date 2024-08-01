@@ -6,6 +6,7 @@ extends Node
 var cur_state: State
 var states: Dictionary = {}
 
+# Initialize the State
 func _ready():
      # From the State Node Get Children Nodes
      for child in get_children():
