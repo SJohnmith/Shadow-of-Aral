@@ -5,7 +5,7 @@ var direction: Vector2
 func Enter():
      player = get_tree().get_first_node_in_group("Player")
 
-func Physics_Update(_delta: float):
+func Physics_Update(delta: float):
      var distance = player.global_position - enemy.global_position
      
      if player.global_position.x > enemy.global_position.x:
@@ -18,7 +18,6 @@ func Physics_Update(_delta: float):
      # If Target is Far Away Chase It
      if distance.length() > 200:
           enemy.velocity.x = direction.x * enemy.speed
-#          print(distance.length())
      # Once Reached the Target Stop
      else:
           enemy.velocity = Vector2.ZERO

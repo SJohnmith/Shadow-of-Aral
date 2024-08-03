@@ -10,6 +10,7 @@ class_name Character extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2 = Vector2.ZERO
 var mouse_direction: Vector2 = Vector2.ZERO
+var crouch_state: String
 var can_shoot: bool = true
 var is_crouching: bool = false
 var start_falling: bool = false
@@ -32,16 +33,13 @@ func _physics_process(delta):
 
 # Handle Player Movement
 func character_movement(delta):
-     # Get a Vector from Keyboard Argument
-#     direction = Input.get_vector("Left", "Right", "Up", "Down")
-     
-     # Player is Moving
-#     if direction:
-#          velocity.x = direction.x * speed
+     # Character is Moving
+     if direction:
+          velocity.x = direction.x * speed
      # Player Not Moving
-#     else:
-#          velocity.x = move_toward(velocity.x, 0, speed)
-     
+     else:
+          velocity.x = move_toward(velocity.x, 0, speed)
+          
      # Character Animations
      if is_on_floor():
           # Character Not Moving
@@ -62,12 +60,12 @@ func character_movement(delta):
                start_falling = false
                character_body.update_animation("Falling")
 
-     # Character Crouching
-     if Input.is_action_just_pressed("Down") and is_on_floor():
+     # Character Crouching [Problem Here]
+     if crouch_state == "Crouch Down" and is_on_floor():
           is_crouching = true
           character_collision.shape = crouching_collision
           character_collision.position = Vector2(0, -15)
-     elif Input.is_action_just_released("Down"):
+     elif crouch_state == "Crouch Up":
           if can_stand():
                is_crouching = false
                character_collision.shape = standing_collision
@@ -88,6 +86,7 @@ func character_movement(delta):
      # Character Jumping
      if Input.is_action_just_pressed("Up") and is_on_floor():
           velocity.y = jump_velocity
+          print("Char Jump")
      # Character Falling
      if not is_on_floor():
           velocity.y += gravity * delta

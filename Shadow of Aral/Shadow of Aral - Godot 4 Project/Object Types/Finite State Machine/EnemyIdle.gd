@@ -24,14 +24,15 @@ func Update(delta: float):
      else:
           randomize_wander()
 
-func Physics_Update(_delta: float):
+func Physics_Update(delta: float):
+     enemy.direction = direction
      # Enemy is Moving
-     if direction:
-          enemy.velocity.x = direction.x * enemy.speed
+#     if direction:
+#          enemy.velocity.x = direction.x * enemy.speed
      # Enemy Not Moving
-     else:
-          enemy.velocity.x = move_toward(enemy.velocity.x, 0, enemy.speed)
-     
+#     else:
+#          enemy.velocity.x = move_toward(enemy.velocity.x, 0, enemy.speed)
+           
      # Transition to Follow State
      if (player.global_position - enemy.global_position).length() < 600:
           Transitioned.emit(self, "follow")

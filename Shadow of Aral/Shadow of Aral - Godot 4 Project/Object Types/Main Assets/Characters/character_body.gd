@@ -17,7 +17,6 @@ var current_recoil: float = 0.0    # Current Recoil
 var max_recoil: float = 10.0       # Max Recoil
 var recoil_increment: float = 0.0  # Increment Recoil
 
-     
 func update_animation(animation_name):
      $AnimationPlayer.play(animation_name)
             

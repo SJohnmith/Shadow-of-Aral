@@ -8,7 +8,9 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2 = Vector2.ZERO
 var mouse_direction: Vector2 = Vector2.ZERO
+
 var can_shoot: bool = true
+var crouch: bool = false
 var is_crouching: bool = false
 var start_falling: bool = false
 var stuck_under_obj: bool = false
