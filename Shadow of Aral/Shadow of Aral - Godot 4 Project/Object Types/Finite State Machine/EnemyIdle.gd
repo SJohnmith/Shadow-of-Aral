@@ -1,6 +1,6 @@
 class_name EnemyIdle extends State
 
-var direction: Vector2
+#var direction: Vector2
 var wander_time: float
 
 func choose(array):
@@ -9,7 +9,7 @@ func choose(array):
      
 func randomize_wander():
      wander_time = randf_range(0, 1)
-     direction = choose([Vector2.RIGHT, Vector2.LEFT])
+     enemy.direction = choose([Vector2.RIGHT, Vector2.LEFT])
 
 func Enter():
      randomize_wander()
@@ -25,7 +25,7 @@ func Update(delta: float):
           randomize_wander()
 
 func Physics_Update(delta: float):
-     enemy.direction = direction
+#     enemy.direction = direction
      # Enemy is Moving
 #     if direction:
 #          enemy.velocity.x = direction.x * enemy.speed
@@ -36,9 +36,3 @@ func Physics_Update(delta: float):
      # Transition to Follow State
      if (player.global_position - enemy.global_position).length() < 600:
           Transitioned.emit(self, "follow")
-     
-     # For Now Copy Paste Code For Both States and Character Image Object
-     if enemy.velocity.x > 0:
-          enemy.get_child(0).scale = Vector2(1, 1)
-     elif enemy.velocity.x < 0:
-          enemy.get_child(0).scale = Vector2(-1, 1)

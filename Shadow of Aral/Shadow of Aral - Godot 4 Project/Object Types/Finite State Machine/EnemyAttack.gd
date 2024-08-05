@@ -1,6 +1,6 @@
 class_name EnemyAttack extends State
 
-var direction: Vector2
+#var direction: Vector2
 
 func Enter():
      player = get_tree().get_first_node_in_group("Player")
@@ -17,7 +17,7 @@ func Physics_Update(_delta: float):
           
      # If Target is Far Away Chase It
      if distance.length() > 200:
-          enemy.velocity.x = direction.x * enemy.speed
+          enemy.velocity.x = enemy.direction.x * enemy.speed
           
      # Once Reached the Target Stop Mooving
      else:
@@ -25,9 +25,3 @@ func Physics_Update(_delta: float):
      # Transition to Idle State
      if distance.length() > 300:
           Transitioned.emit(self, "follow")
-     
-     # For Now Copy Paste Code For Both States and Character Image Object
-     if enemy.velocity.x > 0:
-          enemy.get_child(0).scale = Vector2(1, 1)
-     elif enemy.velocity.x < 0:
-          enemy.get_child(0).scale = Vector2(-1, 1)

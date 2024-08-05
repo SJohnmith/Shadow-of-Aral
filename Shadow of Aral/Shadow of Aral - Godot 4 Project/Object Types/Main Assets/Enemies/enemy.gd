@@ -15,9 +15,13 @@ class_name Enemy extends Character
 # Enemy Attributes
 @onready var enemy_body: Node2D = $"Enemy Body"
 
+func _process(_delta):
+     print($"State Machine".cur_state)
+
 func _physics_process(delta):
      character_movement(delta)
      enemy_body.update_facing_direction(direction)
+     
      death()
      
 func _on_timer_timeout():
