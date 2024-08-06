@@ -1,17 +1,16 @@
 class_name EnemyFollow extends State
 
-#var direction: Vector2
-
 func Enter():
      player = get_tree().get_first_node_in_group("Player")
 
 func Physics_Update(delta: float):
-     var distance = player.global_position - enemy.global_position
+     distance = player.global_position - enemy.global_position
      
-     if player.global_position.x > enemy.global_position.x:
-          enemy.direction = Vector2.RIGHT
-     elif player.global_position.x < enemy.global_position.x:
-          enemy.direction = Vector2.LEFT
+     if distance.length() > 480:
+          if player.global_position.x > enemy.global_position.x:
+               enemy.direction = Vector2.RIGHT
+          elif player.global_position.x < enemy.global_position.x:
+               enemy.direction = Vector2.LEFT
      else:
           enemy.direction = Vector2.ZERO
 
@@ -24,9 +23,9 @@ func Physics_Update(delta: float):
 #          enemy.velocity = Vector2.ZERO
      
      # Transition to Idle State
-     if distance.length() > 600:
+     if distance.length() > 1000:
           Transitioned.emit(self, "idle")
      # Transition to Attack State
-     elif distance.length() > 300:
+     elif distance.length() < 500:
           Transitioned.emit(self, "attack")
 

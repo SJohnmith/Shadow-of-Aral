@@ -5,6 +5,7 @@ signal Transitioned
 
 @onready var enemy: Enemy = get_owner() as CharacterBody2D
 var player: CharacterBody2D
+var distance: Vector2
 
 # Entering a State
 func Enter():

@@ -2,6 +2,9 @@ extends Node
 
 # Finite State Machine Properties
 @export var init_state: State
+@export var x1: float
+@export var x2: float
+@export var x3: float
 
 var cur_state: State
 var states: Dictionary = {}

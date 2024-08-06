@@ -1,6 +1,5 @@
 class_name EnemyIdle extends State
 
-#var direction: Vector2
 var wander_time: float
 
 func choose(array):
@@ -25,14 +24,8 @@ func Update(delta: float):
           randomize_wander()
 
 func Physics_Update(delta: float):
-#     enemy.direction = direction
-     # Enemy is Moving
-#     if direction:
-#          enemy.velocity.x = direction.x * enemy.speed
-     # Enemy Not Moving
-#     else:
-#          enemy.velocity.x = move_toward(enemy.velocity.x, 0, enemy.speed)
-           
+     distance = player.global_position - enemy.global_position
+     
      # Transition to Follow State
-     if (player.global_position - enemy.global_position).length() < 600:
+     if distance.length() < 1000:
           Transitioned.emit(self, "follow")

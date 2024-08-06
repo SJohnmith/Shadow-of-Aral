@@ -86,7 +86,6 @@ func character_movement(delta):
      # Character Jumping
      if Input.is_action_just_pressed("Up") and is_on_floor():
           velocity.y = jump_velocity
-          print("Char Jump")
      # Character Falling
      if not is_on_floor():
           velocity.y += gravity * delta
