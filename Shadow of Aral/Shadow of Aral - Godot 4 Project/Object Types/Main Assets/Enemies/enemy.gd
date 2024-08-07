@@ -1,17 +1,5 @@
 class_name Enemy extends Character
 
-# Enemy Variables
-#@export var health: float = 100
-#@export var speed: float = 700.0
-#@export var jump_velocity: float = -900.0
-#
-#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-#var direction: Vector2 = Vector2.ZERO
-#var can_shoot: bool = true
-#var is_crouching: bool = false
-#var start_falling: bool = false
-#var stuck_under_obj: bool = false
-
 # Enemy Attributes
 @onready var enemy_body: Node2D = $"Enemy Body"
 var distance: Vector2
@@ -19,8 +7,9 @@ var player: CharacterBody2D
 
 func _ready():
      player = get_tree().get_first_node_in_group("Player")
+     
 #func _process(_delta):
-#     print($"State Machine".cur_state)
+#     print($"State Machine".cur_state, "   ",distance.length())
 
 func _physics_process(delta):
      distance = player.global_position - $".".global_position
@@ -28,9 +17,6 @@ func _physics_process(delta):
      enemy_body.update_facing_direction(direction)
      
      death()
-     
-#     print($"State Machine".cur_state)
-     print(distance.length())
      
 func _on_timer_timeout():
      $Timer.wait_time = choose([0.5, 1, 1.5])

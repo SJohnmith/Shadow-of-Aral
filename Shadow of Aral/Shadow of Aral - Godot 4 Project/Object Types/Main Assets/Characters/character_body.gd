@@ -19,7 +19,7 @@ var recoil_increment: float = 0.0  # Increment Recoil
 
 func update_animation(animation_name):
      $AnimationPlayer.play(animation_name)
-            
+
 func update_facing_direction(direction):
      if direction.x > 0:
           $".".scale = Vector2(1, 1)
@@ -55,7 +55,7 @@ func arm_recoil():
 #     var tween_down_time := 0.2
      recoil_tween.tween_property(front_arm, "position", front_arm.position + Vector2(-5,0), 0.02)
      recoil_tween.tween_property(front_arm, "position", front_arm.position - Vector2(-5,0), 0.02)
-     
+
 # On Animation Finished
 func _on_animation_arms_animation_finished(anim_name):
      if anim_name == "Reload":

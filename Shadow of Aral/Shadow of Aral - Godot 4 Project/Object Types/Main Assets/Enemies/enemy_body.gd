@@ -1,8 +1,8 @@
 extends Character_Body
 
-func _ready():
-     pass
+#func _ready():
+#     print(get_owner().player)
 
 func _process(_delta):
-     pass
-#     player_body.update_facing_direction(mouse_direction)
+     # Set rotation of the arms to player (target) position
+     front_arm.look_at(get_owner().player.position)

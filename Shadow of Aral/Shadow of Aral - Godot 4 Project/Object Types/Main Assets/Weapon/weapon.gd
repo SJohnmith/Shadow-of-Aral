@@ -77,8 +77,9 @@ func shoot(wpn_pointing_direction):
                
 # Weapon Reload
 func reload():
-     reloading = true
-     timer_reload.start()
+     if !reloading:
+          reloading = true
+          timer_reload.start()
 
 # Weapon Recoil Bullets
 func recoil(wpn_pointing_direction):

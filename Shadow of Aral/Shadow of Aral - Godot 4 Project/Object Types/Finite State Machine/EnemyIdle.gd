@@ -23,7 +23,7 @@ func Update(delta: float):
      else:
           randomize_wander()
 
-func Physics_Update(delta: float):
+func Physics_Update(_delta: float):
      distance = player.global_position - enemy.global_position
      
      # Transition to Follow State
