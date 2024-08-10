@@ -4,7 +4,7 @@ extends Camera2D
 
 const VIEW_ZONE: int = 60
 var target: Vector2
-var zoom_min: Vector2 = Vector2(0.5, 0.5)
+var zoom_min: Vector2 = Vector2(0.25, 0.25)
 var zoom_max: Vector2 = Vector2(1, 1)
 var zoom_speed: Vector2 = Vector2(0.05, 0.05)
 

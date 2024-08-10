@@ -6,7 +6,7 @@ func Enter():
 func Physics_Update(_delta: float):
      distance = player.global_position - enemy.global_position
      
-     if distance.length() > 480:
+     if distance.length() > 380:
           if player.global_position.x > enemy.global_position.x:
                enemy.direction = Vector2.RIGHT
           elif player.global_position.x < enemy.global_position.x:
