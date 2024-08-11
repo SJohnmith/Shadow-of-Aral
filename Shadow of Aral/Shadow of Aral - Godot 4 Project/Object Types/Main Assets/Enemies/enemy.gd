@@ -9,7 +9,6 @@ var current_state: String
 func _ready():
      player = get_tree().get_first_node_in_group("Player")
      
-     
 func _process(_delta):
 #     print($"State Machine".cur_state, "   ",distance.length())
      current_state = str($"State Machine".cur_state).split(":")[0].to_lower()

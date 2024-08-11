@@ -6,7 +6,7 @@ var stock_grip_pos: Vector2 = Vector2.ZERO
 # Player Body Attributes
 @onready var path_to_wpn: Node2D = $Torso/Weapon
 @onready var front_arm: Node2D = $Torso/FrontArm
-@onready var back_arm: Node2D = $Torso/BackArm
+@onready var back_arm: Node2D = $BackArm
 @onready var hand_pos: Vector2 = back_arm.position
 
 # Front Arm Pointing Toward Mouse

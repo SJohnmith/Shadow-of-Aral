@@ -262,7 +262,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Torso/BackArm:position")
+tracks/4/path = NodePath("Torso/Backup_Readr_BackArm:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -274,7 +274,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Torso/BackArm:rotation")
+tracks/5/path = NodePath("Torso/Backup_Readr_BackArm:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -286,7 +286,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Torso/BackArm:rotation")
+tracks/6/path = NodePath("Torso/Backup_Readr_BackArm:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -457,7 +457,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Torso/BackArm:position")
+tracks/4/path = NodePath("Torso/Backup_Readr_BackArm:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -469,7 +469,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Torso/BackArm:rotation")
+tracks/5/path = NodePath("Torso/Backup_Readr_BackArm:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -481,7 +481,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Torso/BackArm:rotation")
+tracks/6/path = NodePath("Torso/Backup_Readr_BackArm:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -553,7 +553,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Torso/FrontArm/RearArm:position")
+tracks/12/path = NodePath("BackArm:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -565,7 +565,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Torso/FrontArm/RearArm:rotation")
+tracks/13/path = NodePath("BackArm:rotation")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -629,7 +629,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Torso/FrontArm/RearArm:position")
+tracks/0/path = NodePath("BackArm:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -641,7 +641,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Torso/FrontArm/RearArm:rotation")
+tracks/1/path = NodePath("BackArm:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -705,7 +705,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Torso/BackArm:position")
+tracks/4/path = NodePath("Torso/Backup_Readr_BackArm:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -717,7 +717,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Torso/BackArm:rotation")
+tracks/5/path = NodePath("Torso/Backup_Readr_BackArm:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -729,7 +729,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Torso/BackArm:rotation")
+tracks/6/path = NodePath("Torso/Backup_Readr_BackArm:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -875,12 +875,19 @@ offset = Vector2(14, 41)
 region_enabled = true
 region_rect = Rect2(8.1858, 250.459, 63.5114, 108.51)
 
+[node name="BackArm" type="Sprite2D" parent="."]
+position = Vector2(60, -9)
+texture = ExtResource("2_hep44")
+offset = Vector2(15, 28)
+region_enabled = true
+region_rect = Rect2(117.594, 261.568, 92.5624, 92.159)
+
 [node name="Torso" type="Sprite2D" parent="."]
 texture = ExtResource("2_hep44")
 region_enabled = true
 region_rect = Rect2(5.35574, 111.285, 87.189, 134.984)
 
-[node name="BackArm" type="Sprite2D" parent="Torso"]
+[node name="Backup_Readr_BackArm" type="Sprite2D" parent="Torso"]
 visible = false
 z_index = -1
 position = Vector2(33, -48)
@@ -909,22 +916,18 @@ offset = Vector2(9, 23)
 region_enabled = true
 region_rect = Rect2(111.094, 141.524, 95.9744, 86.1811)
 
+[node name="BackArmLocation" type="RemoteTransform2D" parent="Torso/FrontArm"]
+position = Vector2(64, -7)
+remote_path = NodePath("../../../BackArm")
+
 [node name="WeaponLocation" type="RemoteTransform2D" parent="Torso/FrontArm"]
 z_index = -1
 position = Vector2(42, 37)
 remote_path = NodePath("../../Weapon")
 
-[node name="RearArm" type="Sprite2D" parent="Torso/FrontArm"]
-z_index = -1
-position = Vector2(60, -9)
-texture = ExtResource("2_hep44")
-offset = Vector2(15, 28)
-region_enabled = true
-region_rect = Rect2(117.594, 261.568, 92.5624, 92.159)
-
-[node name="MagazineLocation" type="RemoteTransform2D" parent="Torso/FrontArm/RearArm"]
-position = Vector2(31, 72)
-remote_path = NodePath("../../../Magazine")
+[node name="MagazineLocation" type="RemoteTransform2D" parent="Torso/FrontArm"]
+position = Vector2(91, 63)
+remote_path = NodePath("../../Magazine")
 
 [node name="BackLegLocation" type="RemoteTransform2D" parent="Torso"]
 position = Vector2(16, 48)

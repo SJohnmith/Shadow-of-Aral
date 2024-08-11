@@ -14,7 +14,7 @@ func Physics_Update(_delta: float):
      distance = player.global_position - enemy.global_position
      
 #     print(enemy.enemy_body.path_to_wpn.ammo_left)
-     if distance.length() < 300:
+     if distance.length() < 100:
           enemy.direction = Vector2.ZERO
 #          print("Enemy cease fire")
      else:
