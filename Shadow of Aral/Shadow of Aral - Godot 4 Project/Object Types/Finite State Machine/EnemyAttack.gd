@@ -26,5 +26,5 @@ func Physics_Update(_delta: float):
 #          print("Enemy will fire")
           
      # Transition to Idle State
-     if distance.length() > 500:
+     if distance.length() > 800:
           Transitioned.emit(self, "follow")

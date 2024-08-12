@@ -27,5 +27,5 @@ func Physics_Update(_delta: float):
      distance = player.global_position - enemy.global_position
      
      # Transition to Follow State
-     if distance.length() < 1000:
+     if distance.length() < 1200:
           Transitioned.emit(self, "follow")
