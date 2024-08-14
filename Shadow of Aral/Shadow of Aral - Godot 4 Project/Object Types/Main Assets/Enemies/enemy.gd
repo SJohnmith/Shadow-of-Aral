@@ -26,6 +26,7 @@ func _physics_process(delta):
                enemy_body.update_facing_direction(Vector2.RIGHT)
           elif player.global_position.x < self.global_position.x:
                enemy_body.update_facing_direction(Vector2.LEFT)
+          
      
 func _on_timer_timeout():
      $Timer.wait_time = choose([0.5, 1, 1.5])

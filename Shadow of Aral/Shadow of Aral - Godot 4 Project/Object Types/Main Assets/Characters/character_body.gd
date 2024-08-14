@@ -1,6 +1,7 @@
 class_name Character_Body extends Node
 
 # Character Body Properties
+@export var character_texture: Texture
 var stock_grip_pos: Vector2 = Vector2.ZERO
 
 # Character Body Attributes

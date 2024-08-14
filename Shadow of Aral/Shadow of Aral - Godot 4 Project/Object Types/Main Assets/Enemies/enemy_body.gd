@@ -1,8 +1,10 @@
 extends Character_Body
 
-#func _ready():
-#     print(get_owner().player)
-
+# Load Character Texture
+func _ready():
+     $BackArm.texture = character_texture
+     
 func _process(_delta):
      # Set rotation of the arms to player (target) position
      front_arm.look_at(get_owner().player.position)
+     
