@@ -17,16 +17,16 @@ func _process(_delta):
 func _physics_process(delta):
      distance = player.global_position - $".".global_position
      character_movement(delta)
-     enemy_body.update_facing_direction(direction)
      
-     death()
+     enemy_body.update_facing_direction(direction)
      
      if current_state == "attack":
           if player.global_position.x > self.global_position.x:
                enemy_body.update_facing_direction(Vector2.RIGHT)
           elif player.global_position.x < self.global_position.x:
                enemy_body.update_facing_direction(Vector2.LEFT)
-          
+     
+     death()
      
 func _on_timer_timeout():
      $Timer.wait_time = choose([0.5, 1, 1.5])

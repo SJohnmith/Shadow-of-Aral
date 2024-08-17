@@ -48,6 +48,7 @@ func character_movement(delta):
                     character_body.update_animation("Crouch")
                else:
                     character_body.update_animation("Idle")
+                    print("Ture")
           # Character is Moving
           if direction:
                if is_crouching:
