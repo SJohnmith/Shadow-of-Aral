@@ -727,7 +727,7 @@ region_rect = Rect2(8.1858, 250.459, 63.5114, 108.51)
 
 [node name="FrontLeg" type="Sprite2D" parent="."]
 position = Vector2(-20, 53)
-texture = ExtResource("2_tvtsv")
+texture = ExtResource("2_hep44")
 offset = Vector2(14, 41)
 region_enabled = true
 region_rect = Rect2(8.1858, 250.459, 63.5114, 108.51)

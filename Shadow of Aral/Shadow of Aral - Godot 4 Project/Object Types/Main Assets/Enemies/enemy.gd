@@ -37,8 +37,9 @@ func choose(array):
      
 func hit(damage):
      health = health - damage
+     
      # Do it like this or something simple to give a knockback [Need to update the velocity not position]
-#     velocity.x = 1000
+     velocity.x = 10000
      
 #     receive_knockback($CollisionShape2D.global_position, damage)
      
