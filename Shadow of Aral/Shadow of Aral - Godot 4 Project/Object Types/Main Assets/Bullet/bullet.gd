@@ -18,7 +18,7 @@ func _process(delta):
 func _on_body_entered(body):
      # Check that the Body has this Method
      if "hit" in body:
-          body.hit(damage)
+          body.hit(damage, direction)
 
      # Destroy Bullet
      queue_free()

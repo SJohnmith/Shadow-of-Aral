@@ -35,19 +35,16 @@ func choose(array):
      array.shuffle()
      return array.front()
      
-func hit(damage):
+func hit(damage, bullet_dir):
      health = health - damage
      
-     # Do it like this or something simple to give a knockback [Need to update the velocity not position]
-     velocity.x = 10000
+     receive_knockback(bullet_dir, damage)
      
-#     receive_knockback($CollisionShape2D.global_position, damage)
-     
-#func receive_knockback(damage_src_pos: Vector2, received_damage: int):
-#     if receives_knockback:
-#          var knockback_dir = damage_src_pos.direction_to(self.global_position)
-#          var knockback_strength = received_damage + knockback_force
-#          var knockback = knockback_dir*knockback_strength
-#
-#          $CollisionShape2D.global_position += knockback
+func receive_knockback(damage_src_pos: Vector2, received_damage: int):
+     if receives_knockback:
+          var knockback_dir = damage_src_pos.direction_to(self.global_position)
+          var knockback_strength = received_damage + knockback_force
+          var knockback = knockback_dir*knockback_strength
+
+          $".".global_position += knockback
 
