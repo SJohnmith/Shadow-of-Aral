@@ -25,7 +25,7 @@ var standing_collision = preload("res://Object Types/Main Assets/Player/player_s
 var crouching_collision = preload("res://Object Types/Main Assets/Player/player_crouching.tres")
 
 var receives_knockback: bool = true
-var knockback_force: int = 200
+var knockback_force: int = 50
 
 # Handle Player Physics
 func _physics_process(delta):
@@ -104,18 +104,18 @@ func can_stand() -> bool:
      return check_res
      
 # Character Take Damage
-#func hit(damage):
-#     receive_knockback(collision_box.global_position, damage)
-#     health = health - damage
-
+func hit(damage, bullet_dir):
+     health = health - damage
+     receive_knockback(bullet_dir, damage)
+     
 # Character Knockback
-#func receive_knockback(damage_src_pos: Vector2, received_damage: int):
-#     if receives_knockback:
-#          var knockback_dir = damage_src_pos.direction_to(self.global_position)
-#          var knockback_strength = received_damage + knockback_force
-#          var knockback = knockback_dir*knockback_strength
-#
-#          self.global_position += knockback
+func receive_knockback(damage_src_pos: Vector2, received_damage: int):
+     if receives_knockback:
+          var knockback_dir = damage_src_pos
+          var knockback_strength = received_damage + knockback_force
+          var knockback = knockback_dir*knockback_strength
+
+          $".".global_position += knockback
 
 # Character Destroy
 func death():

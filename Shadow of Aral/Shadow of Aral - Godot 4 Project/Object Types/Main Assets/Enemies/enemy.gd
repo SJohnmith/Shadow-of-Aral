@@ -35,16 +35,16 @@ func choose(array):
      array.shuffle()
      return array.front()
      
-func hit(damage, bullet_dir):
-     health = health - damage
-     
-     receive_knockback(bullet_dir, damage)
-     
-func receive_knockback(damage_src_pos: Vector2, received_damage: int):
-     if receives_knockback:
-          var knockback_dir = damage_src_pos.direction_to(self.global_position)
-          var knockback_strength = received_damage + knockback_force
-          var knockback = knockback_dir*knockback_strength
-
-          $".".global_position += knockback
+#func hit(damage, bullet_dir):
+#     health = health - damage
+#
+#     receive_knockback(bullet_dir, damage)
+#
+#func receive_knockback(damage_src_pos: Vector2, received_damage: int):
+#     if receives_knockback:
+#          var knockback_dir = damage_src_pos.direction_to(self.global_position)
+#          var knockback_strength = received_damage + knockback_force
+#          var knockback = knockback_dir*knockback_strength
+#
+#          $".".global_position += knockback
 
