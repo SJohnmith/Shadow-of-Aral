@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://co3atkf8n71r3"]
+
+[ext_resource type="Texture2D" uid="uid://bs16vs7yseovv" path="res://Object Types/Background Assets/Parallax Sky.png" id="1_8p4g6"]
+[ext_resource type="Texture2D" uid="uid://d3mnxr4v0j8n4" path="res://Object Types/Background Assets/Parallax Desert.png" id="2_gufni"]
+
+[node name="Desert Parallax" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+texture = ExtResource("1_8p4g6")
+centered = false
+
+[node name="Desert" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Desert"]
+position = Vector2(1, 439)
+texture = ExtResource("2_gufni")
+centered = false
