@@ -5,7 +5,15 @@ class_name Character extends CharacterBody2D
 #@export var collision_box: Node2D
 @export var health: float = 100
 @export var speed: float = 700.0
-@export var jump_velocity: float = -900.0
+#@export var jump_velocity: float = -900.0
+
+@export var jump_height: float
+@export var jump_time_to_peak: float
+@export var jump_time_to_descent: float
+
+@onready var jump_velocity: float = -1*(2*jump_height)/jump_time_to_peak
+@onready var jump_gravity: float = -1*((-2*jump_height)/(jump_time_to_peak*jump_time_to_peak))
+@onready var fall_gravity: float = -1*((-2*jump_height)/(jump_time_to_descent*jump_time_to_descent))
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2 = Vector2.ZERO
@@ -88,7 +96,8 @@ func character_movement(delta):
           velocity.y = jump_velocity
      # Character Falling
      if not is_on_floor():
-          velocity.y += gravity * delta
+          velocity.y += get_gravity() * delta
+#          velocity.y += gravity*delta
           
           # Hardcoded a Way to Stop Calling the Character Fall Animation
           if (velocity.y > 1 and velocity.y < 100) and !start_falling:
@@ -96,6 +105,9 @@ func character_movement(delta):
 
      # Update the Character Position and Direction
      move_and_slide()
+     
+func get_gravity():
+     return jump_gravity if velocity.y < 0.0 else fall_gravity
      
 # Character Can Stand Up
 func can_stand() -> bool:

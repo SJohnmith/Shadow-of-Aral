@@ -9,6 +9,9 @@
 collision_layer = 4
 collision_mask = 243
 script = ExtResource("1_2hx6j")
+jump_height = 500.0
+jump_time_to_peak = 0.6
+jump_time_to_descent = 0.5
 
 [node name="Player Body" parent="." instance=ExtResource("1_ynira")]
 

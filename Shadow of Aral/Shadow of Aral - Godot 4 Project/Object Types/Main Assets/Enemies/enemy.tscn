@@ -15,6 +15,10 @@ collision_layer = 8
 collision_mask = 243
 script = ExtResource("1_p86lj")
 body = NodePath("Enemy Body")
+jump_velocity = null
+jump_height = 500.0
+jump_time_to_peak = 0.6
+jump_time_to_descent = 0.5
 
 [node name="Enemy Body" parent="." instance=ExtResource("1_pg71j")]
 

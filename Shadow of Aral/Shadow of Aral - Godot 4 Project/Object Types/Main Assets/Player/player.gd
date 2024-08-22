@@ -3,7 +3,15 @@ extends CharacterBody2D
 # Player Variables
 @export var health: float = 100
 @export var speed: float = 700.0
-@export var jump_velocity: float = -900.0
+#@export var jump_velocity: float = -900.0
+
+@export var jump_height: float
+@export var jump_time_to_peak: float
+@export var jump_time_to_descent: float
+
+@onready var jump_velocity: float = -1.0*(2.0*jump_height)/jump_time_to_peak
+@onready var jump_gravity: float = -1.0*((-2.0*jump_height)/(jump_time_to_peak*jump_time_to_peak))
+@onready var fall_gravity: float = -1.0*((-2.0*jump_height)/(jump_time_to_descent*jump_time_to_descent))
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction: Vector2 = Vector2.ZERO
@@ -98,17 +106,21 @@ func player_movement(delta):
      # Player Jumping
      if Input.is_action_just_pressed("Up") and is_on_floor():
           velocity.y = jump_velocity
+#          velocity.y += get_gravity() * delta
      # Player Falling
      if not is_on_floor():
-          velocity.y += gravity * delta
-          
+#          velocity.y += gravity * delta
+          velocity.y += get_gravity() * delta
           # Hardcoded a Way to Stop Calling the Player Fall Animation
           if (velocity.y > 1 and velocity.y < 100) and !start_falling:
                start_falling = true
 
      # Update the Player Position and Direction
      move_and_slide()
-     
+
+func get_gravity() -> float:
+     return jump_gravity if velocity.y < 0.0 else fall_gravity
+  
 # Player Can Stand Up
 func can_stand() -> bool:
      # Check above Player that there are no obstacles

@@ -38,6 +38,7 @@ position = Vector2(1020, 671)
 
 [node name="Enemy" parent="." instance=ExtResource("5_aa5im")]
 position = Vector2(1928, 796)
+jump_velocity = null
 
 [node name="Projectiles" type="Node2D" parent="."]
 
