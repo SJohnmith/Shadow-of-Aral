@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cum6mkgs5577b"]
+
+[sub_resource type="Gradient" id="Gradient_u50mi"]
+colors = PackedColorArray(0.740531, 0.702498, 0.0589678, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lbu8c"]
+gradient = SubResource("Gradient_u50mi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kit0l"]
+emission_shape = 3
+emission_box_extents = Vector3(1920, 1080, 1)
+particle_flag_disable_z = true
+gravity = Vector3(98, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+radial_accel_min = -1.0
+radial_accel_max = -1.0
+damping_min = 5.0
+damping_max = 5.0
+scale_min = 3.0
+scale_max = 3.0
+color_ramp = SubResource("GradientTexture1D_lbu8c")
+collision_mode = 1
+collision_friction = 1.0
+collision_bounce = 0.0
+
+[node name="SandGenerator" type="GPUParticles2D"]
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_kit0l")
+lifetime = 20.0
