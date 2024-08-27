@@ -33,7 +33,7 @@ var standing_collision = preload("res://Object Types/Main Assets/Player/player_s
 var crouching_collision = preload("res://Object Types/Main Assets/Player/player_crouching.tres")
 
 var receives_knockback: bool = true
-var knockback_force: int = 50
+var knockback_force: int = 20
 
 # Handle Player Physics
 func _physics_process(delta):

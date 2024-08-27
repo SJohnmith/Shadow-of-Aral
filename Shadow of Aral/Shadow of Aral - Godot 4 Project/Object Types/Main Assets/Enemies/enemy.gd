@@ -10,9 +10,8 @@ func _ready():
      player = get_tree().get_first_node_in_group("Player")
      
 func _process(_delta):
-#     print($"State Machine".cur_state, "   ",distance.length())
+     # Get the Current State of the Enemy
      current_state = str($"State Machine".cur_state).split(":")[0].to_lower()
-#     print(current_state)
 
 func _physics_process(delta):
      distance = player.global_position - $".".global_position
@@ -20,6 +19,8 @@ func _physics_process(delta):
      
      enemy_body.update_facing_direction(direction)
      
+#     if current_state == "idle":
+#          enemy_body.update_facing_direction(velocity.normalized())
      if current_state == "attack":
           if player.global_position.x > self.global_position.x:
                enemy_body.update_facing_direction(Vector2.RIGHT)
