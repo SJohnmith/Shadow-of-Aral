@@ -1,9 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtgk5utlpwhck"]
+[gd_scene load_steps=15 format=3 uid="uid://dtgk5utlpwhck"]
 
 [ext_resource type="Script" path="res://Object Types/Main Assets/Player/player_body.gd" id="1_utne5"]
 [ext_resource type="Texture2D" uid="uid://b8mqmv7vuox5c" path="res://Object Types/Main Assets/Player/Player Default.png" id="2_hep44"]
+[ext_resource type="Shader" path="res://Object Types/Main Assets/Player/damage_shafer.gdshader" id="3_a8nxx"]
 [ext_resource type="PackedScene" uid="uid://b2k3gfx6gq16" path="res://Object Types/Main Assets/Weapon/magazine.tscn" id="3_vbnvr"]
 [ext_resource type="PackedScene" uid="uid://cxnvg3jjcgt3r" path="res://Object Types/Main Assets/Weapon/weapon.tscn" id="4_s4fk2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_62fi4"]
+shader = ExtResource("3_a8nxx")
+shader_parameter/opacity = 1.0
+shader_parameter/r = 1.0
+shader_parameter/g = null
+shader_parameter/b = null
+shader_parameter/mix_color = 0.0
 
 [sub_resource type="Animation" id="Animation_d2x0e"]
 resource_name = "Crouch"
@@ -883,6 +892,7 @@ region_enabled = true
 region_rect = Rect2(117.594, 261.568, 92.5624, 92.159)
 
 [node name="Torso" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_62fi4")
 texture = ExtResource("2_hep44")
 region_enabled = true
 region_rect = Rect2(5.35574, 111.285, 87.189, 134.984)

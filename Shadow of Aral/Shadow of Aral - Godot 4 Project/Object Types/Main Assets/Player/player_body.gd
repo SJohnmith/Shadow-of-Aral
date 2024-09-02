@@ -59,6 +59,14 @@ func arm_recoil():
 #     var tween_down_time := 0.2
      recoil_tween.tween_property(front_arm, "position", front_arm.position + Vector2(-5,0), 0.02)
      recoil_tween.tween_property(front_arm, "position", front_arm.position - Vector2(-5,0), 0.02)
+
+func hit(damage, bullet_dir):
+     $Torso.material.set_shader_parameter("opacity", 0.5)
+     $Torso.material.set_shader_parameter("r", 1)
+     $Torso.material.set_shader_parameter("g", 0)
+     $Torso.material.set_shader_parameter("b", 0)
+     $Torso.material.set_shader_parameter("mix_colior", 0.7)
+     
      
 # On Animation Finished [Don't need this if done in editor]
 #func _on_animation_arms_animation_finished(anim_name):

@@ -151,3 +151,11 @@ func player_action():
 # On Shoot Timer Timeout
 func _on_shoot_timer_timeout():
      can_shoot = true
+
+# Player Take Damage
+func hit(damage, bullet_dir):
+#     print(health)
+     $"Player Body".hit(damage, bullet_dir)
+     pass
+#     health = health - damage
+#     receive_knockback(bullet_dir, damage)
