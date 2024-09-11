@@ -155,7 +155,7 @@ func _on_shoot_timer_timeout():
 # Player Take Damage
 func hit(damage, bullet_dir):
 #     print(health)
-     $"Player Body".hit(damage, bullet_dir)
+     $"Player Body".body_hit(damage, bullet_dir)
      pass
 #     health = health - damage
 #     receive_knockback(bullet_dir, damage)

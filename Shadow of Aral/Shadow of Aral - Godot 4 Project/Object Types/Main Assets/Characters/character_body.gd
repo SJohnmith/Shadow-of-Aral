@@ -47,7 +47,7 @@ func player_wpn_action(action):
           if path_to_wpn.has_method("reload"):
                # Call the Reload Method
                path_to_wpn.reload()
-               $Torso/Magazine.z_index = -1
+#               $Torso/Magazine.z_index = -1
 
 # Arm Recoil Animation
 func arm_recoil():
@@ -58,6 +58,6 @@ func arm_recoil():
      recoil_tween.tween_property(front_arm, "position", front_arm.position - Vector2(-5,0), 0.02)
 
 # On Animation Finished
-func _on_animation_arms_animation_finished(anim_name):
-     if anim_name == "Reload":
-          $Torso/Magazine.z_index = 0
+#func _on_animation_arms_animation_finished(anim_name):
+#     if anim_name == "Reload":
+#          $Torso/Magazine.z_index = 0

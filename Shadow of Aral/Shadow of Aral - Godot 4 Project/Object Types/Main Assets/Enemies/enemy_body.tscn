@@ -454,6 +454,30 @@ tracks/9/keys = {
 "update": 0,
 "values": [Vector2(13, 49)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Torso/FrontArm/BackArmLocation:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(62, -8)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Torso/FrontArm/BackArmLocation:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_4lu7e"]
 resource_name = "Reload"
@@ -461,26 +485,26 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BackArm:position")
+tracks/0/path = NodePath("Torso/FrontArm/BackArmLocation:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(60, -9), Vector2(60, -9), Vector2(60, -9)]
+"values": [Vector2(62, -8), Vector2(62, -8), Vector2(62, -8)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BackArm:rotation")
+tracks/1/path = NodePath("Torso/FrontArm/BackArmLocation:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 1.28228, 0.0]
+"values": [0.0, 1.09282, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_q55eg"]
@@ -632,18 +656,17 @@ offset = Vector2(9, 23)
 region_enabled = true
 region_rect = Rect2(85.4258, 262.461, 100.828, 86.9492)
 
-[node name="WeaponLocation" type="RemoteTransform2D" parent="Torso/FrontArm"]
-z_index = -1
-position = Vector2(42, 37)
-remote_path = NodePath("../../Weapon")
-
-[node name="MagazineLocation" type="RemoteTransform2D" parent="Torso/FrontArm"]
-position = Vector2(93, 64)
-remote_path = NodePath("../../Magazine")
-
 [node name="BackArmLocation" type="RemoteTransform2D" parent="Torso/FrontArm"]
 position = Vector2(62, -8)
 remote_path = NodePath("../../../BackArm")
+
+[node name="MagazineLocation" type="RemoteTransform2D" parent="Torso/FrontArm/BackArmLocation"]
+position = Vector2(31, 72)
+remote_path = NodePath("../../../Magazine")
+
+[node name="WeaponLocation" type="RemoteTransform2D" parent="Torso/FrontArm"]
+position = Vector2(42, 37)
+remote_path = NodePath("../../Weapon")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -654,5 +677,3 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_e42dj")
 }
-
-[connection signal="animation_finished" from="AnimationArms" to="." method="_on_animation_arms_animation_finished"]

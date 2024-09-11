@@ -935,7 +935,6 @@ position = Vector2(28, 68)
 remote_path = NodePath("../../../Magazine")
 
 [node name="WeaponLocation" type="RemoteTransform2D" parent="Torso/FrontArm"]
-z_index = -1
 position = Vector2(42, 37)
 remote_path = NodePath("../../Weapon")
 
