@@ -35,6 +35,10 @@ var crouching_collision = preload("res://Object Types/Main Assets/Player/player_
 func _physics_process(delta):
      player_movement(delta)
      player_action()
+     
+     if health <= 0:
+          await get_tree().create_timer(1).timeout
+          respawn()
 
 # Handle Player Movement
 func player_movement(delta):
@@ -156,6 +160,22 @@ func _on_shoot_timer_timeout():
 func hit(damage, bullet_dir):
 #     print(health)
      $"Player Body".body_hit(damage, bullet_dir)
-     pass
+     health = health - damage
+     
+     # TODO: Figure how to Respawn and Delete Properly
+     if health < 0:
+#          visible = false
+          queue_free()
+          print("Player Died")
+          
+          # Spawn Player
+#          await get_tree().create_timer(1).timeout
+#          global_position = $"../SpawnPoint".position
+#          health = 100
+#          visible = true
+
+func respawn():
+     $"..".player_exists = false
+     print($"..".player_exists)
 #     health = health - damage
 #     receive_knockback(bullet_dir, damage)

@@ -12,7 +12,12 @@ func _process(_delta):
      if $"..".current_state == "idle":
           pass
 #          front_arm.look_at(get_owner().player.position)
+
      # Arms Point in the Direction of Player
      elif $"..".current_state =="attack":
-          front_arm.look_at(get_owner().player.position)
+#          print(get_owner().player)
+          if is_instance_valid(get_owner().player):
+               front_arm.look_at(get_owner().player.position)
+          else:
+               front_arm.look_at(Vector2.ZERO)
      

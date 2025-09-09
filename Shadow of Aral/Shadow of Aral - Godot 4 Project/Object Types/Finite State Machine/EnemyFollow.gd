@@ -4,7 +4,10 @@ func Enter():
      player = get_tree().get_first_node_in_group("Player")
 
 func Physics_Update(_delta: float):
-     distance = player.global_position - enemy.global_position
+     if is_instance_valid(player):
+          distance = player.global_position - enemy.global_position
+     else:
+          Transitioned.emit(self, "idle")
      
      if distance.length() > 800:
           if player.global_position.x > enemy.global_position.x:

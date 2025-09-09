@@ -14,18 +14,23 @@ func _process(_delta):
      current_state = str($"State Machine".cur_state).split(":")[0].to_lower()
 
 func _physics_process(delta):
-     distance = player.global_position - $".".global_position
+#     if is_instance_valid(player):
+#          distance = player.global_position - $".".global_position
      character_movement(delta)
      
      enemy_body.update_facing_direction(direction)
      
 #     if current_state == "idle":
 #          enemy_body.update_facing_direction(velocity.normalized())
+     if is_instance_valid(player):
+          distance = player.global_position - $".".global_position
+          
      if current_state == "attack":
-          if player.global_position.x > self.global_position.x:
-               enemy_body.update_facing_direction(Vector2.RIGHT)
-          elif player.global_position.x < self.global_position.x:
-               enemy_body.update_facing_direction(Vector2.LEFT)
+          if is_instance_valid(player):
+               if player.global_position.x > self.global_position.x:
+                    enemy_body.update_facing_direction(Vector2.RIGHT)
+               elif player.global_position.x < self.global_position.x:
+                    enemy_body.update_facing_direction(Vector2.LEFT)
      
      death()
      

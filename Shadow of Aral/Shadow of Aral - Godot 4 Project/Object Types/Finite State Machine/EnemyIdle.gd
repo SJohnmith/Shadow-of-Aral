@@ -24,8 +24,9 @@ func Update(delta: float):
           randomize_wander()
 
 func Physics_Update(_delta: float):
-     distance = player.global_position - enemy.global_position
+     if is_instance_valid(player):
+          distance = player.global_position - enemy.global_position
      
-     # Transition to Follow State
-     if distance.length() < 1200:
-          Transitioned.emit(self, "follow")
+          # Transition to Follow State
+          if distance.length() < 1200:
+               Transitioned.emit(self, "follow")
