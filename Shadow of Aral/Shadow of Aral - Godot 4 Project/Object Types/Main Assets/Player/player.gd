@@ -164,6 +164,7 @@ func hit(damage, bullet_dir):
      
      # TODO: Figure how to Respawn and Delete Properly
      if health < 0:
+          respawn()
 #          visible = false
           queue_free()
           print("Player Died")
@@ -174,8 +175,10 @@ func hit(damage, bullet_dir):
 #          health = 100
 #          visible = true
 
+# This is not the best way to do this as the next line depends on parent object
 func respawn():
+     # This will access a parent directory which it can and can not as the player object is removed
      $"..".player_exists = false
-     print($"..".player_exists)
+     print("Player Exists = ", $"..".player_exists)
 #     health = health - damage
 #     receive_knockback(bullet_dir, damage)
